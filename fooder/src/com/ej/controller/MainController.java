@@ -9,5 +9,5 @@ public class MainController {
 	@RequestMapping("/main.ej")
 	public String main() {
 		return "main";
-	}
+	}	
 }
