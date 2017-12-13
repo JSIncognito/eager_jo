@@ -9,5 +9,9 @@ public class MainController {
 	@RequestMapping("/main.ej")
 	public String main() {
 		return "main";
+	}
+	@RequestMapping("/store_ist.ej")
+	public String store_list() {
+		return "store_list";
 	}	
 }
