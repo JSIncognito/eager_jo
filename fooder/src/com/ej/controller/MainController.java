@@ -41,15 +41,24 @@ public class MainController {
 		model.addAttribute("center","store/store_map");
 		return "main";
 	}	
-	@RequestMapping("/store_grid.ej")
-	public String store_grid(Model model) {
-		model.addAttribute("center","store/store_grid");
+	@RequestMapping("/order1.ej")
+	public String order1(Model model) {
+		model.addAttribute("center", "store/order1");		
 		return "main";
 	}
-	@RequestMapping("/store_menu.ej")
-	public String store_menu(Model model) {
-		model.addAttribute("center","store/store_menu");
+	@RequestMapping("order2.ej")
+	public String order2(Model model) {
+		model.addAttribute("center","store/order2");
 		return "main";
 	}
-	
+	@RequestMapping("order3.ej")
+	public String order3(Model model) {
+		model.addAttribute("center", "store/order3");
+		return "main";
+	}
+	@RequestMapping("store_detail")
+	public String store_detail(Model model) {
+		model.addAttribute("center", "store/store_detail");
+		return "main";
+	}
 }

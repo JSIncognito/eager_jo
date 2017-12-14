@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+
+<!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
     <div id="subheader">
 	<div id="sub_content">
@@ -309,3 +313,4 @@
         
 	</div><!-- End row -->
 </div><!-- End container -->
+<!-- End Content =============================================== -->
