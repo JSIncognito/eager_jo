@@ -383,7 +383,7 @@
     </div><!-- End subheader -->    
     </section><!-- End section -->
     <!-- End Content =============================================== -->
-	<!-- 20171213_JS 수정 -->
+	<!-- 20171213_JS ���� -->
 <c:choose>
 	<c:when test="${center == null }">
 		<jsp:include page="center.jsp"></jsp:include>
@@ -392,7 +392,7 @@
 		<jsp:include page="${center }.jsp"></jsp:include>	
 	</c:otherwise>
 </c:choose>
-	<!-- 20171213_JS 수정 -->
+	<!-- 20171213_JS ���� -->
     <!-- Footer ================================================== -->
     <footer>
     <div class="container">
@@ -461,7 +461,7 @@
                         <li><a href="#0"><i class="icon-youtube-play"></i></a></li>
                     </ul>
                     <p>
-                        © Quick Food 2015
+                        짤 Quick Food 2015
                     </p>
                 </div>
             </div>
@@ -520,6 +520,29 @@
 <script src="js/common_scripts_min.js"></script>
 <script src="js/functions.js"></script>
 <script src="assets/validate.js"></script>
-
+<!-- SPECIFIC SCRIPTS -->
+<script  src="js/cat_nav_mobile.js"></script>
+<script>$('#cat_nav').mobileMenu();</script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="js/map.js"></script>
+<script src="js/infobox.js"></script>
+<script src="js/ion.rangeSlider.js"></script>
+<script>
+window.onload = $(function () {
+		 'use strict';
+        $("#range").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+            min: 0,
+            max: 15,
+            from: 0,
+            to:5,
+            type: 'double',
+            step: 1,
+            prefix: "Km ",
+            grid: true
+        });
+    });
+</script>
 </body>
 </html>
