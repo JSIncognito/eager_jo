@@ -103,19 +103,19 @@
                 </div>
                 <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
                  <ul>
-<!--                     <li class="submenu"> -->
-<!--                     <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a> -->
-<!--                     <ul> -->
-<!--                         <li><a href="index.html">Home Video background</a></li> -->
-<!--                         <li><a href="index_2.html">Home Static image</a></li> -->
-<!--                         <li><a href="index_3.html">Home Text rotator</a></li> -->
-<!--                         <li><a href="index_8.html">Home Layer slider</a></li> -->
-<!--                         <li><a href="index_4.html">Home Cookie bar</a></li> -->
-<!--                         <li><a href="index_5.html">Home Popup</a></li> -->
-<!--                         <li><a href="index_6.html">Home Mobile synthetic</a></li> -->
-<!--                         <li><a href="index_7.html">Top Menu version 2</a></li> -->
-<!--                     </ul> -->
-<!--                     </li> -->
+                   <!--  <li class="submenu">
+                    <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
+                    <ul>
+                        <li><a href="index.html">Home Video background</a></li>
+                        <li><a href="index_2.html">Home Static image</a></li>
+                        <li><a href="index_3.html">Home Text rotator</a></li>
+                        <li><a href="index_8.html">Home Layer slider</a></li>
+                        <li><a href="index_4.html">Home Cookie bar</a></li>
+                        <li><a href="index_5.html">Home Popup</a></li>
+                        <li><a href="index_6.html">Home Mobile synthetic</a></li>
+                        <li><a href="index_7.html">Top Menu version 2</a></li>
+                    </ul>
+                    </li> -->
                     <li><a href="main.ej">Home</a></li>
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
