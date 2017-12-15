@@ -107,7 +107,7 @@
         </div>
         </div><!-- End container -->
             
-    <div class="white_bg">
+    <!-- <div class="white_bg">
     <div class="container margin_60">
         
         <div class="main_title">
@@ -139,8 +139,8 @@
                             <li>Take away<i class="icon_check_alt2 ok"></i></li>
                             <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                         </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
+                    </div>End desc
+                </a>End strip_list
                <a href="detail_page.html" class="strip_list">
                <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -161,8 +161,8 @@
                             <li>Take away<i class="icon_check_alt2 ok"></i></li>
                             <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                         </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
+                    </div>End desc
+                </a>End strip_list
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -183,9 +183,9 @@
                             <li>Take away<i class="icon_check_alt2 ok"></i></li>
                             <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                         </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
-            </div><!-- End col-md-6-->
+                    </div>End desc
+                </a>End strip_list
+            </div>End col-md-6
             <div class="col-md-6">
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
@@ -207,8 +207,8 @@
                             <li>Take away<i class="icon_check_alt2 ok"></i></li>
                             <li>Delivery<i class="icon_close_alt2 no"></i></li>
                         </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
+                    </div>End desc
+                </a>End strip_list
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -229,8 +229,8 @@
                             <li>Take away<i class="icon_check_alt2 ok"></i></li>
                             <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                         </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
+                    </div>End desc
+                </a>End strip_list
                 <a href="detail_page.html" class="strip_list">
                 <div class="ribbon_1">Popular</div>
                     <div class="desc">
@@ -251,13 +251,13 @@
                             <li>Take away<i class="icon_check_alt2 ok"></i></li>
                             <li>Delivery<i class="icon_check_alt2 ok"></i></li>
                         </ul>
-                    </div><!-- End desc-->
-                </a><!-- End strip_list-->
+                    </div>End desc
+                </a>End strip_list
             </div>
-        </div><!-- End row -->   
+        </div>End row   
         
-        </div><!-- End container -->
-        </div><!-- End white_bg -->
+        </div>End container
+        </div>End white_bg -->
         
        <div class="high_light">
       	<div class="container">
@@ -280,7 +280,7 @@
     </section><!-- End section -->
     <!-- End Content =============================================== -->
 	
-	<div class="container margin_60">
+	<!-- <div class="container margin_60">
       <div class="main_title margin_mobile">
             <h2 class="nomargin_top">Work with Us</h2>
             <p>
@@ -304,5 +304,5 @@
                 <div class="btn_1">Read more</div>
                 </a>
             </div>
-      </div><!-- End row -->
-    </div><!-- End container -->
+      </div>End row
+    </div>End container -->
