@@ -53,13 +53,13 @@
 			 -->
 			<div class="col-md-6">
 				<div class="box_style_2" id="main_menu">
-					<h2 class="inner">Menu</h2>
-					<h3 class="nomargin_top" id="starters">Starters</h3>
+					<h2 class="inner">Event and Coupon</h2>
+					<h3 class="nomargin_top" id="starters">Event</h3>
 					<p>
 						Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
 					</p>
 					<table class="table table-striped cart-list">
-					<thead>
+					<!-- <thead>
 					<tr>
 						<th>
 							 Item
@@ -71,7 +71,25 @@
 							 Order
 						</th>
 					</tr>
-					</thead>
+					</thead> -->
+					<h3 class="nomargin_top" id="starters">Coupon</h3>
+					<p>
+						Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
+					</p>
+					<table class="table table-striped cart-list">
+					<!-- <thead>
+					<tr>
+						<th>
+							 Item
+						</th>
+						<th>
+							 Price
+						</th>
+						<th>
+							 Order
+						</th>
+					</tr>
+					</thead> -->
 					
 					<!-- 1214 ksy -->
 					<!-- <tbody>
