@@ -36,13 +36,19 @@
 <div>
 	<ul>
 		<li><a href="store_list.ej">store_list</a></li>
+		<li><a href="seller_register.ej">seller_register</a></li>
 		<li><a href="seller_store_detail.ej">seller_store_detail</a></li>
 		<li><a href="seller_store_list.ej">seller_store_list</a></li>
+		<li><a href="seller_main.ej">seller_main</a></li>
 		<li><a href="coupon_list.ej">coupon_list</a></li>
 		<li><a href="coupon_add.ej">coupon_add</a></li>
+		<li><a href="coupon_event.ej">coupon_event</a></li>
 		<li><a href="store_menu.ej">store_menu</a></li>
 		<li><a href="store_grid.ej">store_grid</a></li>
-		<li><a href="store_map.ej">store_map</a></li>		
+		<li><a href="store_map.ej">store_map</a></li>
+		<li><a href="user_mypage.ej">user_mypage</a></li>
+		
+		
 	</ul>
 </div>
 <!-- JS Test View  -->

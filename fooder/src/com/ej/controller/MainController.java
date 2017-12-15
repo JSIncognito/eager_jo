@@ -46,19 +46,39 @@ public class MainController {
 		model.addAttribute("center", "store/order1");		
 		return "main";
 	}
-	@RequestMapping("order2.ej")
+	@RequestMapping("/order2.ej")
 	public String order2(Model model) {
 		model.addAttribute("center","store/order2");
 		return "main";
 	}
-	@RequestMapping("order3.ej")
+	@RequestMapping("/order3.ej")
 	public String order3(Model model) {
 		model.addAttribute("center", "store/order3");
 		return "main";
 	}
-	@RequestMapping("store_detail")
+	@RequestMapping("/store_detail.ej")
 	public String store_detail(Model model) {
 		model.addAttribute("center", "store/store_detail");
+		return "main";
+	}
+	@RequestMapping("/seller_register.ej")
+	public String seller_register(Model model) {
+		model.addAttribute("center", "seller/seller_register");
+		return "main";
+	}
+	@RequestMapping("/user_mypage.ej")
+	public String user_mypage(Model model) {
+		model.addAttribute("center", "user/user_mypage");
+		return "main";
+	}
+	@RequestMapping("/coupon_event.ej")
+	public String coupon_event(Model model) {
+		model.addAttribute("center", "seller/coupon_event");
+		return "main";
+	}
+	@RequestMapping("/seller_main.ej")
+	public String seller_main(Model model) {
+		model.addAttribute("center", "seller/seller_main");
 		return "main";
 	}
 }

@@ -1,3 +1,12 @@
+<style>
+#event_box{
+	margin-top: 17px;
+	text-align: center;
+}
+
+</style>
+
+
 <section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
     <div id="subheader">
 	<div id="sub_content">
@@ -26,6 +35,7 @@
 <div class="container margin_60_35">
 		<div class="row">
         
+		  	<!--   
 			<div class="col-md-3">
             	<p><a href="list_page.html" class="btn_side">Back to search</a></p>
 				<div class="box_style_1">
@@ -36,7 +46,7 @@
 						<li><a href="#desserts">Desserts <span>(11)</span></a></li>
 						<li><a href="#drinks">Drinks <span>(20)</span></a></li>
 					</ul>
-				</div><!-- End box_style_1 -->
+				</div>End box_style_1
                 
 				<div class="box_style_2 hidden-xs" id="help">
 					<i class="icon_lifesaver"></i>
@@ -44,12 +54,15 @@
 					<a href="tel://004542344599" class="phone">+45 423 445 99</a>
 					<small>Monday to Friday 9.00am - 7.30pm</small>
 				</div>
-			</div><!-- End col-md-3 -->
+			</div>End col-md-3
+			 -->
+			
             
 			<div class="col-md-6">
 				<div class="box_style_2" id="main_menu">
 					<h2 class="inner">Menu</h2>
-					<h3 class="nomargin_top" id="starters">Starters</h3>
+					<!-- 1214 ksy  -->
+					<h3 class="nomargin_top" id="starters">Coupon</h3>
 					<p>
 						Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
 					</p>
@@ -105,7 +118,8 @@
                         </div>
                     </td>
 					</tr>
-					<tr>
+					<!-- 1214 ksy -->
+					<!-- <tr>
 						<td>
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-2.jpg" alt="thumb"></figure>
 							<h5>2. Fajitas</h5>
@@ -215,11 +229,11 @@
                             </div>
                         </div>
                     </td>
-					</tr>
+					</tr> -->
 					</tbody>
 					</table>
 					<hr>
-					<h3 id="main_courses">Main courses</h3>
+					<h3 id="main_courses">Event</h3>
 					<p>
 						Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
 					</p>
@@ -241,10 +255,13 @@
 					<tr>
 						<td>
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-5.jpg" alt="thumb"></figure>
-							<h5>5. Cheese Quesadilla</h5>
+							<!-- 1214 ksy -->
+							<!-- <h5>5. Cheese Quesadilla</h5> 
 							<p>
 								Fuisset mentitum deleniti sit ea.
-							</p>
+							</p>-->
+							<input type="text" id="event_box" name="" placeholder="Event Name" >
+							
 						</td>
 						<td>
 							<strong>€ 12,00</strong>
@@ -275,10 +292,12 @@
                         </div>
                     </td>
 					</tr>
-					<tr>
+					 		<!-- 1214 ksy -->
+					<!-- <tr>
 						<td>
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-6.jpg" alt="thumb"></figure>
-							<h5>6. Chorizo & Cheese</h5>
+					
+							<!-- <h5>6. Chorizo & Cheese</h5>
 							<p>
 								Fuisset mentitum deleniti sit ea.
 							</p>
@@ -822,8 +841,9 @@
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> 
 					</tr>
+					-->
 					</tbody>
 					</table>
 				</div><!-- End box_style_1 -->
@@ -833,7 +853,9 @@
             <div class="theiaStickySidebar">
 				<div id="cart_box" >
 					<h3>Your order <i class="icon_cart_alt pull-right"></i></h3>
+					
 					<table class="table table_summary">
+					
 					<tbody>
 					<tr>
 						<td>
@@ -891,6 +913,7 @@
 					<table class="table table_summary">
 					<tbody>
 					<tr>
+						<!-- 171214 ksy 
 						<td>
 							 Subtotal <span class="pull-right">$56</span>
 						</td>
@@ -903,12 +926,13 @@
 					<tr>
 						<td class="total">
 							 TOTAL <span class="pull-right">$66</span>
-						</td>
+						</td> -->
 					</tr>
 					</tbody>
 					</table>
 					<hr>
-					<a class="btn_full" href="cart.html">Order now</a>
+					<!-- 1214 ksy  -->
+					<a class="btn_full" href="cart.html">Publish Coupon</a>
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->
