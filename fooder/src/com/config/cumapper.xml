@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ej.mapper.CuMapper">
+	<!-- don't have to put null  -->
+<resultMap type="cu" id="cuResult">
+		<result column="cu_key" property="cu_key"/>
+		<result column="c_key" property="c_key"/>
+		<result column="u_id" property="u_id"/>
+		<result column="cu_used" property="cu_used"/>
+		<result column="cu_date" property="c_date"/>
+		<result column="c_gift" property="c_gift"/>
+		<result column="c_dc" property="c_dc"/>
+		<result column="c_nm" property="c_nm"/>
+		<result column="c_start" property="c_start"/>
+		<result column="c_end" property="c_end"/>
+		<result column="c_code" property="c_code"/>
+		<result column="st_nm" property="st_nm"/>
+	</resultMap>
+	
+	<select id="select" parameterType="Double" resultMap="cuResult">
+		SELECT * FROM CU WHERE CU_KEY=#{obj}
+	</select>
+	<select id="selectall" resultType="cu">
+		SELECT * FROM CU
+	</select>
+	<insert id="insert" parameterType="cu">
+		INSERT INTO CU VALUES (#{cu_key},#{c_key},#{u_id},#{cu_used},#{cu_date},#{c_gift},#{c_dc},#{c_nm},#{c_start},#{c_end},#{c_code},#{st_nm})
+	</insert>
+	
+	<!-- <update id="update" parameterType="user">
+		UPDATE T_USER SET PWD=#{pwd},NAME=#{name} WHERE ID=#{id}
+	</update> -->
+	<delete id="delete" parameterType="Double">
+		DELETE FROM CU WHERE C_KEY=#{obj}
+	</delete>
+	
+</mapper>
