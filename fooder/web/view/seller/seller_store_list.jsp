@@ -27,7 +27,7 @@
 <div class="container margin_60_35">
 	<div class="row">
     
-		<div class="col-md-3">
+		<!-- <div class="col-md-3">
 			<p>
 				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
 			</p>
@@ -78,28 +78,15 @@
 							<li><label><input type="checkbox" class="icheck">Distance 5Km</label></li>
 						</ul>
 					</div>
-				</div><!--End collapse -->
-			</div><!--End filters col-->
-		</div><!--End col-md -->
+				</div>End collapse
+			</div>End filters col
+		</div>End col-md -->
         
 		<div class="col-md-9">
         
-        <div id="tools">
-				<div class="row">
-					<div class="col-md-3 col-sm-3 col-xs-6">
-						<div class="styled-select">
-							<select name="sort_rating" id="sort_rating">
-								<option value="" selected>Sort by ranking</option>
-								<option value="lower">Lowest ranking</option>
-								<option value="higher">Highest ranking</option>
-							</select>
-						</div>
-					</div>
-					<div class="col-md-9 col-sm-9 hidden-xs">
-						<a href="grid_list.html" class="bt_filters"><i class="icon-th"></i></a>
-					</div>
-				</div>
-			</div><!--End tools -->
+   
+			
+			<!--End tools -->
         
 			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
 				<div class="ribbon_1">
