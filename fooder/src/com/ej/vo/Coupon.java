@@ -21,7 +21,7 @@ public class Coupon {
 	double st_key;
 	String c_code;
 	String c_gift;
-	double d_dc;
+	double c_dc;
 	String c_nm;
 	double c_start;
 	double c_end;
@@ -42,7 +42,7 @@ public class Coupon {
 		this.st_key = st_key;
 		this.c_code = c_code;
 		this.c_gift = c_gift;
-		this.d_dc = d_dc;
+		this.c_dc = d_dc;
 		this.c_nm = c_nm;
 		this.c_start = c_start;
 		this.c_end = c_end;
@@ -60,7 +60,7 @@ public class Coupon {
 		this.st_key = st_key;
 		this.c_code = c_code;
 		this.c_gift = c_gift;
-		this.d_dc = d_dc;
+		this.c_dc = d_dc;
 		this.c_nm = c_nm;
 		this.c_start = c_start;
 		this.c_end = c_end;
@@ -70,7 +70,7 @@ public class Coupon {
 		super();
 		this.c_code = c_code;
 		this.c_gift = c_gift;
-		this.d_dc = d_dc;
+		this.c_dc = d_dc;
 		this.c_nm = c_nm;
 		this.c_start = c_start;
 		this.c_end = c_end;
@@ -82,7 +82,7 @@ public class Coupon {
 		this.st_key = st_key;
 		this.c_code = c_code;
 		this.c_gift = c_gift;
-		this.d_dc = d_dc;
+		this.c_dc = d_dc;
 		this.c_nm = c_nm;
 		this.c_start = c_start;
 		this.c_end = c_end;
@@ -94,7 +94,7 @@ public class Coupon {
 		this.st_key = st_key;
 		this.c_code = c_code;
 		this.c_gift = c_gift;
-		this.d_dc = d_dc;
+		this.c_dc = d_dc;
 		this.c_nm = c_nm;
 	}
 	
@@ -155,10 +155,10 @@ public class Coupon {
 		this.c_gift = c_gift;
 	}
 	public double getD_dc() {
-		return d_dc;
+		return c_dc;
 	}
 	public void setD_dc(double d_dc) {
-		this.d_dc = d_dc;
+		this.c_dc = d_dc;
 	}
 	public String getC_nm() {
 		return c_nm;
@@ -188,7 +188,7 @@ public class Coupon {
 	@Override
 	public String toString() {
 		return "Coupon [c_key=" + c_key + ", st_key=" + st_key + ", c_code=" + c_code + ", c_gift=" + c_gift + ", d_dc="
-				+ d_dc + ", c_nm=" + c_nm + ", c_start=" + c_start + ", c_end=" + c_end + ", c_date=" + c_date
+				+ c_dc + ", c_nm=" + c_nm + ", c_start=" + c_start + ", c_end=" + c_end + ", c_date=" + c_date
 				+ ", st_nm=" + st_nm + ", st_addr=" + st_addr + ", lat=" + lat + ", lot=" + lot + "]";
 	}
 		

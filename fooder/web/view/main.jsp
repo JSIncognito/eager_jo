@@ -26,6 +26,8 @@
     
     <!-- GOOGLE WEB FONT -->
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic,300,300italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Gochi+Hand' rel='stylesheet' type='text/css'>
+	
 
     <!-- BASE CSS -->
     <link href="css/base.css" rel="stylesheet">
@@ -33,9 +35,11 @@
 <!-- 20171214_JS store_detail.jsp add -->
     <!-- Radio and check inputs -->
     <link href="css/skins/square/grey.css" rel="stylesheet">
+    
 <!-- 20171214_JS store_grid.jsp add -->
     <link href="css/ion.rangeSlider.css" rel="stylesheet">
     <link href="css/ion.rangeSlider.skinFlat.css" rel="stylesheet" >
+    
 <!-- 20171214_JS store_grid.jsp add -->
     
     <!-- Gallery -->
@@ -54,6 +58,9 @@
     <link href="css/skins/square/grey.css" rel="stylesheet">
     <link href="css/ion.rangeSlider.css" rel="stylesheet">
     <link href="css/ion.rangeSlider.skinFlat.css" rel="stylesheet" >
+<!-- 20171215_HB seller_main.jsp add -->
+	<!-- SPECIFIC CSS -->
+    <link href="css/blog.css" rel="stylesheet">
 
     <style>
         html,
