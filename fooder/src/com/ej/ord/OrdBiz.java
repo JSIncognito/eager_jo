@@ -1,4 +1,4 @@
-package com.ej.users;
+package com.ej.ord;
 
 import java.util.List;
 
@@ -9,41 +9,40 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ej.frame.Biz;
 import com.ej.frame.Dao;
-import com.ej.vo.Users;
+import com.ej.vo.Ord;
 
-@Service("usersBiz")
-public class UsersBiz implements Biz<Users, String> {
+@Service("ordBiz")
+public class OrdBiz implements Biz<Ord, Double> {
 
-	@Resource(name="usersDao")
-	Dao<Users, String> dao;
+	@Resource(name="ordDao")
+	Dao<Ord, Double> dao;
 	
 	@Transactional
 	@Override
-	public void register(Users t) {
+	public void register(Ord t) {
 		dao.insert(t);
 	}
 
 	@Transactional
 	@Override
-	public void remove(String s) {
+	public void remove(Double s) {
 		dao.delete(s);
 	}
 
 	@Transactional
 	@Override
-	public void modify(Users t) {
+	public void modify(Ord t) {
 		dao.update(t);
 	}
 
 	@Override
-	public Users get(String s) {
+	public Ord get(Double s) {
 		return dao.select(s);
 	}
 
 	@Override
-	public List<Users> get() {
+	public List<Ord> get() {
 		return dao.select();
 	}
-
 
 }

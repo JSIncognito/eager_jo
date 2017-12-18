@@ -1,4 +1,4 @@
-package com.ej.users;
+package com.ej.food;
 
 import java.util.List;
 
@@ -9,41 +9,41 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ej.frame.Biz;
 import com.ej.frame.Dao;
-import com.ej.vo.Users;
+import com.ej.vo.Food;
 
-@Service("usersBiz")
-public class UsersBiz implements Biz<Users, String> {
+@Service("foodBiz")
+public class FoodBiz implements Biz<Food, Double> {
 
-	@Resource(name="usersDao")
-	Dao<Users, String> dao;
+	@Resource(name="foodDao")
+	Dao<Food, Double> dao;
 	
 	@Transactional
 	@Override
-	public void register(Users t) {
+	public void register(Food t) {
 		dao.insert(t);
 	}
 
 	@Transactional
 	@Override
-	public void remove(String s) {
+	public void remove(Double s) {
 		dao.delete(s);
 	}
 
 	@Transactional
 	@Override
-	public void modify(Users t) {
+	public void modify(Food t) {
 		dao.update(t);
 	}
 
 	@Override
-	public Users get(String s) {
+	public Food get(Double s) {
 		return dao.select(s);
 	}
 
 	@Override
-	public List<Users> get() {
+	public List<Food> get() {
 		return dao.select();
 	}
 
-
+	
 }

@@ -1,4 +1,4 @@
-package com.ej.users;
+package com.ej.ofd;
 
 import java.util.List;
 
@@ -6,38 +6,39 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ej.frame.Dao;
-import com.ej.mapper.UsersMapper;
-import com.ej.vo.Users;
+import com.ej.mapper.OfdMapper;
+import com.ej.vo.Ofd;
 
-@Repository("usersDao")
-public class UsersDao implements Dao<Users, String> {
+@Repository("ofdDao")
+public class OfdDao implements Dao<Ofd, Double> {
 
 	@Autowired
-	UsersMapper mapper;
+	OfdMapper mapper;
+	
 	
 	@Override
-	public void insert(Users t) {
+	public void insert(Ofd t) {
 		mapper.insert(t);
 	}
 
 	@Override
-	public void delete(String s) {
-		mapper.delete(s);
+	public void delete(Double s) {
+		mapper.delect(s);
 	}
 
 	@Override
-	public void update(Users t) {
+	public void update(Ofd t) {
 		mapper.update(t);
-		
 	}
 
 	@Override
-	public Users select(String s) {
+	public Ofd select(Double s) {
 		return mapper.select(s);
 	}
 
 	@Override
-	public List<Users> select() {
+	public List<Ofd> select() {
 		return mapper.selectall();
 	}
+
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ej.mapper.OrdMapper">	<!-- Spring과 Mybatis를 연결하기 위해 필요(mapper) -->
+<!-- 
+double o_key;
+	String o_addr;
+	double o_date;
+	double o_all;
+	double o_dc;
+	double o_total;
+	String o_tel;
+	int o_way;
+	String u_id;
+	double st_key;
+	double st_gift;
+	double st_dc;
+	String st_nm;
+	String st_type;
+ -->
+	<resultMap type="ord" id="ordResult">
+		<result column="o_key" property="o_key"/>
+		<result column="o_addr" property="o_addr"/>
+		<result column="o_date" property="o_date"/>
+		<result column="o_all" property="o_all"/>
+		<result column="o_dc" property="o_dc"/>
+		<result column="o_total" property="o_total"/>
+		<result column="o_tel" property="o_tel"/>
+		<result column="o_way" property="o_way"/>
+		<result column="u_id" property="u_id"/>
+		<result column="st_key" property="st_key"/>
+		<result column="st_gift" property="st_gift"/>
+		<result column="st_dc" property="st_dc"/>
+		<result column="st_nm" property="st_nm"/>
+		<result column="st_type" property="st_type"/>
+		
+	</resultMap>
+	
+	<select id="select" parameterType="Double" resultMap="ordResult">
+		SELECT * FROM ORD WHERE O_KEY=#{obj}
+	</select>
+	<select id="selectall" resultType="ord">
+		SELECT * FROM ORD ORDER BY O_KEY DESC
+	</select>
+	<insert id="insert" parameterType="ord">
+		INSERT INTO ORD VALUES (#{o_key},#{o_addr},#{o_date},#{o_all},#{o_dc},#{o_total},#{o_tel},#{o_way},#{u_id},#{st_key},#{st_gift},#{st_dc},#{st_nm},#{st_type})
+	</insert>
+	<update id="update" parameterType="ord">
+		UPDATE ORD SET O_ADDR=#{o_addr},O_DC=#{o_dc},O_TOTAL=#{o_total} WHERE O_KEY=#{o_key}
+	</update>
+	<delete id="delete" parameterType="Double">
+		DELETE FROM ORD WHERE O_KEY=#{obj}
+	</delete>
+	
+</mapper>
+
+
+
+
+
+

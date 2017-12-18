@@ -7,16 +7,12 @@ PUBLIC "-//mybatis.org/DTD Config 3.0//EN"
 		<typeAlias type="com.ej.vo.Store" alias="store"/>
  		<typeAlias type="com.ej.vo.Food" alias="food"/>
  		<typeAlias type="com.ej.vo.Ofd" alias="ofd"/>
-		<typeAlias type="com.ej.vo.Coupon" alias="coupon"/>
- 		<typeAlias type="com.ej.vo.Cu" alias="cu"/>
 	</typeAliases>
 	
 	<mappers>
  		<mapper resource="com/config/storemapper.xml"/>
  		<mapper resource="com/config/foodmapper.xml"/>
  		<mapper resource="com/config/ofdmapper.xml"/>
-		<mapper resource="com/config/couponmapper.xml"/>
- 		<mapper resource="com/config/cumapper.xml"/>
 <!--  		<mapper resource="com/config/productmapper.xml"/> -->
 <!-- 		<mapper resource="com/config/mapper.xml"/> -->
 	</mappers>

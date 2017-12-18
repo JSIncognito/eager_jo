@@ -31,18 +31,18 @@
 					</li>
 					<li><a href="#section-2" class="icon-menut-items"><span>Menu</span></a>
 					</li>
-					<li><a href="#section-3" class="icon-settings"><span>Settings</span></a>
-					</li>
+					<!-- <li><a href="#section-3" class="icon-settings"><span>Settings</span></a> -->
+					<!-- </li> -->
 				</ul>
 			</nav>
 			<div class="content">
 
 				<section id="section-1">
-					<div class="indent_title_in">
+			<!-- 		<div class="indent_title_in">            **description remove**
 						<i class="icon_house_alt"></i>
 						<h3>General restaurant description</h3>
 						<p>Partem diceret praesent mel et, vis facilis alienum antiopam ea, vim in sumo diam sonet. Illud ignota cum te, decore elaboraret nec ea. Quo ei graeci repudiare definitionem. Vim et malorum ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p>
-					</div>
+					</div> -->
 
 					<div class="wrapper_indent">
 						<div class="form-group">
@@ -60,13 +60,13 @@
 									<input type="text" id="Telephone" name="Telephone" class="form-control">
 								</div>
 							</div>
-							<div class="col-sm-6">
+							<!-- <div class="col-sm-6">
 								<div class="form-group">
 									<label>Email</label>
 									<input type="email" id="Email" name="Email" class="form-control">
 								</div>
 							</div>
-						</div>
+						</div> -->
 					</div><!-- End wrapper_indent -->
 
 					<hr class="styled_2">
@@ -172,10 +172,10 @@
 					</div>
                     
 					<div class="wrapper_indent">
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label>Menu Category</label>
 							<input type="text" name="menu_category" class="form-control" placeholder="EX. Starters">
-						</div>
+						</div> -->
 
 						<div class="menu-item-section clearfix">
 							<h4>Menu item #1</h4>
@@ -207,10 +207,10 @@
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
+									<!-- <div class="form-group">  ** Short description remove
 										<label>Short description</label>
 										<input type="text" name="menu_item_description" class="form-control">
-									</div>
+									</div>  -->
 
 									<div class="form-group">
 										<label>Item options</label>
@@ -323,10 +323,10 @@
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
+									<!-- <div class="form-group">
 										<label>Short description</label>
 										<input type="text" name="menu_item_description" class="form-control">
-									</div>
+									</div> -->
 
 									<div class="form-group">
 										<label>Item options</label>
@@ -409,7 +409,7 @@
 					</div><!-- End wrapper_indent -->
 
 					<hr class="styled_2">
-                    
+ <!--                    
 					<div class="wrapper_indent">
 						<div class="form-group">
 							<label>Menu Category</label>
@@ -487,7 +487,7 @@
 											</tbody>
 										</table>
                                         </div>
-									</div><!-- End form-group -->
+									</div>End form-group
 
 									<div class="form-group">
 										<label>Item ingredients</label>
@@ -525,11 +525,11 @@
 											</tbody>
 										</table>
                                         </div>
-									</div><!-- End form-group -->
+									</div>End form-group
 								</div>
-							</div><!-- End row -->
-						</div><!-- End strip_menu_items -->
-					</div><!-- End wrapper_indent -->
+							</div>End row
+						</div>End strip_menu_items
+					</div>End wrapper_indent -->
                     
 					<hr class="styled_2">
                     

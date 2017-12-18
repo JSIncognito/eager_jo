@@ -3,12 +3,13 @@
 
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
-    <div id="subheader">
+   <h1>통계사진</h1>
+    <!-- <div id="subheader">
 	<div id="sub_content">
     	<h1>24 results in your zone</h1>
         <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
-    </div><!-- End sub_content -->
-</div><!-- End subheader -->
+    </div>End sub_content -->
+<!-- </div> --><!-- End subheader -->
 </section><!-- End section -->
 <!-- End SubHeader ============================================ -->
 
@@ -23,10 +24,10 @@
         </div>
     </div><!-- Position -->
     
-    <div class="collapse" id="collapseMap">
+        <div class="collapse" id="collapseMap">
 		<div id="map" class="map"></div>
 	</div><!-- End Map -->
-
+<h1>검색 메뉴바</h1>
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
 	<div class="row">
@@ -136,6 +137,10 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
+							<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">Store detail</a>
+							</div>
 						</div>
 					</div>
 				</div><!-- End row-->
@@ -172,6 +177,10 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
+							<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">Store detail</a>
+							</div>
 						</div>
 					</div>
 				</div><!-- End row-->
@@ -196,7 +205,7 @@
 							</div>
 							<ul>
 								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 no"></i></li>
 							</ul>
 						</div>
 					</div>
@@ -204,6 +213,10 @@
 						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+							<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
 						</div>
 					</div>
@@ -238,6 +251,10 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
+							<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">Store detail</a>
+							</div>
 						</div>
 					</div>
 				</div><!-- End row-->
@@ -271,6 +288,10 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
+							<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">Store detail</a>
+							</div>
 						</div>
 					</div>
 				</div><!-- End row-->
@@ -303,6 +324,10 @@
 						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+							<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
 						</div>
 					</div>
