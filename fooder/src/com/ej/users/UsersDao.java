@@ -38,8 +38,6 @@ public class UsersDao implements Dao<Users, String> {
 
 	@Override
 	public List<Users> select() {
-		List<Users> result = mapper.selectall();
-		System.out.println(result);
-		return result;
+		return mapper.selectall();
 	}
 }
