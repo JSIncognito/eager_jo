@@ -18,30 +18,30 @@ public class CouponBiz implements Biz<Coupon, Double> {
 	/*	CouponDao dao;*/
 
 	@Override
-	public void register(Coupon t) throws Exception {
+	public void register(Coupon t){
 		dao.insert(t);
 	}
 
 	@Override
-	public void remove(Double s) throws Exception {
+	public void remove(Double s){
 		dao.delete(s);
 		
 	}
 
 	@Override
-	public void modify(Coupon t) throws Exception {
+	public void modify(Coupon t){
 		dao.update(t);
 		
 	}
 
 	@Override
-	public Coupon get(Double s) throws Exception {
+	public Coupon get(Double s){
 		
 		return dao.select(s);
 	}
 
 	@Override
-	public List<Coupon> get() throws Exception {
+	public List<Coupon> get(){
 		return dao.select();
 	}
 	

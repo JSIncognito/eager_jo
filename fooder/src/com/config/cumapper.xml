@@ -35,5 +35,10 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="Double">
 		DELETE FROM CU WHERE C_KEY=#{obj}
 	</delete>
+
+	<!-- 20171219_JS add -->
+	<select id="select_uCoupon" parameterType="cu" resultMap="cuResult">
+	
+	</select>
 	
 </mapper>

@@ -10,5 +10,6 @@ public interface StoreMapper {
 	public void update(Store obj);
 	public Store select(Double obj);
 	public List<Store> selectall();
-
+	public List<Store> select_stList();
+//	public List<Store> select_cate();
 }

@@ -16,29 +16,29 @@ public class CouponDao implements Dao<Coupon, Double> {
 	
 
 	@Override
-	public void insert(Coupon t) throws Exception {
+	public void insert(Coupon t){
 		mapper.insert(t);
 	}
 
 	@Override
-	public void delete(Double c_key) throws Exception {
+	public void delete(Double c_key){
 		mapper.delete(c_key);
 		
 	}
 
 	@Override
-	public void update(Coupon t) throws Exception {
+	public void update(Coupon t){
 		mapper.update(t);		
 	}
 
 	@Override
-	public Coupon select(Double c_key) throws Exception {
+	public Coupon select(Double c_key){
 		
 		return mapper.select(c_key);
 	}
 
 	@Override
-	public List<Coupon> select() throws Exception {
+	public List<Coupon> select(){
  
 		return mapper.selectall();
 	}

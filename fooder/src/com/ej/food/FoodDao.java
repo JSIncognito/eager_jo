@@ -39,4 +39,9 @@ public class FoodDao implements Dao<Food, Double> {
 	public List<Food> select() {
 		return mapper.selectall();
 	}
+	
+	//	20171219 JS Store_menu Add
+	public List<Food> select_stMenu(){
+		return mapper.select_stMenu();
+	}
 }

@@ -10,4 +10,5 @@ public interface CuMapper {
 	public void update(Cu obj);
 	public Cu select(double obj);
 	public List<Cu> selectall();
+	public List<Cu> select_uCoupon();
 }
