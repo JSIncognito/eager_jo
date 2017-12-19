@@ -44,7 +44,7 @@ double o_key;
 		SELECT * FROM ORD ORDER BY O_KEY DESC
 	</select>
 	<insert id="insert" parameterType="ord">
-		INSERT INTO ORD VALUES (#{o_key},#{o_addr},#{o_date},#{o_all},#{o_dc},#{o_total},#{o_tel},#{o_way},#{u_id},#{st_key},#{st_gift},#{st_dc},#{st_nm},#{st_type})
+		INSERT INTO ORD VALUES (O_KEY.nextval,#{o_addr},#{o_date},#{o_all},#{o_dc},#{o_total},#{o_tel},#{o_way},#{u_id},#{st_key},#{st_gift},#{st_dc},#{st_nm},#{st_type})
 	</insert>
 	<update id="update" parameterType="ord">
 		UPDATE ORD SET O_ADDR=#{o_addr},O_DC=#{o_dc},O_TOTAL=#{o_total} WHERE O_KEY=#{o_key}
