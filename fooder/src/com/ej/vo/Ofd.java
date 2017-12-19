@@ -19,6 +19,13 @@ public class Ofd {
 	double f_price;
 	String f_img;
 	double st_key;
+	String st_nm;
+	double o_date;
+	double o_total;
+	int o_way;
+	String o_addr;
+	String st_addr;
+	
 	public Ofd() {
 		super();
 	}
@@ -54,6 +61,34 @@ public class Ofd {
 		this.f_name = f_name;
 		this.f_price = f_price;
 		this.f_img = f_img;
+	}
+	
+	public Ofd(double o_key, double f_key, String f_name, double f_price, String f_img, double st_key) {
+		super();
+		this.o_key = o_key;
+		this.f_key = f_key;
+		this.f_name = f_name;
+		this.f_price = f_price;
+		this.f_img = f_img;
+		this.st_key = st_key;
+	}
+	
+	public Ofd(double of_key, double o_key, double f_key, String f_name, double f_price, String f_img, double st_key,
+			String st_nm, double o_date, double o_total, int o_way, String o_addr, String st_addr) {
+		super();
+		this.of_key = of_key;
+		this.o_key = o_key;
+		this.f_key = f_key;
+		this.f_name = f_name;
+		this.f_price = f_price;
+		this.f_img = f_img;
+		this.st_key = st_key;
+		this.st_nm = st_nm;
+		this.o_date = o_date;
+		this.o_total = o_total;
+		this.o_way = o_way;
+		this.o_addr = o_addr;
+		this.st_addr = st_addr;
 	}
 	public double getOf_key() {
 		return of_key;
