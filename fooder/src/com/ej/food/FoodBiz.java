@@ -40,8 +40,8 @@ public class FoodBiz implements Biz<Food, Double> {
 		return dao.select();
 	}
 	//	20171219 JS Store_menu Add
-	public List<Food> select_stMenu(){
-		return dao.select_stMenu();
+	public List<Food> select_stMenu(Double st_key){
+		return dao.select_stMenu(st_key);
 	}
 	
 }
