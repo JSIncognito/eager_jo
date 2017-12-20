@@ -41,9 +41,9 @@
     </div><!-- Position -->
     
 <!-- Content ================================================== -->
-<div class="container margin_60_35">
+ <div class="container margin_60_35">
 		<div class="row">
-			<div class="col-md-3">
+			<!-- <div class="col-md-3">
 				<div class="box_style_2 hidden-xs info">
 					<h4 class="nomargin_top">Delivery time <i class="icon_clock_alt pull-right"></i></h4>
 					<p>
@@ -54,7 +54,7 @@
 					<p>
 						Lorem ipsum dolor sit amet, in pri partem essent. Qui debitis meliore ex, tollit debitis conclusionemque te eos.
 					</p>
-				</div><!-- End box_style_2 -->
+				</div>End box_style_2
                 
 				<div class="box_style_2 hidden-xs" id="help">
 					<i class="icon_lifesaver"></i>
@@ -62,23 +62,23 @@
 					<a href="tel://004542344599" class="phone">+45 423 445 99</a>
 					<small>Monday to Friday 9.00am - 7.30pm</small>
 				</div>
-			</div><!-- End col-md-3 -->
+			</div>End col-md-3 -->
             
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<div class="box_style_2">
 					<h2 class="inner">Payment methods</h2>
 					<div class="payment_select">
 						<label><input type="radio" value="" checked name="payment_method" class="icheck">Credit card</label>
 						<i class="icon_creditcard"></i>
 					</div>
-					<div class="form-group">
+					<!-- <div class="form-group">
 						<label>Name on card</label>
 						<input type="text" class="form-control" id="name_card_order" name="name_card_order" placeholder="First and last name">
-					</div>
-					<div class="form-group">
+					</div> -->
+					<!-- <div class="form-group">
 						<label>Card number</label>
 						<input type="text" id="card_number" name="card_number" class="form-control" placeholder="Card number">
-					</div>
+					</div> -->
 					<div class="row">
 						<div class="col-md-6">
 							<label>Expiration date</label>

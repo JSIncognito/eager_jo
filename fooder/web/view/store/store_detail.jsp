@@ -195,14 +195,14 @@
 					<p class="add_bottom_30">
 						Lorem ipsum dolor sit amet, ex has recusabo adipiscing, aliquip alienum at vis, eos id qualisque quaerendum. Soleat habemus duo no, te quo dicam everti, sale ullum movet per ea. Cu cum laudem quaeque, agam decore nullam ei vis. Nec ad tota etiam eirmod. Harum debitis detraxit ut vel, eu vel option oporteat.
 					</p>
-					<div id="summary_review">
+					<!-- <div id="summary_review">
 						<div id="general_rating">
 							11 Reviews
 							<div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
 							</div>
-						</div>
-                        
+						</div> -->
+                       <!--  
 						<div class="row" id="rating_summary">
 							<div class="col-md-6">
 								<ul>
@@ -232,10 +232,10 @@
 									</li>
 								</ul>
 							</div>
-						</div><!-- End row -->
-						<hr class="styled">
-						<a href="#" class="btn_1 add_bottom_15" data-toggle="modal" data-target="#myReview">Leave a review</a>
-					</div><!-- End summary_review -->
+						</div> --><!-- End row -->
+						<!-- <hr class="styled">
+						<a href="#" class="btn_1 add_bottom_15" data-toggle="modal" data-target="#myReview">Leave a review</a> -->
+					<!-- </div>End summary_review
                     
 					<div class="review_strip_single">
 						<img src="img/avatar1.jpg" alt="" class="img-circle">
@@ -269,8 +269,8 @@
 								</div>
 								 Courtesy
 							</div>
-						</div><!-- End row -->
-					</div><!-- End review strip -->
+						</div>End row
+					</div>End review strip
                     
 					<div class="review_strip_single">
 						<img src="img/avatar3.jpg" alt="" class="img-circle">
@@ -304,8 +304,8 @@
 								</div>
 								 Courtesy
 							</div>
-						</div><!-- End row -->
-					</div><!-- End review strip -->
+						</div>End row
+					</div>End review strip
                     
 					<div class="review_strip_single last">
 						<img src="img/avatar2.jpg" alt="" class="img-circle">
@@ -339,8 +339,8 @@
 								</div>
 								 Courtesy
 							</div>
-						</div><!-- End row -->
-					</div><!-- End review strip -->
+						</div>End row
+					</div> --><!-- End review strip -->
                     
 				</div><!-- End box_style_1 -->
 			</div>

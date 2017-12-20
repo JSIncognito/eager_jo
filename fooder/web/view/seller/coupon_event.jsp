@@ -51,7 +51,7 @@
 			<!-- 
 				쿠폰리스트 받아올 div
 			 -->
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<div class="box_style_2" id="main_menu">
 					<h2 class="inner">Event and Coupon</h2>
 					<h3 class="nomargin_top" id="starters">Event</h3>
@@ -855,8 +855,8 @@
 				</div><!-- End box_style_1 -->
 			</div><!-- End col-md-6 -->
             
-			<div class="col-md-3" id="sidebar">
-            <div class="theiaStickySidebar">
+			<!-- <div class="col-md-3" id="sidebar">
+            <div class="theiaStickySidebar"> -->
 			<!-- 1214 ksy  -->
 			<!-- 	
 				<div id="cart_box" >

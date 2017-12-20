@@ -58,7 +58,7 @@
 			 -->
 			
             
-			<div class="col-md-6">
+			<div class="col-md-9">
 				<div class="box_style_2" id="main_menu">
 					<h2 class="inner">Menu</h2>
 					<!-- 1214 ksy  -->
