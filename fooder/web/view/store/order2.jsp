@@ -79,7 +79,7 @@
 						<label>Card number</label>
 						<input type="text" id="card_number" name="card_number" class="form-control" placeholder="Card number">
 					</div> -->
-					<div class="row">
+					<!-- <div class="row">
 						<div class="col-md-6">
 							<label>Expiration date</label>
 							<div class="row">
@@ -110,7 +110,7 @@
 								</div>
 							</div>
 						</div>
-					</div><!--End row -->
+					</div> --><!--End row -->
 					<div class="payment_select" id="paypal">
 						<label><input type="radio" value="" name="payment_method" class="icheck">Pay with paypal</label>
 					</div>

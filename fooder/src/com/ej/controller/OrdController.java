@@ -108,13 +108,15 @@ public class OrdController {
 	// order2.jsp 띄우기
 	// 결제수단 받아옴
 	@RequestMapping("/order2.ej")
-	public String order2(HttpServletRequest request, Integer o_way) {
+	public String order2(HttpServletRequest request, String o_addr, String o_tel, Integer o_way) {
 //		HttpSession session = request.getSession();
 //		Ord ord = (Ord) session.getAttribute("orderInfo");
 //		ord.setO_way(o_way);
 //		session.setAttribute("orderInfo", ord); 	// TODO : 지우지 않고 바로 넣을 수 있는지 확인하기
-		
-		request.setAttribute("center", "store/order2");
+		System.out.println("o_way: " + o_way);
+		System.out.println("o_addr: " + o_addr);
+		System.out.println("o_tel: " + o_tel);
+		request.setAttribute("center", "store/order3");
 		return "main";
 	}
 	

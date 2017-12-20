@@ -97,16 +97,30 @@ function order1Submit(f) {
 					<h2 class="inner">Your order details</h2>
 					<div class="form-group">
 						<label>Address</label>
-						<input type="text" class="form-control" id="addr" name="addr" placeholder="Full Address">
+						<input type="text" class="form-control" id="addr" name="o_addr" placeholder="Full Address">
 						<span id="message_addr"></span>
 					</div>
 					<div class="form-group">
 						<label>Telephone / mobile</label>
-						<input type="text" id="tel" name="tel" class="form-control" placeholder="Telephone / mobile">
+						<input type="text" id="tel" name="o_tel" class="form-control" placeholder="Telephone / mobile">
 						<span id="message_tel"></span>
 					</div>
 					<!-- End box_style_1 -->
 				 </div>
+				 <div class="box_style_2">
+					<h2 class="inner">Payment methods</h2>
+					<div class="payment_select">
+						<label><input type="radio" value="2" checked name="o_way" class="icheck">Credit card</label>
+						<i class="icon_creditcard"></i>
+					</div>
+					<!-- <div class="payment_select" id="paypal">
+						<label><input type="radio" value="" name="payment_method" class="icheck">Pay with paypal</label>
+					</div> -->
+					<div class="payment_select nomargin">
+						<label><input type="radio" value="1" name="o_way" class="icheck">Pay with cash</label>
+						<i class="icon_wallet"></i>
+					</div>
+				</div><!-- End box_style_1 -->
 			</div><!-- End col-md-6 -->
             
 			<div class="col-md-3" id="sidebar">
