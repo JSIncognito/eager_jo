@@ -13,11 +13,8 @@ import com.ej.vo.Coupon;
 
 @Controller
 public class CouponController {
-	@Resource(name="couponBiz")
+	@Resource(name = "couponBiz")
 	CouponBiz biz;
-	
-	
-
 
 	// add
 	@RequestMapping("/coupon_add.ej")
@@ -43,25 +40,32 @@ public class CouponController {
 	// 현재 지역에서 진행중인 이벤트 및 쿠폰
 	@RequestMapping("/coupon_event.ej")
 	public String localCouponEvent(Model model, String location) {
-
-		List<Coupon> list = null;
-		biz.select_area(location);
-		model.addAttribute("center", "seller/coupon_event");
-		model.addAttribute("cArea", list);
+		location = "행당동";
+		try {
+			List<Coupon> list = null;
+			biz.select_area(location);
+			model.addAttribute("center", "seller/coupon_event");
+			model.addAttribute("cArea", list);
+			System.out.println("지역에서 진행중인 이벤트 및 쿠폰");
+			System.out.println("지역에서 진행중인 이벤트 및 쿠폰" + list);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 
 		return "main";
 
 	}
 
 	// 로그인한 유저가 갖고있는 쿠폰
-	@RequestMapping("/my_coupon.ej")
-	public String myCouponlist(Model model, String user) {
-
+	@RequestMapping("/coupon_list.ej")
+	public String myCouponlist(Model model, String u_id) {
+		u_id = "admin66";
 		List<Coupon> list = null;
-		biz.select_myCoupon(user);
+		biz.select_myCoupon(u_id);
 		model.addAttribute("center", "seller/coupon_list");
 		model.addAttribute("myCoupon", list);
 
+		System.out.println(list);
 		return "main";
 	}
 

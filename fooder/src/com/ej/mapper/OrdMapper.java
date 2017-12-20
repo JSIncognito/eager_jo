@@ -10,5 +10,6 @@ public interface OrdMapper {
 	public void update(Ord obj);
 	public Ord select(Double obj);
 	public List<Ord> selectall();
-	public List<Ord> select_myOrder();
+	public List<Ord> select_myOrder(String u_id);
+	
 }
