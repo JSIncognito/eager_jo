@@ -1,5 +1,4 @@
-<!-- 51라인 쿠폰리스트받아올 div  -->
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width=100% data-natural-height="470">
     <div id="subheader">
 	<div id="sub_content">
     	<div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
@@ -26,7 +25,7 @@
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
 		<div class="row">
-        	<!-- 1214 ksy -->
+        
 			<!-- <div class="col-md-3">
             	<p><a href="list_page.html" class="btn_side">Back to search</a></p>
 				<div class="box_style_1">
@@ -45,13 +44,9 @@
 					<a href="tel://004542344599" class="phone">+45 423 445 99</a>
 					<small>Monday to Friday 9.00am - 7.30pm</small>
 				</div>
-			</div>End col-md-3
-             -->
-			
-			<!-- 
-				쿠폰리스트 받아올 div
-			 -->
-			<div class="col-md-6">
+			</div>End col-md-3 -->
+            
+			<div class="col-md-12">
 				<div class="box_style_2" id="main_menu">
 					<h2 class="inner">Menu</h2>
 					<h3 class="nomargin_top" id="starters">Starters</h3>
@@ -72,9 +67,7 @@
 						</th>
 					</tr>
 					</thead>
-					
-					<!-- 1214 ksy -->
-					<!-- <tbody>
+					<tbody>
 					<tr>
 						<td>
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-1.jpg" alt="thumb"></figure>
@@ -86,7 +79,7 @@
 						<td>
 							<strong>€ 9,40</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -110,7 +103,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -123,7 +116,7 @@
 						<td>
 							<strong>€ 6,80</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -147,7 +140,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -160,7 +153,7 @@
 						<td>
 							<strong>€ 5,70</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -184,7 +177,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -197,7 +190,7 @@
 						<td>
 							<strong>€ 5,20</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -221,7 +214,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					</tbody>
 					</table>
@@ -256,7 +249,7 @@
 						<td>
 							<strong>€ 12,00</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -280,7 +273,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -293,7 +286,7 @@
 						<td>
 							<strong>€ 24,71</strong>
 						</td>
-						<td class="options">
+					<!-- 	<td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -317,7 +310,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -330,9 +323,9 @@
 						<td>
 							<strong>€ 8,70</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -345,7 +338,7 @@
 						<td>
 							<strong>€ 6,30</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -369,7 +362,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -382,7 +375,7 @@
 						<td>
 							<strong>€ 7,40</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -406,7 +399,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -419,7 +412,7 @@
 						<td>
 							<strong>€ 7,70</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -443,7 +436,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					</tbody>
 					</table>
@@ -478,7 +471,7 @@
 						<td>
 							<strong>€ 11,70</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -505,17 +498,17 @@
                     </td>
 					</tr>
 					<tr>
-						<td>
+						<td> -->
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-12.jpg" alt="thumb"></figure>
 							<h5>12. Chicken Fillet Taco</h5>
 							<p>
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 12,40</strong>
-						</td>
-						<td class="options">
+						</td> -->
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -539,7 +532,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -549,10 +542,10 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 24,71</strong>
-						</td>
-						<td class="options">
+						</td> -->
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -576,7 +569,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -589,9 +582,9 @@
 						<td>
 							<strong>€ 15,30</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -604,7 +597,7 @@
 						<td>
 							<strong>€ 9,70</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -628,7 +621,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					<tr>
 						<td>
@@ -641,7 +634,7 @@
 						<td>
 							<strong>€ 8,30</strong>
 						</td>
-						<td class="options">
+						<!-- <td class="options">
                         <div class="dropdown dropdown-options">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                             <div class="dropdown-menu">
@@ -665,7 +658,7 @@
                                 <a href="#0" class="add_to_basket">Add to cart</a>
                             </div>
                         </div>
-                    </td>
+                    </td> -->
 					</tr>
 					</tbody>
 					</table>
@@ -697,12 +690,12 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 24,71</strong>
-						</td>
-						<td class="options">
+						</td> -->
+						<!-- <td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -712,12 +705,12 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 7,50</strong>
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -727,12 +720,12 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 9,70</strong>
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -742,12 +735,12 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 12,00</strong>
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					</tbody>
 					</table>
@@ -779,12 +772,12 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 5,70</strong>
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -794,12 +787,12 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 2,70</strong>
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -809,12 +802,12 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+					<!-- 	<td>
 							<strong>€ 5,70</strong>
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
 					<tr>
 						<td>
@@ -824,23 +817,20 @@
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
-						<td>
+						<!-- <td>
 							<strong>€ 2,70</strong>
 						</td>
 						<td class="options">
 							<a href="#0"><i class="icon_plus_alt2"></i></a>
-						</td>
+						</td> -->
 					</tr>
-					</tbody> -->
-					
+					</tbody>
 					</table>
 				</div><!-- End box_style_1 -->
 			</div><!-- End col-md-6 -->
             
-			<div class="col-md-3" id="sidebar">
+			<!-- <div class="col-md-3" id="sidebar">
             <div class="theiaStickySidebar">
-			<!-- 1214 ksy  -->
-			<!-- 	
 				<div id="cart_box" >
 					<h3>Your order <i class="icon_cart_alt pull-right"></i></h3>
 					<table class="table table_summary">
@@ -920,9 +910,8 @@
 					<hr>
 					<a class="btn_full" href="cart.html">Order now</a>
 				</div>End cart_box
-				 -->
-                </div><!-- End theiaStickySidebar -->
-			</div><!-- End col-md-3 -->
+                </div>End theiaStickySidebar
+			</div>End col-md-3 -->
             
 		</div><!-- End row -->
 </div><!-- End container -->

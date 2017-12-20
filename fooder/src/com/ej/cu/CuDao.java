@@ -15,30 +15,34 @@ public class CuDao implements Dao<Cu, Double> {
 	CuMapper mapper;
 
 	@Override
-	public void insert(Cu t) throws Exception {
+	public void insert(Cu t){
 		mapper.insert(t);
 	}
 
 	@Override
-	public void delete(Double cu_key) throws Exception {
+	public void delete(Double cu_key){
 		mapper.delete(cu_key);
 	}
 
 	@Override
-	public void update(Cu t) throws Exception {
+	public void update(Cu t){
 		mapper.update(t);
 	}
 
 	@Override
-	public Cu select(Double cu_key) throws Exception {
+	public Cu select(Double cu_key){
 		return mapper.select(cu_key);
 	}
 
 	@Override
-	public List<Cu> select() throws Exception {
+	public List<Cu> select(){
 		return mapper.selectall();
 	}
-	
+
+	//	20171219_JS Store_menu Add
+	public List<Cu> selec_uCoupon(){
+		return mapper.select_uCoupon();
+	}
 	
 	
 }

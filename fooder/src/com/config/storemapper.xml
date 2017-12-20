@@ -34,7 +34,15 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="Double">
 		DELETE FROM STORE WHERE ST_KEY=#{obj}
 	</delete>
-	
+
+	<!-- 20171219_JS Store_list Add -->
+	<select id="select_stList" parameterType="String" resultType="store">
+		SELECT * FROM STORE WHERE ST_TYPE=#{stType} AND ST_ADDR LIKE '%'|| #{stType} ||'%'
+	</select>
+<!--
+ 	<select id="select_cate" resultType="store">
+	</select>
+ -->
 </mapper>
 
 

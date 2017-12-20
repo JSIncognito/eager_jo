@@ -79,41 +79,15 @@
 						</p>
 					</div>
 					<div class="wrapper_indent">
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>Country</label>
-									<select class="form-control" name="country" id="country">
-										<option value="" selected>Select your country</option>
-										<option value="Europe">Europe</option>
-										<option value="United states">United states</option>
-										<option value="Asia">Asia</option>
-									</select>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>Street line 1</label>
-									<input type="text" id="street_1" name="street_1" class="form-control">
-								</div>
-							</div>
-							<div class="col-sm-6">
-								<div class="form-group">
-									<label>Street line 2</label>
-									<input type="text" id="street_2" name="street_2" class="form-control">
-								</div>
-							</div>
-						</div>
+						
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group">
-									<label>City</label>
+									<label>Address</label>
 									<input type="text" id="city_booking" name="city_booking" class="form-control">
 								</div>
 							</div>
-							<div class="col-md-3">
+							<!-- <div class="col-md-3">
 								<div class="form-group">
 									<label>State</label>
 									<input type="text" id="state_booking" name="state_booking" class="form-control">
@@ -124,12 +98,12 @@
 									<label>Postal code</label>
 									<input type="text" id="postal_code" name="postal_code" class="form-control">
 								</div>
-							</div>
+							</div> -->
 						</div><!--End row -->
 					</div><!-- End wrapper_indent -->
 
 					<hr class="styled_2">
-					<div class="indent_title_in">
+					<!-- <div class="indent_title_in">
 						<i class="icon_images"></i>
 						<h3>Logo and restaurant photos</h3>
 						<p>
@@ -145,9 +119,9 @@
 								<div class="dz-default dz-message"><span>Click or Drop Images Here</span>
 								</div>
 							</div>
-						</div>
+						</div> -->
 
-						<div class="form-group">
+						<<!-- div class="form-group">
 							<label>Upload your restaurant photos</label>
 							<div id="photos" class="dropzone">
 								<input name="file" type="file" multiple>
@@ -155,7 +129,7 @@
 								</div>
 							</div>
 						</div>
-					</div><!-- End wrapper_indent -->
+					</div> --><!-- End wrapper_indent -->
                     
 					<hr class="styled_2">
 					<div class="wrapper_indent">

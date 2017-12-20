@@ -10,4 +10,5 @@ public interface FoodMapper {
 	public void update(Food obj);
 	public Food select(Double obj);
 	public List<Food> selectall();	
+	public List<Food> select_stMenu();
 }

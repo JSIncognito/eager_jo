@@ -23,7 +23,7 @@
 <div class="container margin_60_35">
 	<div class="row">
          
-     <div class="col-md-9">
+     <div class="col-md-12">
      		<div class="post">
 					<a href="blog_post.html" ><img src="img/blog-1.jpg" alt="" class="img-responsive"></a>
 					<div class="post_info clearfix">
@@ -68,7 +68,233 @@
 					<a href="blog_post.html" class="btn_1" >Read more</a>
 				</div><!-- end post -->
                 
-				<div class="post">
+               <div class="col-md-9">
+        
+        <div id="tools">
+				<div class="row">
+					<div class="col-md-3 col-sm-3 col-xs-6">
+						<div class="styled-select">
+							<select name="sort_rating" id="sort_rating">
+								<option value="" selected>Sort by ranking</option>
+								<option value="lower">Lowest ranking</option>
+								<option value="higher">Highest ranking</option>
+							</select>
+						</div>
+					</div>
+					<div class="col-md-9 col-sm-9 hidden-xs">
+						<a href="grid_list.html" class="bt_filters"><i class="icon-th"></i></a>
+					</div>
+				</div>
+			</div><!--End tools -->
+        
+			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
+				<div class="ribbon_1">
+					Popular
+				</div>
+				<div class="row">
+					<div class="col-md-9 col-sm-9">
+						<div class="desc">
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
+							</div>
+							<div class="rating">
+								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
+							</div>
+							<h3>Taco Mexican</h3>
+							<div class="type">
+								Mexican / American
+							</div>
+							<div class="location">
+								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+							</div>
+							<ul>
+								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 no"></i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+			
+            
+			<div class="strip_list wow fadeIn" data-wow-delay="0.2s">
+				<div class="ribbon_1">
+					Popular
+				</div>
+				<div class="row">
+					<div class="col-md-9 col-sm-9">
+						<div class="desc">
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant_2.jpg" alt=""></a>
+							</div>
+							<div class="rating">
+								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
+							</div>
+							<h3>Naples Pizza</h3>
+							<div class="type">
+								Italian / Pizza
+							</div>
+							<div class="location">
+								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+							</div>
+							<ul>
+								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+            
+			<div class="strip_list wow fadeIn" data-wow-delay="0.3s">
+				<div class="row">
+					<div class="col-md-9 col-sm-9">
+						<div class="desc">
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant_3.jpg" alt=""></a>
+							</div>
+							<div class="rating">
+								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
+							</div>
+							<h3>Japan Food</h3>
+							<div class="type">
+								Sushi / Japanese
+							</div>
+							<div class="location">
+								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+							</div>
+							<ul>
+								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+            
+			<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
+				<div class="row">
+					<div class="col-md-9 col-sm-9">
+						<div class="desc">
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant_4.jpg" alt=""></a>
+							</div>
+							<div class="rating">
+								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
+							</div>
+							<h3>Sushi Gold</h3>
+							<div class="type">
+								Sushi / Japanese
+							</div>
+							<div class="location">
+								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+							</div>
+							<ul>
+								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+            
+			<div class="strip_list wow fadeIn" data-wow-delay="0.5s">
+				<div class="row">
+					<div class="col-md-9 col-sm-9">
+						<div class="desc">
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant_5.jpg" alt=""></a>
+							</div>
+							<div class="rating">
+								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
+							</div>
+							<h3>Dragon Tower</h3>
+							<div class="type">
+								Chinese / Thai
+							</div>
+							<div class="location">
+								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+							</div>
+							<ul>
+								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+            
+			<div class="strip_list last wow fadeIn" data-wow-delay="0.6s">
+				<div class="row">
+					<div class="col-md-9 col-sm-9">
+						<div class="desc">
+							<div class="thumb_strip">
+								<a href="detail_page.html"><img src="img/thumb_restaurant_6.jpg" alt=""></a>
+							</div>
+							<div class="rating">
+								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
+							</div>
+							<h3>China Food</h3>
+							<div class="type">
+								Chinese / Vietnam
+							</div>
+							<div class="location">
+								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+							</div>
+							<ul>
+								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-3 col-sm-3">
+						<div class="go_to">
+							<div>
+								<a href="detail_page.html" class="btn_1">View Menu</a>
+							</div>
+						</div>
+					</div>
+				</div><!-- End row-->
+			</div><!-- End strip_list-->
+            <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
+		</div><!-- End col-md-9-->
+               
+				<!-- <div class="post">
 					<a href="blog_post.html" ><img src="img/blog-3.jpg" alt="" class="img-responsive"></a>
 					<div class="post_info clearfix">
 						<div class="post-left">
@@ -88,14 +314,14 @@
 						Ludus albucius adversarium eam eu. Sit eu reque tation aliquip. Quo no dolorum albucius lucilius, hinc eligendi ut sed. Ex nam quot ferri suscipit, mea ne legere alterum repudiandae. Ei pri quaerendum intellegebat, ut vel consequuntur voluptatibus. Et volumus sententiae adversarium duo......
 					</p>
 					<a href="blog_post.html" class="btn_1" >Read more</a>
-				</div><!-- end post -->
+				</div>end post -->
        
-              <div class="text-center">
+             <!--  <div class="text-center">
                  <ul class="pager">
                     <li class="previous"><a href="#"><span aria-hidden="true">&larr;</span> Older</a></li>
                     <li class="next"><a href="#">Newer <span aria-hidden="true">&rarr;</span></a></li>
                   </ul>
-              </div>
+              </div> -->
      </div><!-- End col-md-9-->   
      
 <!--       <aside class="col-md-3" id="sidebar">
