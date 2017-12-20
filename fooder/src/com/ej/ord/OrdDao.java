@@ -40,8 +40,10 @@ public class OrdDao implements Dao<Ord, Double> {
 		return mapper.selectall();
 	}
 	
-	public List<Ord> select_myOrder() {
-		return mapper.select_myOrder();
+
+
+	public List<Ord> select_myOrder(String u_id) {
+		return mapper.select_myOrder(u_id);
 	}
 	
 }

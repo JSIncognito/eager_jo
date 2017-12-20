@@ -48,5 +48,12 @@ public class StoreBiz implements Biz<Store, Double> {
 /*	public List<Store> select_cete(){
 		return dao.select_cate();
 	}
-*/	
+*/
+	//	점주의 가게리스트 보여주기
+	public List<Store> select_myStore(String u_id){
+		return dao.select_myStore(u_id);
+	}
+	
+	
+	
 }

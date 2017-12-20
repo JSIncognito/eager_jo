@@ -42,10 +42,13 @@ public class OrdBiz implements Biz<Ord, Double> {
 	}
 	
 	//	주문내역 조회	
-	public List<Ord> select_myOrder(){
-		return dao.select_myOrder();
+	public List<Ord> select_myOrder(String u_id){
+		return dao.select_myOrder(u_id);
 		
 	}
+
+
+	 
 	
 	
 	
