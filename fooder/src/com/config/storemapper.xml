@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ej.mapper.StoreMapper">
+	<resultMap type="store" id="storeResult">
+		<result column="st_key" property="st_key"/>
+		<result column="st_nm" property="st_nm"/>
+		<result column="st_type" property="st_type"/>
+		<result column="lat" property="lat"/>
+		<result column="lot" property="lot"/>
+		<result column="st_img" property="st_img"/>
+		<result column="st_time" property="st_time"/>
+		<result column="st_addr" property="st_addr"/>
+		<result column="st_star" property="st_star"/>
+		<result column="u_id" property="u_id"/>
+	</resultMap>
+	
+	<select id="select" parameterType="Double" resultMap="storeResult">
+		SELECT * FROM STORE WHERE ST_KEY=#{obj}
+	</select>
+	<select id="selectall" resultType="store">
+		SELECT * FROM STORE
+	</select>
+	<insert id="insert" parameterType="store">
+		INSERT INTO STORE VALUES (#{st_key},#{st_nm},#{st_type},#{lat},
+								#{lot},#{st_img},#{st_time},#{st_addr},#{u_id})
+	</insert>
+	<update id="update" parameterType="store">
+		UPDATE STORE SET ST_NM=#{st_nm},ST_TYPE=#{st_type}, LAT=#{lat}, 
+							LOT=#{lot}, ST_IMG=#{st_img}, ST_TIME=#{st_time}, 
+							ST_ADDR=#{st_addr}, U_ID=#{u_id} WHERE ST_KEY=#{st_key}
+	</update>
+	<delete id="delete" parameterType="Double">
+		DELETE FROM STORE WHERE ST_KEY=#{obj}
+	</delete>
+
+	<!-- 20171219_JS Store_list Add -->
+	<select id="select_stList" parameterType="store" resultType="store">
+		SELECT * FROM STORE WHERE ST_TYPE=#{st_type} AND ST_ADDR LIKE "%#{st_addr}%"
+	</select>
+<!--
+ 	<select id="select_cate" resultType="store">
+	</select>
+ -->
+</mapper>
+
+
+
+
+
+

@@ -17,7 +17,7 @@ public class Users {
 	String u_pwd;
 	String u_nm;
 	String u_tel;
-	int u_gen;
+	String u_gen;
 	String u_addr;
 	int u_age;
 	int u_flag;
@@ -26,7 +26,15 @@ public class Users {
 		super();
 	}
 	
-	public Users(String u_id, String u_pwd, String u_nm, String u_tel, int u_gen, String u_addr, int u_age, int u_flag) {
+	public Users(String u_id, String u_pwd, String u_tel, String u_addr) {
+		super();
+		this.u_id = u_id;
+		this.u_pwd = u_pwd;
+		this.u_tel = u_tel;
+		this.u_addr = u_addr;
+	}
+
+	public Users(String u_id, String u_pwd, String u_nm, String u_tel, String u_gen, String u_addr, int u_age, int u_flag) {
 		super();
 		this.u_id = u_id;
 		this.u_pwd = u_pwd;
@@ -70,11 +78,11 @@ public class Users {
 		this.u_tel = u_tel;
 	}
 
-	public int getU_gen() {
+	public String getU_gen() {
 		return u_gen;
 	}
 
-	public void setU_gen(int u_gen) {
+	public void setU_gen(String u_gen) {
 		this.u_gen = u_gen;
 	}
 

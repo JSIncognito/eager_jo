@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ej.mapper.CouponMapper">
+	<!-- don't have to put null -->
+	<resultMap type="coupon" id="couponResult">
+		<result column="c_key" property="c_key"/>
+		<result column="st_key" property="st_key"/>
+		<result column="c_code" property="c_code"/>
+		<result column="c_gift" property="c_gift"/>
+		<result column="c_dc" property="c_dc"/>
+		<result column="c_nm" property="c_nm"/>
+		<result column="c_start" property="c_start"/>
+		<result column="c_end" property="c_end"/>
+		<result column="c_date" property="c_date"/>
+		<result column="st_nm" property="st_nm"/>
+		<result column="st_addr" property="st_addr"/>
+		<result column="st_lat" property="st_lat"/>
+		<result column="st_lot" property="st_lot"/>
+		
+	</resultMap>
+	
+	<select id="select" parameterType="Double" resultMap="couponResult">
+		SELECT * FROM COUPON WHERE C_KEY=#{obj}
+	</select>
+	<select id="selectall" resultType="coupon">
+		SELECT * FROM COUPON
+	</select>
+	<insert id="insert" parameterType="coupon">
+		INSERT INTO COUPON VALUES (#{c_key},#{st_key},#{c_code},#{c_gift},#{c_dc},#{c_nm},#{c_start},#{c_end},#{c_date},#{st_nm},#{st_addr},#{st_lat},#{st_lot})
+	</insert>
+	<!-- 
+	<update id="update" parameterType="user">
+		UPDATE T_USER SET PWD=#{pwd},NAME=#{name} WHERE ID=#{id}
+	</update> -->
+	<delete id="delete" parameterType="Double">
+		DELETE FROM COUPON WHERE C_KEY=#{obj}
+	</delete>
+	
+	<!-- 현재 지역에서 진행중인 이벤트 및 쿠폰 -->
+	<select id="select_area" parameterType="String" resultType="coupon">
+		 SELECT * FROM COUPON WHERE ST_ADDR LIKE #{obj}
+	</select>
+	
+	<!-- 로그인한 유저가 갖고있는 쿠폰  -->
+	<select id="select_myCoupon" parameterType="String" resultType="coupon">
+		<!-- select * from coupon c where c.st_key in (select s.st_key from store s where u_id=?) -->
+		SELECT * FROM COUPON C WHERE C.ST_KEY IN (SELECT S.ST_KEY FROM STORE S WHERE U_ID= #{obj})	
+	</select>
+	
+</mapper>
