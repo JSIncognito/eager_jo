@@ -38,6 +38,14 @@ public class Ofd {
 		this.of_cnt = of_cnt;
 	}
 
+	public Ofd(double of_key, String f_name, double f_price, int of_cnt) {
+		super();
+		this.of_key = of_key;
+		this.f_name = f_name;
+		this.f_price = f_price;
+		this.of_cnt = of_cnt;
+	}
+
 	public Ofd(double of_key, double o_key, double f_key, String f_name, double f_price, String f_img, double st_key) {
 		super();
 		this.of_key = of_key;

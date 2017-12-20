@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
     <div id="subheader">
@@ -34,9 +35,8 @@
             <ul>
                 <li><a href="#0">Home</a></li>
                 <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li>Order Complete</li>
             </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
     </div><!-- Position -->
 
@@ -56,60 +56,31 @@
 				<h4>Summary</h4>
 				<table class="table table-striped nomargin">
 				<tbody>
-				<tr>
+				<c:forEach var="ofd" items="${ofdList }">
+					<tr>
+						<td>
+							<strong>${ofd.of_cnt }x</strong> ${ofd.f_name }
+						</td>
+						<td>
+							<strong class="pull-right">£Ü${ofd.f_price }</strong>
+						</td>
+					</tr>
+				</c:forEach>
+				<!-- <tr>
 					<td>
 						<strong>1x</strong> Enchiladas
 					</td>
 					<td>
 						<strong class="pull-right">$11</strong>
 					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>2x</strong> Burrito
-					</td>
-					<td>
-						<strong class="pull-right">$14</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>1x</strong> Chicken
-					</td>
-					<td>
-						<strong class="pull-right">$20</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>2x</strong> Corona Beer
-					</td>
-					<td>
-						<strong class="pull-right">$9</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>2x</strong> Cheese Cake
-					</td>
-					<td>
-						<strong class="pull-right">$12</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						 Delivery schedule <a href="#" class="tooltip-1" data-placement="top" title="" data-original-title="Please consider 30 minutes of margin for the delivery!"><i class="icon_question_alt"></i></a>
-					</td>
-					<td>
-						<strong class="pull-right">Today 07.30 pm</strong>
-					</td>
-				</tr>
+				</tr> -->
+				
 				<tr>
 					<td class="total_confirm">
 						 TOTAL
 					</td>
 					<td class="total_confirm">
-						<span class="pull-right">$66</span>
+						<span class="pull-right">£Ü${orderInfo.o_total }</span>
 					</td>
 				</tr>
 				</tbody>

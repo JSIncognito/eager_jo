@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.jdbc.support.incrementer.DataFieldMaxValueIncrementer;
 import org.springframework.stereotype.Controller;
@@ -26,6 +27,9 @@ public class OrdController {
 	
 	@Resource(name="ofdBiz")
 	Biz<Ofd, Double> ofdbiz;
+	
+	@Resource(name="ordBiz")
+	Biz<Ord, Double> ordbiz;
 	
 	 private DataFieldMaxValueIncrementer incrementer;
 	 public void setIncrementer(DataFieldMaxValueIncrementer incrementer) {
@@ -107,22 +111,46 @@ public class OrdController {
 	
 	// order2.jsp 띄우기
 	// 결제수단 받아옴
-	@RequestMapping("/order2.ej")
-	public String order2(HttpServletRequest request, String o_addr, String o_tel, Integer o_way) {
-//		HttpSession session = request.getSession();
-//		Ord ord = (Ord) session.getAttribute("orderInfo");
-//		ord.setO_way(o_way);
-//		session.setAttribute("orderInfo", ord); 	// TODO : 지우지 않고 바로 넣을 수 있는지 확인하기
-		System.out.println("o_way: " + o_way);
-		System.out.println("o_addr: " + o_addr);
-		System.out.println("o_tel: " + o_tel);
-		request.setAttribute("center", "store/order3");
-		return "main";
-	}
+//	@RequestMapping("/order2.ej")
+//	public String order2(HttpServletRequest request) {
+////		HttpSession session = request.getSession();
+////		Ord ord = (Ord) session.getAttribute("orderInfo");
+////		ord.setO_way(o_way);
+////		session.setAttribute("orderInfo", ord); 	// TODO : 지우지 않고 바로 넣을 수 있는지 확인하기
+//		request.setAttribute("center", "store/order3");
+//		return "main";
+//	}
 	
 	// order3.jsp 띄우기
 	@RequestMapping("/order3.ej")
-	public String order3(HttpServletRequest request) {
+	public String order3(HttpServletRequest request, String o_addr, String o_tel, Integer o_way) {
+		System.out.println("o_way: " + o_way);
+		System.out.println("o_addr: " + o_addr);
+		System.out.println("o_tel: " + o_tel);
+		
+//		// orderInfo(주문 정보, session 내 데이터)에 값 넣기
+//		// 주소, 전화번호, 결제 방법
+//		HttpSession session = request.getSession();
+//		Ord ord = (Ord) session.getAttribute("orderInfo");
+//		ord.setO_way(o_way);
+//		ord.setO_addr(o_addr);
+//		ord.setO_tel(o_tel);
+//		
+//		// Ord, Ofd 테이블에 값 넣기 
+//		ordbiz.register(ord);
+//		List<Ofd> list = (List<Ofd>) session.getAttribute("ofdList");
+//		for(Ofd o : list) {
+//			ofdbiz.register(o);
+//		}
+		
+		// TEST 용!
+		List<Ofd> ofdList = new ArrayList<>();
+		ofdList.add(new Ofd(1234, "test1", 2500, 1));
+		ofdList.add(new Ofd(1235, "test2", 2500, 2));
+		ofdList.add(new Ofd(1236, "test3", 5000, 1));
+		request.setAttribute("ofdList", ofdList);
+		request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
+				
 		request.setAttribute("center", "store/order3");
 		return "main";
 	}
