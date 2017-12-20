@@ -199,7 +199,7 @@
 					</tbody>
 					</table>
 					<hr>
-					<a class="btn_full" href="cart_3.html">Confirm your order</a>
+					<a class="btn_full" href="order3.ej">Confirm your order</a>
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->

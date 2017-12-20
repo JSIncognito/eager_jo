@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<script>
+/* function delete_order(num) {
+	var table = document.getElementById('orderTable');
+	table.deleteRow(num);
+} */
+function order1_submit(f) {
+	var tel = f.tel.value;
+	var addr = f.addr.value;
+	if(tel == '' || tel == null || addr == '' || addr == null ) {
+		
+	}
+}
+</script>
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
     <div id="subheader">
@@ -65,61 +79,19 @@
 				</div>
                 
 			</div>End col-md-3 -->
-            
+            <form>
 			<div class="col-md-9">
 				<div class="box_style_2" id="order_process">
 					<h2 class="inner">Your order details</h2>
 					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" id="firstname_order" name="firstname_order" placeholder="First name">
-					<!-- </div>
-					<div class="form-group">
-						<label>Last name</label>
-						<input type="text" class="form-control" id="lastname_order" name="lastname_order" placeholder="Last name"> -->
+						<label>Address</label>
+						<input type="text" class="form-control" id="addr" name="addr" placeholder="Full Address">
 					</div>
 					<div class="form-group">
-						<label>Telephone/mobile</label>
-						<input type="text" id="tel_order" name="tel_order" class="form-control" placeholder="Telephone/mobile">
+						<label>Telephone / mobile</label>
+						<input type="text" id="tel" name="tel" class="form-control" placeholder="Telephone / mobile">
 					</div>
-					<!-- <div class="form-group">
-						<label>Email</label>
-						<input type="email" id="email_booking_2" name="email_order" class="form-control" placeholder="Your email">
-					</div>
-					<div class="form-group">
-						<label>Your full address</label>
-						<input type="text" id="address_order" name="address_order" class="form-control" placeholder=" Your full address">
-					</div>
-					<div class="row">
-						<div class="col-md-6 col-sm-6">
-							<div class="form-group">
-								<label>City</label>
-								<input type="text" id="city_order" name="city_order" class="form-control" placeholder="Your city">
-							</div>
-						</div>
-						<div class="col-md-6 col-sm-6">
-							<div class="form-group">
-								<label>Postal code</label>
-								<input type="text" id="pcode_oder" name="pcode_oder" class="form-control" placeholder=" Your postal code">
-							</div>
-						</div>
-					</div> -->
-					<hr>
-					
-						<!-- <div class="col-md-6 col-sm-6">
-							<div class="form-group"> -->
-								<!-- <label>Delivery time</label> -->
-<!-- 								<select class="form-control" name="delivery_schedule_time" id="delivery_schedule_time"> -->
-									
-					<hr>
-					<!-- <div class="row">
-						<div class="col-md-12">
-				
-								<label>Notes for the restaurant</label>
-								<textarea class="form-control" style="height:150px" placeholder="Ex. Allergies, cash change..." name="notes" id="notes"></textarea>
-				
-						</div>
-					</div>
-				 --><!-- End box_style_1 -->
+					<!-- End box_style_1 -->
 				 </div>
 			</div><!-- End col-md-6 -->
             
@@ -127,86 +99,54 @@
             	<div class="theiaStickySidebar">
 				<div id="cart_box">
 					<h3>Your order <i class="icon_cart_alt pull-right"></i></h3>
-					<table class="table table_summary">
-					<tbody>
-					<tr>
-						<td>
-							<a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>1x</strong> Enchiladas
-						</td>
-						<td>
-							<strong class="pull-right">$11</strong>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>2x</strong> Burrito
-						</td>
-						<td>
-							<strong class="pull-right">$14</strong>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>1x</strong> Chicken
-						</td>
-						<td>
-							<strong class="pull-right">$20</strong>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>2x</strong> Corona Beer
-						</td>
-						<td>
-							<strong class="pull-right">$9</strong>
-						</td>
-					</tr>
-					<tr>
-						<td>
-							<a href="#0" class="remove_item"><i class="icon_minus_alt"></i></a> <strong>2x</strong> Cheese Cake
-						</td>
-						<td>
-							<strong class="pull-right">$12</strong>
-						</td>
-					</tr>
-					</tbody>
+					<table id="orderTable" class="table table_summary">
+						<tbody>
+						<c:forEach var="ofd" items="${ofdList}">
+						<tr>
+							<td id="${ofd.of_key }">
+	<!-- 							<a class="remove_item"><i class="icon_minus_alt"></i></a>  -->
+								<strong>${ofd.of_cnt }x</strong> ${ofd.f_name }
+							</td>
+						</tr>
+						</c:forEach>
+						</tbody>
 					</table>
-					<hr>
-					<div class="row" id="options_2">
+<!-- 					<hr> -->
+					<!-- <div class="row" id="options_2">
 						<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
 							<label><input type="radio" value="" checked name="option_2" class="icheck">Delivery</label>
 						</div>
 						<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
 							<label><input type="radio" value="" name="option_2" class="icheck">Take Away</label>
 						</div>
-					</div><!-- Edn options 2 -->
+					</div>Edn options 2 -->
 					<hr>
 					<table class="table table_summary">
 					<tbody>
 					<tr>
 						<td>
-							 Subtotal <span class="pull-right">$56</span>
+							 Subtotal <span class="pull-right">£Ü${orderInfo.o_all }</span>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							 Delivery fee <span class="pull-right">$10</span>
+							 Discount <span class="pull-right">£Ü${orderInfo.o_dc }</span>
 						</td>
 					</tr>
 					<tr>
 						<td class="total">
-							 TOTAL <span class="pull-right">$66</span>
+							 TOTAL <span class="pull-right">£Ü${orderInfo.o_total }</span>
 						</td>
 					</tr>
 					</tbody>
 					</table>
 					<hr>
-					<a class="btn_full" href="cart_2.html">Go to checkout</a>
-					<a class="btn_full_outline" href="detail_page.html"><i class="icon-right"></i> Add other items</a>
+					<a class="btn_full" href="order2.ej">Go to checkout</a>
+					<a class="btn_full_outline" onclick="order1_submit(this.form)"><i class="icon-right"></i> Add other items</a>
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->
-            
+            </form>
 		</div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->
