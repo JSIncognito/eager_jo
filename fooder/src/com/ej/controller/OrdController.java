@@ -18,7 +18,7 @@ import com.ej.vo.Users;
 
 @Controller
 public class OrdController {
-	@Resource
+	@Resource(name="ordBiz")
 	OrdBiz biz;
 	
 	@Resource(name="usersBiz")
@@ -46,7 +46,8 @@ public class OrdController {
 		return "main";
 	}
 	
-	 // 가게 이름, 주문 메뉴 목록, 사용 쿠폰 받아옴
+	// order1.jsp 띄우기
+	// 가게 이름, 주문 메뉴 목록, 사용 쿠폰 받아옴
 	@RequestMapping("/order1.ej")
 	public String order1(HttpServletRequest request, Ord ord) {
 		// 세션에 있던 기존 주문 정보, ofd 목록 삭제
@@ -104,6 +105,7 @@ public class OrdController {
 		return "main";
 	}
 	
+	// order2.jsp 띄우기
 	// 결제수단 받아옴
 	@RequestMapping("/order2.ej")
 	public String order2(HttpServletRequest request, Integer o_way) {
@@ -116,6 +118,7 @@ public class OrdController {
 		return "main";
 	}
 	
+	// order3.jsp 띄우기
 	@RequestMapping("/order3.ej")
 	public String order3(HttpServletRequest request) {
 		request.setAttribute("center", "store/order3");

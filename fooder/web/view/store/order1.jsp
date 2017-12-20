@@ -6,12 +6,25 @@
 	var table = document.getElementById('orderTable');
 	table.deleteRow(num);
 } */
-function order1_submit(f) {
+function order1Submit(f) {
 	var tel = f.tel.value;
 	var addr = f.addr.value;
-	if(tel == '' || tel == null || addr == '' || addr == null ) {
-		
+	if(addr == '' || addr == null) {
+		$('#message_addr').html('Please enter full address').css('color', 'red').css('visibility', 'visible');
+		return;
+	} else {
+		$('#message_addr').html('').css('visibility', 'hidden');
 	}
+	if(tel == '' || tel == null) {
+		$('#message_tel').html('Please enter telephone or mobilephone number').css('color', 'red').css('visibility', 'visible');
+		return;
+	} else {
+		$('#message_tel').html('').css('visibility', 'hidden');
+	}
+	
+	f.method = 'post';
+	f.action = 'order2.ej';
+	f.submit();
 }
 </script>
 <!-- SubHeader =============================================== -->
@@ -48,9 +61,8 @@ function order1_submit(f) {
             <ul>
                 <li><a href="#0">Home</a></li>
                 <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li>Order 1</li>
             </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
     </div><!-- Position -->
 
@@ -86,10 +98,12 @@ function order1_submit(f) {
 					<div class="form-group">
 						<label>Address</label>
 						<input type="text" class="form-control" id="addr" name="addr" placeholder="Full Address">
+						<span id="message_addr"></span>
 					</div>
 					<div class="form-group">
 						<label>Telephone / mobile</label>
 						<input type="text" id="tel" name="tel" class="form-control" placeholder="Telephone / mobile">
+						<span id="message_tel"></span>
 					</div>
 					<!-- End box_style_1 -->
 				 </div>
@@ -141,8 +155,9 @@ function order1_submit(f) {
 					</tbody>
 					</table>
 					<hr>
-					<a class="btn_full" href="order2.ej">Go to checkout</a>
-					<a class="btn_full_outline" onclick="order1_submit(this.form)"><i class="icon-right"></i> Add other items</a>
+<!-- 					<a class="btn_full" href="javascript:void(0);" onclick="order1Submit(this.form);" >Go to checkout</a> -->
+					<button class="btn_full" type="button" onclick="order1Submit(this.form);">Go to checkout</button>
+					<a class="btn_full_outline" href="store_menu.ej"><i class="icon-right"></i> Add other items</a>
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->
