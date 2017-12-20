@@ -41,8 +41,8 @@ public class StoreBiz implements Biz<Store, Double> {
 	}
 
 	// 사용자 주변의 가게 리스트를 보여주는 메소드	
-	public List<Store> select_stList(){
-		return dao.select_stList();
+	public List<Store> select_stList(String st_type, String st_addr){
+		return dao.select_stList(st_type, st_addr);
 	}
 	// 카테고리별 리스트를 보여주는 메소드	
 /*	public List<Store> select_cete(){

@@ -36,8 +36,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</delete>
 
 	<!-- 20171219_JS Store_list Add -->
-	<select id="select_stList" parameterType="store" resultType="store">
-		SELECT * FROM STORE WHERE ST_TYPE=#{st_type} AND ST_ADDR LIKE "%#{st_addr}%"
+	<select id="select_stList" parameterType="String" resultType="store">
+		SELECT * FROM STORE WHERE ST_TYPE=#{stType} AND ST_ADDR LIKE '%'|| #{stType} ||'%'
 	</select>
 <!--
  	<select id="select_cate" resultType="store">

@@ -31,9 +31,10 @@ public class StoreController {
 
 	//	가게 리스트 
 	@RequestMapping("/store_list.ej")
-	public String store_list(Model model) {
-		List<Store> st_list = sBiz.select_stList();
+	public String store_list(String st_type, String st_addr, Model model) {
+		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
 //		List<Store> cate_list = sBiz.select_cete();
+
 		System.out.println("가게 리스트 store_list");
 		for(Store s : st_list) {
 			System.out.println(s);
@@ -46,9 +47,9 @@ public class StoreController {
 	}
 	//	가게 리스트 
 	@RequestMapping("/store_grid.ej")
-	public String store_grid(Model model) {
+	public String store_grid(String st_type, String st_addr, Model model) {
 
-		List<Store> st_list = sBiz.select_stList();
+		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
 //		List<Store> cate_list = sBiz.select_cete();
 
 		model.addAttribute("stGrid", st_list);
@@ -58,8 +59,8 @@ public class StoreController {
 	}
 	//	가게 리스트 
 	@RequestMapping("/store_map.ej")
-	public String store_map(Model model) {
-		List<Store> st_list = sBiz.select_stList();
+	public String store_map(String st_type, String st_addr, Model model) {
+		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
 //		List<Store> cate_list = sBiz.select_cete();
 		
 		model.addAttribute("stMap", st_list);
@@ -69,7 +70,6 @@ public class StoreController {
 	}
 	
 	//	가게의 메뉴 리스트
-
 	@RequestMapping("/store_menu.ej")
 	public String store_menu(Model model) {
 		List<Food> stMenu = fBiz.select_stMenu();
