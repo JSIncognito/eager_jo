@@ -19,32 +19,33 @@ margin-bottom: 200px;
 }
 #food_img:hover {
 	opacity: 0.8;
-	width: 160px;
-	height: 200px;
+	width: 220px;
+	height: 220px;
 }
 
 #food_img {
-	width:140px;
+	width:170px;
 	height:190px;
-	margin-left: 60px;
+	float:center;
+	margin-left: 100px;
 }
 
 #best_food {
 	text-align: center;
 	font-size: 40px;
-	margin-top: 170px;
+	margin-top: 190px;
 	margin-bottom: 80px;
 		font-family: 'Anton', sans-serif;
 	letter-spacing:3pt;
 }
 
 .card {
-border-radius:380px;
+border-radius:100px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width:20%;
+    width:30%;
     float:left;
-    margin-left: 110px;
+    margin-left: 30px;
 }
 
 .card:hover {
@@ -55,7 +56,7 @@ border-radius:380px;
     padding: 10px 16px;
 }
 #food_font{
-margin-left: 90px;
+margin-left: 130px;
 		font-family: 'Anton', sans-serif;
 }
 
@@ -511,8 +512,6 @@ font-family: 'Cookie', cursive;
     </div><!-- End subheader -->
     </section><!-- End section -->
     <!-- End Content =============================================== -->
-    
-    
 	
 	<!-- <div class="container margin_60">
       <div class="main_title margin_mobile">
