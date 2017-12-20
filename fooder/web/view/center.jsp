@@ -3,17 +3,143 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Oxygen');
+@import url('https://fonts.googleapis.com/css?family=Cookie');
+@import url('https://fonts.googleapis.com/css?family=Dosis');
+
+
+/*카테고리 시작*/
+#food_div{
+margin-left: 40px;
+margin-bottom: 200px;
+
+}
+#food_img:hover {
+	opacity: 0.8;
+	width: 160px;
+	height: 200px;
+}
+
+#food_img {
+	width:140px;
+	height:190px;
+	margin-left: 60px;
+}
+
+#best_food {
+	text-align: center;
+	font-size: 40px;
+	margin-top: 170px;
+	margin-bottom: 80px;
+		font-family: 'Anton', sans-serif;
+	letter-spacing:3pt;
+}
+
+.card {
+border-radius:380px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width:20%;
+    float:left;
+    margin-left: 110px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.container {
+    padding: 10px 16px;
+}
+#food_font{
+margin-left: 90px;
+		font-family: 'Anton', sans-serif;
+}
+
+/*카테고리 끝*/
+#delivery_time{
+margin-bottom: 80px;
+}
+/*전체메뉴보기, 전체이벤틉괴 사이 간격*/
+#green{
+margin-top: 20px;
+}
+
+.nomargin_top{
+		font-family: 'Anton', sans-serif;
+margin-top: 80px;
+}
+
+/*쿠폰시작*/
+/* .coupon {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+font-family: 'Dosis', sans-serif;
+
+}
+#coupon{
+font-family: 'Dosis', sans-serif;
+
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #78cfcf;;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+.coupon{
+margin-left:100px;
+float:left;
+margin-bottom: 100px;
+} */
+
+/*쿠폰 끝*/
+#main_1{
+font-family: 'Cookie', cursive;
+
+}
+</style>
+
+
     <!-- SubHeader =============================================== -->
-    <section class="parallax-window" id="home" data-parallax="scroll" data-image-src="img/sub_header_home.jpg" data-natural-width="1400" data-natural-height="550">
-    <div id="subheader">
+     <section class="header-video">
+    <div id="hero_video">
         <div id="sub_content">
-            <h1>Order Takeaway or Delivery Food</h1>
+            <h1 id="main_1">Order And Delivery Food</h1>
             <p>
                 Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
             </p>
             <form method="post" action="list_page.html">
                 <div id="custom-search-input">
-                    <div class="input-group ">
+                    <div class="input-group">
                         <input type="text" class=" search-query" placeholder="Your Address or postal code">
                         <span class="input-group-btn">
                         <input type="submit" class="btn_search" value="submit">
@@ -22,7 +148,8 @@
                 </div>
             </form>
         </div><!-- End sub_content -->
-    </div><!-- End subheader -->
+    </div>
+    <img src="img/video_fix.png" alt="" class="header-video--media" data-video-src="video/intro" data-teaser-source="video/intro" data-provider="Vimeo" data-video-width="1920" data-video-height="960">
     <div id="count" class="hidden-xs">
         <ul>
             <li><span class="number">2650</span> Restaurant</li>
@@ -30,10 +157,10 @@
             <li><span class="number">12350</span> Registered Users</li>
         </ul>
     </div>
-    </section><!-- End section -->
+    </section><!-- End Header video -->
     <!-- End SubHeader ============================================ -->
 
-<div>
+<!-- <div>
 	<ul>
 		<li><a href="store_list.ej">store_list</a></li>
 		<li><a href="seller_register.ej">seller_register</a></li>
@@ -50,68 +177,105 @@
 		
 		
 	</ul>
-</div>
+</div> -->
 <!-- JS Test View  -->
-	<h1><a href="order1.ej">order1</a></h1>
+<!-- 	<h1><a href="order1.ej">order1</a></h1>
 	<h1><a href="order2.ej">order2</a></h1>
 	<h1><a href="order3.ej">order3</a></h1>
 	<h1><a href="store_detail.ej">store_detail</a></h1>
-	<h1><a href="store_list.ej">store_list</a></h1>
+	<h1><a href="store_list.ej">store_list</a></h1> -->
 <!-- End JS Test View -->
-    
+
+
+
+<!-- 카테고리시작 -->
+<h2 id="best_food">CATEGORY</h2>
+	<div id="food_div">
+
+		<div class="row">
+			<div class="column">
+				<div class="card">
+					<a href=""> <img id="food_img" src="img/chicken.png" alt="Paris"
+						width="360" height="280">
+					</a>
+					<div class="containers">
+						<h2 id="food_font">CHICKEN</h2>
+
+					</div>
+				</div>
+			</div>
+
+			<div class="column">
+				<div class="card">
+					<a href=""> <img id="food_img" src="img/pizza.png" alt="Paris"
+						width="360" height="280" >
+					</a>
+					<div class="containers">
+						<h2 id="food_font">PIZZA</h2>
+
+					</div>
+				</div>
+			</div>
+			<div class="column">
+				<div class="card">
+					<a href=""> <img id="food_img" src="img/china.png" alt="Paris"
+						width="360" height="280">
+					</a>
+					<div class="containers">
+						<h2 id="food_font">CHINESE</h2>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 카테
+	고리끝-->
+
+
+<!-- <div id=coupons>
+<div class="coupon">
+  <img src="img/rain.gif" alt="John" style="width:100%">
+  <h1 id="coupon">Discount coupon</h1>
+  <p class="title">Rainny Coupon</p>
+  <p>￦2000</p>
+  <div style="margin: 24px 0;">
+
+ </div>
+ <p><button>EVENT ALL</button></p>
+</div>
+
+<div class="coupon">
+  <img src="img/snow.gif" alt="John" style="width:100%">
+  <h1 id="coupon">Discount coupon</h1>
+  <p class="title">Snow Coupon</p>
+  <p>￦2000</p>
+  <div style="margin: 24px 0;">
+   
+ </div>
+ <p><button>EVENT ALL</button></p>
+</div>
+
+<div class="coupon">
+  <img src="img/snow.gif" alt="John" style="width:100%">
+  <h1 id="coupon">Discount coupon</h1>
+  <p class="title">Snow Coupon</p>
+  <p>￦2000</p>
+  <div style="margin: 24px 0;">
+   
+ </div>
+ <p><button>EVENT ALL</button></p>
+</div>
+	</div> -->
+	
+	<!-- 쿠폰끝 -->
+	
 	<!-- Content ================================================== -->
-         <div class="container margin_60">
-        
-         <div class="main_title">
-            <h2 class="nomargin_top" style="padding-top:0">How it works</h2>
-            <p>
-                Cum doctus civibus efficiantur in imperdiet deterruisset.
-            </p>
-        </div>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="box_home" id="one">
-                    <span>1</span>
-                    <h3>Search by address</h3>
-                    <p>
-                        Find all restaurants available in your zone.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box_home" id="two">
-                    <span>2</span>
-                    <h3>Choose a restaurant</h3>
-                    <p>
-                        We have more than 1000s of menus online.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box_home" id="three">
-                    <span>3</span>
-                    <h3>Pay by card or cash</h3>
-                    <p>
-                        It's quick, easy and totally secure.
-                    </p>
-                </div>
-            </div>
-            <div class="col-md-3">
-                <div class="box_home" id="four">
-                    <span>4</span>
-                    <h3>Delivery or takeaway</h3>
-                    <p>
-                        You are lazy? Are you backing home?
-                    </p>
-                </div>
-            </div>
-        </div><!-- End row -->
-        
-        <div id="delivery_time" class="hidden-xs">
-            <strong><span>2</span><span>5</span></strong>
+ <div id="delivery_time" class="hidden-xs">
+            <strong><span>6</span><span>0</span></strong>
             <h4>The minutes that usually takes to deliver!</h4>
         </div>
-        </div><!-- End container -->
+     <!--60분 끝-->
             
     <!-- <div class="white_bg">
     <div class="container margin_60">
@@ -265,26 +429,90 @@
         </div>End container
         </div>End white_bg -->
         
+        
+        <!-- 레스토랑 전체보기, 이벤트 전체보기 시작-->
        <div class="high_light">
       	<div class="container">
-      		<h3>Choose from over 2,000 Restaurants</h3>
-            <p>Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.</p>
+      		<h3>Choose Restaurants</h3>
+            <p>Chicken/Chinese/Pizza</p>
             <a href="list_page.html">View all Restaurants</a>
         </div><!-- End container -->
       </div><!-- End hight_light -->
+      <div id=green></div>
+           <div class="high_light">
+      	<div class="container">
+      		<h3>Choose Event</h3>
+            <p>Gift/Discount</p>
+            <a href="list_page.html">View all Event</a>
+        </div><!-- End container -->
+      </div><!-- End hight_light -->
+      <!-- 레스토랑 전체보기,이벤트 전체보기 끝 -->
+      
+        <div class="container margin_60">
+        
+         <div class="main_title">
+            <h2 class="nomargin_top" style="padding-top:0">How it works</h2>
+            <p>
+                We delivery based on Big Data.
+            </p>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="box_home" id="one">
+                    <span>1</span>
+                    <h3>Search by address</h3>
+                    <p>
+                        Find all restaurants available in your zone.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box_home" id="two">
+                    <span>2</span>
+                    <h3>Choose a restaurant</h3>
+                    <p>
+                        We have more than 1000s of menus online.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box_home" id="three">
+                    <span>3</span>
+                    <h3>Pay by card or cash</h3>
+                    <p>
+                        It's quick, easy and totally secure.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="box_home" id="four">
+                    <span>4</span>
+                    <h3>Delivery</h3>
+                    <p>
+                        You are lazy? Are you backing home?
+                    </p>
+                </div>
+            </div>
+        </div><!-- End row -->
+        
+       
+        </div><!-- End container -->
+       
             
-    <section class="parallax-window" data-parallax="scroll" data-image-src="img/bg_office.jpg" data-natural-width="1200" data-natural-height="600">
+    <section class="parallax-window" data-parallax="scroll" data-image-src="img/f.png" data-natural-width="1200" data-natural-height="600">
     <div class="parallax-content">
         <div class="sub_content">
             <i class="icon_mug"></i>
-            <h3>We also deliver to your office</h3>
+            <h3>We suggest convenience system</h3>
             <p>
-                Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
+             
             </p>
         </div><!-- End sub_content -->
     </div><!-- End subheader -->
     </section><!-- End section -->
     <!-- End Content =============================================== -->
+    
+    
 	
 	<!-- <div class="container margin_60">
       <div class="main_title margin_mobile">
@@ -312,3 +540,19 @@
             </div>
       </div>End row
     </div>End container -->
+<!-- 20171219_JS index.html Add -->
+<!-- SPECIFIC SCRIPTS -->
+<script src="js/video_header.js"></script>
+<script>
+$(document).ready(function() {
+	'use strict';
+   	  HeaderVideo.init({
+      container: $('.header-video'),
+      header: $('.header-video--media'),
+      videoTrigger: $("#video-trigger"),
+      autoPlayVideo: true
+    });    
+
+});
+</script>
+    
