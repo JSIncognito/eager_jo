@@ -37,8 +37,8 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	</delete>
 
 	<!-- 20171219_JS add -->
-	<select id="select_uCoupon" parameterType="cu" resultMap="cuResult">
-	
+	<select id="select_uCoupon" parameterType="Double" resultType="cu">
+		SELECT * FROM CU C WHERE C.C_KEY IN (SELECT CP.C_KEY FROM COUPON CP WHERE ST_KEY=#{stKey})
 	</select>
 	
 </mapper>

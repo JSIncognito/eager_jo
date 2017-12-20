@@ -40,7 +40,7 @@ public class CuBiz implements Biz<Cu, Double> {
 		return dao.select();
 	}
 	//	20171219_JS Store_menu Add	
-	public List<Cu> select_uCoupon(){
-		return dao.selec_uCoupon(); 
+	public List<Cu> select_uCoupon(Double st_key){
+		return dao.selec_uCoupon(st_key); 
 	}
 }
