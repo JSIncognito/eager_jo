@@ -255,3 +255,28 @@
         
 	</div><!-- End row -->
 </div><!-- End container -->
+<!-- 20171214_JS store_grid.jsp, store_list.jsp, store_map.jsp add -->
+<!-- SPECIFIC SCRIPTS -->
+<script  src="js/cat_nav_mobile.js"></script>
+<script>$('#cat_nav').mobileMenu();</script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="js/map.js"></script>
+<script src="js/infobox.js"></script>
+<script src="js/ion.rangeSlider.js"></script>
+<script>
+    $(function () {
+		 'use strict';
+        $("#range").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+            min: 0,
+            max: 15,
+            from: 0,
+            to:5,
+            type: 'double',
+            step: 1,
+            prefix: "Km ",
+            grid: true
+        });
+    });
+</script>

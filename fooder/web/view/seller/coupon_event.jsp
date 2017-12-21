@@ -99,7 +99,27 @@
 		</div>
 	</div> --%>
 </div>
-
-
-
 <!-- End container -->
+<!-- 20171221_JS Add -->
+<!-- SPECIFIC SCRIPTS -->
+<script  src="js/cat_nav_mobile.js"></script>
+<script>$('#cat_nav').mobileMenu();</script>
+<script src="js/theia-sticky-sidebar.js"></script>
+<script>
+    jQuery('#sidebar').theiaStickySidebar({
+      additionalMarginTop: 80
+    });
+</script>
+<script>
+$('#cat_nav a[href^="#"]').on('click', function (e) {
+			e.preventDefault();
+			var target = this.hash;
+			var $target = $(target);
+			$('html, body').stop().animate({
+				'scrollTop': $target.offset().top - 70
+			}, 900, 'swing', function () {
+				window.location.hash = target;
+			});
+		});
+</script>
+

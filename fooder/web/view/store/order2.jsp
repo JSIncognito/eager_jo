@@ -207,3 +207,12 @@
 		</div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->
+<!-- 20171214_JS order1.jsp, order2 add -->
+<!-- SPECIFIC SCRIPTS -->
+<script src="js/theia-sticky-sidebar.js"></script>
+<script>
+    jQuery('#sidebar').theiaStickySidebar({
+      additionalMarginTop: 80
+    });
+</script>
+<!-- 20171214_JS order.jsp add -->
