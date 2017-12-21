@@ -50,4 +50,9 @@ public class StoreDao implements Dao<Store, Double> {
 		return mapper.select_cate();
 	}
 */
+	
+	//	점주의 가게리스트 보여주기
+	public List<Store> select_myStore(String u_id){
+		return mapper.select_myStore(u_id);
+	}
 }

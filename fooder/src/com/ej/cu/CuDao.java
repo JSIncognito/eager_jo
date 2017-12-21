@@ -40,8 +40,8 @@ public class CuDao implements Dao<Cu, Double> {
 	}
 
 	//	20171219_JS Store_menu Add
-	public List<Cu> selec_uCoupon(){
-		return mapper.select_uCoupon();
+	public List<Cu> selec_uCoupon(Double st_key){
+		return mapper.select_uCoupon(st_key);
 	}
 	
 	

@@ -36,7 +36,8 @@ public class OrdController {
 		 this.incrementer = incrementer;
 	 }
 	
-	//	내가 여태껏 주문했던 내역
+/*
+ * 	//	내가 여태껏 주문했던 내역
 	@RequestMapping("order_list.ej")
 	public String orderlist(HttpServletRequest request) {
 		List<Ord> list = null;
@@ -49,7 +50,7 @@ public class OrdController {
 		}
 		return "main";
 	}
-	
+	*/
 	// order1.jsp 띄우기
 	// 가게 이름, 주문 메뉴 목록, 사용 쿠폰 받아옴
 	@RequestMapping("/order1.ej")

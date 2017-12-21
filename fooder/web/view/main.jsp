@@ -32,6 +32,9 @@
     <!-- BASE CSS -->
     <link href="css/base.css" rel="stylesheet">
 
+    <!-- Modernizr -->
+	<script src="js/modernizr.js"></script> 
+
 <!-- 20171214_JS store_detail.jsp add -->
     <!-- Radio and check inputs -->
     <link href="css/skins/square/grey.css" rel="stylesheet">
@@ -243,7 +246,7 @@
                         <li><a href="#0"><i class="icon-youtube-play"></i></a></li>
                     </ul>
                     <p>
-                        吏� Quick Food 2015
+                        Quick Food 2015
                     </p>
                 </div>
             </div>
@@ -449,5 +452,23 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
 		}
 	</script>
 <!-- seller_store -->
+<!-- 20171219_JS index.html Add -->
+<!-- SPECIFIC SCRIPTS -->
+<!--
+<script src="js/video_header.js"></script>
+<script>
+$(document).ready(function() {
+	'use strict';
+   	  HeaderVideo.init({
+      container: $('.header-video'),
+      header: $('.header-video--media'),
+      videoTrigger: $("#video-trigger"),
+      autoPlayVideo: true
+    });    
+
+});
+</script>
+ -->
+
 </body>
 </html>

@@ -1,4 +1,41 @@
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+h1{
+font-family: 'Dancing Script', cursive;
+}
+#btn_submit{
+background-color:#85c99d;
+color:white;
+font-family: 'Questrial', sans-serif;
+}
+#btn_submit:hover{
+background-color:#b3cccc;
+color:white;
+border-color: #b3cccc;
+}
+h2{
+font-family: 'Questrial', sans-serif;
+}
+p{
+font-family: 'Questrial', sans-serif;
+}
+label{
+font-family: 'Questrial', sans-serif;
+}
+.form-control{
+background-color:#d1e0e0;
+color:gray;
+}
+.form-control:hover{
+background-color:white;
+}
+
+</style>
+
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/snow.gif" data-natural-width="1400" data-natural-height="600">
+
 <script>
 $(document).ready(function() {
 	$('#pwd2').on('keyup', function() {
@@ -22,7 +59,7 @@ function checkpwd(f) {
     <div id="subheader">
     	<div id="sub_content">
     	 <h1>Work with us</h1>
-         <p>Qui debitis meliore ex, tollit debitis conclusionemque te eos.</p>
+         <p></p>
          <p></p>
         </div><!-- End sub_content -->
 	</div><!-- End subheader -->
@@ -160,6 +197,16 @@ function checkpwd(f) {
     </div>End container
 </div>End white_bg
  -->
+ 
+<!-- <div class ="seller">
+<img src=img/pizza.png width=80> -->
+<!-- <img src=img/chicken.png width=100>
+<img src=img/china.png width=100>
+<img src=img/pizza.png width=100>
+<img src=img/chicken.png width=100> -->
+
+
+
 <div class="container margin_60">
 	 <div class="main_title margin_mobile">
            <h2 class="nomargin_top">Seller Mypage</h2>
@@ -167,6 +214,8 @@ function checkpwd(f) {
 <!--                 Cum doctus civibus efficiantur in imperdiet deterruisset. -->
 				Modify your information
            </p>
+                      <img src=img/pizza.png width=80>
+           
         </div>
 	<div class="row">
     	<div class="col-md-8 col-md-offset-2">
