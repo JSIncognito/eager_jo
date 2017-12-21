@@ -9,6 +9,7 @@ font-family: 'Dancing Script', cursive;
 background-color:#85c99d;
 color:white;
 font-family: 'Questrial', sans-serif;
+letter-spacing: 2px;
 }
 #btn_submit:hover{
 background-color:#b3cccc;
@@ -34,7 +35,7 @@ background-color:white;
 
 </style>
 
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/snow.gif" data-natural-width="1400" data-natural-height="600">
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/weather.gif" data-natural-width="1000" data-natural-height="600">
 
 <script>
 $(document).ready(function() {
@@ -212,7 +213,7 @@ function checkpwd(f) {
            <h2 class="nomargin_top">Seller Mypage</h2>
            <p>
 <!--                 Cum doctus civibus efficiantur in imperdiet deterruisset. -->
-				Modify your information
+				Update your information
            </p>
                       <img src=img/pizza.png width=80>
            
@@ -255,7 +256,7 @@ function checkpwd(f) {
 				</div><!-- End row  -->
                 <div id="pass-info" class="clearfix"></div>
                 <div class="text-center">
-              	  <button type="button" id="btn_submit" class="btn_full_outline" onclick="checkpwd(this.form);" >Modify</button>
+              	  <button type="button" id="btn_submit" class="btn_full_outline" onclick="checkpwd(this.form);" >Update</button>
 <!--               	  <input type="button" class="btn_full_outline" value="Modify" onclick="checkpwd(this.form);"> -->
                 </div>
 			</form>
