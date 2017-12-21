@@ -1,10 +1,32 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<style>
-#hour_div{
-	float: left;
-}
-</style>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="jquery-1.11.2.min.js"></script>
+<script src="jquery.serialize-object.min.js"></script>
+<script>
+var slength = 0;
+function addItem(size) {
+// 	alert('plus ' + size);	
+	var newdiv = document.createElement('div');
+	
+	slength++;
+	$('#insertItem #f_img_original').attr('name', 'item'+slength+'_f_img_original');
+	$('#insertItem #f_img_changed').attr('name', 'item'+slength+'_f_img_changed');
+	$('#insertItem #f_name').attr('name', 'item'+slength+'_f_name');
+	$('#insertItem #f_price').attr('name', 'item'+slength+'_f_price');
+	
+	newdiv.innerHTML = document.getElementById('insertItem').innerHTML;
+	document.getElementById('insertArea').appendChild(newdiv);
+};
+
+function removeItem(div) {
+// 	alert('minus ' + div.innerHTML + '.');
+	$(div).remove();
+};
+
+function changeImg() {	// ${food.f_img }, this
+	
+};
+</script>
 <section class="parallax-window" id="short" data-parallax="scroll"
 	data-image-src="img/sub_header_cart.jpg" data-natural-width="1400"
 	data-natural-height="350">
@@ -71,36 +93,42 @@
 							<label>Restaurant description</label>
 							<textarea class="wysihtml5 form-control" placeholder="Enter text ..." style="height: 200px;"></textarea>
 						</div> -->
-						
-						<div class="row">
-							<div class="col-sm-2">
-								<div class="form-group">
-									<label>Open Hour</label>
-									<input type="number" class="form-control" name="st_openTime_hour" id="st_openTime_hour" value="${fn:substring(store.st_time,0,2) }"> 
-								</div>
-							</div>
-							<div class="col-sm-2">
-								<div class="form-group">
-									<label>Minute</label> 
-									<input type="number" class="form-control" name="st_openTime_minute" id="st_openTime_minute" value="${fn:substring(store.st_time,3,5) }">
-								</div>
-							</div>
-						</div>
+
 					<div class="row">
 						<div class="col-sm-2">
 							<div class="form-group">
-								<label>Close Hour</label> 
-								<input type="number" class="form-control" name="st_closeTime_hour" id="st_closeTime_hour" value="${fn:substring(store.st_time,6,8) }"> 
+								<label>Open Hour</label> <input type="number"
+									class="form-control" name="st_openTime_hour"
+									id="st_openTime_hour"
+									value="${fn:substring(store.st_time,0,2) }">
 							</div>
 						</div>
 						<div class="col-sm-2">
 							<div class="form-group">
-								<label>Minute</label> 
-								<input type="number" class="form-control" name="st_closeTime_minute" id="st_closeTime_minute" value="${fn:substring(store.st_time,9,11) }">
+								<label>Minute</label> <input type="number" class="form-control"
+									name="st_openTime_minute" id="st_openTime_minute"
+									value="${fn:substring(store.st_time,3,5) }">
 							</div>
 						</div>
 					</div>
-					
+					<div class="row">
+						<div class="col-sm-2">
+							<div class="form-group">
+								<label>Close Hour</label> <input type="number"
+									class="form-control" name="st_closeTime_hour"
+									id="st_closeTime_hour"
+									value="${fn:substring(store.st_time,6,8) }">
+							</div>
+						</div>
+						<div class="col-sm-2">
+							<div class="form-group">
+								<label>Minute</label> <input type="number" class="form-control"
+									name="st_closeTime_minute" id="st_closeTime_minute"
+									value="${fn:substring(store.st_time,9,11) }">
+							</div>
+						</div>
+					</div>
+
 				</div>
 				<!-- End wrapper_indent -->
 
@@ -114,11 +142,11 @@
 				</div>
 				<div class="wrapper_indent">
 
-						<div class="form-group">
-							<label>Address</label> <input type="text" id="st_addr"
-								name="st_addr" value="${store.st_addr }" class="form-control">
-						</div>
-						<!-- <div class="col-md-3">
+					<div class="form-group">
+						<label>Address</label> <input type="text" id="st_addr"
+							name="st_addr" value="${store.st_addr }" class="form-control">
+					</div>
+					<!-- <div class="col-md-3">
 								<div class="form-group">
 									<label>State</label>
 									<input type="text" id="state_booking" name="state_booking" class="form-control">
@@ -144,10 +172,10 @@
 					<div class="form-group">
 						<img alt="${store.st_img }" src="img/${store.st_img }">
 					</div>
-					
+
 					<div id="logo_picture" class="dropzone">
-						<label>Upload your restaurant logo</label>
-						<input name="file" type="file">
+						<label>Upload your restaurant logo</label> <input name="file"
+							type="file">
 						<div class="dz-default dz-message">
 							<span>Click or Drop Images Here</span>
 						</div>
@@ -167,14 +195,15 @@
 				<hr class="styled_2">
 				<div class="wrapper_indent">
 					<button class="btn_1"
-						onclick="location.href='seller_store_modify.ej';">Save now</button>
+						onclick="location.href='seller_store_modify.ej';">Save
+						now</button>
 				</div>
 				<!-- End wrapper_indent -->
 
 			</section>
 			<!-- End section 1 -->
 
-<!-- ------------------------------------------------------------------------------------ -->
+			<!-- ------------------------------------------------------------------------------------ -->
 
 			<section id="section-2">
 				<div class="indent_title_in">
@@ -186,345 +215,138 @@
 						ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p>
 				</div>
 
+				<form id="submitFood" method="post" action="seller_store_modify.ej" enctype="multipart/form-data">
+				<input type="hidden" value="${store.st_key }" name="st_key"/>
 				<div class="wrapper_indent">
-					<!-- <div class="form-group">
-							<label>Menu Category</label>
-							<input type="text" name="menu_category" class="form-control" placeholder="EX. Starters">
-						</div> -->
-
+					<!-- 2017.12.21 Modified by HB Choi -->
+<%-- 					<c:set var="length" value="${fn:length(stMenu)} "/> --%>
+					<c:set var="slength" scope="session" value="${fn:length(stMenu) }"/> 
 					<div class="menu-item-section clearfix">
-						<h4>Menu item</h4>
+						<h4>Add Menu item</h4>
 						<div>
-							<a href="#0"><i class="icon_plus_alt"></i></a><a href="#0"><i
-								class="icon_minus_alt"></i></a>
+							<a onclick="setNum(${slength}); addItem();"><i class="icon_plus_alt"></i></a>
 						</div>
 					</div>
-
-					<c:set var="size" value="${stMenu.length }"/>
-					<c:forEach var="food" items="${stMenu }">
-					<div class="strip_menu_items">
-						<div class="row">
-							<div class="col-sm-2">
-									<input name="f_img_orginal" id="${food.f_img }" class="col-sm-12" type="image" src="img/${food.f_img }">
-							</div>
-							<div class="col-sm-2">
-								<div class="menu-item-pic dropzone">
-									<input name="f_img_changed" type="file" onchange="changeImg(${food.f_img }, this)">
-									<div class="dz-default dz-message">
-										<span>Click or Drop<br>Images Here
-										</span>
-									</div>
+					
+					<div id="insertArea">
+					<c:forEach var="food" items="${stMenu }" varStatus="status">
+<%-- 						<c:set var="count" value="${status.count }"/> --%>
+<%-- 						<c:set var="itemName" value="${'item'+ count}"/> --%>
+						<div>
+							<div class="menu-item-section clearfix item${status.count }">
+								<h4>Menu item#${status.count }</h4>
+								<div>
+									<a onclick="removeItem(this.parentNode.parentNode.parentNode);"><i
+										class="icon_minus_alt"></i></a>
 								</div>
 							</div>
-							<div class="col-sm-8">
-									<div class="col-md-12">
-										<div class="form-group">
-											<label>Title</label> <input type="text"
-												name="f_name" value="${food.f_name }" class="form-control">
+							<div class="strip_menu_items">
+								<div class="row">
+									<div class="col-sm-2">
+										<input id="${food.f_img }" value="${food.f_img }" class="col-sm-12" type="image" src="img/${food.f_img }" alt="${food.f_img }">
+										<input type="hidden" value="${food.f_img }" name="item${status.count }_f_img_original" />
+									</div>
+									<div class="col-sm-2">
+										<div class="menu-item-pic dropzone">
+											<input name="item${status.count }_f_img_changed" type="file"/>
+											<div class="dz-default dz-message">
+												<span>Click or Drop<br>Images Here
+												</span>
+											</div>
 										</div>
 									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Price</label> <input type="number"
-												name="f_price" value="${food.f_name }" class="form-control">
+									<div class="col-sm-8">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label>Title</label> <input type="text" name="item${status.count }_f_name" value="${food.f_name }" class="form-control">
+											</div>
 										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Price</label> <input type="number" name="item${status.count }_f_price" value="${food.f_price }" class="form-control">
+											</div>
+										</div>
+										<!-- End form-group -->
 									</div>
-								<!-- End form-group -->
+								</div>
+								<!-- End row -->
 							</div>
 						</div>
-						<!-- End row -->
-					</div>
-					<!-- End strip_menu_items -->
+						<!-- End strip_menu_items -->
 					</c:forEach>
-
-					<!-- <div class="strip_menu_items">
-						<div class="row">
-							<div class="col-sm-2">
-									<input class="col-sm-12" type="image" src="img/">
-							</div>
-							<div class="col-sm-2">
-								<div class="menu-item-pic dropzone">
-									<input name="file" type="file">
-									<div class="dz-default dz-message">
-										<span>Click or Drop<br>Images Here
-										</span>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-8">
-									<div class="col-md-12">
-										<div class="form-group">
-											<label>Title</label> <input type="text"
-												name="menu_item_title" class="form-control">
-										</div>
-									</div>
-									<div class="col-md-6">
-										<div class="form-group">
-											<label>Price</label> <input type="number"
-												name="menu_item_price" class="form-control">
-										</div>
-									</div>
-								End form-group
-							</div>
-						</div>
-						End row
+					</div>
+					<!-- <div id="insertArea">
+						insert new item in this Area
 					</div> -->
-					<!-- End strip_menu_items -->
 
-
-
-					<!-- <div class="menu-item-section clearfix">
-							<h4>Menu item #2</h4>
-							<div><a href="#0"><i class="icon_plus_alt"></i></a><a href="#0"><i class="icon_minus_alt"></i></a>
-							</div>
-						</div> -->
-
-					<!-- <div class="strip_menu_items">
-							<div class="row">
-								<div class="col-sm-3">
-									<div class="menu-item-pic dropzone">
-										<input name="file" type="file">
-										<div class="dz-default dz-message"><span>Click or Drop<br>Images Here</span>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-9">
-									<div class="row">
-										<div class="col-md-8">
-											<div class="form-group">
-												<label>Title</label>
-												<input type="text" name="menu_item_title" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-4">
-											<div class="form-group">
-												<label>Price</label>
-												<input type="text" name="menu_item_title_price" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label>Short description</label>
-										<input type="text" name="menu_item_description" class="form-control">
-									</div>
-
-									<div class="form-group">
-										<label>Item options</label>
-                                        <div class="table-responsive">
-										<table class="table table-striped notifications">
-											<tbody>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $3.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Medium">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_5" checked class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_5" class="icheck" value="radio">Radio</label>
-													</td>
-												</tr>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $5.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Large">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_7" class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_7" class="icheck" value="radio" checked>Radio</label>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-                                        </div>
-									</div>End form-group
-
-									<div class="form-group">
-										<label>Item ingredients</label>
-                                        <div class="table-responsive">
-										<table class="table table-striped notifications">
-											<tbody>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $2.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Extra tomato">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_8" checked class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_8" class="icheck" value="radio">Radio</label>
-													</td>
-												</tr>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $5.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Extra Pepper">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_9" class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_9" class="icheck" value="radio" checked>Radio</label>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-                                        </div>
-									</div>End form-group
-								</div>
-							</div>End row
-						</div> -->
-					<!-- End strip_menu_items -->
+					
 				</div>
+				
 				<!-- End wrapper_indent -->
 
 				<hr class="styled_2">
-				<!--                    
-					<div class="wrapper_indent">
-						<div class="form-group">
-							<label>Menu Category</label>
-							<input type="text" name="menu_category" class="form-control" placeholder="EX. Main courses">
-						</div>
-
-						<div class="menu-item-section clearfix">
-							<h4>Menu item #1</h4>
-							<div><a href="#0"><i class="icon_plus_alt"></i></a><a href="#0"><i class="icon_minus_alt"></i></a>
-							</div>
-						</div>
-
-						<div class="strip_menu_items">
-							<div class="row">
-								<div class="col-sm-3">
-									<div class="menu-item-pic dropzone">
-										<input name="file" type="file">
-										<div class="dz-default dz-message"><span>Click or Drop<br>Images Here</span>
-										</div>
-									</div>
-								</div>
-								<div class="col-sm-9">
-									<div class="row">
-										<div class="col-md-8">
-											<div class="form-group">
-												<label>Title</label>
-												<input type="text" name="menu_item_title" class="form-control">
-											</div>
-										</div>
-										<div class="col-md-4">
-											<div class="form-group">
-												<label>Price</label>
-												<input type="text" name="menu_item_title_price" class="form-control">
-											</div>
-										</div>
-									</div>
-									<div class="form-group">
-										<label>Short description</label>
-										<input type="text" name="menu_item_description" class="form-control">
-									</div>
-
-									<div class="form-group">
-										<label>Item options</label>
-                                        <div class="table-responsive">
-										<table class="table table-striped notifications">
-											<tbody>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $3.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Medium">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_10" checked class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_10" class="icheck" value="radio">Radio</label>
-													</td>
-												</tr>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $5.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Large">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_11" class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_11" class="icheck" value="radio" checked>Radio</label>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-                                        </div>
-									</div>End form-group
-
-									<div class="form-group">
-										<label>Item ingredients</label>
-                                        <div class="table-responsive">
-										<table class="table table-striped notifications">
-											<tbody>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $2.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Extra tomato">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_12" checked class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_12" class="icheck" value="radio">Radio</label>
-													</td>
-												</tr>
-												<tr>
-													<td style="width:20%">
-														<input type="text" class="form-control" placeholder="+ $5.50">
-													</td>
-													<td style="width:50%">
-														<input type="text" class="form-control" placeholder="Ex. Extra Pepper">
-													</td>
-													<td style="width:30%">
-														<label>
-															<input type="radio" name="option_item_settings_13" class="icheck" value="checkbox">Checkbox</label>
-														<label class="margin_left">
-															<input type="radio" name="option_item_settings_13" class="icheck" value="radio" checked>Radio</label>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-                                        </div>
-									</div>End form-group
-								</div>
-							</div>End row
-						</div>End strip_menu_items
-					</div>End wrapper_indent -->
 
 				<hr class="styled_2">
 
 				<div class="wrapper_indent">
 					<div class="add_more_cat">
-						<a href="#0" class="btn_1">Save now</a> <a href="#0" class="btn_1">Add
-							menu category</a>
+<!-- 						<a class="btn_1">Save now</a>  -->
+						<button type="submit" class="btn_1">Save now</button> 
+						<a onclick="" class="btn_1">Add menu category</a>
 					</div>
 				</div>
+					</form>
 				<!-- End wrapper_indent -->
-
+<!-- new item -->
+					<div id="insertItem" style="display: none">
+					<c:set var="slength" value=""/>
+						<div>
+							<div class="menu-item-section clearfix">
+								<h4 id="food_num">New menu item </h4>
+								<div>
+									<a onclick="removeItem(this.parentNode.parentNode.parentNode);"><i
+										class="icon_minus_alt"></i></a>
+								</div>
+							</div>
+							<div class="strip_menu_items">
+								<div class="row">
+									<div class="col-sm-2">
+										<input name="f_img_original" id="f_img_original" value="" class="col-sm-12" type="image" src="img/" alt="Please insert food image">
+									</div>
+									<div class="col-sm-2">
+										<div class="menu-item-pic dropzone">
+											<input name="f_img_changed" id="f_img_changed" type="file">
+											<div class="dz-default dz-message">
+												<span>Click or Drop<br>Images Here
+												</span>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-8">
+										<div class="col-md-12">
+											<div class="form-group">
+												<label>Title</label> <input type="text"
+													name="f_name" id="f_name" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Price</label> <input type="number"
+													name="f_price" id="f_price" class="form-control">
+											</div>
+										</div>
+										<!-- 								End form-group -->
+									</div>
+								</div>
+								<!-- 						End row -->
+							</div>
+						</div>
+					</div>
+					<!-- End strip_menu_items -->
 			</section>
 			<!-- End section 2 -->
+			
+<!-- ---------------------------------------------------------------------------------------------- -->
 
 			<section id="section-3">
 
