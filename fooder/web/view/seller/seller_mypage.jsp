@@ -48,7 +48,12 @@ $(document).ready(function() {
 });
 
 function checkpwd(f) {
-	if(pwd1 != pwd2 && phone != '' && addr != ''){
+	var pwd1 = f.u_pwd.value;
+	var pwd2 = f.u_pwd2.value;
+	var tel = f.u_tel.value;
+	var addr = f.u_addr.value;
+	
+	if(pwd1 == pwd2 && tel != '' && addr != ''){
 		f.method = 'post';
 		f.action = 'seller_mypage_modify.ej';
 		f.submit();
@@ -220,13 +225,12 @@ function checkpwd(f) {
 	<div class="row">
     	<div class="col-md-8 col-md-offset-2">
         	<form>
-        	<!-- TODO : set value -->
-        		<input type="text" name="id"  hidden="hidden">
+				<input type="hidden" name="u_id" value="${loginUser.u_id }"/>        		
 				<div class="row">
 					<div class="col-md-12 col-sm-6">
 						<div class="form-group">
 							<label>Address</label>
-							<input type="text" class="form-control" id="addr" name="u_addr" placeholder="Enter your address" required="required">
+							<input type="text" class="form-control" id="addr" name="u_addr" value="${loginUser.u_addr }" placeholder="Enter your address" required="required">
 						</div>
 					</div>
 				</div>
@@ -234,7 +238,7 @@ function checkpwd(f) {
 					<div class="col-md-12 col-sm-6">
 						<div class="form-group">
 							<label>Phone number</label>
-							<input type="tel" id="tel" name="u_tel" class="form-control" placeholder="010-1234-1234" required="required"><!-- pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  -->
+							<input type="tel" id="tel" name="u_tel" class="form-control" value="${loginUser.u_tel }" placeholder="010-1234-1234" required="required"><!-- pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  -->
 						</div>
 					</div>
 				</div>

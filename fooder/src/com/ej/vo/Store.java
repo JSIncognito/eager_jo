@@ -29,6 +29,9 @@ public class Store {
 	public Store() {
 		super();
 	}
+//	UPDATE STORE SET ST_NM=#{st_nm},LAT=#{lat}, 
+//			LOT=#{lot}, ST_IMG=#{st_img}, ST_TIME=#{st_time}, 
+//			ST_ADDR=#{st_addr}, U_ID=#{u_id} WHERE ST_KEY=#{st_key}
 	
 	public Store(String st_nm, String st_type, double lat, double lot, String st_time, String st_addr) {
 		super();
@@ -40,6 +43,15 @@ public class Store {
 		this.st_addr = st_addr;
 	}
 
+	public Store(double st_key, String st_nm, String st_img, String st_time, String st_addr, String u_id) {
+	super();
+	this.st_key = st_key;
+	this.st_nm = st_nm;
+	this.st_img = st_img;
+	this.st_time = st_time;
+	this.st_addr = st_addr;
+	this.u_id = u_id;
+}
 	public Store(String st_nm, String st_type, double lat, double lot, String st_img, String st_time, String st_addr) {
 		super();
 		this.st_nm = st_nm;

@@ -1,7 +1,5 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<script src="jquery-1.11.2.min.js"></script>
-<script src="jquery.serialize-object.min.js"></script>
 <script>
 var slength = 0;
 function addItem(size) {
@@ -18,14 +16,42 @@ function addItem(size) {
 	document.getElementById('insertArea').appendChild(newdiv);
 };
 
-function removeItem(div) {
-// 	alert('minus ' + div.innerHTML + '.');
+function removeItem(div, num) {
 	$(div).remove();
 };
 
 function changeImg() {	// ${food.f_img }, this
 	
 };
+
+function setNum(num) {
+	if(slength == 0) slength = num;
+};
+
+function getNum() {
+	return slength;
+};
+
+// function getLatLot() {
+// 	var addr = $('#st_addr').val();
+// 	var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
+// 		+  addr
+// 		+ '&key=AIzaSyDTp_bOHTzvUSJLqFvCywZV_XoEQrr9tic';
+// 	url = encodeURIComponent(url);
+// 	alert(url);
+	
+// 	$.ajax({
+// 		type: 'POST',
+// 		url: url,
+// 		success: function(receivedData){
+// 			alert(receivedData);
+// 		}, 
+// 		error:function(request,status,error){
+// 		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+// 		}
+// 	});
+// };
+
 </script>
 <section class="parallax-window" id="short" data-parallax="scroll"
 	data-image-src="img/sub_header_cart.jpg" data-natural-width="1400"
@@ -83,11 +109,17 @@ function changeImg() {	// ${food.f_img }, this
 						ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p>
 				</div>
 
+				<form enctype="multipart/form-data" method="post" action="seller_store_modify_store.ej">
+				
+				<input type="hidden" value="${store.st_img }" name="st_original_img" id="st_original_img"/>
+				<input type="hidden" value="${store.u_id }" name="u_id" id="u_id"/>
+				<input type="hidden" value="${store.st_key }" name="st_key" id="st_key"/>
+				<input type="hidden" value="${loginUser.u_id }" name="u_id">
 				<div class="wrapper_indent">
 					<div class="form-group">
 						<label>Restaurant name</label> <input class="form-control"
-							name="st_nm" value="${store.st_nm }" id="restaurant_name"
-							type="text">
+							name="st_nm" value="${store.st_nm }" id="st_nm"
+							type="text" required>
 					</div>
 					<!-- <div class="form-group">
 							<label>Restaurant description</label>
@@ -100,14 +132,14 @@ function changeImg() {	// ${food.f_img }, this
 								<label>Open Hour</label> <input type="number"
 									class="form-control" name="st_openTime_hour"
 									id="st_openTime_hour"
-									value="${fn:substring(store.st_time,0,2) }">
+									value="${fn:substring(store.st_time,0,2) }" required>
 							</div>
 						</div>
 						<div class="col-sm-2">
 							<div class="form-group">
 								<label>Minute</label> <input type="number" class="form-control"
 									name="st_openTime_minute" id="st_openTime_minute"
-									value="${fn:substring(store.st_time,3,5) }">
+									value="${fn:substring(store.st_time,3,5) }" required>
 							</div>
 						</div>
 					</div>
@@ -117,14 +149,14 @@ function changeImg() {	// ${food.f_img }, this
 								<label>Close Hour</label> <input type="number"
 									class="form-control" name="st_closeTime_hour"
 									id="st_closeTime_hour"
-									value="${fn:substring(store.st_time,6,8) }">
+									value="${fn:substring(store.st_time,6,8) }" required>
 							</div>
 						</div>
 						<div class="col-sm-2">
 							<div class="form-group">
 								<label>Minute</label> <input type="number" class="form-control"
 									name="st_closeTime_minute" id="st_closeTime_minute"
-									value="${fn:substring(store.st_time,9,11) }">
+									value="${fn:substring(store.st_time,9,11) }" required>
 							</div>
 						</div>
 					</div>
@@ -144,7 +176,7 @@ function changeImg() {	// ${food.f_img }, this
 
 					<div class="form-group">
 						<label>Address</label> <input type="text" id="st_addr"
-							name="st_addr" value="${store.st_addr }" class="form-control">
+							name="st_addr" value="${store.st_addr }" class="form-control" required>
 					</div>
 					<!-- <div class="col-md-3">
 								<div class="form-group">
@@ -169,16 +201,18 @@ function changeImg() {	// ${food.f_img }, this
 				</div>
 
 				<div class="wrapper_indent add_bottom_45">
+					<div class="row">
 					<div class="form-group">
-						<img alt="${store.st_img }" src="img/${store.st_img }">
+<%-- 						<img alt="${store.st_img }" src="img/${store.st_img }"> --%>
+						<input class="col-sm-4" type="image" name="st_original_img" alt="${store.st_img }" src="img/${store.st_img }">
 					</div>
-
-					<div id="logo_picture" class="dropzone">
-						<label>Upload your restaurant logo</label> <input name="file"
-							type="file">
-						<div class="dz-default dz-message">
-							<span>Click or Drop Images Here</span>
-						</div>
+					</div>
+					<div id="logo_picture">
+						<label>Upload your restaurant logo</label> 
+						<input name="st_changed_img" type="file">
+<!-- 						<div class="dz-default dz-message"> -->
+<!-- 							<span>Click or Drop Images Here</span> -->
+<!-- 						</div> -->
 					</div>
 				</div>
 				<!-- <div class="form-group">
@@ -194,10 +228,9 @@ function changeImg() {	// ${food.f_img }, this
 
 				<hr class="styled_2">
 				<div class="wrapper_indent">
-					<button class="btn_1"
-						onclick="location.href='seller_store_modify.ej';">Save
-						now</button>
+					<button class="btn_1" type="submit">Save now</button>
 				</div>
+				</form>
 				<!-- End wrapper_indent -->
 
 			</section>
@@ -215,8 +248,8 @@ function changeImg() {	// ${food.f_img }, this
 						ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p>
 				</div>
 
-				<form id="submitFood" method="post" action="seller_store_modify.ej" enctype="multipart/form-data">
-				<input type="hidden" value="${store.st_key }" name="st_key"/>
+				<form id="submitFood" method="post" action="seller_store_modify_food.ej" enctype="multipart/form-data">
+				<input type="hidden" value="${store.st_key }" name="st_key" id="st_key"/>
 				<div class="wrapper_indent">
 					<!-- 2017.12.21 Modified by HB Choi -->
 <%-- 					<c:set var="length" value="${fn:length(stMenu)} "/> --%>
@@ -232,39 +265,54 @@ function changeImg() {	// ${food.f_img }, this
 					<c:forEach var="food" items="${stMenu }" varStatus="status">
 <%-- 						<c:set var="count" value="${status.count }"/> --%>
 <%-- 						<c:set var="itemName" value="${'item'+ count}"/> --%>
-						<div>
+						<input type="hidden" name="item${status.count }_f_key" value="${food.f_key }"/>
+						<div id="test">
 							<div class="menu-item-section clearfix item${status.count }">
 								<h4>Menu item#${status.count }</h4>
 								<div>
-									<a onclick="removeItem(this.parentNode.parentNode.parentNode);"><i
+									<a onclick="removeItem(this.parentNode.parentNode.parentNode, ${status.count});"><i
 										class="icon_minus_alt"></i></a>
 								</div>
 							</div>
 							<div class="strip_menu_items">
 								<div class="row">
 									<div class="col-sm-2">
-										<input id="${food.f_img }" value="${food.f_img }" class="col-sm-12" type="image" src="img/${food.f_img }" alt="${food.f_img }">
-										<input type="hidden" value="${food.f_img }" name="item${status.count }_f_img_original" />
-									</div>
-									<div class="col-sm-2">
-										<div class="menu-item-pic dropzone">
-											<input name="item${status.count }_f_img_changed" type="file"/>
-											<div class="dz-default dz-message">
-												<span>Click or Drop<br>Images Here
-												</span>
-											</div>
+										<div class="col-sm-12">
+										<div class="form-group">
+											<label>Current Image</label>
+											<input id="${food.f_img }" value="${food.f_img }" class="col-sm-12" type="image" src="img/${food.f_img }" alt="${food.f_img }">
+											<input type="hidden" value="${food.f_img }" name="item${status.count }_f_img_original" />
+										</div>
 										</div>
 									</div>
-									<div class="col-sm-8">
+									<%-- <div class="col-sm-2">
+									<div class="menu-item-pic dropzone">
+										<div>
+											<input type="file" name="item${status.count }_f_img_changed"/>
+											<div class="dz-default dz-message">
+												<span>Click or Drop<br>Images Here</span>
+											</div>
+										</div>
+									</div> --%>
+									<div class="col-sm-10">
 										<div class="col-md-12">
 											<div class="form-group">
-												<label>Title</label> <input type="text" name="item${status.count }_f_name" value="${food.f_name }" class="form-control">
+												<label>Title</label> <input type="text" name="item${status.count }_f_name" value="${food.f_name }" class="form-control" required>
 											</div>
 										</div>
-										<div class="col-md-6">
-											<div class="form-group">
-												<label>Price</label> <input type="number" name="item${status.count }_f_price" value="${food.f_price }" class="form-control">
+										<div class="col-md-12">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>Price</label> <input type="number" name="item${status.count }_f_price" value="${food.f_price }" class="form-control" required>
+												</div>
 											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<label>New Image</label><input type="file" name="item${status.count }_f_img_changed"/>
+												</div>
+											</div>
+										</div>
 										</div>
 										<!-- End form-group -->
 									</div>
@@ -299,7 +347,6 @@ function changeImg() {	// ${food.f_img }, this
 				<!-- End wrapper_indent -->
 <!-- new item -->
 					<div id="insertItem" style="display: none">
-					<c:set var="slength" value=""/>
 						<div>
 							<div class="menu-item-section clearfix">
 								<h4 id="food_num">New menu item </h4>
@@ -310,30 +357,38 @@ function changeImg() {	// ${food.f_img }, this
 							</div>
 							<div class="strip_menu_items">
 								<div class="row">
-									<div class="col-sm-2">
-										<input name="f_img_original" id="f_img_original" value="" class="col-sm-12" type="image" src="img/" alt="Please insert food image">
-									</div>
-									<div class="col-sm-2">
-										<div class="menu-item-pic dropzone">
+									<input name="f_img_original" id="f_img_original" value="" type="hidden">
+									<!-- <div class="col-sm-2">
+										<div>
 											<input name="f_img_changed" id="f_img_changed" type="file">
 											<div class="dz-default dz-message">
 												<span>Click or Drop<br>Images Here
 												</span>
 											</div>
 										</div>
-									</div>
-									<div class="col-sm-8">
+									</div> -->
+									<div class="col-sm-12">
 										<div class="col-md-12">
 											<div class="form-group">
 												<label>Title</label> <input type="text"
-													name="f_name" id="f_name" class="form-control">
+													name="f_name" id="f_name" class="form-control" required>
+											</div>
+										</div>
+										<div class="col-md-12">
+										<div class="row">
+										<div class="col-md-6">
+											<div class="form-group">
+												<label>Price</label> <input type="number"
+													name="f_price" id="f_price" class="form-control" required>
 											</div>
 										</div>
 										<div class="col-md-6">
 											<div class="form-group">
-												<label>Price</label> <input type="number"
-													name="f_price" id="f_price" class="form-control">
+												<label>New Image</label> 
+												<input name="f_img_changed" id="f_img_changed" type="file" required>
 											</div>
+										</div>
+										</div>
 										</div>
 										<!-- 								End form-group -->
 									</div>
