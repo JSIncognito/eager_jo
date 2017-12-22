@@ -1,13 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" 
+pageEncoding="utf-8"%>
+<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+ --%>
 <!-- 20171212_JS Sprint and jstl add -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+#gender{
+	color:black;
+}
+</style>
 <!DOCTYPE html>
 <!--[if IE 9]><html class="ie ie9"> <![endif]-->
 <html>
 <head>
-<!--     <meta charset="utf-8"> -->
+<!--      <meta charset="utf-8"> -->
     <meta charset="EUC-KR">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -112,6 +120,7 @@
                     <img src="img/logo.png" width="190" height="23" alt="" data-retina="true">
                 </div>
                 <a href="#" class="open_close" id="close_in"><i class="icon_close"></i></a>
+
                  <ul>
                    <!--  <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Home<i class="icon-down-open-mini"></i></a>
@@ -126,6 +135,13 @@
                         <li><a href="index_7.html">Top Menu version 2</a></li>
                     </ul>
                     </li> -->
+<c:choose>
+<c:when test="${loginuser.u_id != null }">
+ 	                <li><a href="logout.ej">${loginuser.u_nm }님</a></li>
+ 
+<%--  	                <li><h3>${loginuser.u_nm } User</h3></li> --%>
+</c:when>
+</c:choose>                    
                     <li><a href="main.ej">Home</a></li>
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
@@ -137,11 +153,23 @@
                     </ul>
                     </li>
                     <li><a href="coupon_event.ej">Event</a></li>
+<c:choose>
+<c:when test="${loginuser.u_id == null }">
                     <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
-                    <li><a href="logout.ej">Logout</a></li>
-                    <li><a href="user_mypage.ej">Mypage</a></li>
                     <li><a href="#0" data-toggle="modal" data-target="#register_select">Register</a></li>
+</c:when>
+<c:otherwise>
+                    <li><a href="logout.ej">Logout</a></li>
+	<c:choose>
+	<c:when test="${loginuser.u_flag == 1}">
+                    <li><a href="user_mypage.ej">Mypage</a></li>
+	</c:when>
+	<c:otherwise>
                     <li><a href="seller_main.ej">SellerPage</a></li>
+	</c:otherwise>
+	</c:choose>
+</c:otherwise>
+</c:choose>
                     <!-- <li><a href="about.html">About us</a></li>
                     <li><a href="faq.html">Faq</a></li>
                     <li class="submenu">
@@ -254,47 +282,62 @@
     </div><!-- End container -->
     </footer>
     <!-- End Footer =============================================== -->
-
 <div class="layer"></div><!-- Mobile menu overlay mask -->
-
+<!-- 20171221_JS login and register Modify -->
 <!-- Login modal -->   
 <div class="modal fade" id="login_2" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<form action="#" class="popup-form" id="myLogin">
+				<form action="login.ej" class="popup-form" id="myLogin" method="post">
                 	<div class="login_icon"><i class="icon_lock_alt"></i></div>
-					<input type="text" class="form-control form-white" placeholder="Username">
-					<input type="text" class="form-control form-white" placeholder="Password">
+ 					<input type="text" class="form-control form-white" placeholder="User ID" name="u_id" required/>
+
+<!--  					<input type="text" class="form-control form-white" placeholder="User ID" name="u_id" /> -->
+ 					<input type="password" class="form-control form-white" placeholder="Password" name="u_pwd" required/>
+
+<!--  					<input type="text" class="form-control form-white" placeholder="Password" name="u_pwd" /> -->
 					<div class="text-left">
 						<a href="#">Forgot Password?</a>
 					</div>
-					<button type="submit" class="btn btn-submit">Submit</button>
+<!-- 					<button type="submit" class="btn btn-submit">Submit</button> -->
+					<input type="submit" class="btn btn-submit" value="Submit"/>
 				</form>
 			</div>
 		</div>
 	</div><!-- End modal -->   
-    
 <!-- Register modal -->   
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<form action="#" class="popup-form" id="myRegister">
+				<form action="users_register.ej" class="popup-form" id="myRegister" method="post">
                 	<div class="login_icon"><i class="icon_lock_alt"></i></div>
-					<input type="text" class="form-control form-white" placeholder="Name">
-					<input type="text" class="form-control form-white" placeholder="Last Name">
-                    <input type="email" class="form-control form-white" placeholder="Email">
-                    <input type="text" class="form-control form-white" placeholder="Password"  id="password1">
-                    <input type="text" class="form-control form-white" placeholder="Confirm password"  id="password2">
+					<!-- 20171220_JS Register modify -->
+					<input type="text" class="form-control form-white" placeholder="ID" name="u_id" required/>
+                    <input type="password" class="form-control form-white" placeholder="Password" id="password1" name="u_pwd"  required/>
+                    <input type="password" class="form-control form-white" placeholder="Confirm password" id="password2" required/>
+					<input type="text" class="form-control form-white" placeholder="Name" name="u_nm" required/>
+					<input type="tel" class="form-control form-white" placeholder="Telephone number" name="u_tel" required/>
+                    <input type="text" class="form-control form-white" placeholder="Address" name="u_addr" required/>
+<!--  					<label for="bday-month">What month were you born in?</label> -->
+                    <input type="date" class="form-control form-white" min="1900-01-01" max="2018-12-31" name="uAge" required/>
+					<select class="form-control form-white" name="u_gen" required>
+						<optgroup label=""  id="gender">
+							<option value="M">male</option>
+							<option value="F">female</option>
+						</optgroup>
+					</select>					
+
                     <div id="pass-info" class="clearfix"></div>
 					<div class="checkbox-holder text-left">
 						<div class="checkbox">
-							<input type="checkbox" value="accept_2" id="check_2" name="check_2" />
+							<input type="checkbox" value="accept_2" id="check_2" name="check_2" required/>
 							<label for="check_2"><span>I Agree to the <strong>Terms &amp; Conditions</strong></span></label>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-submit">Register</button>
+<!-- 					<button type="submit" class="btn btn-submit">Register</button> -->
+						<input type="submit" class="btn btn-submit" value="Register" />
 				</form>
 			</div>
 		</div>
@@ -334,6 +377,7 @@
 
 <!-- 20171214_JS store_detail.jsp add -->
 <!-- SPECIFIC SCRIPTS -->
+<!-- 
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script src="js/map_single.js"></script>
 <script src="js/infobox.js"></script>
@@ -355,22 +399,23 @@
 			autoplay: false
 		});
 	});
-</script>
+</script> -->
 <!-- 20171214_JS store_detail.jsp add -->
 
 <!-- 20171214_JS order1.jsp, order2 add -->
 <!-- SPECIFIC SCRIPTS -->
-<script src="js/theia-sticky-sidebar.js"></script>
+<!-- <script src="js/theia-sticky-sidebar.js"></script>
 <script>
     jQuery('#sidebar').theiaStickySidebar({
       additionalMarginTop: 80
     });
 </script>
+ -->
 <!-- 20171214_JS order.jsp add -->
 
 <!-- 20171214_JS store_menu.jsp add -->
 <!-- SPECIFIC SCRIPTS -->
-<script  src="js/cat_nav_mobile.js"></script>
+<!-- <script  src="js/cat_nav_mobile.js"></script>
 <script>$('#cat_nav').mobileMenu();</script>
 <script src="js/theia-sticky-sidebar.js"></script>
 <script>
@@ -390,10 +435,11 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
 			});
 		});
 </script>
+ -->
 <!-- 20171214_JS store_menu.jsp add -->
 <!-- 20171214_JS store_grid.jsp, store_list.jsp, store_map.jsp add -->
 <!-- SPECIFIC SCRIPTS -->
-<script  src="js/cat_nav_mobile.js"></script>
+<!-- <script  src="js/cat_nav_mobile.js"></script>
 <script>$('#cat_nav').mobileMenu();</script>
 <script src="http://maps.googleapis.com/maps/api/js"></script>
 <script src="js/map.js"></script>
@@ -415,12 +461,11 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
             grid: true
         });
     });
-</script>
+</script> -->
 <!-- 20171214_JS store_grid.jsp, store_list.jsp add -->
-
 <!-- 20171214_JSseller_store.jsp -->
 	<!-- Specific scripts -->
-	<script src="js/tabs.js"></script>
+<!-- 	<script src="js/tabs.js"></script>
 	<script>
 		new CBPFWTabs(document.getElementById('tabs'));
 	</script>
@@ -450,7 +495,7 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
 				addRemoveLinks: true
 			});
 		}
-	</script>
+	</script> -->
 <!-- seller_store -->
 <!-- 20171219_JS index.html Add -->
 <!-- SPECIFIC SCRIPTS -->

@@ -653,3 +653,38 @@
 			</div><!-- End content -->
 		</div>
 	</div><!-- End container  -->
+<!-- 20171214_JSseller_store_detail.jsp -->
+	<!-- Specific scripts -->
+	<script src="js/tabs.js"></script>
+	<script>
+		new CBPFWTabs(document.getElementById('tabs'));
+	</script>
+
+	<script src="js/bootstrap3-wysihtml5.min.js"></script>
+	<script type="text/javascript">
+		$('.wysihtml5').wysihtml5({});
+	</script>
+	<script src="js/dropzone.min.js"></script>
+	<script>
+		if ($('.dropzone').length > 0) {
+			Dropzone.autoDiscover = false;
+			$("#photos").dropzone({
+				url: "upload",
+				addRemoveLinks: true
+			});
+
+			$("#logo_picture").dropzone({
+				url: "upload",
+				maxFiles: 1,
+				addRemoveLinks: true
+			});
+
+			$(".menu-item-pic").dropzone({
+				url: "upload",
+				maxFiles: 1,
+				addRemoveLinks: true
+			});
+		}
+	</script>
+<!-- seller_store -->
+	

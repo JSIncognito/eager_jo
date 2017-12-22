@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
  	<select id="select_cate" resultType="store">
 	</select>
  -->
- 	<!-- 점주소유의 가게리스트 불러오기 -->
+	<!-- 20171220_ksy add-->
  	<select id="select_myStore" parameterType="String" resultType="store">
  	SELECT * FROM STORE S WHERE S.U_ID IN (SELECT U.U_ID FROM USERS U WHERE U.U_FLAG=2) AND U_ID=#{uId}
  	</select>

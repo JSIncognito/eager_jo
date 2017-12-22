@@ -347,3 +347,28 @@
 		</div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->
+<!-- 20171214_JS store_detail.jsp add -->
+<!-- SPECIFIC SCRIPTS -->
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="js/map_single.js"></script>
+<script src="js/infobox.js"></script>
+<script src="js/jquery.sliderPro.min.js"></script>
+<script type="text/javascript">
+	$( document ).ready(function( $ ) {
+		$( '#Img_carousel' ).sliderPro({
+			width: 960,
+			height: 500,
+			fade: true,
+			arrows: true,
+			buttons: false,
+			fullScreen: false,
+			smallSize: 500,
+			startSlide: 0,
+			mediumSize: 1000,
+			largeSize: 3000,
+			thumbnailArrows: true,
+			autoplay: false
+		});
+	});
+</script>
+<!-- 20171214_JS store_detail.jsp add -->
