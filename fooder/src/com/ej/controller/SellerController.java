@@ -1,12 +1,12 @@
 package com.ej.controller;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +15,9 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
@@ -44,7 +46,7 @@ public class SellerController {
 //		Users user = (Users) session.getAttribute("loginUser");
 		
 		// TEST !!!
-		String id = "admin306";	// ÀÓÀÇ
+		String id = "admin306";	// ì„ì˜
 		Users user = usersbiz.get(id);
 		
 		request.setAttribute("center", "seller/seller_mypage");
@@ -69,11 +71,11 @@ public class SellerController {
 		return "main";
 	}
 	
-	// test¿ë!! seller_store_detail.jsp ¶ç¿ì±â 
+	// testìš©!! seller_store_detail.jsp ë³´ì—¬ì£¼ê¸°
 	@RequestMapping("/seller_store_detail_test.ej")
 	public String seller_store_detail_test(HttpServletRequest request) {
 		// TEST !!!
-		Store store = new Store(9090098358.0, "test store", "Ä¡Å²", 127.123, 34.123, "devices.jpg", "11:00-22:00", "test addr", 5, "test_id");
+		Store store = new Store(9090098358.0, "test store", "í…ŒìŠ¤íŠ¸", 127.123, 34.123, "devices.jpg", "11:00-22:00", "test addr", 5, "test_id");
 		request.setAttribute("store", store);
 		request.setAttribute("stMenu", foodbiz.select_stMenu(9090098358.0));
 		
@@ -82,17 +84,17 @@ public class SellerController {
 	}
 	
 	
-	// seller_store_detail.jsp ¶ç¿ì±â 
+	// seller_store_detail.jsp ë³´ì—¬ì£¼ê¸°
 	@RequestMapping("/seller_store_detail.ej")
 	public String seller_store_detail(HttpServletRequest request) {
 		System.out.println("/seller_store_detail");
 		
-		// Store Á¤º¸ °¡Á®¿À±â
+		// Store ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 		String st_key = (String)request.getParameter("st_key");
 		System.out.println("st_key: " + st_key);
 		Store store = storebiz.get(Double.parseDouble(st_key));
 		
-		// Store Á¤º¸ º¸³»±â
+		// Store ì •ë³´ ë³´ë‚´ê¸°
 		request.setAttribute("store", store);
 		request.setAttribute("stMenu", foodbiz.select_stMenu(9090098358.0));
 		request.setAttribute("center", "seller/seller_store_detail");
@@ -101,78 +103,118 @@ public class SellerController {
 	
 	@RequestMapping("/seller_store_modify_store.ej")
 	public void seller_store_modify_store(HttpServletRequest request, HttpServletResponse res) throws Exception {
+		res.setCharacterEncoding("utf-8");
 		System.out.println("/seller_store_modify_store");
 //		System.out.println("new store info: " + store);
 
 		String key = request.getParameter("st_key");
 		String orig_img = request.getParameter("st_original_img");
-		String chn_img = request.getParameter("st_changed_img");
 		String addr = request.getParameter("st_addr");
+		String addr_orig = request.getParameter("st_addr_orig");
 		String uid = request.getParameter("u_id");
+		String name = request.getParameter("st_nm");
 		
 		String ohour = (String) request.getParameter("st_openTime_hour");
 		String ominute = (String) request.getParameter("st_openTime_minute");
 		String chour = (String) request.getParameter("st_closeTime_hour");
 		String cminute = (String) request.getParameter("st_closeTime_minute");
+		
+		System.out.println("key: " + key + "orig_img: " + orig_img + "addr: " + addr+ "uid: " + uid );
+		
+		// time ì„¤ì •
 		String hour = ohour + ":" + ominute + "-" + chour + ":" + cminute;
 		
-		// lat, lot Ãß°¡
-		String url = "https://maps.googleapis.com/maps/api/geocode/json?address="
-		 		+  addr
-		 		+ "&key=AIzaSyDTp_bOHTzvUSJLqFvCywZV_XoEQrr9tic";
-
+		// lat, lot ì„¤ì •
+//		Double lat = .0;
+//		Double lot = .0;
+//		if(!addr.equals(addr_orig)) {
+//			JSONObject jo = getLatLot(addr);
+//			System.out.println(jo);
+//			lat = (Double) jo.get("y");
+//			lot = (Double) jo.get("x");
+//		} else {
+//			lat = Double.parseDouble((String)request.getParameter("lat"));
+//			lot = Double.parseDouble((String)request.getParameter("lot"));
+//		}
 		
-		// img Ãß°¡
+		// img ì„¤ì •
+		MultipartRequest mr = (MultipartRequest) request;
+		MultipartFile mf = mr.getFile("st_changed_img");
 		
-		// time Ãß°¡
+		String imgname = "";
+		if(mf.isEmpty()) {
+			imgname = orig_img;
+		} else {
+			imgname = mf.getName();
+			byte[] data;
+			try {
+				data = mf.getBytes();
+				FileOutputStream out = new FileOutputStream("C:/github/eager_jo/fooder/web/img/" + imgname);
+				out.write(data);
+				out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		
+//		Store store = new Store(Double.parseDouble(key), name, lat, lot, imgname, hour, addr, uid);
+//		System.out.println(store);
+//		storebiz.modify(store);
+		
+		RequestDispatcher dispatcher = request.getRequestDispatcher("seller_store_detail.ej");
+		try {
+			dispatcher.forward(request, res);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
 	}
 	
-	// storeÀÇ food Á¤º¸ ¼öÁ¤ÇÏ±â
+	// storeì˜ food ì •ë³´ ìˆ˜ì •
 	@RequestMapping("/seller_store_modify_food.ej")
 	public void seller_store_modify_food(HttpServletRequest request, HttpServletResponse res) {
 		System.out.println("/seller_store_modify_food");
 		int idx = 1;
 		
-		// »çÁø ¹Ş±â À§ÇÑ requestÀÎ mr ¼³Á¤
+		// ì‚¬ì§„ ê°€ì ¸ì˜¤ê¸°ìš©
 		MultipartRequest mr = (MultipartRequest) request;
 
-		// »óÁ¡ Å° °ª ¹Ş¾Æ¿À±â 
+		// st_key ì„¤ì •
 		String skey = (String) request.getParameter("st_key");
 		double key = Double.parseDouble(skey);
 
-		// food »èÁ¦¿ë ¸®½ºÆ® 
+		// food key ê°€ì ¸ì˜¤ê¸°ìš© 
 		List<Double> keys = new ArrayList<>();
 		
-		// food °ª ¹Ş¾Æ¿À±â
+		// food ì—…ë°ì´íŠ¸
 		while(true) {
-			// ±âÁ¸ »çÁø ÀÌ¸§, À½½Ä¸í, °¡°İ °¡Á®¿À±â
+			// ê¸°ë³¸ ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 			String f_key = request.getParameter("item" + idx + "_f_key");
 			String img_original = (String) request.getParameter("item" + idx + "_f_img_original");
 			String name = (String) request.getParameter("item" + idx + "_f_name");
 			String price = (String) request.getParameter("item" + idx + "_f_price");
 			
 			System.out.println("data: " + f_key + "/" + img_original + "/" + name + "/" + price + "/");
-			// while¹® ³¡
+			// whileë¬¸ ë
 			if(name == null || name.equals("")) break;	
 			keys.add(Double.parseDouble(f_key));
 			
-			// »çÁø °¡Á®¿À±â
+			// ë³€ê²½ ì´ë¯¸ì§€ ê°€ì ¸ì˜¤ê¸°
 			MultipartFile mf = mr.getFile("item" + idx + "_f_img_changed");
 			
-			// ÀÔ·ÂÇÑ »çÁø ÀÌ¸§ Ã³¸®
+			// ì´ë¯¸ì§€ì´ë¦„
 			String imgname = "";
 			
 			Food food = null;
-			if(img_original.equals("") || img_original == null) {// »õ·Î¿î À½½Ä µî·Ï
+			if(img_original.equals("") || img_original == null) {	// ìƒˆë¡œìš´ ìŒì‹ ì¶”ê°€
 				System.out.println("new food");
 				imgname = mf.getOriginalFilename();
 				food = new Food(name, Double.parseDouble(price), imgname, key);
 				foodbiz.register(food);
 			} else {
-				if(mf.isEmpty()) { // ±âÁ¸ À½½Ä »çÁø º¯°æ x
+				if(mf.isEmpty()) { // ìŒì‹ ì‚¬ì§„ ë³€ê²½ x
 					System.out.println("not changed");
 					imgname = img_original;
-				} else { // ±âÁ¸ À½½Ä »çÁø º¯°æ o 
+				} else { // ìŒì‹ ì‚¬ì§„ ë³€ê²½ o
 					System.out.println("changed");
 					imgname = mf.getOriginalFilename();
 				}
@@ -181,7 +223,7 @@ public class SellerController {
 			}
 			System.out.println("food" + idx + ": " + food);
 			
-			if(!mf.isEmpty()) {		// ±âÁ¸ À½½Ä »çÁø º¯°æ x
+			if(!mf.isEmpty()) {		// ìŒì‹ ì‚¬ì§„ ì €ì¥
 				byte[] data;
 				try {
 					data = mf.getBytes();
@@ -196,9 +238,9 @@ public class SellerController {
 			idx++;
 		}
 		
-		// food »èÁ¦ÇÏ±â
+		// food ì œê±°
 		List<Food> foods = foodbiz.select_stMenu(key);
-		if(foods.size() != idx-1) {	// »èÁ¦ÇÒ Ç×¸ñ ÀÖÀ½
+		if(foods.size() != idx-1) {	// ì œê±°ëœ food ìˆì„ ê²½ìš°
 			for(Food f : foods) {
 				if(!keys.contains(f.getF_key())) {
 					foodbiz.remove(f.getF_key());
@@ -216,7 +258,54 @@ public class SellerController {
 		} 
 	}
 	
-	
+	@RequestMapping("/getlatlot.ej")
+	public void getLatLot(HttpServletResponse res, String addr) {
+		System.out.println("/getlatlot.ej");
+		JSONObject result = null;
+		
+		String clientId = "MoWWppcCbc3maWhpTijC";//ì• í”Œë¦¬ì¼€ì´ì…˜ í´ë¼ì´ì–¸íŠ¸ ì•„ì´ë””ê°’";
+        String clientSecret = "WHLQ_6RSaM";//ì• í”Œë¦¬ì¼€ì´ì…˜ í´ë¼ì´ì–¸íŠ¸ ì‹œí¬ë¦¿ê°’";
+		
+		try {
+            String newaddr = URLEncoder.encode(addr, "UTF-8");
+            String apiURL = "https://openapi.naver.com/v1/map/geocode?query=" + newaddr; //json
+            
+            URL url = new URL(apiURL);
+            System.out.println(url);
+            HttpURLConnection con = (HttpURLConnection)url.openConnection();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("X-Naver-Client-Id", clientId);
+            con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+            int responseCode = con.getResponseCode();
+            InputStreamReader isr;
+            if(responseCode==200) { // ì •ìƒ í˜¸ì¶œ
+                isr = new InputStreamReader(con.getInputStream(), "utf-8");
+            } else {  // ì—ëŸ¬ ë°œìƒ
+                isr = new InputStreamReader(con.getErrorStream(), "utf-8");
+            }
+            JSONObject items = (JSONObject) JSONValue.parseWithException(isr); 
+    		JSONObject bodyArray = (JSONObject) items.get("result");
+    		JSONArray ja = (JSONArray) bodyArray.get("items");
+    		System.out.println("ja: " + ja);
+    		bodyArray = (JSONObject) ja.get(0);
+    		result = (JSONObject) bodyArray.get("point");
+    		System.out.println(result);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+		
+//		return result;
+		PrintWriter out = null;
+		try {
+			out = res.getWriter();
+			out.println(result);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			out.close();
+		}
+	}
 //	@RequestMapping("/test.ej")
 //	public String test(HttpServletRequest request) {
 //		request.setAttribute("center", "test");

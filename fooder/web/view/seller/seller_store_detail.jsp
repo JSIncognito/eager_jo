@@ -32,25 +32,23 @@ function getNum() {
 	return slength;
 };
 
-// function getLatLot() {
-// 	var addr = $('#st_addr').val();
-// 	var url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-// 		+  addr
-// 		+ '&key=AIzaSyDTp_bOHTzvUSJLqFvCywZV_XoEQrr9tic';
-// 	url = encodeURIComponent(url);
-// 	alert(url);
-	
-// 	$.ajax({
-// 		type: 'POST',
-// 		url: url,
-// 		success: function(receivedData){
-// 			alert(receivedData);
-// 		}, 
-// 		error:function(request,status,error){
-// 		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-// 		}
-// 	});
-// };
+function getLatLot() {
+	var staddr = $('input[name="st_addr"]').val();
+	$.ajax({
+		url: 'getlatlot.ej',
+		data: {'addr':staddr},
+		dataType:"json",
+		type:"post",
+		success: function(data){
+			$('input[name="lat"]').val(data.y);
+			$('input[name="lot"]').val(data.x);
+			alert($('input[name="lat"]').val() + "/" + $('input[name="lot"]').val());
+		}, 
+		error:function(request,status,error){
+		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		}
+	});
+};
 
 </script>
 <section class="parallax-window" id="short" data-parallax="scroll"
@@ -115,6 +113,8 @@ function getNum() {
 				<input type="hidden" value="${store.u_id }" name="u_id" id="u_id"/>
 				<input type="hidden" value="${store.st_key }" name="st_key" id="st_key"/>
 				<input type="hidden" value="${loginUser.u_id }" name="u_id">
+				<input type="hidden" value="${loginUser.lat }" name="lat">
+				<input type="hidden" value="${loginUser.lot}" name="lot">
 				<div class="wrapper_indent">
 					<div class="form-group">
 						<label>Restaurant name</label> <input class="form-control"
@@ -175,8 +175,9 @@ function getNum() {
 				<div class="wrapper_indent">
 
 					<div class="form-group">
-						<label>Address</label> <input type="text" id="st_addr"
-							name="st_addr" value="${store.st_addr }" class="form-control" required>
+						<label>Address</label> 
+						<input type="text" id="st_addr" name="st_addr" value="${store.st_addr }" class="form-control" required>
+						<input type="hidden" id="st_addr_orig" name="st_addr_orig" value="${store.st_addr }">
 					</div>
 					<!-- <div class="col-md-3">
 								<div class="form-group">
@@ -203,8 +204,8 @@ function getNum() {
 				<div class="wrapper_indent add_bottom_45">
 					<div class="row">
 					<div class="form-group">
-<%-- 						<img alt="${store.st_img }" src="img/${store.st_img }"> --%>
-						<input class="col-sm-4" type="image" name="st_original_img" alt="${store.st_img }" src="img/${store.st_img }">
+						<img class="col-sm-4" alt="${store.st_img }" src="img/${store.st_img }">
+						<input class="col-sm-4" type="hidden" name="st_original_img" value="${store.st_img }">
 					</div>
 					</div>
 					<div id="logo_picture">
@@ -228,7 +229,7 @@ function getNum() {
 
 				<hr class="styled_2">
 				<div class="wrapper_indent">
-					<button class="btn_1" type="submit">Save now</button>
+					<button class="btn_1" type="button" onclick="getLatLot();">Save now</button>
 				</div>
 				</form>
 				<!-- End wrapper_indent -->
