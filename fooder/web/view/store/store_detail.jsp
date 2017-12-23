@@ -349,7 +349,7 @@
 <!-- End Content =============================================== -->
 <!-- 20171214_JS store_detail.jsp add -->
 <!-- SPECIFIC SCRIPTS -->
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCO-5elUHG0jQxmqfoZ37TqGOu73yjouzE"></script>
 <script src="js/map_single.js"></script>
 <script src="js/infobox.js"></script>
 <script src="js/jquery.sliderPro.min.js"></script>

@@ -6,11 +6,6 @@ pageEncoding="utf-8"%>
 <!-- 20171212_JS Sprint and jstl add -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<style>
-#gender{
-	color:black;
-}
-</style>
 <!DOCTYPE html>
 <!--[if IE 9]><html class="ie ie9"> <![endif]-->
 <html>
@@ -73,22 +68,29 @@ pageEncoding="utf-8"%>
 	<!-- SPECIFIC CSS -->
     <link href="css/blog.css" rel="stylesheet">
 
-    <style>
-        html,
-        body {
-            height: 100%;
-        }
-    </style>
+<style>
+html,
+body {
+    height: 100%;
+}
+#gender{
+	color:black;
+}       
+</style>
 <!-- 20171214_JS store_map -->
 
     <!--[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
     <![endif]-->
+	<!-- COMMON SCRIPTS -->
+	<script src="js/jquery-2.2.4.min.js"></script>
+	<script src="js/common_scripts_min.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="assets/validate.js"></script>
 </head>
 
 <body>
-
 <!--[if lte IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
@@ -137,9 +139,8 @@ pageEncoding="utf-8"%>
                     </li> -->
 <c:choose>
 <c:when test="${loginuser.u_id != null }">
- 	                <li><a href="logout.ej">${loginuser.u_nm }님</a></li>
- 
-<%--  	                <li><h3>${loginuser.u_nm } User</h3></li> --%>
+ 	                <li><a href="logout.ej">${loginuser.u_nm }??/a></li>
+ <%--  	                <li><h3>${loginuser.u_nm } User</h3></li> --%>
 </c:when>
 </c:choose>                    
                     <li><a href="main.ej">Home</a></li>
@@ -205,7 +206,6 @@ pageEncoding="utf-8"%>
 		<jsp:include page="${center }.jsp"></jsp:include>
 	</c:otherwise>
 </c:choose>
-
     <!-- Footer ================================================== -->
     <footer>
     <div class="container">
@@ -368,152 +368,6 @@ pageEncoding="utf-8"%>
 		</form>
 	</div>
 	<!-- End Search Menu -->
-    
-<!-- COMMON SCRIPTS -->
-<script src="js/jquery-2.2.4.min.js"></script>
-<script src="js/common_scripts_min.js"></script>
-<script src="js/functions.js"></script>
-<script src="assets/validate.js"></script>
-
-<!-- 20171214_JS store_detail.jsp add -->
-<!-- SPECIFIC SCRIPTS -->
-<!-- 
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="js/map_single.js"></script>
-<script src="js/infobox.js"></script>
-<script src="js/jquery.sliderPro.min.js"></script>
-<script type="text/javascript">
-	$( document ).ready(function( $ ) {
-		$( '#Img_carousel' ).sliderPro({
-			width: 960,
-			height: 500,
-			fade: true,
-			arrows: true,
-			buttons: false,
-			fullScreen: false,
-			smallSize: 500,
-			startSlide: 0,
-			mediumSize: 1000,
-			largeSize: 3000,
-			thumbnailArrows: true,
-			autoplay: false
-		});
-	});
-</script> -->
-<!-- 20171214_JS store_detail.jsp add -->
-
-<!-- 20171214_JS order1.jsp, order2 add -->
-<!-- SPECIFIC SCRIPTS -->
-<!-- <script src="js/theia-sticky-sidebar.js"></script>
-<script>
-    jQuery('#sidebar').theiaStickySidebar({
-      additionalMarginTop: 80
-    });
-</script>
- -->
-<!-- 20171214_JS order.jsp add -->
-
-<!-- 20171214_JS store_menu.jsp add -->
-<!-- SPECIFIC SCRIPTS -->
-<!-- <script  src="js/cat_nav_mobile.js"></script>
-<script>$('#cat_nav').mobileMenu();</script>
-<script src="js/theia-sticky-sidebar.js"></script>
-<script>
-    jQuery('#sidebar').theiaStickySidebar({
-      additionalMarginTop: 80
-    });
-</script>
-<script>
-$('#cat_nav a[href^="#"]').on('click', function (e) {
-			e.preventDefault();
-			var target = this.hash;
-			var $target = $(target);
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top - 70
-			}, 900, 'swing', function () {
-				window.location.hash = target;
-			});
-		});
-</script>
- -->
-<!-- 20171214_JS store_menu.jsp add -->
-<!-- 20171214_JS store_grid.jsp, store_list.jsp, store_map.jsp add -->
-<!-- SPECIFIC SCRIPTS -->
-<!-- <script  src="js/cat_nav_mobile.js"></script>
-<script>$('#cat_nav').mobileMenu();</script>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
-<script src="js/map.js"></script>
-<script src="js/infobox.js"></script>
-<script src="js/ion.rangeSlider.js"></script>
-<script>
-    $(function () {
-		 'use strict';
-        $("#range").ionRangeSlider({
-            hide_min_max: true,
-            keyboard: true,
-            min: 0,
-            max: 15,
-            from: 0,
-            to:5,
-            type: 'double',
-            step: 1,
-            prefix: "Km ",
-            grid: true
-        });
-    });
-</script> -->
-<!-- 20171214_JS store_grid.jsp, store_list.jsp add -->
-<!-- 20171214_JSseller_store.jsp -->
-	<!-- Specific scripts -->
-<!-- 	<script src="js/tabs.js"></script>
-	<script>
-		new CBPFWTabs(document.getElementById('tabs'));
-	</script>
-
-	<script src="js/bootstrap3-wysihtml5.min.js"></script>
-	<script type="text/javascript">
-		$('.wysihtml5').wysihtml5({});
-	</script>
-	<script src="js/dropzone.min.js"></script>
-	<script>
-		if ($('.dropzone').length > 0) {
-			Dropzone.autoDiscover = false;
-			$("#photos").dropzone({
-				url: "upload",
-				addRemoveLinks: true
-			});
-
-			$("#logo_picture").dropzone({
-				url: "upload",
-				maxFiles: 1,
-				addRemoveLinks: true
-			});
-
-			$(".menu-item-pic").dropzone({
-				url: "upload",
-				maxFiles: 1,
-				addRemoveLinks: true
-			});
-		}
-	</script> -->
-<!-- seller_store -->
-<!-- 20171219_JS index.html Add -->
-<!-- SPECIFIC SCRIPTS -->
-<!--
-<script src="js/video_header.js"></script>
-<script>
-$(document).ready(function() {
-	'use strict';
-   	  HeaderVideo.init({
-      container: $('.header-video'),
-      header: $('.header-video--media'),
-      videoTrigger: $("#video-trigger"),
-      autoPlayVideo: true
-    });    
-
-});
-</script>
- -->
 
 </body>
 </html>

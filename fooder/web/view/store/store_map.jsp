@@ -299,7 +299,7 @@
 <script src="assets/validate.js"></script>
 
 <!-- SPECIFIC SCRIPTS -->
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCO-5elUHG0jQxmqfoZ37TqGOu73yjouzE"></script>
 <script src="js/map_listing.js"></script>
 <script src="js/infobox.js"></script>
 <script src="js/ion.rangeSlider.js"></script>
@@ -322,9 +322,9 @@
 </script>
 <!-- 20171214_JS store_grid.jsp, store_list.jsp, store_map.jsp add -->
 <!-- SPECIFIC SCRIPTS -->
-<script  src="js/cat_nav_mobile.js"></script>
+<!-- <script  src="js/cat_nav_mobile.js"></script>
 <script>$('#cat_nav').mobileMenu();</script>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCO-5elUHG0jQxmqfoZ37TqGOu73yjouzE"></script>
 <script src="js/map.js"></script>
 <script src="js/infobox.js"></script>
 <script src="js/ion.rangeSlider.js"></script>
@@ -345,3 +345,4 @@
         });
     });
 </script>
+ -->

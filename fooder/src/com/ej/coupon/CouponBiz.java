@@ -13,7 +13,6 @@ import com.ej.vo.Coupon;
 public class CouponBiz implements Biz<Coupon, Double> {
 	@Resource(name="couponDao")
 	CouponDao dao;
-
 	
 	@Override
 	public void register(Coupon t){
@@ -23,13 +22,11 @@ public class CouponBiz implements Biz<Coupon, Double> {
 	@Override
 	public void remove(Double s){
 		dao.delete(s);
-		
 	}
 
 	@Override
 	public void modify(Coupon t){
 		dao.update(t);
-		
 	}
 
 	@Override

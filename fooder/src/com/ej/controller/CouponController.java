@@ -22,13 +22,6 @@ public class CouponController {
 		model.addAttribute("center", "seller/coupon_add");
 		return "main";
 	}
-	// addimpl
-	/*
-	 * @RequestMapping("/couponaddimpl.ej") public String addimpl(Coupon c, Model
-	 * model) {
-	 * 
-	 * }
-	 */
 
 	// delete
 	@RequestMapping("/coupon_delete.ej")

@@ -50,7 +50,7 @@ public class MainController {
 		}else {
 			if(u.getU_pwd().equals(user.getU_pwd())) {
 				HttpSession session = request.getSession();
-				session.setAttribute("loginuser", user);				
+				session.setAttribute("loginUser", user);				
 //				System.out.println(user + "loginuser");
 //				System.out.println(user.getU_flag());
 			}else {

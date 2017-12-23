@@ -24,7 +24,7 @@
         </div>
     </div><!-- Position -->
     
-        <div class="collapse" id="collapseMap">
+    <div class="collapse" id="collapseMap">
 		<div id="map" class="map"></div>
 	</div><!-- End Map -->
 <h1>검색 메뉴바</h1>
@@ -137,7 +137,8 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
-							<div class="go_to">
+						</div>
+						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
@@ -177,7 +178,8 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
-							<div class="go_to">
+						</div>	
+						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
@@ -214,7 +216,8 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
-							<div class="go_to">
+						</div>
+						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
@@ -251,7 +254,8 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
-							<div class="go_to">
+						</div>
+						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
@@ -288,7 +292,8 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
-							<div class="go_to">
+						</div>
+						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
@@ -325,7 +330,8 @@
 							<div>
 								<a href="detail_page.html" class="btn_1">View Menu</a>
 							</div>
-							<div class="go_to">
+						</div>
+						<div class="go_to">
 							<div>
 								<a href="detail_page.html" class="btn_1">Store detail</a>
 							</div>
@@ -341,9 +347,9 @@
 <!-- End Content =============================================== -->
 <!-- 20171214_JS store_grid.jsp, store_list.jsp, store_map.jsp add -->
 <!-- SPECIFIC SCRIPTS -->
-<script  src="js/cat_nav_mobile.js"></script>
+<!-- <script  src="js/cat_nav_mobile.js"></script>
 <script>$('#cat_nav').mobileMenu();</script>
-<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCO-5elUHG0jQxmqfoZ37TqGOu73yjouzE"></script>
 <script src="js/map.js"></script>
 <script src="js/infobox.js"></script>
 <script src="js/ion.rangeSlider.js"></script>
@@ -363,4 +369,4 @@
             grid: true
         });
     });
-</script>
+</script> -->
