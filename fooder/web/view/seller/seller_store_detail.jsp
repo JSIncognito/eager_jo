@@ -32,22 +32,61 @@ function getNum() {
 	return slength;
 };
 
-function getLatLot() {
+function getLatLot(f) {
 	var staddr = $('input[name="st_addr"]').val();
-	$.ajax({
-		url: 'getlatlot.ej',
-		data: {'addr':staddr},
-		dataType:"json",
-		type:"post",
-		success: function(data){
-			$('input[name="lat"]').val(data.y);
-			$('input[name="lot"]').val(data.x);
-			alert($('input[name="lat"]').val() + "/" + $('input[name="lot"]').val());
-		}, 
-		error:function(request,status,error){
-		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		}
-	});
+	var storig = $('input[name="st_addr_orig"]').val();
+	if(staddr != storig) {
+		$.ajax({
+			url: 'getlatlot.ej',
+			data: {'addr':staddr},
+			dataType:"json",
+			type:"post",
+			success: function(data){
+				if(data != null) {
+					$('input[name="lat"]').val(data.y);
+					$('input[name="lot"]').val(data.x);
+					alert($('input[name="lat"]').val() + "/" + $('input[name="lot"]').val());
+					$('#msg_addr').html('').css('visiblity', 'hidden').css('visibility', 'visible');
+				} else {
+					alert('error');
+					$('.msg').html('').css('visibility', 'hidden');
+					$('#msg_addr').html('Please enter correct address').css('color', 'red').css('visibility', 'visible');
+					return false;
+				}
+			}, 
+			error:function(request,status,error){
+			    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			    return false;
+			}
+		});
+		$('input[name="st_addr_orig"]').val(staddr);
+	}
+	
+	/* if(f.st_nm.value == null || f.st_nm.value == '') {
+		$('.msg').html('').css('visibility', 'hidden');
+		$('#msg_name').html('Please enter store name').css('color', 'red').css('visibility', 'visible');
+		return false;
+	} 
+	if(f.st_openTime_hour.value == null || f.st_openTime_hour.value == '' 
+			|| f.st_openTime_minute == null || f.st_openTime_minute.value == '') {
+		$('.msg').html('').css('visibility', 'hidden');
+		$('#msg_open').html('Please enter open time').css('color', 'red').css('visibility', 'visible');
+		return false;
+	} 
+	if(f.st_closeTime_hour.value == null || f.st_closeTime_hour.value == ''
+			|| f.st_closeTime_minute == null || f.st_closeTime_minute.value == '') {
+		$('.msg').html('').css('visibility', 'hidden');
+		$('#msg_close').html('Please enter close time').css('color', 'red').css('visibility', 'visible');
+		return false;
+	} 
+	if(f.st_addr.value == null || f.st_addr.value == '') {
+		$('.msg').html('').css('visibility', 'hidden');
+		$('#msg_addr').html('Please enter address').css('color', 'red').css('visibility', 'visible');
+		return false;
+	}  */
+	
+	f.submit();
+	return true;
 };
 
 </script>
@@ -107,19 +146,17 @@ function getLatLot() {
 						ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p>
 				</div>
 
-				<form enctype="multipart/form-data" method="post" action="seller_store_modify_store.ej">
+				<form enctype="multipart/form-data" method="post" action="seller_store_modify_store.ej" onclick="return getLatLot(this.form)">
 				
-				<input type="hidden" value="${store.st_img }" name="st_original_img" id="st_original_img"/>
-				<input type="hidden" value="${store.u_id }" name="u_id" id="u_id"/>
 				<input type="hidden" value="${store.st_key }" name="st_key" id="st_key"/>
-				<input type="hidden" value="${loginUser.u_id }" name="u_id">
-				<input type="hidden" value="${loginUser.lat }" name="lat">
-				<input type="hidden" value="${loginUser.lot}" name="lot">
+				<input type="hidden" value="${store.lat }" name="lat">
+				<input type="hidden" value="${store.lot}" name="lot">
 				<div class="wrapper_indent">
 					<div class="form-group">
 						<label>Restaurant name</label> <input class="form-control"
 							name="st_nm" value="${store.st_nm }" id="st_nm"
 							type="text" required>
+<!-- 						<span class="msg" id="msg_name"></span> -->
 					</div>
 					<!-- <div class="form-group">
 							<label>Restaurant description</label>
@@ -129,7 +166,7 @@ function getLatLot() {
 					<div class="row">
 						<div class="col-sm-2">
 							<div class="form-group">
-								<label>Open Hour</label> <input type="number"
+								<label>Open Hour</label> <input type="number" min="0" max="24"
 									class="form-control" name="st_openTime_hour"
 									id="st_openTime_hour"
 									value="${fn:substring(store.st_time,0,2) }" required>
@@ -137,16 +174,19 @@ function getLatLot() {
 						</div>
 						<div class="col-sm-2">
 							<div class="form-group">
-								<label>Minute</label> <input type="number" class="form-control"
+								<label>Minute</label> <input type="number" class="form-control" min="0" max="59"
 									name="st_openTime_minute" id="st_openTime_minute"
 									value="${fn:substring(store.st_time,3,5) }" required>
 							</div>
 						</div>
 					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<span class="msg" id="msg_open"></span> -->
+<!-- 					</div> -->
 					<div class="row">
 						<div class="col-sm-2">
 							<div class="form-group">
-								<label>Close Hour</label> <input type="number"
+								<label>Close Hour</label> <input type="number" min="0" max="24"
 									class="form-control" name="st_closeTime_hour"
 									id="st_closeTime_hour"
 									value="${fn:substring(store.st_time,6,8) }" required>
@@ -154,12 +194,15 @@ function getLatLot() {
 						</div>
 						<div class="col-sm-2">
 							<div class="form-group">
-								<label>Minute</label> <input type="number" class="form-control"
+								<label>Minute</label> <input type="number" class="form-control" min="0" max="59"
 									name="st_closeTime_minute" id="st_closeTime_minute"
 									value="${fn:substring(store.st_time,9,11) }" required>
 							</div>
 						</div>
 					</div>
+<!-- 					<div class="form-group"> -->
+<!-- 						<span class="msg" id="msg_close"></span> -->
+<!-- 					</div> -->
 
 				</div>
 				<!-- End wrapper_indent -->
@@ -178,6 +221,7 @@ function getLatLot() {
 						<label>Address</label> 
 						<input type="text" id="st_addr" name="st_addr" value="${store.st_addr }" class="form-control" required>
 						<input type="hidden" id="st_addr_orig" name="st_addr_orig" value="${store.st_addr }">
+<!-- 						<span class="msg" id="msg_addr"></span> -->
 					</div>
 					<!-- <div class="col-md-3">
 								<div class="form-group">
@@ -229,7 +273,7 @@ function getLatLot() {
 
 				<hr class="styled_2">
 				<div class="wrapper_indent">
-					<button class="btn_1" type="button" onclick="getLatLot();">Save now</button>
+					<button class="btn_1" type="submit">Save now</button>
 				</div>
 				</form>
 				<!-- End wrapper_indent -->

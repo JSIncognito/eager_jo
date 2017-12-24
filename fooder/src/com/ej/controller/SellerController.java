@@ -43,14 +43,14 @@ public class SellerController {
 	@RequestMapping("/seller_mypage.ej")
 	public String seller_mypage(HttpServletRequest request) {
 //		HttpSession session = request.getSession();
-//		Users user = (Users) session.getAttribute("loginUser");
+//		Users user = (Users) session.getAttribute("loginUser");s
 		
 		// TEST !!!
 		String id = "admin306";	// 임의
 		Users user = usersbiz.get(id);
+		request.setAttribute("loginUser", user);
 		
 		request.setAttribute("center", "seller/seller_mypage");
-		request.setAttribute("loginUser", user);
 		return "main";
 	}
 	
@@ -75,7 +75,7 @@ public class SellerController {
 	@RequestMapping("/seller_store_detail_test.ej")
 	public String seller_store_detail_test(HttpServletRequest request) {
 		// TEST !!!
-		Store store = new Store(9090098358.0, "test store", "테스트", 127.123, 34.123, "devices.jpg", "11:00-22:00", "test addr", 5, "test_id");
+		Store store = new Store(9090098358.0, "test store", "테스트", 127.123, 34.123, "devices.jpg", "11:00-22:00", "테헤란로 212", 5, "test_id");
 		request.setAttribute("store", store);
 		request.setAttribute("stMenu", foodbiz.select_stMenu(9090098358.0));
 		
@@ -96,7 +96,7 @@ public class SellerController {
 		
 		// Store 정보 보내기
 		request.setAttribute("store", store);
-		request.setAttribute("stMenu", foodbiz.select_stMenu(9090098358.0));
+		request.setAttribute("stMenu", foodbiz.select_stMenu(store.getSt_key()));
 		request.setAttribute("center", "seller/seller_store_detail");
 		return "main";
 	}
@@ -106,36 +106,26 @@ public class SellerController {
 		res.setCharacterEncoding("utf-8");
 		System.out.println("/seller_store_modify_store");
 //		System.out.println("new store info: " + store);
-
+		
 		String key = request.getParameter("st_key");
-		String orig_img = request.getParameter("st_original_img");
+		Double st_key = Double.parseDouble(key);
+		Store st_orig = storebiz.get(st_key);
+		
 		String addr = request.getParameter("st_addr");
-		String addr_orig = request.getParameter("st_addr_orig");
-		String uid = request.getParameter("u_id");
 		String name = request.getParameter("st_nm");
+		String lat = request.getParameter("lat");
+		String lot = request.getParameter("lot");
 		
 		String ohour = (String) request.getParameter("st_openTime_hour");
 		String ominute = (String) request.getParameter("st_openTime_minute");
 		String chour = (String) request.getParameter("st_closeTime_hour");
 		String cminute = (String) request.getParameter("st_closeTime_minute");
 		
-		System.out.println("key: " + key + "orig_img: " + orig_img + "addr: " + addr+ "uid: " + uid );
+		System.out.println("key: " + key + "addr: " + addr );
 		
 		// time 설정
 		String hour = ohour + ":" + ominute + "-" + chour + ":" + cminute;
-		
-		// lat, lot 설정
-//		Double lat = .0;
-//		Double lot = .0;
-//		if(!addr.equals(addr_orig)) {
-//			JSONObject jo = getLatLot(addr);
-//			System.out.println(jo);
-//			lat = (Double) jo.get("y");
-//			lot = (Double) jo.get("x");
-//		} else {
-//			lat = Double.parseDouble((String)request.getParameter("lat"));
-//			lot = Double.parseDouble((String)request.getParameter("lot"));
-//		}
+		System.out.println("hour: " + hour);
 		
 		// img 설정
 		MultipartRequest mr = (MultipartRequest) request;
@@ -143,9 +133,9 @@ public class SellerController {
 		
 		String imgname = "";
 		if(mf.isEmpty()) {
-			imgname = orig_img;
+			imgname = st_orig.getSt_img();
 		} else {
-			imgname = mf.getName();
+			imgname = mf.getOriginalFilename();
 			byte[] data;
 			try {
 				data = mf.getBytes();
@@ -156,11 +146,12 @@ public class SellerController {
 				e.printStackTrace();
 			}
 		}
-		
-//		Store store = new Store(Double.parseDouble(key), name, lat, lot, imgname, hour, addr, uid);
-//		System.out.println(store);
+		System.out.println("imgname: " + imgname);
+		Store store = new Store(st_key, name, Double.parseDouble(lat), Double.parseDouble(lot), imgname, hour, addr, st_orig.getU_id());
+		System.out.println(store);
 //		storebiz.modify(store);
 		
+		request.setAttribute("st_key", st_key);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("seller_store_detail.ej");
 		try {
 			dispatcher.forward(request, res);
@@ -272,21 +263,26 @@ public class SellerController {
             
             URL url = new URL(apiURL);
             System.out.println(url);
+            
             HttpURLConnection con = (HttpURLConnection)url.openConnection();
             con.setRequestMethod("GET");
             con.setRequestProperty("X-Naver-Client-Id", clientId);
             con.setRequestProperty("X-Naver-Client-Secret", clientSecret);
+            
             int responseCode = con.getResponseCode();
             InputStreamReader isr;
+            
             if(responseCode==200) { // 정상 호출
                 isr = new InputStreamReader(con.getInputStream(), "utf-8");
             } else {  // 에러 발생
                 isr = new InputStreamReader(con.getErrorStream(), "utf-8");
             }
-            JSONObject items = (JSONObject) JSONValue.parseWithException(isr); 
+            
+            JSONObject items = (JSONObject) JSONValue.parseWithException(isr);
     		JSONObject bodyArray = (JSONObject) items.get("result");
     		JSONArray ja = (JSONArray) bodyArray.get("items");
-    		System.out.println("ja: " + ja);
+//    		System.out.println("ja: " + ja);
+    		
     		bodyArray = (JSONObject) ja.get(0);
     		result = (JSONObject) bodyArray.get("point");
     		System.out.println(result);
