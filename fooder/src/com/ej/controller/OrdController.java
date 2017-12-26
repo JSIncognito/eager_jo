@@ -51,6 +51,7 @@ public class OrdController {
 		return "main";
 	}
 	*/
+	 
 	// order1.jsp 띄우기
 	// 가게 이름, 주문 메뉴 목록, 사용 쿠폰 받아옴
 	@RequestMapping("/order1.ej")
@@ -65,25 +66,28 @@ public class OrdController {
 //		
 //		// 가게 이름 받아와서 설정
 ////		ord.setSt_nm((String) request.getAttribute("st_nm"));		// 협의 필요
-//		int maxID = new Integer(incrementer.nextIntValue());
-//		ord.setO_key(maxID);
+//		int o_key = new Integer(incrementer.nextIntValue());
+//		ord.setO_key(o_key);
 //		
-//		// 주문 메뉴 목록 가져오기
+//		// 주문 메뉴 목록 가져오기 또는 만들기!!
+		// TODO : List Food 만들기
 //		List<Food> foods = (List<Food>) request.getAttribute("foods");	//협의 필요
 //		
 //		// ofd 리스트 만들어주기 & 메뉴 총 금액 구하기
 //		List<Ofd> ofds = new ArrayList<>();
 //		double total = .0;
 //		for(Food f : foods) {
-//			Ofd ofd = new Ofd(maxID, f.getF_key(), f.getF_name(), f.getF_price(), f.getF_img(), f.getSt_key());
+//			Ofd ofd = new Ofd(o_key, f.getF_key(), f.getF_name(), f.getF_price(), f.getF_img(), f.getSt_key());
 //			ofds.add(ofd);
 //			total += f.getF_price();
 //		}
 ////		ord.setO_all(total);	// o_all(총 금액) 입력
 //		
 //		// 쿠폰 받아오기
+		// TODO : 쿠폰 키(또는 다른 값)로 쿠폰 가져오기
 //		Coupon gCpn = (Coupon) request.getAttribute("gCoupon");	// 협의 필요, 증정 쿠폰
 //		Coupon dCpn = (Coupon) request.getAttribute("dCoupon");	// 협의 필요, 할인 쿠폰
+//		
 ////		if(dCpn != null) {	// 할인 금액 설정
 ////			ord.setO_dc(dCpn.getC_dc());
 ////		} else {
@@ -143,6 +147,10 @@ public class OrdController {
 //		for(Ofd o : list) {
 //			ofdbiz.register(o);
 //		}
+//		
+//		// Ord 정보 업데이트
+//		session.removeAttribute("orderInfo");
+//		session.setAttribute("orderInfo", ord);
 		
 		// TEST 용!
 		List<Ofd> ofdList = new ArrayList<>();
