@@ -1,7 +1,26 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
-
+#category {
+margin-top:80px;
+margin-left:100px;
+	float: left;
+	width:190px;	
+margin-bottom: 150px;	
+font-family: 'Questrial', sans-serif;
+position:absolute;
+}
+#food_nums{
+font-family: 'Questrial', sans-serif;
+font-weight:bold;
+}
+#seller_div{
+margin-left:130px;
+}
+form{
+position:relative;
+margin-left:80px;
+}
 h1{
 font-family: 'Dancing Script', cursive;
 }
@@ -59,12 +78,23 @@ function checkpwd(f) {
 </script>
     <div id="subheader">
     	<div id="sub_content">
-    	 <h1>Work with us</h1>
+    	 <h1>Update Seller Profile</h1>
          <p></p>
          <p></p>
         </div><!-- End sub_content -->
 	</div><!-- End subheader -->
 </section><!-- End section -->
+
+    <div class="widget" id="category">
+		<h4 id="food_nums">Categories</h4>
+		<ul id="cat_nav_blog">
+			<li><a href="coupon_list">Coupon List</a></li>
+			<li><a href="coupon_add.ej">Coupon Add</a></li>
+			<li><a href="seller_store_detail_test.ej">Update my store</a></li>
+			<li><a href="seller_mypage.ej">Update seller profile</a></li>
+
+		</ul>
+	</div>	
 <!-- End SubHeader ============================================ -->
 
     <div id="position">
@@ -77,6 +107,8 @@ function checkpwd(f) {
 <!--             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a> -->
         </div>
     </div><!-- Position -->
+    <div id="seller_div">
+
 
 <!-- Content ================================================== -->
 <!-- 1214 ksy -->
@@ -208,18 +240,18 @@ function checkpwd(f) {
 
 
 
-<div class="container margin_60">
+<div class="container margin_60" id="content">
 	 <div class="main_title margin_mobile">
            <h2 class="nomargin_top">Seller Mypage</h2>
            <p>
 <!--                 Cum doctus civibus efficiantur in imperdiet deterruisset. -->
 				Update your information
            </p>
-                      <img src=img/pizza.png width=80>
+                      <img src=img/pizza.png width=70>
            
         </div>
 	<div class="row">
-    	<div class="col-md-8 col-md-offset-2">
+    	<div class="col-md-7 col-md-offset-2">
         	<form>
         	<!-- TODO : set value -->
         		<input type="text" name="id"  hidden="hidden">
@@ -260,6 +292,7 @@ function checkpwd(f) {
 <!--               	  <input type="button" class="btn_full_outline" value="Modify" onclick="checkpwd(this.form);"> -->
                 </div>
 			</form>
+			</div>
         </div><!-- End col  -->
     </div><!-- End row  -->
 </div><!-- End container  -->

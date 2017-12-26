@@ -50,7 +50,7 @@ font-family: 'Questrial', sans-serif;
 	data-natural-height="350">
 	<div id="subheader">
 		<div id="sub_content">
-			<h1>My Page</h1>
+			<h1>My Order history</h1>
 			<p></p>
 		</div>
 		<!-- End sub_content -->
