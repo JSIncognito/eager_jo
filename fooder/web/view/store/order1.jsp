@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<<<<<<< HEAD
 	<style>
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
@@ -32,6 +33,8 @@ font-size:3px;
 } 
 
 	</style>
+=======
+>>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a
 <script>
 /* function delete_order(num) {
 	var table = document.getElementById('orderTable');
@@ -130,6 +133,7 @@ function order1Submit(f) {
 						<label>Address</label>
 						<input type="text" class="form-control" id="addr" name="o_addr" placeholder="Full Address">
 						<span id="message_addr"></span>
+<<<<<<< HEAD
 					</div>
 					<div class="form-group">
 						<label>Telephone / mobile</label>
@@ -144,6 +148,22 @@ function order1Submit(f) {
 						<label><input type="radio" value="2" checked name="o_way" class="icheck">Credit card</label>
 						<i class="icon_creditcard"></i>
 					</div>
+=======
+					</div>
+					<div class="form-group">
+						<label>Telephone / mobile</label>
+						<input type="text" id="tel" name="o_tel" class="form-control" placeholder="Telephone / mobile">
+						<span id="message_tel"></span>
+					</div>
+					<!-- End box_style_1 -->
+				 </div>
+				 <div class="box_style_2">
+					<h2 class="inner">Payment methods</h2>
+					<div class="payment_select">
+						<label><input type="radio" value="2" checked name="o_way" class="icheck">Credit card</label>
+						<i class="icon_creditcard"></i>
+					</div>
+>>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a
 					<!-- <div class="payment_select" id="paypal">
 						<label><input type="radio" value="" name="payment_method" class="icheck">Pay with paypal</label>
 					</div> -->
@@ -210,3 +230,12 @@ function order1Submit(f) {
 		</div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->
+<!-- 20171214_JS order1.jsp, order2 add -->
+<!-- SPECIFIC SCRIPTS -->
+<script src="js/theia-sticky-sidebar.js"></script>
+<script>
+    jQuery('#sidebar').theiaStickySidebar({
+      additionalMarginTop: 80
+    });
+</script>
+<!-- 20171214_JS order.jsp add -->

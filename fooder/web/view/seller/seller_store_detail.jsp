@@ -221,6 +221,7 @@ function getLatLot(f) {
 							<textarea class="wysihtml5 form-control" placeholder="Enter text ..." style="height: 200px;"></textarea>
 						</div> -->
 
+<<<<<<< HEAD
 					<div class="row">
 						<div class="col-sm-2">
 							<div class="form-group">
@@ -282,6 +283,25 @@ function getLatLot(f) {
 <!-- 						<span class="msg" id="msg_addr"></span> -->
 					</div>
 					<!-- <div class="col-md-3">
+=======
+					<div class="indent_title_in">
+						<i class="icon_pin_alt"></i>
+						<h3>Address</h3>
+						<p>
+							Mussum ipsum cacilds, vidis litro abertis.
+						</p>
+					</div>
+					<div class="wrapper_indent">
+						
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+									<label>Address</label>
+									<input type="text" id="city_booking" name="city_booking" class="form-control">
+								</div>
+							</div>
+							<!-- <div class="col-md-3">
+>>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a
 								<div class="form-group">
 									<label>State</label>
 									<input type="text" id="state_booking" name="state_booking" class="form-control">
@@ -293,6 +313,7 @@ function getLatLot(f) {
 									<input type="text" id="postal_code" name="postal_code" class="form-control">
 								</div>
 							</div> -->
+<<<<<<< HEAD
 					<!--End row -->
 				</div>
 				<!-- End wrapper_indent -->
@@ -319,6 +340,31 @@ function getLatLot(f) {
 					</div>
 				</div>
 				<!-- <div class="form-group">
+=======
+						</div><!--End row -->
+					</div><!-- End wrapper_indent -->
+
+					<hr class="styled_2">
+					<!-- <div class="indent_title_in">
+						<i class="icon_images"></i>
+						<h3>Logo and restaurant photos</h3>
+						<p>
+							Mussum ipsum cacilds, vidis litro abertis.
+						</p>
+					</div>
+
+					<div class="wrapper_indent add_bottom_45">
+						<div class="form-group">
+							<label>Upload your restaurant logo</label>
+							<div id="logo_picture" class="dropzone">
+								<input name="file" type="file">
+								<div class="dz-default dz-message"><span>Click or Drop Images Here</span>
+								</div>
+							</div>
+						</div> -->
+
+						<<!-- div class="form-group">
+>>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a
 							<label>Upload your restaurant photos</label>
 							<div id="photos" class="dropzone">
 								<input name="file" type="file" multiple>
@@ -326,8 +372,32 @@ function getLatLot(f) {
 								</div>
 							</div>
 						</div>
+<<<<<<< HEAD
 					-->
 				<!-- End wrapper_indent -->
+=======
+					</div> --><!-- End wrapper_indent -->
+                    
+					<hr class="styled_2">
+					<div class="wrapper_indent">
+						<button class="btn_1">Save now</button>
+					</div><!-- End wrapper_indent -->
+                    
+				</section><!-- End section 1 -->
+
+				<section id="section-2">
+					<div class="indent_title_in">
+						<i class="icon_document_alt"></i>
+						<h3>Edit menu list</h3>
+						<p>Partem diceret praesent mel et, vis facilis alienum antiopam ea, vim in sumo diam sonet. Illud ignota cum te, decore elaboraret nec ea. Quo ei graeci repudiare definitionem. Vim et malorum ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p>
+					</div>
+                    
+					<div class="wrapper_indent">
+						<!-- <div class="form-group">
+							<label>Menu Category</label>
+							<input type="text" name="menu_category" class="form-control" placeholder="EX. Starters">
+						</div> -->
+>>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a
 
 				<hr class="styled_2">
 				<div class="wrapper_indent">
@@ -629,7 +699,46 @@ function getLatLot(f) {
 			<!-- End section 3 -->
 
 		</div>
+<<<<<<< HEAD
 		<!-- End content -->
 	</div>
 </div>
 <!-- End container  -->
+=======
+	</div><!-- End container  -->
+<!-- 20171214_JSseller_store_detail.jsp -->
+	<!-- Specific scripts -->
+	<script src="js/tabs.js"></script>
+	<script>
+		new CBPFWTabs(document.getElementById('tabs'));
+	</script>
+
+	<script src="js/bootstrap3-wysihtml5.min.js"></script>
+	<script type="text/javascript">
+		$('.wysihtml5').wysihtml5({});
+	</script>
+	<script src="js/dropzone.min.js"></script>
+	<script>
+		if ($('.dropzone').length > 0) {
+			Dropzone.autoDiscover = false;
+			$("#photos").dropzone({
+				url: "upload",
+				addRemoveLinks: true
+			});
+
+			$("#logo_picture").dropzone({
+				url: "upload",
+				maxFiles: 1,
+				addRemoveLinks: true
+			});
+
+			$(".menu-item-pic").dropzone({
+				url: "upload",
+				maxFiles: 1,
+				addRemoveLinks: true
+			});
+		}
+	</script>
+<!-- seller_store -->
+	
+>>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a

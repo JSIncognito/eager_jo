@@ -3,16 +3,7 @@
 PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ej.mapper.UsersMapper">	<!-- Spring과 Mybatis를 연결하기 위해 필요(mapper) -->
-<!-- 
-String u_id;
-	String u_pwd;
-	String u_nm;
-	String u_tel;
-	int u_gen;
-	String u_addr;
-	int u_age;
-	int u_flag;
- -->
+
 	<resultMap type="users" id="usersResult">
 		<result column="u_id" property="u_id"/>
 		<result column="u_pwd" property="u_pwd"/>
@@ -41,9 +32,3 @@ String u_id;
 	</delete>
 	
 </mapper>
-
-
-
-
-
-

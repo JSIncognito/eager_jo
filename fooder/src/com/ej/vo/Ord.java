@@ -37,6 +37,13 @@ public class Ord {
 		super();
 	}
 	
+	public Ord(double o_all, double o_dc, double o_total) {
+		super();
+		this.o_all = o_all;
+		this.o_dc = o_dc;
+		this.o_total = o_total;
+	}
+
 	public Ord(String o_addr, double o_date, double o_all, double o_total, String o_tel, int o_way, String st_nm,
 			String st_type) {
 		super();
