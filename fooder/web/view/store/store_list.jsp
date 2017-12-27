@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
    <h1>통계사진</h1>
@@ -105,7 +105,7 @@
 					</div>
 				</div>
 			</div><!--End tools -->
-        
+<c:forEach var="st" items="${stList }">
 			<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
 				<div class="ribbon_1">
 					Popular
@@ -114,17 +114,19 @@
 					<div class="col-md-9 col-sm-9">
 						<div class="desc">
 							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant.jpg" alt=""></a>
+								<a href="store_menu"><img src="img/thumb_restaurant.jpg" alt=""></a>
 							</div>
 							<div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
 							</div>
-							<h3>Taco Mexican</h3>
-							<div class="type">
+							<h3>${st.st_nm }</h3>
+<!--
+ 							<div class="type">
 								Mexican / American
 							</div>
+ -->							
 							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
+								${st.st_addr } <span class="opening">open - close ${st.st_time }</span><!--  Minimum order: $15 -->
 							</div>
 							<ul>
 								<li>Take away<i class="icon_check_alt2 ok"></i></li>
@@ -135,210 +137,18 @@
 					<div class="col-md-3 col-sm-3">
 						<div class="go_to">
 							<div>
-								<a href="detail_page.html" class="btn_1">View Menu</a>
+								<a href="store_menu.ej?stKey=${st.st_key }" class="btn_1">View Menu</a>
 							</div>
 						</div>
 						<div class="go_to">
 							<div>
-								<a href="detail_page.html" class="btn_1">Store detail</a>
+								<a href="store_detail.ej?stKey=${st.st_key }'" class="btn_1">Store detail</a>
 							</div>
 						</div>
 					</div>
 				</div><!-- End row-->
 			</div><!-- End strip_list-->
-            
-			<div class="strip_list wow fadeIn" data-wow-delay="0.2s">
-				<div class="ribbon_1">
-					Popular
-				</div>
-				<div class="row">
-					<div class="col-md-9 col-sm-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant_2.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>Naples Pizza</h3>
-							<div class="type">
-								Italian / Pizza
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">View Menu</a>
-							</div>
-						</div>	
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">Store detail</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-            
-			<div class="strip_list wow fadeIn" data-wow-delay="0.3s">
-				<div class="row">
-					<div class="col-md-9 col-sm-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant_3.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>Japan Food</h3>
-							<div class="type">
-								Sushi / Japanese
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 no"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">View Menu</a>
-							</div>
-						</div>
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">Store detail</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-            
-			<div class="strip_list wow fadeIn" data-wow-delay="0.4s">
-				<div class="row">
-					<div class="col-md-9 col-sm-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant_4.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>Sushi Gold</h3>
-							<div class="type">
-								Sushi / Japanese
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">View Menu</a>
-							</div>
-						</div>
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">Store detail</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-            
-			<div class="strip_list wow fadeIn" data-wow-delay="0.5s">
-				<div class="row">
-					<div class="col-md-9 col-sm-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant_5.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>Dragon Tower</h3>
-							<div class="type">
-								Chinese / Thai
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">View Menu</a>
-							</div>
-						</div>
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">Store detail</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
-            
-			<div class="strip_list last wow fadeIn" data-wow-delay="0.6s">
-				<div class="row">
-					<div class="col-md-9 col-sm-9">
-						<div class="desc">
-							<div class="thumb_strip">
-								<a href="detail_page.html"><img src="img/thumb_restaurant_6.jpg" alt=""></a>
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
-							</div>
-							<h3>China Food</h3>
-							<div class="type">
-								Chinese / Vietnam
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-md-3 col-sm-3">
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">View Menu</a>
-							</div>
-						</div>
-						<div class="go_to">
-							<div>
-								<a href="detail_page.html" class="btn_1">Store detail</a>
-							</div>
-						</div>
-					</div>
-				</div><!-- End row-->
-			</div><!-- End strip_list-->
+</c:forEach>
             <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
 		</div><!-- End col-md-9-->
         

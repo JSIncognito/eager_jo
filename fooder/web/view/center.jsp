@@ -135,17 +135,19 @@ font-family: 'Cookie', cursive;
             <p>
                 Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
             </p>
-            <form method="post" action="list_page.html">
+<!-- 20171226_JS -->
+<%--             <form method="post" action="list_page.html"> --%>
                 <div id="custom-search-input">
                     <div class="input-group">
 <!--                         <input type="text" class=" search-query" placeholder="Your Address or postal code"> -->
                         <input type="text" class=" search-query" placeholder="Your Address or postal code" id="autocomplete">
                         <span class="input-group-btn">
-                        <input type="submit" class="btn_search" value="submit">
+<!--                         <input type="submit" class="btn_search" value="submit"> -->
+						<input type="button" class="btn_search" value="submit" id="search-bt"/>
                         </span>
                     </div>
                 </div>
-            </form>
+<%--             </form> --%>
         </div><!-- End sub_content -->
     </div>
     <img src="img/video_fix.png" alt="" class="header-video--media" data-video-src="video/intro" data-teaser-source="video/intro" data-provider="Vimeo" data-video-width="1920" data-video-height="960">
@@ -198,7 +200,7 @@ font-family: 'Cookie', cursive;
 		<div class="row">
 			<div class="column">
 				<div class="card">
-					<a href=""> <img id="food_img" src="img/chicken.png" alt="Paris"
+					<a onclick="cateListGo('chicken')" id="chicken" > <img id="food_img" src="img/chicken.png" alt="Paris"
 						width="360" height="280">
 					</a>
 					<div class="containers">
@@ -210,7 +212,7 @@ font-family: 'Cookie', cursive;
 
 			<div class="column">
 				<div class="card">
-					<a href=""> <img id="food_img" src="img/pizza.png" alt="Paris"
+					<a onclick="cateListGo('pizza')" id="pizza"> <img id="food_img" src="img/pizza.png" alt="Paris"
 						width="360" height="280" >
 					</a>
 					<div class="containers">
@@ -221,7 +223,7 @@ font-family: 'Cookie', cursive;
 			</div>
 			<div class="column">
 				<div class="card">
-					<a href=""> <img id="food_img" src="img/china.png" alt="Paris"
+					<a onclick="cateListGo('china')" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
 						width="360" height="280">
 					</a>
 					<div class="containers">
@@ -538,6 +540,7 @@ font-family: 'Cookie', cursive;
 <!-- SPECIFIC SCRIPTS -->
 <script src="js/video_header.js"></script>
 <script>
+
 $(document).ready(function() {
 	'use strict';
    	  HeaderVideo.init({
@@ -546,19 +549,174 @@ $(document).ready(function() {
       videoTrigger: $("#video-trigger"),
       autoPlayVideo: true
     });
-});
+	/* Geocoder 20171226_JS 주소 값을 위도 경도로 변환 */
+   	$('input[id="search-bt"]').click(function(){
+/* 
+		var str = $('input[id="autocomplete"]').val();
+		alert(str);
+		var geocoder;
+		geocoder = new google.maps.Geocoder();
+		geocoder.geocode({'address':str}, function(results, status){
+			if (status == google.maps.GeocoderStatus.OK) {
+				var faddr_lat = results[0].geometry.location.lat();	//위도
+				var faddr_lng = results[0].geometry.location.lng();	//경도
+			} else {
+				var faddr_lat = "";
+				var faddr_lng = "";
+			}
+ 			alert('주소 : ' + str + '\n\n위도 : ' + faddr_lat + '\n\n경도 : ' + faddr_lng);
+			return;
+		});
+ */
+   		geocodeToAddr();
+   	});
+	$('input[id="autocomplete"]').keydown(function (key) {
+		if(key.keyCode == 13){
+			geocodeToAddr();
+		}
+	});
+	/* 20171226_JS 현재 위치 위도, 경도로 표시 */
+	$(function(){
+		var lat = null;
+		var lng = null;
+		if(navigator.geolocation){
+			navigator.geolocation.getCurrentPosition(function(pos){
+				$('#latitude').html(pos.coords.latitude);
+				$('#longitude').html(pos.coords.longitude);
+				lat = pos.coords.latitude;
+				lng = pos.coords.longitude;
+				console.log(lat + " " + lng);
 
-$(function(){
+				var geocode = "http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=false";
+				console.log(geocode);
+				$.ajax({
+					url: geocode,
+					type: 'POST',
+					success: function(myJSONResult){
+			 			if(myJSONResult.status=='OK'){
+							if(myJSONResult.results.length > 0){
+								var address = myJSONResult.results[0].formatted_address;							
+	/* 	                        <input type="text" class=" search-query" placeholder="Your Address or postal code" id="autocomplete"> */
+	/* 							var str = $('input[id="autocomplete"]').val(address); */
+	 							console.log('주소:' + address + " " + geocode);							
+								$('input[id="autocomplete"]').val(address);
+							}else{
+								alert('검색된 주소가 없습니다.');
+							}
+	 					}else if(myJSONResult.status == 'ZERO_RESULTS') {
+	                        alert("지오코딩이 성공했지만 반환된 결과가 없음을 나타냅니다.\n\n이는 지오코딩이 존재하지 않는 address 또는 원격 지역의 latlng을 전달받는 경우 발생할 수 있습니다.")
+	                    }else if(myJSONResult.status == 'OVER_QUERY_LIMIT') {
+	                        alert("할당량이 초과되었습니다.");
+	                    }else if(myJSONResult.status == 'REQUEST_DENIED') {
+	                        alert("요청이 거부되었습니다.\n\n대부분의 경우 sensor 매개변수가 없기 때문입니다.");
+	                    }else if(myJSONResult.status == 'INVALID_REQUEST') {
+	                        alert("일반적으로 쿼리(address 또는 latlng)가 누락되었음을 나타냅니다.");
+	                    }else{
+	 						console.log(myJSONResult.status + "안됨......");
+	                    }
+					}
+				});
+			});
+		}else{
+			console.log("이 브라우저에서는 Geolocation 이 지원되지 않습니다.");
+			alert("이 브라우저에서는 Geolocation 이 지원되지 않습니다.");
+		}
+	});
+	
+
+});
+var toAddrStr = "";
+var stAddr_lat = null;
+var stAddr_lng = null;
+function cateListGo(cate){
+	geocodeToAddr();
+	alert(cate + " 되냥?" + toAddrStr + stAddr_lat + stAddr_lng);
+ 	var str = "st_type=" + cate;
+ 	str += "&st_addr=" + toAddrStr;
+ 	location.href = "store_list.ej?"+ str;
+/* 	location.href="store_list.ej?cate="+cate+"&toAddStr="+toAddrStr+"&stAddr_lat="+stAddr_lat+"&stAddr_lng="+stAddr_lng; */
+/*
+	$.ajax({
+		url:'store_list.ej',
+		data:{"st_type": cate, "st_addr": toAddrStr, "lat": stAddr_lat, "lot":stAddr_lng},
+		dataType:'json'
+		success:function(data){
+			console.log("cateListGo success");
+			alert("완료!");
+		}
+		,error:function(){
+			console.log("cateListGo Error");
+		}
+		
+	});
+*/
+}
+
+/* 20171226_JS 주소를 위도 경도로 표시 */
+function geocodeToAddr(){
+	toAddrStr = $('input[id="autocomplete"]').val();
+	var geocoder;
+	geocoder = new google.maps.Geocoder();
+	geocoder.geocode({'address':toAddrStr}, function(results, status){
+		if (status == google.maps.GeocoderStatus.OK) {
+/* 			var faddr_lat = results[0].geometry.location.lat();	//위도
+			var faddr_lng = results[0].geometry.location.lng();	//경도
+*/
+ 			stAddr_lat = results[0].geometry.location.lat();	//위도
+			stAddr_lng = results[0].geometry.location.lng();	//경도
+		} else {
+			stAddr_lat = "";
+			stAddr_lng = "";
+		}
+		return;
+	});	
+}
+
+/* 20171226_JS 현재 위치 위도, 경도로 표시 */
+/* $(function(){
+	var lat = null;
+	var lng = null;
 	if(navigator.geolocation){
 		navigator.geolocation.getCurrentPosition(function(pos){
 			$('#latitude').html(pos.coords.latitude);
 			$('#longitude').html(pos.coords.longitude);
+			lat = pos.coords.latitude;
+			lng = pos.coords.longitude;
+			console.log(lat + " " + lng);
+
+			var geocode = "http://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&sensor=false";
+			console.log(geocode);
+			$.ajax({
+				url: geocode,
+				type: 'POST',
+				success: function(myJSONResult){
+		 			if(myJSONResult.status=='OK'){
+						if(myJSONResult.results.length > 0){
+							var address = myJSONResult.results[0].formatted_address;							
+ 							console.log('주소:' + address + " " + geocode);							
+							$('input[id="autocomplete"]').val(address);
+						}else{
+							alert('검색된 주소가 없습니다.');
+						}
+ 					}else if(myJSONResult.status == 'ZERO_RESULTS') {
+                        alert("지오코딩이 성공했지만 반환된 결과가 없음을 나타냅니다.\n\n이는 지오코딩이 존재하지 않는 address 또는 원격 지역의 latlng을 전달받는 경우 발생할 수 있습니다.")
+                    }else if(myJSONResult.status == 'OVER_QUERY_LIMIT') {
+                        alert("할당량이 초과되었습니다.");
+                    }else if(myJSONResult.status == 'REQUEST_DENIED') {
+                        alert("요청이 거부되었습니다.\n\n대부분의 경우 sensor 매개변수가 없기 때문입니다.");
+                    }else if(myJSONResult.status == 'INVALID_REQUEST') {
+                        alert("일반적으로 쿼리(address 또는 latlng)가 누락되었음을 나타냅니다.");
+                    }else{
+ 						console.log(myJSONResult.status + "안됨......");
+                    }
+				}
+			});
 		});
 	}else{
 		console.log("이 브라우저에서는 Geolocation 이 지원되지 않습니다.");
 		alert("이 브라우저에서는 Geolocation 이 지원되지 않습니다.");
 	}
-});
+}); */
 
 var placeSearch, autocomplete;
 var componentForm = {
@@ -570,7 +728,7 @@ var componentForm = {
   postal_code: 'short_name'
 };
 
-function initAutocomplete() {
+function initAutocomplete() { 
   // Create the autocomplete object, restricting the search to geographical
   // location types.
   autocomplete = new google.maps.places.Autocomplete(
@@ -579,7 +737,7 @@ function initAutocomplete() {
 
   // When the user selects an address from the dropdown, populate the address
   // fields in the form.
-  autocomplete.addListener('place_changed', fillInAddress);
+/*   autocomplete.addListener('place_changed', fillInAddress); */
 }
 
 function fillInAddress() {
