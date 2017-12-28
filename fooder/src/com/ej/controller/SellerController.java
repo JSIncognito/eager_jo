@@ -8,13 +8,13 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -91,9 +91,19 @@ public class SellerController {
 		System.out.println("/seller_store_detail");
 		
 		// Store 정보 가져오기
-		String st_key = (String)request.getParameter("st_key");
-		System.out.println("st_key: " + st_key);
-		Store store = storebiz.get(Double.parseDouble(st_key));
+		String key = (String)request.getParameter("st_key");
+		System.out.println("st_key: " + key);
+		
+		HttpSession session = request.getSession();
+		if(key == null || key.equals("")) {
+			key = (String) session.getAttribute("st_key");
+		}
+		Double st_key = Double.parseDouble(key);
+		Store store = storebiz.get(st_key);
+		
+		// st_key session에 넣기
+//		HttpSession session = request.getSession();
+		session.setAttribute("st_key", st_key);
 		
 		// Store 정보 보내기
 		request.setAttribute("store", store);
