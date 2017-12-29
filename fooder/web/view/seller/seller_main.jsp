@@ -1,23 +1,248 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+#sort_rating{
+font-family: 'Questrial', sans-serif;
+}
+
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides1 {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container1 {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+.slideshow-container2 {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
 ul{
 	list-style: none;
+}
+
+.btn_1{
+width:200px;
+text-align: center;
+margin-top:10px;
+}
+li{
+font-family: 'Questrial', sans-serif;
+letter-spacing: 2px;
 }
 #view_menu{
 	margin-top:10px;
 	margin-bottom: 10px;
 		
 }
+
+#col-md-9{
+margin-top:130px;
+margin-left:70px;
+}
+
+
+/*ddfd*/
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+#term{
+margin-top: 100px;
+}
 </style>
 
 
 <section class="parallax-window" id="short" data-parallax="scroll"
-	data-image-src="img/sub_header_cart.jpg" data-natural-width="1400"
-	data-natural-height="350">
+	data-image-src="img/data.gif" data-natural-width="1000"
+	data-natural-height="400">
 	<div id="subheader">
 		<div id="sub_content">
-			<h1>QuickFood Blog</h1>
-			<p>Qui debitis meliore ex, tollit debitis conclusionemque te eos.</p>
+			<h1>Seller Page</h1>
 			<p></p>
 		</div>
 		<!-- End sub_content -->
@@ -41,8 +266,144 @@ ul{
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
 	<div class="row">
+	
+	
+	<!-- 슬라이드쇼 사진 -->
+	
+<div class="slideshow-container1">
 
-		<div class="col-md-12">
+<div class="mySlides fade1">
+  <div class="numbertext">1 / 3</div>
+  <img src="img/blog-1.jpg" style="width:1400">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade1">
+  <div class="numbertext">2 / 3</div>
+  <img src="img/blog-2.jpg" style="width:1400">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade1">
+  <div class="numbertext">3 / 3</div>
+  <img src="img/blog-3.jpg" style="width:1400">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1,0)"></span> 
+  <span class="dot" onclick="currentSlide(2,0)"></span> 
+  <span class="dot" onclick="currentSlide(3,0)"></span> 
+</div>
+
+
+
+<!-- 두번째 슬라이드쇼 사진 -->
+
+<div id=term></div>
+
+<div class="slideshow-container2" >
+
+<div class="mySlides fade2">
+  <div class="numbertext">1 / 3</div>
+  <img src="img/blog-1.jpg" style="width:1400">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade2">
+  <div class="numbertext">2 / 3</div>
+  <img src="img/blog-2.jpg" style="width:1400">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade2">
+  <div class="numbertext">3 / 3</div>
+  <img src="img/blog-3.jpg" style="width:1400">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1,1)"></span> 
+  <span class="dot" onclick="currentSlide(2,1)"></span> 
+  <span class="dot" onclick="currentSlide(3,1)"></span> 
+</div>
+
+<script>
+var slideIndex = 1;
+showSlides(slideIndex, 0);
+showSlides(slideIndex, 1);
+
+function plusSlides(n, p) {
+  showSlides(slideIndex += n, p);
+}
+
+function currentSlide(n,p) {
+  showSlides(slideIndex = n, p);
+}
+
+function showSlides(n, p) {
+  var i;
+  var slides = new Array();
+  var dots = document.getElementsByClassName("dot");
+  if(p==0) { // 첫번째 슬라이드
+	  slides[0] = document.getElementsByClassName("mySlides")[0];
+	  slides[1] = document.getElementsByClassName("mySlides")[1];
+	  slides[2] = document.getElementsByClassName("mySlides")[2];
+	  if (n > slides.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";  
+	  }
+	  for (i = 0; i < 3; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";
+  } else if(p==1) { // 두번째 슬라이드
+	  slides[0] = document.getElementsByClassName("mySlides")[3];
+	  slides[1] = document.getElementsByClassName("mySlides")[4];
+	  slides[2] = document.getElementsByClassName("mySlides")[5];
+	  if (n > slides.length) {slideIndex = 1}    
+	  if (n < 1) {slideIndex = slides.length}
+	  for (i = 0; i < slides.length; i++) {
+	      slides[i].style.display = "none";  
+	  }
+	  for (i = 3; i < 6; i++) {
+	      dots[i].className = dots[i].className.replace(" active", "");
+	  }
+	  slides[slideIndex-1].style.display = "block";
+  }
+  /* 
+  
+  if (n > slides.length) {slideIndex = 1}    
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  } */
+    
+ /*  dots[slideIndex-1].className += " active"; */
+}
+</script>
+
+
+
+
+
+<!-- 		<div class="col-md-12">
 			<div class="post">
 				<a href="blog_post.html"><img src="img/blog-1.jpg" alt=""
 					class="img-responsive"></a>
@@ -107,22 +468,23 @@ ul{
 			</div>
 			<!-- end post -->
 
-			<div class="col-md-9">
+			<div class="col-md-9" id="col-md-9">
 
 				<div id="tools">
 					<div class="row">
 						<div class="col-md-3 col-sm-3 col-xs-6">
-							<div class="styled-select">
+							<div class="styled-select" id="styled-select">
+							
 								<select name="sort_rating" id="sort_rating">
-									<option value="" selected>Sort by ranking</option>
-									<option value="lower">Lowest ranking</option>
-									<option value="higher">Highest ranking</option>
+							
+									<option value="" selected>Select Store</option>
+									
 								</select>
+								
 							</div>
 						</div>
 						<div class="col-md-9 col-sm-9 hidden-xs">
-							<a href="grid_list.html" class="bt_filters"><i
-								class="icon-th"></i></a>
+						
 						</div>
 					</div>
 				</div>
@@ -157,11 +519,11 @@ ul{
 											at 17:00.</span> Minimum order: $15
 									</div> -->
 									<div class="location">
-										${s.st_addr }<span class="opening">HOURS ${s.st_time }
-										</span> Minimum order: $15
+										${s.st_addr }<br>
+										<span class="opening">HOURS ${s.st_time }<br>
+										</span> 
 									</div>
 									<ul>
-										<li>Take away<i class="icon_check_alt2 ok"></i></li>
 										<li>Delivery<i class="icon_check_alt2 ok"></i></li>
 									</ul>
 								</div>
@@ -179,8 +541,10 @@ ul{
 								</div>
 							</div>
 						</div>
+						
 						<!-- End row-->
 					</div>
+					
 					<!-- End strip_list-->
 				</c:forEach>
 

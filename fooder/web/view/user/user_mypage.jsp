@@ -1,15 +1,67 @@
 <style>
-#update_form {
-	margin: 0 auto;
-}
 
-#update_button {
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+
+/* #update_form {
+	margin: 0 auto;
+} */
+
+/* #update_button {
 	width: 360px;
 }
+ */
 
+ #form-group{
+ width:500px;
+ }
 #category {
-	float: right;
+	float: left;
 	width:150px;		
+}
+li{
+font-family: 'Questrial', sans-serif;
+
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+#update_button{
+background-color:#85c99d;
+color:white;
+font-family: 'Questrial', sans-serif;
+width:500px;
+letter-spacing: 2px;
+}
+#update_button:hover{
+background-color:#b3cccc;
+color:white;
+border-color: #b3cccc;
+}
+h2{
+font-family: 'Questrial', sans-serif;
+margin-left:65px;
+}
+p{
+font-family: 'Questrial', sans-serif;
+margin-left:70px;
+}
+label{
+font-family: 'Questrial', sans-serif;
+}
+.form-control{
+background-color:#d1e0e0;
+color:gray;
+
+}
+.form-control:hover{
+background-color:white;
+}
+h4{
+font-family: 'Questrial', sans-serif;
+font-weight: bold;
+margin-left: 20px;
 }
 </style>
 <script>
@@ -49,12 +101,11 @@
 </script>
 
 <section class="parallax-window" id="short" data-parallax="scroll"
-	data-image-src="img/sub_header_cart.jpg" data-natural-width="1400"
+	data-image-src="img/mypage_1.gif" data-natural-width="1000"
 	data-natural-height="350">
 	<div id="subheader">
 		<div id="sub_content">
-			<h1>Work with us</h1>
-			<p>Qui debitis meliore ex, tollit debitis conclusionemque te eos.</p>
+			<h1>My Page</h1>
 			<p></p>
 		</div>
 		<!-- End sub_content -->
@@ -201,8 +252,15 @@
 
 <div id="form_wrapper" class="container margin_60">
 	<div class="main_title margin_mobile">
-		<h2 class="nomargin_top">Please submit the form below</h2>
-		<p>Cum doctus civibus efficiantur in imperdiet deterruisset.</p>
+		           <h2 class="nomargin_top">User Mypage</h2>
+<!--                 Cum doctus civibus efficiantur in imperdiet deterruisset. -->		           
+           <p>
+				Update your information
+           </p>
+				   <img src=img/pizza.png width=60>
+				   <img src=img/pizza4.png width=60>
+				   <img src=img/pizza5.png width=60>
+           
 	</div>
 	<div class="widget" id="category">
 		<h4>Categories</h4>
@@ -217,7 +275,7 @@
 			<form id="update_form">
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
-						<div class="form-group">
+						<div class="form-group" id="form-group">
 							<label>Name</label> <input type="text" class="form-control"
 								id="u_nm" name="u_nm" value="${usr.u_nm }">
 							<!-- 폼에 없는 컬럼들 받기 -->
@@ -246,10 +304,9 @@
 								</div>
 							</div> -->
 					<div class="col-md-6 col-sm-6">
-						<div class="form-group">
-							<label>Phone number:</label> <input type="text" id="u_tel"
-								name="u_tel" class="form-control" value="${usr.u_tel }">
-						</div>
+						<div class="form-group" id="form-group">
+							<label>Phone number</label> <input type="text" id="u_tel"
+								name="u_tel" class="form-control" value="${usr.u_tel }">						</div>
 					</div>
 				</div>
 				<!-- <div class="row">
@@ -269,7 +326,7 @@
 				<!-- End row  -->
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">
+						<div class="form-group" id="form-group">
 							<label>City</label> <input type="text" id="u_addr" name="u_addr"
 								class="form-control" value="${usr.u_addr }">
 						</div>
@@ -284,7 +341,7 @@
 				<!-- End row  -->
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">
+						<div class="form-group" id="form-group">
 							<label>Change your password</label> <input type="password"
 								class="form-control" placeholder="Password" id="u_pwd"
 								name="u_pwd" value="${usr.u_pwd }">
@@ -294,7 +351,7 @@
 
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">
+						<div class="form-group" id="form-group">
 							<label>Confirm password</label> <input type="password"
 								class="form-control" placeholder="Confirm password"
 								id="pwd_confirm" name="pwd_confirm">

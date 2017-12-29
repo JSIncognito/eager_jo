@@ -1,8 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+#check{
+float:left;
+}
+h3{
+font-family: 'Questrial', sans-serif;
+font-size:40px;
+font-weight: bold;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+h4{
+font-family: 'Questrial', sans-serif;
+
+}
+td{
+font-family: 'Questrial', sans-serif;
+
+}
+#inner{
+font-family: 'Questrial', sans-serif;
+letter-spacing: 1px;
+}
+
+</style>
 <!-- SubHeader =============================================== -->
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/order.gif" data-natural-width="1000" data-natural-height="350">
     <div id="subheader">
     	<div id="sub_content">
     	 <h1>Place your order</h1>
@@ -45,12 +73,19 @@
 	<div class="row">
 		<div class="col-md-offset-3 col-md-6">
 			<div class="box_style_2">
-				<h2 class="inner">Order confirmed!</h2>
+				<h2 class="inner" id="inner">Order confirmed!</h2>
 				<div id="confirm">
-					<i class="icon_check_alt2"></i>
-					<h3>Thank you!</h3>
+				<i class="check">
+					<!-- <i class="icon_check_alt2"></i> -->
+					<img src="img/pizza.png" width=100>
+					<img src="img/chicken.png" width=100>
+					<img src="img/china.png" width=100>
+				</i>
+					
+					<h3>Thank you</h3>
+					<br>
 					<p>
-						Lorem ipsum dolor sit amet, nostrud nominati vis ex, essent conceptam eam ad. Cu etiam comprehensam nec. Cibo delicata mei an, eum porro legere no.
+						
 					</p>
 				</div>
 				<h4>Summary</h4>

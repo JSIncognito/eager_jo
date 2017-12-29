@@ -1,6 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<style>
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+
+h3{
+font-family: 'Questrial', sans-serif;
+
+}
+td{
+font-family: 'Questrial', sans-serif;
+
+}
+button{
+font-family: 'Questrial', sans-serif;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+#inner{
+font-family: 'Questrial', sans-serif;
+letter-spacing: 1px;
+}
+label{
+font-family: 'Questrial', sans-serif;
+}
+strong{
+font-family: 'Questrial', sans-serif;
+font-size:3px;
+} 
+
+	</style>
 <script>
 /* function delete_order(num) {
 	var table = document.getElementById('orderTable');
@@ -28,7 +59,7 @@ function order1Submit(f) {
 }
 </script>
 <!-- SubHeader =============================================== -->
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/seller_mypage.gif" data-natural-width="1000" data-natural-height="300">
     <div id="subheader">
     	<div id="sub_content">
     	 <h1>Place your order</h1>
@@ -39,10 +70,10 @@ function order1Submit(f) {
                   <a href="#0" class="bs-wizard-dot"></a>
                 </div>
                                
-                <div class="col-xs-4 bs-wizard-step disabled">
+                <div class="col-xs-4 bs-wizard-step active">
                   <div class="text-center bs-wizard-stepnum"><strong>2.</strong> Payment</div>
                   <div class="progress"><div class="progress-bar"></div></div>
-                  <a href="cart_2.html" class="bs-wizard-dot"></a>
+                  <a href="#0" class="bs-wizard-dot"></a>
                 </div>
             
               <div class="col-xs-4 bs-wizard-step disabled">
@@ -94,7 +125,7 @@ function order1Submit(f) {
             <form>
 			<div class="col-md-9">
 				<div class="box_style_2" id="order_process">
-					<h2 class="inner">Your order details</h2>
+					<h2 class="inner" id="inner">Your order details</h2>
 					<div class="form-group">
 						<label>Address</label>
 						<input type="text" class="form-control" id="addr" name="o_addr" placeholder="Full Address">
