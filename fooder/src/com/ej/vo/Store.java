@@ -1,5 +1,7 @@
 package com.ej.vo;
 
+import java.util.List;
+
 /*	20141214_JS 
  * //==========================
  * 	사업자번호 double st_key;  
@@ -25,7 +27,7 @@ public class Store {
 	String st_addr;
 	int st_star;
 	String u_id;
-
+	List<Store> stList;
 	public Store() {
 		super();
 	}
@@ -172,7 +174,13 @@ public class Store {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	public List<Store> getStList() {
+		return stList;
+	}
 
+	public void setStList(List<Store> stList) {
+		this.stList = stList;
+	}
 	@Override
 	public String toString() {
 		return "Store [st_key=" + st_key + ", st_nm=" + st_nm + ", st_type=" + st_type + ", lat=" + lat + ", lot=" + lot

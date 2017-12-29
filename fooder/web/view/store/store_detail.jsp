@@ -6,9 +6,9 @@
 	<div id="sub_content">
     	<div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
                      <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> ( <small><a href="#0">98 reviews</a></small> )</div>
-                    <h1>Mexican TacoMex</h1>
-                    <div><em>Mexican / American</em></div>
-                    <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB - <strong>Delivery charge:</strong> $10, free over $15.</div>
+                    <h1>${stDetail.st_nm }</h1>
+<!--                     <div><em>Mexican / American</em></div> -->
+                    <div><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
     </div><!-- End sub_content -->
 </div><!-- End subheader -->
 </section><!-- End section -->
@@ -40,12 +40,12 @@
 				<div class="box_style_2">
 					<h4 class="nomargin_top">Opening time <i class="icon_clock_alt pull-right"></i></h4>
 					<ul class="opening_list">
-						<li>Monday<span>12.00am-11.00pm</span></li>
-						<li>Tuesday<span>12.00am-11.00pm</span></li>
+						<li>Monday<span>${stDetail.st_time }</span></li>
+						<li>Tuesday<span>${stDetail.st_time }</span></li>
 						<li>Wednesday <span class="label label-danger">Closed</span></li>
-						<li>Thursday<span>12.00am-11.00pm</span></li>
-						<li>Friday<span>12.00am-11.00pm</span></li>
-						<li>Saturday<span>12.00am-11.00pm</span></li>
+						<li>Thursday<span>${stDetail.st_time }</span></li>
+						<li>Friday<span>${stDetail.st_time }</span></li>
+						<li>Saturday<span>${stDetail.st_time }</span></li>
 						<li>Sunday <span class="label label-danger">Closed</span></li>
 					</ul>
 				</div>

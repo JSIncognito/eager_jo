@@ -101,7 +101,8 @@
 						</div>
 					</div>
 					<div class="col-md-9 col-sm-9 hidden-xs">
-						<a href="grid_list.html" class="bt_filters"><i class="icon-th"></i></a>
+						<a href="store_grid.ej?st_type=${stType }&st_addr=${stAddr }" class="bt_filters"><i class="icon-th"></i></a>
+<%-- 						<a href="store_grid.ej?stType=${stType }&stAddr=${stAddr}" class="bt_filters"><i class="icon-th"></i></a> --%>
 					</div>
 				</div>
 			</div><!--End tools -->
@@ -114,7 +115,7 @@
 					<div class="col-md-9 col-sm-9">
 						<div class="desc">
 							<div class="thumb_strip">
-								<a href="store_menu"><img src="img/thumb_restaurant.jpg" alt=""></a>
+								<a href="store_menu.ej"><img src="img/thumb_restaurant.jpg" alt=""></a>
 							</div>
 							<div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
@@ -126,7 +127,7 @@
 							</div>
  -->							
 							<div class="location">
-								${st.st_addr } <span class="opening">open - close ${st.st_time }</span><!--  Minimum order: $15 -->
+								${st.st_addr } <span class="opening">Open - Close ${st.st_time }</span><!--  Minimum order: $15 -->
 							</div>
 							<ul>
 								<li>Take away<i class="icon_check_alt2 ok"></i></li>
@@ -137,12 +138,12 @@
 					<div class="col-md-3 col-sm-3">
 						<div class="go_to">
 							<div>
-								<a href="store_menu.ej?stKey=${st.st_key }" class="btn_1">View Menu</a>
+								<a href="store_menu.ej?st_key=${st.st_key }" class="btn_1">View Menu</a>
 							</div>
 						</div>
 						<div class="go_to">
 							<div>
-								<a href="store_detail.ej?stKey=${st.st_key }'" class="btn_1">Store detail</a>
+								<a href="store_detail.ej?st_key=${st.st_key }" class="btn_1">Store detail</a>
 							</div>
 						</div>
 					</div>
@@ -151,7 +152,6 @@
 </c:forEach>
             <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
 		</div><!-- End col-md-9-->
-        
 	</div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->
