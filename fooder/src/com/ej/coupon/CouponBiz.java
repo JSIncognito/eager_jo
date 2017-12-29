@@ -7,10 +7,12 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import com.ej.frame.Biz;
+
 import com.ej.vo.Coupon;
 
 @Service("couponBiz")
 public class CouponBiz implements Biz<Coupon, Double> {
+	
 	@Resource(name="couponDao")
 	CouponDao dao;
 	
@@ -40,12 +42,12 @@ public class CouponBiz implements Biz<Coupon, Double> {
 	}
 
 	// 현재 지역에서 진행중인 이벤트 및 쿠폰
-	public List<Coupon> select_area(String location) {
-		return dao.select_area(location);
+	public List<Coupon> select_area(String st_addr) {
+		return dao.select_area(st_addr);
 	}
 
 	// 로그인한 유저가 갖고있는 쿠폰
-	public List<Coupon> select_myCoupon(String user) {
-		return dao.select_myCoupon(user);
+	public List<Coupon> select_myCoupon(Double st_key) {
+		return dao.select_myCoupon(st_key);
 	}
 }

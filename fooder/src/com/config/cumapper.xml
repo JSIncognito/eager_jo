@@ -41,4 +41,11 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		SELECT * FROM CU C WHERE C.C_KEY IN (SELECT CP.C_KEY FROM COUPON CP WHERE ST_KEY=#{stKey})
 	</select>
 	
+	<!-- 1227 ksy  -->
+	<select id="select_userCu" parameterType="String" resultType="cu">
+		SELECT * FROM CU WHERE U_ID=#{obj}
+	</select>
+	
+	
+	
 </mapper>
