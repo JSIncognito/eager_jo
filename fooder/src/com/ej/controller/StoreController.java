@@ -95,8 +95,11 @@ public class StoreController {
 	
 	//	가게의 메뉴 리스트
 	@RequestMapping("/store_menu.ej")
-	public String store_menu(@RequestParam("st_key") Double st_key, Model model) {
+	public String store_menu(@RequestParam("st_key") Double st_key,@RequestParam Map<String,String> paramMap ,Model model) {
 		System.out.println("store_menu 진입");
+		String st_addr = (String) paramMap.get("st_addr");
+		String st_type = (String) paramMap.get("st_type");
+
 /*		Double st_key1 = 5275626750.0;
 		Double st_key2 = 126.0;
 */
@@ -113,7 +116,11 @@ public class StoreController {
 /*			System.out.println(f);*/
 			System.out.println("확인2" + c);			
 		}
-		
+		Store stDetail = sBiz.get(st_key);
+
+		model.addAttribute("stType", st_type);
+		model.addAttribute("stAddr", st_addr);
+		model.addAttribute("stDetail", stDetail);		
 		model.addAttribute("stMenu", stMenu);
 		model.addAttribute("uCoupon", uCoupon);
 		model.addAttribute("center", "store/store_menu");
@@ -134,7 +141,7 @@ public class StoreController {
 		model.addAttribute("center", "store/store_detail");
 		return "main";
 	}
-
+/*
 	//	점주의 가게 목록
 	@RequestMapping("/seller_main.ej")
 	public String mystore_list(Model model,String u_id) {
@@ -146,7 +153,7 @@ public class StoreController {
 		return "main";
 		
 	}
-		
+		*/
 	
 	
 }

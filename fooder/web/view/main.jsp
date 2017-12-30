@@ -10,7 +10,7 @@ pageEncoding="utf-8"%>
 <!--[if IE 9]><html class="ie ie9"> <![endif]-->
 <html>
 <head>
-<!--      <meta charset="utf-8"> -->
+<!--     <meta charset="utf-8"> -->
     <meta charset="EUC-KR">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -91,6 +91,7 @@ body {
 </head>
 
 <body>
+
 <!--[if lte IE 8]>
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a>.</p>
 <![endif]-->
@@ -142,7 +143,7 @@ body {
  	                <li><a href="logout.ej">${loginuser.u_nm }??/a></li>
  <%--  	                <li><h3>${loginuser.u_nm } User</h3></li> --%>
 </c:when>
-</c:choose>                    
+</c:choose>
                     <li><a href="main.ej">Home</a></li>
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
@@ -206,6 +207,7 @@ body {
 		<jsp:include page="${center }.jsp"></jsp:include>
 	</c:otherwise>
 </c:choose>
+
     <!-- Footer ================================================== -->
     <footer>
     <div class="container">
@@ -282,6 +284,7 @@ body {
     </div><!-- End container -->
     </footer>
     <!-- End Footer =============================================== -->
+
 <div class="layer"></div><!-- Mobile menu overlay mask -->
 <!-- 20171221_JS login and register Modify -->
 <!-- Login modal -->   
@@ -306,6 +309,7 @@ body {
 			</div>
 		</div>
 	</div><!-- End modal -->   
+    
 <!-- Register modal -->   
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="myRegister" aria-hidden="true">
 		<div class="modal-dialog">

@@ -53,6 +53,42 @@ public class Coupon {
 		this.st_lat = st_lat;
 		this.st_lot = st_lot;
 	}
+	
+
+	public Coupon(double st_key, String c_code, String c_gift, double c_dc, String c_nm, double c_start, double c_end,
+			double c_date, String st_nm, String st_addr, double st_lat, double st_lot) {
+		super();
+		this.st_key = st_key;
+		this.c_code = c_code;
+		this.c_gift = c_gift;
+		this.c_dc = c_dc;
+		this.c_nm = c_nm;
+		this.c_start = c_start;
+		this.c_end = c_end;
+		this.c_date = c_date;
+		this.st_nm = st_nm;
+		this.st_addr = st_addr;
+		this.st_lat = st_lat;
+		this.st_lot = st_lot;
+	}
+
+
+	public Coupon(double st_key, String c_code, String c_gift, double c_dc, String c_nm, double c_start, double c_end,
+			String st_nm, String st_addr, double st_lat, double st_lot) {
+		super();
+		this.st_key = st_key;
+		this.c_code = c_code;
+		this.c_gift = c_gift;
+		this.c_dc = c_dc;
+		this.c_nm = c_nm;
+		this.c_start = c_start;
+		this.c_end = c_end;
+		this.st_nm = st_nm;
+		this.st_addr = st_addr;
+		this.st_lat = st_lat;
+		this.st_lot = st_lot;
+	}
+
 
 	public double getC_key() {
 		return c_key;

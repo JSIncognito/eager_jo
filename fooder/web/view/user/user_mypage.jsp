@@ -306,7 +306,8 @@ margin-left: 20px;
 					<div class="col-md-6 col-sm-6">
 						<div class="form-group" id="form-group">
 							<label>Phone number</label> <input type="text" id="u_tel"
-								name="u_tel" class="form-control" value="${usr.u_tel }">						</div>
+								name="u_tel" class="form-control" value="${usr.u_tel }">
+						</div>
 					</div>
 				</div>
 				<!-- <div class="row">

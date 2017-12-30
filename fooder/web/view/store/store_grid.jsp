@@ -103,6 +103,7 @@
 					</div>
 				</div>
 			</div><!--End tools -->
+        
         	<div class="row">
 <c:forEach var="st" items="${stList }">
             	<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
@@ -121,7 +122,7 @@
  							<div class="type">
 								Mexican / American
 							</div>
- -->							
+ -->
 							<div class="location">
 								${st.st_addr } <br><span class="opening">Open - Close ${st.st_time }</span> <!-- Minimum order: $15 -->
 							</div>

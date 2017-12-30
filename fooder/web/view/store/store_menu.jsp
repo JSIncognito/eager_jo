@@ -7,9 +7,9 @@
 	<div id="sub_content">
     	<div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
                      <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="detail_page_2.html">Read 98 reviews</a></small>)</div>
-                    <h1>Mexican TacoMex</h1>
-                    <div><em>Mexican / American</em></div>
-                    <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB - <strong>Delivery charge:</strong> $10, free over $15.</div>
+                    <h1>${stDetail.st_nm }</h1>
+<!--                     <div><em>Mexican / American</em></div> -->
+                    <div><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
     </div><!-- End sub_content -->
 </div><!-- End subheader -->
 </section><!-- End section -->
@@ -31,7 +31,7 @@
 		<div class="row">
         
 			<div class="col-md-3">
-            	<p><a href="list_page.html" class="btn_side">Back to search</a></p>
+            	<p><a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }" class="btn_side">Back to search</a></p>
 				<div class="box_style_1">
 					<ul id="cat_nav">
 						<li><a href="#starters" class="active">Starters <span>(141)</span></a></li>
@@ -71,19 +71,19 @@
 						</th>
 					</tr>
 					</thead>
-					<tbody>
+					<tbody id="foodMenu">
 <!--  -->
 <c:forEach var="menu" items="${stMenu }">
 					<tr>
 						<td>
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-1.jpg" alt="thumb"></figure>
-							<h5>${menu.f_name }</h5>
+							<h5 class="foodName">${menu.f_name }</h5>
 							<p>
 								Fuisset mentitum deleniti sit ea.
 							</p>
 						</td>
 						<td>
-							<strong><fmt:formatNumber value="${menu.f_price }" groupingUsed="true"/></strong>
+							<strong class="f_price"><fmt:formatNumber value="${menu.f_price }" groupingUsed="true"/></strong>
 						</td>
 						<td class="options">
                          <div class="dropdown dropdown-options">
@@ -94,11 +94,11 @@
 <!--  -->
 </c:forEach>
 					</tbody>
-					</table>					
+					</table>
 					<hr>
 				</div><!-- End box_style_1 -->
 			</div><!-- End col-md-6 -->
-<!-- sidebar -->            
+<!-- sidebar -->
 			<div class="col-md-3" id="sidebar">
             <div class="theiaStickySidebar">
 				<div id="cart_box" >
@@ -116,7 +116,7 @@
 						</td>
 					</tr>
  -->
-<!--  -->					
+<!--  -->
 					</tbody>
 					</table>
 					<hr>
@@ -143,7 +143,7 @@
 							 Delivery fee <span class="pull-right">$10</span>
 						</td>
 					</tr>
--->					
+-->
 					<tr>
 						<td class="total">
 							 TOTAL <span class="pull-right" id="total"></span>
@@ -152,7 +152,7 @@
 					</tbody>
 					</table>
 					<hr>
-					<a class="btn_full" href="cart.html">Order now</a>
+						<a class="btn_full" href="cart.html">Order now</a>
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->
@@ -183,7 +183,6 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
 		
 function addItem(menu_nm, menu_price){
 	var newdiv = document.createElement('div');
-	
 	calTotal(menu_price);
 	
 	for(var i=0; i <= $('#addItem tr').length; i++){
@@ -199,7 +198,7 @@ function addItem(menu_nm, menu_price){
 /*  	var str = $('tb tr').html(); */
 	var out = '<tr>';
 	out += '<td>';
-	out += '<a onclick="removeItem(menu_nm, menu_price)" class="remove_item">';
+	out += '<a onclick="removeItem(this)" class="remove_item">';
 	out += '<i class="icon_minus_alt">';
 	out += '</i>';
 	out += '</a>';
@@ -209,7 +208,7 @@ function addItem(menu_nm, menu_price){
 	out += '1 ';
 	out += '</strong>';
 	out += 'x';
-	out += '<span>';
+	out += '<span id=mName>';
 	out += menu_nm;	
 	out += '</span>';
 	out += '</td>';
@@ -217,37 +216,57 @@ function addItem(menu_nm, menu_price){
 	
  	$('#addItem').append(out);
 };
-function removeItem(menu_name, menu_price){
-	$('#addItem tr:last-child').remove();
-/* 	var price = 0;
-	var cnt = $('#addItem tr').eq(i).find('td').eq(1).find('strong').text();	
-	var amount = price * cnt; 
+function removeItem(obj){	
+	var menu = $(obj).parent().parent().find('#mName').text();
+	var menu_cnt = $(obj).parent().parent().find('.item_cnt').eq(0).text()
+	var price = "";
+	/* 	alert(menu + " " + menu_cnt); */
+	
+	for(var i=0; i <= $('#foodMenu tr').length; i++){
+/* 		alert($('#foodMenu tr').eq(i).find('td').eq(0).find('h5').html()); */
+		if($('#foodMenu tr').eq(i).find('td').eq(0).find('h5').html() ==  menu){
+			price = $('#foodMenu tr').eq(i).find('td').eq(1).find('strong').text();
+			/* ÄÞ¸¶ Á¦°Å */
+			price = price.replace(/,/g,'');
+			break;
+		}
+	}
+	var amount = menu_cnt * price;
 
- 	var subtotal =  Number($('#subtotal').text());
-  	subtotal = subtotal - amount ;
-  	subtotal = numberWithCommas(subtotal);
-  	$('#subtotal').text(subtotal);
+ 	var subtotal =  $('#subtotal').text();
+  	subtotal = subtotal.replace(/,/g,'');
+ 	subtotal = Number(subtotal) - amount ;
+  	$('#subtotal').text(subtotal.comma());
 
- 	var total = Number($('#total').text());
- 	total += subtotal - amount;
- 	total = numberWithCommas(total);
- 	$('#total').text(total);	
-	 */
+ 	var total = $('#total').text();
+ 	total = total.replace(/,/g,'');
+ 	total = Number(total) - amount;
+ 	$('#total').text(total.comma());	
+	
+ 	$(obj).parent().parent().remove(); 
+/* 	$('#addItem tr:last-child').remove(); */
+
 }
 function calTotal(tprice){
- 	var subtotal =  Number($('#subtotal').text());
-  	subtotal += tprice;
-  	subtotal = numberWithCommas(subtotal);
-  	$('#subtotal').text(subtotal);
+ 	var subtotal =  $('#subtotal').text();
+  	subtotal = subtotal.replace(/,/g,'');
+ 	subtotal = Number(subtotal) + tprice;
 
- 	var total = Number($('#total').text());
- 	total += tprice;
- 	total = numberWithCommas(total);
- 	$('#total').text(total);	
-}
-function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+ 	$('#subtotal').text(subtotal.comma());
 
+ 	var total = $('#total').text();
+ 	total = total.replace(/,/g,'');
+	total = Number(total) + tprice;
+ 	
+ 	$('#total').text(total.comma());	
+}
+/* 20171229_JS comma in number */
+	Number.prototype.comma = function(){
+		return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	};
+
+	String.prototype.comma = function(){
+		return this.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	};
 </script>
 <!-- 20171214_JS store_menu.jsp add -->

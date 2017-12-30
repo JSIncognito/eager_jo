@@ -95,6 +95,34 @@ public class Store {
 		this.u_id = u_id;
 	}
 
+	
+	public Store(double st_key, String st_nm, double lat, double lot, String st_img, String st_time, String st_addr,
+			String u_id) {
+		super();
+		this.st_key = st_key;
+		this.st_nm = st_nm;
+		this.lat = lat;
+		this.lot = lot;
+		this.st_img = st_img;
+		this.st_time = st_time;
+		this.st_addr = st_addr;
+		this.u_id = u_id;
+	}
+
+	public Store(double st_key, String st_nm, double lat, double lot, String st_img, String st_time, String st_addr,
+			int st_star, String u_id) {
+		super();
+		this.st_key = st_key;
+		this.st_nm = st_nm;
+		this.lat = lat;
+		this.lot = lot;
+		this.st_img = st_img;
+		this.st_time = st_time;
+		this.st_addr = st_addr;
+		this.st_star = st_star;
+		this.u_id = u_id;
+	}
+
 	public double getSt_key() {
 		return st_key;
 	}

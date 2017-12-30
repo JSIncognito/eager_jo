@@ -1,25 +1,59 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
 #wrapper {
 	height: auto;
 }
-
 strong {
-	color: #C33;
+	color:  #996666;
+	font-family: 'Questrial', sans-serif;
 }
+#gift2{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#get_button{
+	margin-top:1em;
+    color: #fff;
+	background-color: #85c99d;
+	width: 100px;
+	height: 30px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 600;	    
+}
+#st_nm{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+#get_button{
+font-family: 'Questrial', sans-serif;
+letter-spacing: 2px;
+}
+#get_button:hover{
+background-color: #668099;
+}
+#locat{
+font-family: 'Questrial', sans-serif;
+font-weight: bold;
+}
+
+
 </style>
 
 
 
 <section class="parallax-window" id="short" data-parallax="scroll"
-	data-image-src="img/sub_header_short.jpg" data-natural-width="1400"
-	data-natural-height="350">
+	data-image-src="img/coupon_event.gif" data-natural-width="1400"
+	data-natural-height="450">
 	<div id="subheader">
 		<div id="sub_content">
-			<h1>24 results in your zone</h1>
-			<div>
-				<i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB
-			</div>
+			<h1>Coupon Event</h1>
+		
 		</div>
 		<!-- End sub_content -->
 	</div>
@@ -62,8 +96,7 @@ strong {
 				</div>
 			</div>
 			<!--End tools -->
-			<h1>na ya na ${loginuser.u_id }</h1>
-			<h1>na ya na ${loginuser.u_nm }</h1>
+			
 
 			<div class="row">
 
@@ -76,12 +109,12 @@ strong {
 								<div class="thumb_strip">
 									<img src="img/thumb_restaurant.jpg" alt="">
 								</div>
-								<!-- ë³ì  -->
+								<!-- 별점 -->
 								<!-- <div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
 							</div>
 							 -->
-								<h3>${c.st_nm }</h3>
+								<h3 id="st_nm">${c.st_nm }</h3>
 								<%--<input type="hidden" value="${c.cu_key }" name="cu_key"> --%>
 								<input type="hidden" value="${c.c_key }" name="c_key">
 								<%-- <input type="hidden" value="${c.cu_used }" name="cu_used"> --%>
@@ -97,14 +130,14 @@ strong {
 								<input type="hidden" value="0" name="cu_used">
 								
 								<div class="type">
-									<h3 class="red">
-										<strong>Discount ${c.c_dc }</strong>
+									<h3 class="black">
+										<strong>Discount<br>&#8361;${c.c_dc }</strong>
 									</h3>
-									<h3 class="red">
-										<strong>Gift ${c.c_gift }</strong>
+									<h3 class="red" id="gift2">
+										<strong>Gift<br> ${c.c_gift }</strong>
 									</h3>
 								</div>
-								<div class="location">
+								<div class="location" id="locat">
 									Released ${c.c_date }<br> <span class="opening">Start${c.c_start }</span>
 									<span class="opening">End${c.c_end }</span>
 								</div>
@@ -114,9 +147,10 @@ strong {
 							</ul> -->
 								
 								<!-- 1223 ksy -->
-								<div class="btn_1">
+								<!-- <div class="btn_1"> -->
+								<div>
 									<%-- <a href="cu_insert.ej?c=${c}">get</a> --%>
-									<input type="submit" value="get">									
+									<input type="submit" id="get_button"value="Get">									
 								</div>
 
 							</div>

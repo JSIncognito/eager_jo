@@ -1,42 +1,58 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
 #coupon_wrapper {
 	
-	width: 75%;
+	width: 72%;
+	float:right;
+	margin-right:40px;
+	position: relative;
+	margin-bottom: 100px;
+	
 	/* display: block; */
 }
+#main_menu{
+	font-family: 'Questrial', sans-serif;
+
+}
+#food_nums{
+	font-family: 'Questrial', sans-serif;
+	font-weight: bold;
+}
 #category {
-	float: right;
-	width:150px;		
+	float: left;
+	width:170px;	
+margin-right: 80px;	
+		font-family: 'Questrial', sans-serif;
+		position:absolute;
+	
+}
+#inner{
+	font-family: 'Questrial', sans-serif;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+h3{
+font-weight: bold;
 }
 </style>
 
-<section class="parallax-window" data-parallax="scroll"
-	data-image-src="img/sub_header_2.jpg" data-natural-width=100%
-	data-natural-height="470">
+<section class="parallax-window" id="short" data-parallax="scroll"
+	data-image-src="img/coupon_list.gif" data-natural-width="1000"
+	data-natural-height="450">
 	<div id="subheader">
 		<div id="sub_content">
-			<div id="thumb">
-				<img src="img/thumb_restaurant.jpg" alt="">
-			</div>
-			<div class="rating">
-				<i class="icon_star voted"></i><i class="icon_star voted"></i><i
-					class="icon_star voted"></i><i class="icon_star voted"></i><i
-					class="icon_star"></i> (<small><a href="detail_page_2.html">Read
-						98 reviews</a></small>)
-			</div>
-			<h1>Mexican TacoMex</h1>
-			<div>
-				<em>Mexican / American</em>
-			</div>
-			<div>
-				<i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB - <strong>Delivery
-					charge:</strong> $10, free over $15.
-			</div>
+			<h1>Coupon List</h1>
+		
 		</div>
 		<!-- End sub_content -->
 	</div>
 	<!-- End subheader -->
+</section>
 </section>
 <!-- End section -->
 <!-- End SubHeader ============================================ -->
@@ -77,22 +93,27 @@
 					<small>Monday to Friday 9.00am - 7.30pm</small>
 				</div>
 			</div>End col-md-3 -->
-		<div class="widget" id="category">
-			<h4>Categories</h4>
-			<ul id="cat_nav_blog">
-				<li><a href="seller_main.ej">Seller Main</a></li>
-				<li><a href="coupon_add.ej">Add Coupon</a></li>
+			
+	    <div class="widget" id="category">
+		<h4 id="food_nums">Categories</h4>
+		<ul id="cat_nav_blog">
+			<li><a href="coupon_list.ej">Coupon List</a></li>
+			<li><a href="coupon_add.ej">Coupon Add</a></li>
+			<li><a href="seller_store_detail_test.ej">Update my store</a></li>
+			<li><a href="seller_mypage.ej">Update seller profile</a></li>
 
-			</ul>
-		</div>
+		</ul>
+	</div>
+<!-- div 확인할것 -->
+</div>
 
 		<div class="col-md-12" id="coupon_wrapper">
 			<div class="box_style_2" id="main_menu">
-				<h2 class="inner">Coupons</h2>
+				<h2 class="inner" id="inner">Coupons</h2>
 				<h3 class="nomargin_top" id="starters">Discount Coupon</h3>
-				<p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
+				<!-- <p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
 					cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
-				</p>
+				</p> -->
 				<table class="table table-striped cart-list">
 					<thead>
 						<tr>
@@ -110,8 +131,8 @@
 									<figure class="thumb_menu_list">
 										<img src="img/menu-thumb-1.jpg" alt="thumb">
 									</figure> <!-- Coupon Name -->
-									<h5>${mc.c_nm }</h5>
-									<p>Fuisset mentitum deleniti sit ea.</p>
+									<br><h5>${mc.c_nm }</h5>
+									<!-- <p>Fuisset mentitum deleniti sit ea.</p> -->
 								</td>
 								<!-- Discount -->
 								<td><strong>${mc.c_dc }</strong></td>
@@ -120,16 +141,16 @@
 								<!-- Start -->
 								<td><strong>${mc.c_start }</strong></td>
 								<!-- End -->
-								<th><strong>${mc.c_end }</strong></th>
+								<td><strong>${mc.c_end }</strong></td>
 							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
 				<hr>
 				<h3 id="main_courses">Gift Coupon</h3>
-				<p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
+				<!-- <p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
 					cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
-				</p>
+				</p> -->
 				<table class="table table-striped cart-list">
 					<thead>
 						<tr>
@@ -147,8 +168,8 @@
 									<figure class="thumb_menu_list">
 										<img src="img/menu-thumb-1.jpg" alt="thumb">
 									</figure> <!-- Coupon Name -->
-									<h5>${mc.c_nm }</h5>
-									<p>Fuisset mentitum deleniti sit ea.</p>
+									<br><h5>${mc.c_nm }</h5>
+									<!-- <p>Fuisset mentitum deleniti sit ea.</p> -->
 								</td>
 								<!-- Gift -->
 								<td><strong>${mc.c_gift }</strong></td>
@@ -157,7 +178,7 @@
 								<!-- Start -->
 								<td><strong>${mc.c_start }</strong></td>
 								<!-- End -->
-								<th><strong>${mc.c_end }</strong></th>
+								<td><strong>${mc.c_end }</strong></td>
 							</tr>
 						</c:forEach>
 					</tbody>

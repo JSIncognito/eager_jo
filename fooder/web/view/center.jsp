@@ -9,6 +9,9 @@
 @import url('https://fonts.googleapis.com/css?family=Oxygen');
 @import url('https://fonts.googleapis.com/css?family=Cookie');
 @import url('https://fonts.googleapis.com/css?family=Dosis');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
 
 /*카테고리 시작*/
 #food_div{
@@ -32,14 +35,14 @@ margin-bottom: 200px;
 #best_food {
 	text-align: center;
 	font-size: 40px;
-	margin-top: 190px;
+	margin-top: 170px;
 	margin-bottom: 80px;
 		font-family: 'Anton', sans-serif;
-	letter-spacing:3pt;
+	letter-spacing:2px;
 }
 
 .card {
-border-radius:100px;
+border-radius:120px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     width:30%;
@@ -71,6 +74,27 @@ margin-top: 20px;
 .nomargin_top{
 		font-family: 'Anton', sans-serif;
 margin-top: 80px;
+}
+
+p{
+font-family: 'Questrial', sans-serif;
+}
+
+#chicken{
+font-family: 'Questrial', sans-serif;
+letter-spacing: 2px;
+}
+h3{
+font-family: 'Questrial', sans-serif;
+font-weight: bold;
+}
+h4{
+font-family: 'Questrial', sans-serif;
+font-weight: bold;
+}
+#fot{
+font-family: 'Questrial', sans-serif;
+font-weight: bold;
 }
 
 /*쿠폰시작*/
@@ -190,11 +214,12 @@ font-family: 'Cookie', cursive;
 <!-- 카테고리시작 -->
 <h2 id="best_food">CATEGORY</h2>
 <!-- 20171223_JS TEST 추가 -->
+<!--
 <ul>
 	<li>위도:<span id="latitude"></span></li>
 	<li>경도:<span id="longitude"></span></li>
 </ul>
-<!--  -->
+-->
 	<div id="food_div">
 
 		<div class="row">
@@ -272,13 +297,14 @@ font-family: 'Cookie', cursive;
 	</div> -->
 	
 	<!-- 쿠폰끝 -->
+	
 	<!-- Content ================================================== -->
  <div id="delivery_time" class="hidden-xs">
             <strong><span>6</span><span>0</span></strong>
             <h4>The minutes that usually takes to deliver!</h4>
         </div>
      <!--60분 끝-->
-
+            
     <!-- <div class="white_bg">
     <div class="container margin_60">
         
@@ -431,11 +457,12 @@ font-family: 'Cookie', cursive;
         </div>End container
         </div>End white_bg -->
         
+        
         <!-- 레스토랑 전체보기, 이벤트 전체보기 시작-->
        <div class="high_light">
       	<div class="container">
       		<h3>Choose Restaurants</h3>
-            <p>Chicken/Chinese/Pizza</p>
+            <p id="chicken">Chicken/Chinese/Pizza</p>
             <a href="list_page.html">View all Restaurants</a>
         </div><!-- End container -->
       </div><!-- End hight_light -->
@@ -443,7 +470,7 @@ font-family: 'Cookie', cursive;
            <div class="high_light">
       	<div class="container">
       		<h3>Choose Event</h3>
-            <p>Gift/Discount</p>
+            <p id="chicken">Gift/Discount</p>
             <a href="list_page.html">View all Event</a>
         </div><!-- End container -->
       </div><!-- End hight_light -->
@@ -501,7 +528,7 @@ font-family: 'Cookie', cursive;
     <div class="parallax-content">
         <div class="sub_content">
             <i class="icon_mug"></i>
-            <h3>We suggest convenience system</h3>
+            <h3 id="fot">We suggest convenience system</h3>
             <p>
              
             </p>

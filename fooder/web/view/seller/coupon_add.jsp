@@ -1,5 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
 /*  #event_box { 
  	margin-top: 17px; 
  	text-align: center; 
@@ -8,7 +13,34 @@ input[type="text"] {
 	width: 100%;
 }
 #add_coupon {
-	
+font-family: 'Questrial', sans-serif;
+
+}
+#category{
+font-family: 'Questrial', sans-serif;
+}	
+#food_nums{
+font-weight: bold;
+}
+h3{
+font-family: 'Questrial', sans-serif;
+font-weight: bold;
+}
+#inner{
+font-family: 'Questrial', sans-serif;
+
+}
+#idid{
+margin-top: 150px;
+}
+#ratt{
+font-family: 'Questrial', sans-serif;
+}
+#sub_content{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#kkk{
+ font-family: 'Jeju Gothic', sans-serif; 
 }
 </style>
 <script>
@@ -138,14 +170,14 @@ $(document).ready(function() {
 </script>
 
 <section class="parallax-window" data-parallax="scroll"
-	data-image-src="img/sub_header_2.jpg" data-natural-width="1400"
-	data-natural-height="470">
+	data-image-src="img/food2.jpg" data-natural-width="1000"
+	data-natural-height="670">
 	<div id="subheader">
 		<div id="sub_content">
 			<div id="thumb">
 				<img src="img/thumb_restaurant.jpg" alt="">
 			</div>
-			<div class="rating">
+			<div class="rating" id="ratt" >
 				<c:forEach begin="1" end="${store.st_star }" varStatus="status">
 					<c:set var="index" value="${status.current }"></c:set>
 					<i class="icon_star voted"></i>
@@ -163,7 +195,7 @@ $(document).ready(function() {
 				 -->
 					(<small><a href="detail_page_2.html">Read 98 reviews</a></small>)
 			</div>
-			<h1>${store.st_nm }</h1>
+			<h1 id="kkk">${store.st_nm }</h1>
 			<div>
 				<em>${store.st_type }</em>
 			</div>
@@ -208,12 +240,12 @@ $(document).ready(function() {
 
 		<div class="col-md-7" id="add_coupon">
 			<div class="box_style_2" id="main_menu">
-				<h2 class="inner">Add Coupon</h2>
+				<h2 class="inner" id="inner">Add Coupon</h2>
 				<!-- 1214 ksy  -->
 				<h3 class="nomargin_top" id="starters">Discount Coupon</h3>
-				<p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
+				<!-- <p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
 					cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
-				</p>
+				</p> -->
 				<table class="table table-striped cart-list col-md-7" id="dc_table">
 					<thead>
 						<tr>
@@ -228,7 +260,7 @@ $(document).ready(function() {
 					<tbody>
 						<tr id="dc1000">
 							<td>
-								<h5>&#8361;1000 Discount Coupon</h5>
+								<h5>&#8361;1000 <br> Discount Coupon</h5>
 							</td>
 							<td>
 								<strong>&#8361;1000</strong>
@@ -243,7 +275,7 @@ $(document).ready(function() {
 						</tr>
 						<tr id="dc3000">
 							<td>
-								<h5>&#8361;3000 Discount Coupon</h5>
+								<h5>&#8361;3000<br> Discount Coupon</h5>
 							</td>
 							<td>
 								<strong>&#8361;3000</strong>
@@ -258,7 +290,7 @@ $(document).ready(function() {
 						</tr>
 						<tr id="dc5000">
 							<td>
-								<h5>&#8361;5000 Discount Coupon</h5>
+								<h5>&#8361;5000 <br>Discount Coupon</h5>
 							</td>
 							<td>
 								<strong>&#8361;5000</strong>
@@ -292,10 +324,12 @@ $(document).ready(function() {
 <!-- 				</div> -->
 				<hr class="styled_1 margin_60">
 <!-- 				<div class="box_style_2" id="main_menu"> -->
-				<h3 id="main_courses ">Gift Coupon</h3>
-				<p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
+<div id="idid"></div>
+
+				<h3>Gift Coupon</h3>
+				<!-- <p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
 					cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
-				</p>
+				</p> -->
 				<table class="table table-striped cart-list col-md-7" id="gift_table">
 					<thead>
 						<tr>
