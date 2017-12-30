@@ -2,14 +2,57 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+/*한글폰트*/
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+#idid{
+font-family: 'Questrial', sans-serif;
+}
+#starters{
+font-family: 'Questrial', sans-serif;
+}
+#inner{
+font-family: 'Questrial', sans-serif;
+}
+#foodMenu{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#back_to{
+font-family: 'Questrial', sans-serif;
+}
+#subtotal{
+font-family: 'Questrial', sans-serif;
+}
+#total{
+font-family: 'Questrial', sans-serif;
+}
+h3{
+font-family: 'Questrial', sans-serif;
+}
+#pngs{
+margin-left:30px;
+margin-top: 100px;
+margin-bottom: 100px;
+}
+h1{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#strongs{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+
+</style>
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/fruit_view.jpg" data-natural-width="1400" data-natural-height="570">
     <div id="subheader">
 	<div id="sub_content">
-    	<div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
+    	<div id="thumb"><img src="img/view_store.gif" alt=""></div>
                      <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="detail_page_2.html">Read 98 reviews</a></small>)</div>
                     <h1>${stDetail.st_nm }</h1>
 <!--                     <div><em>Mexican / American</em></div> -->
-                    <div><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
+                    <div id="strongs"><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
     </div><!-- End sub_content -->
 </div><!-- End subheader -->
 </section><!-- End section -->
@@ -30,9 +73,14 @@
 <div class="container margin_60_35">
 		<div class="row">
         
-			<div class="col-md-3">
+			<div class="col-md-3" id="back_to">
             	<p><a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }" class="btn_side">Back to search</a></p>
-				<div class="box_style_1">
+				<div id=pngs>
+				<img src=img/pizza.png width=60>
+				   <img src=img/chicken.png width=60>
+				   <img src=img/china.png width=60>
+				</div>
+				<!-- <div class="box_style_1">
 					<ul id="cat_nav">
 						<li><a href="#starters" class="active">Starters <span>(141)</span></a></li>
 						<li><a href="#main_courses">Main Courses <span>(20)</span></a></li>
@@ -40,23 +88,23 @@
 						<li><a href="#desserts">Desserts <span>(11)</span></a></li>
 						<li><a href="#drinks">Drinks <span>(20)</span></a></li>
 					</ul>
-				</div><!-- End box_style_1 -->
+				</div>End box_style_1 -->
                 
 				<div class="box_style_2 hidden-xs" id="help">
 					<i class="icon_lifesaver"></i>
 					<h4>Need <span>Help?</span></h4>
-					<a href="tel://004542344599" class="phone">+45 423 445 99</a>
-					<small>Monday to Friday 9.00am - 7.30pm</small>
+					<a href="tel://004542344599" class="phone">+82 010 123 456</a>
+					<small>Monday to Friday 10:00am - 7:00pm</small>
 				</div>
 			</div><!-- End col-md-3 -->
             
-			<div class="col-md-6">
+			<div class="col-md-6" id="idid">
 				<div class="box_style_2" id="main_menu">
-					<h2 class="inner">Menu</h2>
+					<h2 class="inner" id="inner">Menu</h2>
 					<h3 class="nomargin_top" id="starters">Starters</h3>
-					<p>
+					<!-- <p>
 						Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
-					</p>
+					</p> -->
 					<table class="table table-striped cart-list">
 					<thead>
 					<tr>
@@ -77,10 +125,9 @@
 					<tr>
 						<td>
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-1.jpg" alt="thumb"></figure>
-							<h5 class="foodName">${menu.f_name }</h5>
-							<p>
-								Fuisset mentitum deleniti sit ea.
-							</p>
+<br>							<h5 class="foodName">${menu.f_name }</h5>
+								
+							
 						</td>
 						<td>
 							<strong class="f_price"><fmt:formatNumber value="${menu.f_price }" groupingUsed="true"/></strong>

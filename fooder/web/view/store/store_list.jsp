@@ -180,14 +180,10 @@ font-family: 'Questrial', sans-serif;
 					</div>
 					<div class="col-md-2 col-sm-2">
 						<div class="go_to" id="go_to">
-							<div>
+								
 								<a href="store_menu.ej?st_key=${st.st_key }&st_type=${stType }&st_addr=${stAddr }" class="btn_1" id="btn_1">View Menu</a>
-							</div>
-						</div>
-						<div class="go_to">
-							<div>
+					
 								<a href="store_detail.ej?st_key=${st.st_key }" class="btn_1" id="btn_1">Store detail</a>
-							</div>
 						</div>
 					</div>
 				</div><!-- End row-->

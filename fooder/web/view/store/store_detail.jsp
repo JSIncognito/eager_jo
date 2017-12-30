@@ -1,14 +1,35 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+	<style>
+	@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+/*한글폰트*/
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+h1{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#strongs{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#view{
+font-family: 'Questrial', sans-serif;
+}
+#inner{
+font-family: 'Questrial', sans-serif;
+
+}
+	</style>
 <!-- SubHeader =============================================== -->
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/kkk.jpg" data-natural-width="1000" data-natural-height="370">
     <div id="subheader">
 	<div id="sub_content">
-    	<div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
+    	<div id="thumb"><img src="img/view_store.gif" alt=""></div>
                      <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> ( <small><a href="#0">98 reviews</a></small> )</div>
                     <h1>${stDetail.st_nm }</h1>
 <!--                     <div><em>Mexican / American</em></div> -->
-                    <div><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
+                    <div id="strongs"><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
     </div><!-- End sub_content -->
 </div><!-- End subheader -->
 </section><!-- End section -->
@@ -33,8 +54,9 @@
 <div class="container margin_60_35">
 		<div class="row">
         
-			<div class="col-md-4">
+			<div class="col-md-4" id="view">
 				<p>
+            	<a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }" class="btn_side">Back to search</a>
 					<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
 				</p>
 				<div class="box_style_2">
@@ -52,14 +74,14 @@
 				<div class="box_style_2 hidden-xs" id="help">
 					<i class="icon_lifesaver"></i>
 					<h4>Need <span>Help?</span></h4>
-					<a href="tel://004542344599" class="phone">+45 423 445 99</a>
-					<small>Monday to Friday 9.00am - 7.30pm</small>
+					<a href="tel://004542344599" class="phone">+82 010 123 456</a>
+					<small>Monday to Friday 10:00am - 7:00pm</small>
 				</div>
 			</div>
             
 			<div class="col-md-8">
 				<div class="box_style_2">
-					<h2 class="inner">Description</h2>
+					<h2 class="inner" id="inner">About Us</h2>
                     
                     <div id="Img_carousel" class="slider-pro">
                         <div class="sp-slides">
@@ -72,14 +94,16 @@
                                 data-large="img/slider_single_restaurant/1_large.jpg" 
                                 data-retina="img/slider_single_restaurant/1_large.jpg">
                             </div>
+                            
                             <div class="sp-slide">
+                                
                                 <img alt="" class="sp-image" src="../src/css/images/blank.gif" 
                                 data-src="img/slider_single_restaurant/2_medium.jpg" 
                                 data-small="img/slider_single_restaurant/2_small.jpg" 
                                 data-medium="img/slider_single_restaurant/2_medium.jpg" 
                                 data-large="img/slider_single_restaurant/2_large.jpg" 
                                 data-retina="img/slider_single_restaurant/2_large.jpg">
-                                <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="40" data-show-transition="left">
+                                 <h3 class="sp-layer sp-black sp-padding" data-horizontal="40" data-vertical="40" data-show-transition="left">
                                 Lorem ipsum dolor sit amet </h3>
                                 <p class="sp-layer sp-white sp-padding" data-horizontal="40" data-vertical="100" data-show-transition="left" data-show-delay="200">
                                      consectetur adipisicing elit
@@ -160,10 +184,10 @@
                                 data-large="img/slider_single_restaurant/8_large.jpg" 
                                 data-retina="img/slider_single_restaurant/8_large.jpg">
                                 <p class="sp-layer sp-black sp-padding" data-horizontal="50" data-vertical="50" data-show-transition="down" data-show-delay="500">
-                                     Lorem ipsum dolor sit amet
+                                      
                                 </p>
                                 <p class="sp-layer sp-white sp-padding" data-horizontal="50" data-vertical="100" data-show-transition="up" data-show-delay="500">
-                                     consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                  
                                 </p>
                             </div>
                             
@@ -176,6 +200,7 @@
                                 data-retina="img/slider_single_restaurant/9_large.jpg">
                             </div>
                         </div>
+                        <!-- 
                         <div class="sp-thumbnails">
                             <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/1_medium.jpg">
                             <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/2_medium.jpg">
@@ -186,14 +211,14 @@
                             <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/7_medium.jpg">
                             <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/8_medium.jpg">
                             <img alt="" class="sp-thumbnail" src="img/slider_single_restaurant/9_medium.jpg">
-                        </div>
+                        </div> -->
                     </div>
                     <h3>About us</h3>
 					<p>
-						Lorem ipsum dolor sit amet, ius sonet meliore partiendo cu. Nobis laudem mediocrem cum et. Debitis nonumes similique te eam, blandit eligendi principes sea no. Cu eum quidam expetendis.
+CONTENT						
 					</p>
 					<p class="add_bottom_30">
-						Lorem ipsum dolor sit amet, ex has recusabo adipiscing, aliquip alienum at vis, eos id qualisque quaerendum. Soleat habemus duo no, te quo dicam everti, sale ullum movet per ea. Cu cum laudem quaeque, agam decore nullam ei vis. Nec ad tota etiam eirmod. Harum debitis detraxit ut vel, eu vel option oporteat.
+CONTENT
 					</p>
 					<!-- <div id="summary_review">
 						<div id="general_rating">

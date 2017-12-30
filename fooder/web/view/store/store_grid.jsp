@@ -1,10 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+/*한글폰트*/
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+#sort_rating{
+font-family: 'Questrial', sans-serif;
+}
+#view{
+font-family: 'Questrial', sans-serif;
+}
+#filters_col_bt{
+font-family: 'Questrial', sans-serif;
+}
+h3{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#locat{
+ font-family: 'Jeju Gothic', sans-serif; 
+ margin-top:5px;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+</style>
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/store_list.gif" data-natural-width="1400" data-natural-height="600">
     <div id="subheader">
 	<div id="sub_content">
-    	<h1>24 results in your zone</h1>
+    	<h1>Store List</h1>
         <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
     </div><!-- End sub_content -->
 </div><!-- End subheader -->
@@ -32,7 +59,7 @@
     
 		<div class="col-md-3">
 			<p>
-				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
+				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" id=view>View on map</a>
 			</p>
 			<div id="filters_col">
 				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters <i class="icon-plus-1 pull-right"></i></a>
@@ -43,13 +70,13 @@
 						<h6>Type</h6>
 						<ul>
 							<li><label><input type="checkbox" checked class="icheck">All <small>(49)</small></label></li>
-							<li><label><input type="checkbox" class="icheck">American <small>(12)</small></label><i class="color_1"></i></li>
+							<li><label><input type="checkbox" class="icheck">Chicken <small>(12)</small></label><i class="color_1"></i></li>
 							<li><label><input type="checkbox" class="icheck">Chinese <small>(5)</small></label><i class="color_2"></i></li>
-							<li><label><input type="checkbox" class="icheck">Hamburger <small>(7)</small></label><i class="color_3"></i></li>
-							<li><label><input type="checkbox" class="icheck">Fish <small>(1)</small></label><i class="color_4"></i></li>
+							<li><label><input type="checkbox" class="icheck">Pizza <small>(7)</small></label><i class="color_3"></i></li>
+							<!-- <li><label><input type="checkbox" class="icheck">Fish <small>(1)</small></label><i class="color_4"></i></li>
 							<li><label><input type="checkbox" class="icheck">Mexican <small>(49)</small></label><i class="color_5"></i></li>
 							<li><label><input type="checkbox" class="icheck">Pizza <small>(22)</small></label><i class="color_6"></i></li>
-							<li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li>
+							<li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li> -->
 						</ul>
 					</div>
 					<div class="filter_type">
@@ -123,11 +150,10 @@
 								Mexican / American
 							</div>
  -->
-							<div class="location">
+							<div class="location" id="locat">
 								${st.st_addr } <br><span class="opening">Open - Close ${st.st_time }</span> <!-- Minimum order: $15 -->
 							</div>
 							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
 								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
 							</ul>
 						</div>
