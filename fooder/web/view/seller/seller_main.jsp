@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
@@ -268,7 +270,7 @@ margin-top: 100px;
 	<div class="row">
 	
 	
-	<!-- 슬라이드쇼 사진 -->
+	<!-- ?�라?�드???�진 -->
 	
 <div class="slideshow-container1">
 
@@ -304,7 +306,7 @@ margin-top: 100px;
 
 
 
-<!-- 두번째 슬라이드쇼 사진 -->
+<!-- ?�번�??�라?�드???�진 -->
 
 <div id=term></div>
 
@@ -357,7 +359,7 @@ function showSlides(n, p) {
   var i;
   var slides = new Array();
   var dots = document.getElementsByClassName("dot");
-  if(p==0) { // 첫번째 슬라이드
+  if(p==0) { // 첫번�??�라?�드
 	  slides[0] = document.getElementsByClassName("mySlides")[0];
 	  slides[1] = document.getElementsByClassName("mySlides")[1];
 	  slides[2] = document.getElementsByClassName("mySlides")[2];
@@ -370,7 +372,7 @@ function showSlides(n, p) {
 	      dots[i].className = dots[i].className.replace(" active", "");
 	  }
 	  slides[slideIndex-1].style.display = "block";
-  } else if(p==1) { // 두번째 슬라이드
+  } else if(p==1) { // ?�번�??�라?�드
 	  slides[0] = document.getElementsByClassName("mySlides")[3];
 	  slides[1] = document.getElementsByClassName("mySlides")[4];
 	  slides[2] = document.getElementsByClassName("mySlides")[5];
@@ -434,7 +436,7 @@ function showSlides(n, p) {
 					volumus sententiae adversarium duo......</p>
 				<a href="blog_post.html" class="btn_1">Read more</a>
 			</div>
-			end post
+
 
 			<div class="post">
 				<a href="blog_post.html"><img src="img/blog-2.jpg" alt=""
@@ -489,6 +491,7 @@ function showSlides(n, p) {
 					</div>
 				</div>
 				<!--End tools -->
+			
 				<c:forEach var="s" items="${myStore}">
 					<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
 						<div class="ribbon_1">Popular</div>
@@ -531,11 +534,11 @@ function showSlides(n, p) {
 							<div class="col-md-3 col-sm-3">
 								<div class="go_to" id="go_to">
 									<ul>
-										<li><a href="detail_page.html" id="view_menu"
+										<li><a href="seller_store_detail.ej?st_key=${s.st_key }" id="view_menu"
 											class="btn_1" id="btn_1">View Menu</a></li>
 
 
-										<li><a href="coupon_list.ej" id="view_coupon"
+										<li><a href="coupon_list.ej?st_key=${s.st_key }" id="view_coupon"
 											class="btn_1" id="btn_1">View Coupon</a></li>
 									</ul>
 								</div>

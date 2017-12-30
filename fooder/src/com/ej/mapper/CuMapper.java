@@ -13,4 +13,5 @@ public interface CuMapper {
 	public Cu select(double obj);
 	public List<Cu> selectall();
 	public List<Cu> select_uCoupon(@Param("stKey") Double st_key);
+	public List<Cu> select_userCu(String obj);
 }

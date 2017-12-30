@@ -1,26 +1,59 @@
-<!-- 51라인 쿠폰리스트받아올 div  -->
-<section class="parallax-window" data-parallax="scroll"
-	data-image-src="img/sub_header_2.jpg" data-natural-width="1400"
-	data-natural-height="470">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+#wrapper {
+	height: auto;
+}
+strong {
+	color:  #996666;
+	font-family: 'Questrial', sans-serif;
+}
+#gift2{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#get_button{
+	margin-top:1em;
+    color: #fff;
+	background-color: #85c99d;
+	width: 100px;
+	height: 30px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 600;	    
+}
+#st_nm{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+#get_button{
+font-family: 'Questrial', sans-serif;
+letter-spacing: 2px;
+}
+#get_button:hover{
+background-color: #668099;
+}
+#locat{
+font-family: 'Questrial', sans-serif;
+font-weight: bold;
+}
+
+
+</style>
+
+
+
+<section class="parallax-window" id="short" data-parallax="scroll"
+	data-image-src="img/coupon_event.gif" data-natural-width="1400"
+	data-natural-height="450">
 	<div id="subheader">
 		<div id="sub_content">
-			<div id="thumb">
-				<img src="img/thumb_restaurant.jpg" alt="">
-			</div>
-			<div class="rating">
-				<i class="icon_star voted"></i><i class="icon_star voted"></i><i
-					class="icon_star voted"></i><i class="icon_star voted"></i><i
-					class="icon_star"></i> (<small><a href="detail_page_2.html">Read
-						98 reviews</a></small>)
-			</div>
-			<h1>Mexican TacoMex</h1>
-			<div>
-				<em>Mexican / American</em>
-			</div>
-			<div>
-				<i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB - <strong>Delivery
-					charge:</strong> $10, free over $15.
-			</div>
+			<h1>Coupon Event</h1>
+		
 		</div>
 		<!-- End sub_content -->
 	</div>
@@ -35,6 +68,7 @@
 			<li><a href="#0">Home</a></li>
 			<li><a href="#0">Category</a></li>
 			<li>Page active</li>
+
 		</ul>
 		<a href="#0" class="search-overlay-menu-btn"><i
 			class="icon-search-6"></i> Search</a>
@@ -42,84 +76,98 @@
 </div>
 <!-- Position -->
 
-<!-- Content ================================================== -->
-<div class="container margin_60_35">
-
-	<!-- 1214 ksy -->
-
-
-	<!-- 
-				쿠폰리스트 받아올 div
-			 -->
-<%-- 	<div class="col-md-9">
-		<div class="box_style_2" id="main_menu">
-			<h2 class="inner">Event and Coupon</h2>
-			<h3 class="nomargin_top" id="starters">Discount Coupon</h3>
-			<p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
-				cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.</p>
-			<table class="table table-striped cart-list">
-				<tr>
-					<th>Coupon Name</th>
-					<th>Discount Price</th>
-					<th>Released</th>
-					<th>Start</th>
-					<th>End</th>
-				</tr>
-				<c:forEach var="c" items="${cArea}">
-					<tr>
-						<td>${c.c_nm }</td>
-						<td>${c.c_dc }</td>
-						<td>${c.c_date }</td>
-						<td>${c.c_start }</td>
-						<td>${c.c_end }</td>
-					</tr>
-
-				</c:forEach>
-			</table>
-			<h3 class="nomargin_top" id="starters">Gift Coupon</h3>
-			<p>Te ferri iisque aliquando pro, posse nonumes efficiantur in
-				cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.</p>
-			<table class="table table-striped cart-list">
-				<tr>
-					<th>Gift Name</th>
-					<th>Released</th>
-					<th>Start</th>
-					<th>End</th>
-				</tr>
-				<c:forEach var="c" items="${cArea}">
-					<tr>
-						<td>${c.c_gift }</td>
-						<td>${c.c_date }</td>
-						<td>${c.c_start }</td>
-						<td>${c.c_end }</td>
-					</tr>
-
-				</c:forEach>
-			</table>
-		</div>
-	</div> --%>
+<div class="collapse" id="collapseMap">
+	<div id="map" class="map"></div>
 </div>
-<!-- End container -->
-<!-- 20171221_JS Add -->
-<!-- SPECIFIC SCRIPTS -->
-<script  src="js/cat_nav_mobile.js"></script>
-<script>$('#cat_nav').mobileMenu();</script>
-<script src="js/theia-sticky-sidebar.js"></script>
-<script>
-    jQuery('#sidebar').theiaStickySidebar({
-      additionalMarginTop: 80
-    });
-</script>
-<script>
-$('#cat_nav a[href^="#"]').on('click', function (e) {
-			e.preventDefault();
-			var target = this.hash;
-			var $target = $(target);
-			$('html, body').stop().animate({
-				'scrollTop': $target.offset().top - 70
-			}, 900, 'swing', function () {
-				window.location.hash = target;
-			});
-		});
-</script>
+<!-- End Map -->
 
+<!-- Content ================================================== -->
+<div class="container margin_60_35" id="wrapper">
+	<div class="row">
+
+
+		<div class="col-md-9">
+
+			<div id="tools">
+				<div class="row">
+					<!-- <div class="col-md-9 col-sm-9 hidden-xs">
+						<a href="list_page.html" class="bt_filters"><i class="icon-list"></i></a>
+					</div> -->
+				</div>
+			</div>
+			<!--End tools -->
+			
+
+			<div class="row">
+
+				<c:forEach var="c" items="${cArea}">
+				<form action="cu_insert.ej" method="post">
+					<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+						<a class="strip_list grid" href="#">
+							<div class="ribbon_1">Popular</div>
+							<div class="desc">
+								<div class="thumb_strip">
+									<img src="img/thumb_restaurant.jpg" alt="">
+								</div>
+								<!-- 별점 -->
+								<!-- <div class="rating">
+								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
+							</div>
+							 -->
+								<h3 id="st_nm">${c.st_nm }</h3>
+								<%--<input type="hidden" value="${c.cu_key }" name="cu_key"> --%>
+								<input type="hidden" value="${c.c_key }" name="c_key">
+								<%-- <input type="hidden" value="${c.cu_used }" name="cu_used"> --%>
+								<%-- <input type="hidden" value="${c.cu_date }" name="cu_date"> --%>
+								<input type="hidden" value="${c.c_gift }" name="c_gift">
+								<input type="hidden" value="${c.c_dc }" name="c_dc">
+								<input type="hidden" value="${c.c_nm }" name="c_nm">
+								<input type="hidden" value="${c.c_start }" name="c_start">
+								<input type="hidden" value="${c.c_end }" name="c_end">
+								<input type="hidden" value="${c.c_code }" name="c_code">
+								<input type="hidden" value="${c.st_nm }" name="st_nm">
+								<input type="hidden" value="${loginuser.u_id }" name="u_id">
+								<input type="hidden" value="0" name="cu_used">
+								
+								<div class="type">
+									<h3 class="black">
+										<strong>Discount<br>&#8361;${c.c_dc }</strong>
+									</h3>
+									<h3 class="red" id="gift2">
+										<strong>Gift<br> ${c.c_gift }</strong>
+									</h3>
+								</div>
+								<div class="location" id="locat">
+									Released ${c.c_date }<br> <span class="opening">Start${c.c_start }</span>
+									<span class="opening">End${c.c_end }</span>
+								</div>
+								<!-- <ul>
+								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
+							</ul> -->
+								
+								<!-- 1223 ksy -->
+								<!-- <div class="btn_1"> -->
+								<div>
+									<%-- <a href="cu_insert.ej?c=${c}">get</a> --%>
+									<input type="submit" id="get_button"value="Get">									
+								</div>
+
+							</div>
+						</a>
+						<!-- End strip_list-->
+					</div>
+					<!-- End col-md-6-->
+					</form>
+				</c:forEach>
+
+
+
+			</div>
+			<!-- End col-md-9-->
+			<!-- <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a> -->
+		</div>
+		<!-- End row -->
+	</div>
+	<!-- End container -->
+</div>

@@ -68,7 +68,12 @@ $(document).ready(function() {
 });
 
 function checkpwd(f) {
-	if(pwd1 != pwd2 && phone != '' && addr != ''){
+	var pwd1 = f.u_pwd.value;
+	var pwd2 = f.u_pwd2.value;
+	var tel = f.u_tel.value;
+	var addr = f.u_addr.value;
+	
+	if(pwd1 == pwd2 && tel != '' && addr != ''){
 		f.method = 'post';
 		f.action = 'seller_mypage_modify.ej';
 		f.submit();
@@ -84,17 +89,17 @@ function checkpwd(f) {
         </div><!-- End sub_content -->
 	</div><!-- End subheader -->
 </section><!-- End section -->
-
+<!-- 확인해봐야함 20171230_JS-->
     <div class="widget" id="category">
 		<h4 id="food_nums">Categories</h4>
 		<ul id="cat_nav_blog">
-			<li><a href="coupon_list">Coupon List</a></li>
+			<li><a href="coupon_list.ej">Coupon List</a></li>
 			<li><a href="coupon_add.ej">Coupon Add</a></li>
 			<li><a href="seller_store_detail_test.ej">Update my store</a></li>
 			<li><a href="seller_mypage.ej">Update seller profile</a></li>
 
 		</ul>
-	</div>	
+	</div>
 <!-- End SubHeader ============================================ -->
 
     <div id="position">
@@ -254,12 +259,14 @@ function checkpwd(f) {
     	<div class="col-md-7 col-md-offset-2">
         	<form>
         	<!-- TODO : set value -->
-        		<input type="text" name="id"  hidden="hidden">
+				<input type="hidden" name="u_id" value="${loginUser.u_id }"/>
+<!--        		<input type="text" name="id"  hidden="hidden">-->
 				<div class="row">
 					<div class="col-md-12 col-sm-6">
 						<div class="form-group">
 							<label>Address</label>
-							<input type="text" class="form-control" id="addr" name="u_addr" placeholder="Enter your address" required="required">
+							<input type="text" class="form-control" id="addr" name="u_addr" value="${loginUser.u_addr }" placeholder="Enter your address" required="required">
+<!--							<input type="text" class="form-control" id="addr" name="u_addr" placeholder="Enter your address" required="required">-->
 						</div>
 					</div>
 				</div>
@@ -267,7 +274,8 @@ function checkpwd(f) {
 					<div class="col-md-12 col-sm-6">
 						<div class="form-group">
 							<label>Phone number</label>
-							<input type="tel" id="tel" name="u_tel" class="form-control" placeholder="010-1234-1234" required="required"><!-- pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  -->
+							<input type="tel" id="tel" name="u_tel" class="form-control" value="${loginUser.u_tel }" placeholder="010-1234-1234" required="required"><!-- pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  -->
+<!--							<input type="tel" id="tel" name="u_tel" class="form-control" placeholder="010-1234-1234" required="required">--><!-- pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  -->
 						</div>
 					</div>
 				</div>
@@ -288,10 +296,12 @@ function checkpwd(f) {
 				</div><!-- End row  -->
                 <div id="pass-info" class="clearfix"></div>
                 <div class="text-center">
+<!--              	  <button type="button" id="btn_submit" class="btn_full_outline" onclick="checkpwd(this.form);" >Modify</button>-->
               	  <button type="button" id="btn_submit" class="btn_full_outline" onclick="checkpwd(this.form);" >Update</button>
 <!--               	  <input type="button" class="btn_full_outline" value="Modify" onclick="checkpwd(this.form);"> -->
                 </div>
 			</form>
+<!-- 20171230_JS div 확인해보기 -->
 			</div>
         </div><!-- End col  -->
     </div><!-- End row  -->

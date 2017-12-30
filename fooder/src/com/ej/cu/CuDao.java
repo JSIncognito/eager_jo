@@ -44,5 +44,8 @@ public class CuDao implements Dao<Cu, Double> {
 		return mapper.select_uCoupon(st_key);
 	}
 	
-	
+	//	1227 ksy
+	public List<Cu> select_userCu(String obj) {
+		return mapper.select_userCu(obj);
+	}
 }

@@ -43,4 +43,10 @@ public class CuBiz implements Biz<Cu, Double> {
 	public List<Cu> select_uCoupon(Double st_key){
 		return dao.selec_uCoupon(st_key); 
 	}
+	
+	// 1227 ksy
+	public List<Cu> select_userCu(String obj){
+		return dao.select_userCu(obj);
+	}
+	
 }

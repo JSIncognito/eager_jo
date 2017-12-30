@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<<<<<<< HEAD
 <style>
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
@@ -30,8 +29,6 @@ letter-spacing: 1px;
 }
 
 </style>
-=======
->>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/order.gif" data-natural-width="1000" data-natural-height="350">
     <div id="subheader">

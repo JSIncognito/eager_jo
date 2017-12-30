@@ -10,6 +10,6 @@ public interface CouponMapper {
 	public void update(Coupon obj);
 	public Coupon select(double obj);
 	public List<Coupon> selectall();
-	public List<Coupon> select_area(String obj);
-	public List<Coupon> select_myCoupon(String obj);
+	public List<Coupon> select_area(String st_addr);
+	public List<Coupon> select_myCoupon(Double st_key);
 }

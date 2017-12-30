@@ -1,16 +1,58 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+/*한글폰트*/
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+#btn_1{
+width:150px;
+margin-top: 20px;
+font-family: 'Questrial', sans-serif;
+letter-spacing: 1px;
+}
+#sort_rating{
+font-family: 'Questrial', sans-serif;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+i{
+font-family: 'Dancing Script', cursive;
+}
+h3{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#locat{
+ font-family: 'Jeju Gothic', sans-serif; 
+ margin-top:5px;
+}
+#rat{
+margin-top:12px;
+}
+#view{
+font-family: 'Questrial', sans-serif;
+}
+#filters_col_bt{
+font-family: 'Questrial', sans-serif;
+
+}
+</style>
 <!-- SubHeader =============================================== -->
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
-   <h1>통계사진</h1>
-    <!-- <div id="subheader">
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/store_list.gif" data-natural-width="1400" data-natural-height="600">
+
+    <div id="subheader">
 	<div id="sub_content">
-    	<h1>24 results in your zone</h1>
+    	<h1>Store List</h1>
         <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
-    </div>End sub_content -->
-<!-- </div> --><!-- End subheader -->
-</section><!-- End section -->
+    </div>
+</div> 
+</section>
+
+<!-- End section -->
 <!-- End SubHeader ============================================ -->
 
     <div id="position">
@@ -27,14 +69,14 @@
     <div class="collapse" id="collapseMap">
 		<div id="map" class="map"></div>
 	</div><!-- End Map -->
-<h1>검색 메뉴바</h1>
+
 <!-- Content ================================================== -->
 <div class="container margin_60_35">
 	<div class="row">
     
 		<div class="col-md-3">
 			<p>
-				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
+				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" id="view">View on map</a>
 			</p>
 			<div id="filters_col">
 				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters <i class="icon-plus-1 pull-right"></i></a>
@@ -45,13 +87,13 @@
 						<h6>Type</h6>
 						<ul>
 							<li><label><input type="checkbox" checked class="icheck">All <small>(49)</small></label></li>
-							<li><label><input type="checkbox" class="icheck">American <small>(12)</small></label><i class="color_1"></i></li>
+							<li><label><input type="checkbox" class="icheck">Chicken <small>(12)</small></label><i class="color_1"></i></li>
 							<li><label><input type="checkbox" class="icheck">Chinese <small>(5)</small></label><i class="color_2"></i></li>
-							<li><label><input type="checkbox" class="icheck">Hamburger <small>(7)</small></label><i class="color_3"></i></li>
-							<li><label><input type="checkbox" class="icheck">Fish <small>(1)</small></label><i class="color_4"></i></li>
+							<li><label><input type="checkbox" class="icheck">Pizza <small>(7)</small></label><i class="color_3"></i></li>
+							<!-- <li><label><input type="checkbox" class="icheck">Fish <small>(1)</small></label><i class="color_4"></i></li>
 							<li><label><input type="checkbox" class="icheck">Mexican <small>(49)</small></label><i class="color_5"></i></li>
 							<li><label><input type="checkbox" class="icheck">Pizza <small>(22)</small></label><i class="color_6"></i></li>
-							<li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li>
+							<li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li> -->
 						</ul>
 					</div>
 					<div class="filter_type">
@@ -101,7 +143,8 @@
 						</div>
 					</div>
 					<div class="col-md-9 col-sm-9 hidden-xs">
-						<a href="grid_list.html" class="bt_filters"><i class="icon-th"></i></a>
+						<a href="store_grid.ej?st_type=${stType }&st_addr=${stAddr }" class="bt_filters"><i class="icon-th"></i></a>
+<%-- 						<a href="store_grid.ej?stType=${stType }&stAddr=${stAddr}" class="bt_filters"><i class="icon-th"></i></a> --%>
 					</div>
 				</div>
 			</div><!--End tools -->
@@ -114,35 +157,36 @@
 					<div class="col-md-9 col-sm-9">
 						<div class="desc">
 							<div class="thumb_strip">
-								<a href="store_menu"><img src="img/thumb_restaurant.jpg" alt=""></a>
+								<a href="store_menu.ej?st_key=${st.st_key }&st_type=${stType }&st_addr=${stAddr }"><img src="img/thumb_restaurant.jpg" alt=""></a>
 							</div>
 							<div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
 							</div>
-							<h3>${st.st_nm }</h3>
+							<div id="rat">
+							<h3>${st.st_nm }</h3> </div>
 <!--
  							<div class="type">
 								Mexican / American
 							</div>
  -->							
-							<div class="location">
+							<div class="location" id="locat">
 								${st.st_addr } <span class="opening">open - close ${st.st_time }</span><!--  Minimum order: $15 -->
 							</div>
 							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
+							
 								<li>Delivery<i class="icon_check_alt2 no"></i></li>
 							</ul>
 						</div>
 					</div>
-					<div class="col-md-3 col-sm-3">
-						<div class="go_to">
+					<div class="col-md-2 col-sm-2">
+						<div class="go_to" id="go_to">
 							<div>
-								<a href="store_menu.ej?stKey=${st.st_key }" class="btn_1">View Menu</a>
+								<a href="store_menu.ej?st_key=${st.st_key }&st_type=${stType }&st_addr=${stAddr }" class="btn_1" id="btn_1">View Menu</a>
 							</div>
 						</div>
 						<div class="go_to">
 							<div>
-								<a href="store_detail.ej?stKey=${st.st_key }'" class="btn_1">Store detail</a>
+								<a href="store_detail.ej?st_key=${st.st_key }" class="btn_1" id="btn_1">Store detail</a>
 							</div>
 						</div>
 					</div>
@@ -151,7 +195,6 @@
 </c:forEach>
             <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>  
 		</div><!-- End col-md-9-->
-        
 	</div><!-- End row -->
 </div><!-- End container -->
 <!-- End Content =============================================== -->

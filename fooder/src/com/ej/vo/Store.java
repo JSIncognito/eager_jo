@@ -1,5 +1,7 @@
 package com.ej.vo;
 
+import java.util.List;
+
 /*	20141214_JS 
  * //==========================
  * 	사업자번호 double st_key;  
@@ -25,7 +27,7 @@ public class Store {
 	String st_addr;
 	int st_star;
 	String u_id;
-
+	List<Store> stList;
 	public Store() {
 		super();
 	}
@@ -84,6 +86,34 @@ public class Store {
 		this.st_key = st_key;
 		this.st_nm = st_nm;
 		this.st_type = st_type;
+		this.lat = lat;
+		this.lot = lot;
+		this.st_img = st_img;
+		this.st_time = st_time;
+		this.st_addr = st_addr;
+		this.st_star = st_star;
+		this.u_id = u_id;
+	}
+
+	
+	public Store(double st_key, String st_nm, double lat, double lot, String st_img, String st_time, String st_addr,
+			String u_id) {
+		super();
+		this.st_key = st_key;
+		this.st_nm = st_nm;
+		this.lat = lat;
+		this.lot = lot;
+		this.st_img = st_img;
+		this.st_time = st_time;
+		this.st_addr = st_addr;
+		this.u_id = u_id;
+	}
+
+	public Store(double st_key, String st_nm, double lat, double lot, String st_img, String st_time, String st_addr,
+			int st_star, String u_id) {
+		super();
+		this.st_key = st_key;
+		this.st_nm = st_nm;
 		this.lat = lat;
 		this.lot = lot;
 		this.st_img = st_img;
@@ -172,7 +202,13 @@ public class Store {
 	public void setU_id(String u_id) {
 		this.u_id = u_id;
 	}
+	public List<Store> getStList() {
+		return stList;
+	}
 
+	public void setStList(List<Store> stList) {
+		this.stList = stList;
+	}
 	@Override
 	public String toString() {
 		return "Store [st_key=" + st_key + ", st_nm=" + st_nm + ", st_type=" + st_type + ", lat=" + lat + ", lot=" + lot
