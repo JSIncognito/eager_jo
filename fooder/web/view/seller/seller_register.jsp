@@ -196,7 +196,6 @@ function seller_register(f) {
 	<img src=img/pizza.png width=60>
 				   <img src=img/chicken.png width=60>
 				   <img src=img/china.png width=60>
-	
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">

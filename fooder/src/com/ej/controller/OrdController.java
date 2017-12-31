@@ -2,7 +2,6 @@ package com.ej.controller;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ej.frame.Biz;
 import com.ej.ord.OrdBiz;
@@ -84,7 +82,7 @@ public class OrdController {
 //		session.removeAttribute("ofdList");
 //		
 //		// 주문정보 만들기
-////		Ord ord = new Ord();
+//		Ord ord = new Ord();
 //		
 //		// 가게 이름 받아와서 설정
 ////		ord.setSt_nm((String) request.getAttribute("st_nm"));		// 협의 필요

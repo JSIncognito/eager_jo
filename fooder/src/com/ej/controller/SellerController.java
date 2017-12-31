@@ -1,6 +1,5 @@
 package com.ej.controller;
 
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -101,7 +100,7 @@ public class SellerController {
 
 	}
 	
-	// test?š©!! seller_store_detail.jsp ë³´ì—¬ì£¼ê¸°
+	// test???!! seller_store_detail.jsp ë³´ì?¬ì£¼ê¸?
 	@RequestMapping("/seller_store_detail_test.ej")
 	public String seller_store_detail_test(HttpServletRequest request) {
 		// TEST !!!
