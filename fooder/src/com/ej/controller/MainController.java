@@ -41,6 +41,32 @@ public class MainController {
 		return "main";
 	}
 	
+	@RequestMapping("/seller_register.ej") 
+	public String seller_register(HttpServletRequest request) {
+		request.setAttribute("center", "seller/seller_register");
+		return "main";
+	}
+	
+	@RequestMapping("/seller_register_impl.ej") 
+	public String seller_register_impl(Users u, String uAge) {
+		System.out.println("/seller_register.ej");
+		String spAge[]= uAge.substring(2, uAge.length()).split("-");
+		String str_age = "";		
+		int u_age = 0;
+		int u_flag = 2;
+		for(String a : spAge) {
+			str_age += a;
+		}
+		u_age = Integer.parseInt(str_age);
+		u.setU_age(u_age);
+		u.setU_flag(u_flag);
+
+		System.out.println("user:" + u);
+		biz.register(u);
+//		System.out.println("회원완료");
+		return "main";
+	}
+	
 	@RequestMapping("/login.ej")
 	public String login(Users u, HttpServletRequest request) {
 		Users user = biz.get(u.getU_id());

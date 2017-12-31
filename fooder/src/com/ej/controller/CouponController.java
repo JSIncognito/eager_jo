@@ -29,12 +29,14 @@ public class CouponController {
 	
 	// coupon_add
 	@RequestMapping("/coupon_add.ej")
-	public String add(Model model, double st_key) {
+	public String add(HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		Double st_key = (Double) session.getAttribute("st_key");
 		// 가게 정보 가져오기
 		Store store = storebiz.get(st_key);
 		
-		model.addAttribute("store", store);
-		model.addAttribute("center", "seller/coupon_add");
+		request.setAttribute("store", store);
+		request.setAttribute("center", "seller/coupon_add");
 		return "main";
 	}
 	
@@ -50,8 +52,6 @@ public class CouponController {
 	
 
 	// addimpl
-	
-		
 	@RequestMapping("/coupon_add_impl.ej") 
 	public void addimpl(HttpServletRequest request, HttpServletResponse res) {
 		HttpSession session = request.getSession();
@@ -112,7 +112,7 @@ public class CouponController {
 		}
 		
 		// coupon_list 띄우기
-		RequestDispatcher dispatcher = request.getRequestDispatcher("seller_store_detail.ej");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("coupon_list.ej");
 		try {
 			dispatcher.forward(request, res);
 		} catch (Exception e) {

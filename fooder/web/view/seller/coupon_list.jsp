@@ -53,7 +53,6 @@ font-weight: bold;
 	</div>
 	<!-- End subheader -->
 </section>
-</section>
 <!-- End section -->
 <!-- End SubHeader ============================================ -->
 

@@ -34,7 +34,8 @@ public class StoreController {
 	@RequestMapping("/store_list.ej")
 	public String store_list(@RequestParam Map<String, String> paramMap, Model model) {
 /*		System.out.println(paramMap.get("st_type") + " "+ paramMap.get("st_addr")+" " + paramMap.get("lat") + " " + paramMap.get("lot"));*/
-		System.out.println(paramMap);
+/*		System.out.println(paramMap);*/
+		// test
 //		st_type="치킨";
 //		st_addr="행당동";
 		String st_type = (String) paramMap.get("st_type");

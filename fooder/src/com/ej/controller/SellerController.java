@@ -46,9 +46,12 @@ public class SellerController {
 	
 	@RequestMapping("/seller_mypage.ej")
 	public String seller_mypage(HttpServletRequest request) {
-//		HttpSession session = request.getSession();
-//		Users user = (Users) session.getAttribute("loginUser");s
-		
+		request.setAttribute("center", "seller/seller_mypage");
+		return "main";
+	}
+	
+	@RequestMapping("/seller_mypage_test.ej")
+	public String seller_mypage_test(HttpServletRequest request) {
 		// TEST !!!
 		String id = "admin306";	// 임의
 		Users user = usersbiz.get(id);
@@ -62,16 +65,18 @@ public class SellerController {
 	public String seller_mypage_modify(HttpServletRequest request, Users u) {
 		System.out.println("/seller_mypage_modify");
 		System.out.println("new users info: " + u);
-		usersbiz.modify(u);
-		
 		Users user = usersbiz.get(u.getU_id());
 		
-//		HttpSession session = request.getSession();
-//		session.removeAttribute("loginUser");
-//		session.setAttribute("loginUser", user);
+		if(u.getU_pwd() == null || u.getU_pwd().equals("")) {
+			u.setU_pwd(user.getU_pwd());
+		}
+		usersbiz.modify(u);
+		user = usersbiz.get(u.getU_id());
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("loginUser", user);
 		
 		request.setAttribute("center", "seller/seller_mypage");
-		request.setAttribute("loginUser", user);
 		return "main";
 	}
 
@@ -100,7 +105,9 @@ public class SellerController {
 	@RequestMapping("/seller_store_detail_test.ej")
 	public String seller_store_detail_test(HttpServletRequest request) {
 		// TEST !!!
-		Store store = new Store(9090098358.0, "test store", "테스트", 127.123, 34.123, "devices.jpg", "11:00-22:00", "테헤란로 212", 5, "test_id");
+		HttpSession session = request.getSession();
+		session.setAttribute("st_key",  9090098358.0);
+		Store store = new Store(9090098358.0, "test store", "????", 127.123, 34.123, "devices.jpg", "11:00-22:00", "??????? 212", 5, "test_id");
 		request.setAttribute("store", store);
 		request.setAttribute("stMenu", foodbiz.select_stMenu(9090098358.0));
 		
@@ -115,7 +122,7 @@ public class SellerController {
 		System.out.println("/seller_store_detail");
 		
 		// Store 정보 가져오기
-		String key = (String)request.getParameter("st_key");
+		String key = (String)request.getParameter("st_key");	// TODO : 오류 안나나 체크
 		System.out.println("st_key: " + key);
 		
 		HttpSession session = request.getSession();
@@ -136,6 +143,7 @@ public class SellerController {
 		return "main";
 	}
 	
+	// store 정보 수정
 	@RequestMapping("/seller_store_modify_store.ej")
 	public void seller_store_modify_store(HttpServletRequest request, HttpServletResponse res) throws Exception {
 		res.setCharacterEncoding("utf-8");
@@ -201,33 +209,33 @@ public class SellerController {
 		System.out.println("/seller_store_modify_food");
 		int idx = 1;
 		
-		// 사진 가져오기용
+		// 이미지 받기용
 		MultipartRequest mr = (MultipartRequest) request;
 
 		// st_key 설정
 		String skey = (String) request.getParameter("st_key");
 		double key = Double.parseDouble(skey);
 
-		// food key 가져오기용 
+		// food key 받기용 리스트
 		List<Double> keys = new ArrayList<>();
 		
-		// food 업데이트
+		// food 정보 받아오기
 		while(true) {
-			// 기본 정보 가져오기
+			// food 정보 한개 받기
 			String f_key = request.getParameter("item" + idx + "_f_key");
 			String img_original = (String) request.getParameter("item" + idx + "_f_img_original");
 			String name = (String) request.getParameter("item" + idx + "_f_name");
 			String price = (String) request.getParameter("item" + idx + "_f_price");
 			
 			System.out.println("data: " + f_key + "/" + img_original + "/" + name + "/" + price + "/");
-			// while문 끝
+			// while문 나가기용 
 			if(name == null || name.equals("")) break;	
 			keys.add(Double.parseDouble(f_key));
 			
-			// 변경 이미지 가져오기
+			// 이미지 설정용
 			MultipartFile mf = mr.getFile("item" + idx + "_f_img_changed");
 			
-			// 이미지이름
+			// 이미지 이름
 			String imgname = "";
 			
 			Food food = null;
@@ -249,7 +257,7 @@ public class SellerController {
 			}
 			System.out.println("food" + idx + ": " + food);
 			
-			if(!mf.isEmpty()) {		// 음식 사진 저장
+			if(!mf.isEmpty()) {		// 사진 서버에 올리기
 				byte[] data;
 				try {
 					data = mf.getBytes();
@@ -264,9 +272,9 @@ public class SellerController {
 			idx++;
 		}
 		
-		// food 제거
+		// food 삭제하기
 		List<Food> foods = foodbiz.select_stMenu(key);
-		if(foods.size() != idx-1) {	// 제거된 food 있을 경우
+		if(foods.size() != idx-1) {	// 인덱스값과 리스트의 사이즈가 다를 경우에만 음식이 삭제된 경우임
 			for(Food f : foods) {
 				if(!keys.contains(f.getF_key())) {
 					foodbiz.remove(f.getF_key());
