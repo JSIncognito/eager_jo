@@ -157,7 +157,7 @@ font-family: 'Cookie', cursive;
         <div id="sub_content">
             <h1 id="main_1">Order And Delivery Food</h1>
             <p>
-                Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula.
+                <!-- Ridiculus sociosqu cursus neque cursus curae ante scelerisque vehicula. -->
             </p>
 <!-- 20171226_JS -->
 <%--             <form method="post" action="list_page.html"> --%>
@@ -670,8 +670,9 @@ function cateListGo(cate, name){
  		return;
  	}
  	
- 	alert(str);
+/*  	alert(str);
  	console.log(str);
+ */ 
  	location.href = "store_list.ej?"+ str;
 /* 	location.href="store_list.ej?cate="+cate+"&toAddStr="+toAddrStr+"&stAddr_lat="+stAddr_lat+"&stAddr_lng="+stAddr_lng; */
 /*

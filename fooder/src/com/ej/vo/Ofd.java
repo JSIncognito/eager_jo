@@ -158,7 +158,7 @@ public class Ofd {
 		this.st_addr = st_addr;
 		this.of_cnt = of_cnt;
 	}
-
+	
 	public String getSt_nm() {
 		return st_nm;
 	}
@@ -264,11 +264,13 @@ public class Ofd {
 	public void setOfd_list(List<Ofd> ofd_list) {
 		this.ofd_list = ofd_list;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Of [of_key=" + of_key + ", o_key=" + o_key + ", f_key=" + f_key + ", f_name=" + f_name + ", f_price="
-				+ f_price + ", f_img=" + f_img + ", st_key=" + st_key + "]";
+		return "Ofd [of_key=" + of_key + ", o_key=" + o_key + ", f_key=" + f_key + ", f_name=" + f_name + ", f_price="
+				+ f_price + ", f_img=" + f_img + ", st_key=" + st_key + ", st_nm=" + st_nm + ", o_date=" + o_date
+				+ ", o_total=" + o_total + ", o_way=" + o_way + ", o_addr=" + o_addr + ", st_addr=" + st_addr
+				+ ", of_cnt=" + of_cnt + ", ofd_list=" + ofd_list + "]";
 	}
 	
 }

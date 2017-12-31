@@ -668,3 +668,4 @@ function getLatLot(f) {
 	</script>
 <!-- seller_store -->
 	
+>>>>>>> e8cec8bf70b39f6dce5a874efaa454ffd222a97a

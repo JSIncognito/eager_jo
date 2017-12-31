@@ -1,24 +1,72 @@
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
-    <div id="subheader">
-    	<div id="sub_content">
-    	 <h1>Work with us</h1>
-         <p>Qui debitis meliore ex, tollit debitis conclusionemque te eos.</p>
-         <p></p>
-        </div><!-- End sub_content -->
-	</div><!-- End subheader -->
-</section><!-- End section -->
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+
+label{
+font-family: 'Questrial', sans-serif;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+h2{
+font-family: 'Questrial', sans-serif;
+}
+button{
+font-family: 'Questrial', sans-serif;
+
+}
+</style>
+<script>
+function seller_register(f) {
+	var status = '';
+	
+	if(f.u_id.value == null || f.u_id.value == '') {
+		status = 'Input Correct ID';
+	} else if(f.u_nm.value == null || f.u_nm.value == '') {
+		status = 'Input Correct Name';
+	} else if(f.u_tel.value == null || f.u_tel.value == '') {
+		status = 'Input Correct Phone Number';
+	} else if(f.u_addr.value == null || f.u_addr.value == '') {
+		status = 'Input Correct Address';
+	} else if(f.u_age.value == null || f.u_age.value == '') {
+		status = 'Input Correct Birthday';
+	}
+	
+	if(status == '') {
+// 		alert('success');
+		f.submit();		
+	} else {
+		$('#pass-info').attr('class', 'weakpass').text(status);
+	}
+};
+</script>
+<section class="parallax-window" id="short" data-parallax="scroll"
+	data-image-src="img/register.gif" data-natural-width="1000"
+	data-natural-height="350">
+	<div id="subheader">
+		<div id="sub_content">
+			<h1>Seller Register</h1>
+			<p></p>
+		</div>
+		<!-- End sub_content -->
+	</div>
+	<!-- End subheader -->
+</section>
+<!-- End section -->
 <!-- End SubHeader ============================================ -->
 
-    <div id="position">
-        <div class="container">
-            <ul>
-                <li><a href="#0">Home</a></li>
-                <li><a href="#0">Category</a></li>
-                <li>Page active</li>
-            </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
-        </div>
-    </div><!-- Position -->
+<div id="position">
+	<div class="container">
+		<ul>
+			<li><a href="#0">Home</a></li>
+			<li><a href="#0">Category</a></li>
+			<li>Page active</li>
+		</ul>
+		<a href="#0" class="search-overlay-menu-btn"><i
+			class="icon-search-6"></i> Search</a>
+	</div>
+</div>
+<!-- Position -->
 
 <!-- Content ================================================== -->
 <!-- 1214 ksy -->
@@ -141,97 +189,106 @@
 </div>End white_bg
  -->
 <div class="container margin_60">
-	 <div class="main_title margin_mobile">
-            <h2 class="nomargin_top">Please submit the form below</h2>
-            <p>
-                Cum doctus civibus efficiantur in imperdiet deterruisset.
-            </p>
-        </div>
+	<div class="main_title margin_mobile">
+		<h2 class="nomargin_top">Please submit the form below</h2>
+		<p></p>
+		<p></p>
+	<img src=img/pizza.png width=60>
+				   <img src=img/chicken.png width=60>
+				   <img src=img/china.png width=60>
+	
+	</div>
 	<div class="row">
-    	<div class="col-md-8 col-md-offset-2">
-        	<form >
-						<div class="row">
-							<div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Name</label>
-									<input type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Jhon">
-								</div>
-							</div>
-							<!-- <div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Last name</label>
-									<input type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Doe">
-								</div>
-							</div> -->
+		<div class="col-md-8 col-md-offset-2">
+			<form method="post" action="seller_register_impl.ej">
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="form-group">
+							<label>Id</label> <input type="text" class="form-control"
+								id="u_id" name="u_id" placeholder="Input your ID">
 						</div>
-						<div class="row">
-							<!-- <div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Email:</label>
-									<input type="email" id="email_contact" name="email_contact" class="form-control " placeholder="jhon@email.com">
-								</div>
-							</div> -->
-							<div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Phone number:</label>
-									<input type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="00 44 5435435">
-								</div>
-							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Create a password</label> <input type="password"
+								class="form-control" placeholder="Password" id="password1" name="u_pwd">
 						</div>
-						<!-- <div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>Restaurant name</label>
-                                   <input type="text" id="restaurant" name="restaurant" class="form-control" placeholder="Pizza King">
-								</div>
-							</div>
-                            <div class="col-md-6">
-								<div class="form-group">
-									<label>Website</label>
-                                   <input type="text" id="restaurant_web" name="restaurant_web" class="form-control" placeholder="http://">
-								</div>
-							</div>
-						</div> --><!-- End row  -->
-                        <div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-                                	<label>City</label>S
-                                   <input type="text" id="restaurant_city" name="restaurant_city" class="form-control" placeholder="Las Vegas">
-								</div>
-							</div>
-                            <!-- <div class="col-md-6">
-								<div class="form-group">
-                                	<label>Postal code</label>
-                                   <input type="text" id="restaurant_postal_code" name="restaurant_postal_code" class="form-control" placeholder="00103">
-								</div>
-							</div>
-						 <!-- End row  -->
-						 </div>
-                        <div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-                                	<label>Create a password</label>
-                                   <input type="text" class="form-control" placeholder="Password"  id="password1">
-								</div>
-								</div>
-								</div>
-								<div class="col-md-6">
-								<div class="form-group">
-                                	<label>Confirm password</label>
-                                   <input type="text" class="form-control" placeholder="Confirm password"  id="password2">
-								</div>
-							</div>
-							</div>
-                            <!-- End row  -->
-                        <div id="pass-info" class="clearfix"></div>
-                        <div class="row">
-                        	<div class="col-md-6">
-									<label><input name="mobile" type="checkbox" value="" class="icheck" checked>Accept <a href="#0">terms and conditions</a>.</label>
-							</div>
-                            </div><!-- End row  -->
-                        <hr style="border-color:#ddd;">
-                        <div class="text-center"><button class="btn_full_outline">Submit</button></div>
-					</form>
-        </div><!-- End col  -->
-    </div><!-- End row  -->
-</div><!-- End container  -->
+					</div>
+					<div class="col-md-6">
+						<div class="form-group">
+							<label>Confirm password</label> <input type="password"
+								class="form-control" placeholder="Confirm password"
+								id="password2" name="u_pwd2">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="form-group">
+							<label>Name</label> <input type="text" class="form-control"
+								id="u_nm" name="u_nm" placeholder="Jhon">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="form-group">
+							<label>Phone number:</label> <input type="text" id="u_tel"
+								name="u_tel" class="form-control" placeholder="01012341234">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="form-group">
+							<label>Address</label> <input type="text" id="u_addr"
+								name="u_addr" class="form-control" placeholder="Address">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="form-group">
+							<label>Birthday</label> <input type="date" id="u_age" name="uAge"
+								class="form-control">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-12">
+						<div class="form-group">
+							<label>Gender</label>
+							<!--                             <input type="text" id="u_addr" name="u_addr" class="form-control" placeholder="Address"> -->
+							<select id="gender_select" name="u_gen">
+								<option value="M">Male</option>
+								<option value="F">Female</option>
+							</select>
+							<!-- 							<input type="hidden" name="u_gen" id="u_gen"> -->
+						</div>
+					</div>
+				</div>
+				<!-- End row  -->
+				<div id="pass-info" class="clearfix"></div>
+				<div class="row checkbox-holder">
+					<div class="col-md-12 col-sm-12">
+						<label>
+						<input name="mobile" type="checkbox" value="accept_2" class="icheck">Accept 
+<!-- 							<input type="checkbox" value="accept_2" id="check_2" name="check_2" required/>Accept -->
+							<a href="#0">terms and
+								conditions</a>.</label>
+					</div>
+				</div>
+				<!-- End row  -->
+				<hr style="border-color: #ddd;">
+				<div class="text-center">
+					<button class="btn_full_outline" type="button" 	onclick="seller_register(this.form);">Submit</button>
+				</div>
+			</form>
+		</div>
+		<!-- End col  -->
+	</div>
+	<!-- End row  -->
+</div>
+<!-- End container  -->

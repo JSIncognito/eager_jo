@@ -2,14 +2,57 @@
 	pageEncoding="EUC-KR"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/sub_header_2.jpg" data-natural-width="1400" data-natural-height="470">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+/*한글폰트*/
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+#idid{
+font-family: 'Questrial', sans-serif;
+}
+#starters{
+font-family: 'Questrial', sans-serif;
+}
+#inner{
+font-family: 'Questrial', sans-serif;
+}
+#foodMenu{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#back_to{
+font-family: 'Questrial', sans-serif;
+}
+#subtotal{
+font-family: 'Questrial', sans-serif;
+}
+#total{
+font-family: 'Questrial', sans-serif;
+}
+h3{
+font-family: 'Questrial', sans-serif;
+}
+#pngs{
+margin-left:30px;
+margin-top: 100px;
+margin-bottom: 100px;
+}
+h1{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#strongs{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+
+</style>
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/fruit_view.jpg" data-natural-width="1400" data-natural-height="570">
     <div id="subheader">
 	<div id="sub_content">
-    	<div id="thumb"><img src="img/thumb_restaurant.jpg" alt=""></div>
+    	<div id="thumb"><img src="img/view_store.gif" alt=""></div>
                      <div class="rating"><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="detail_page_2.html">Read 98 reviews</a></small>)</div>
                     <h1>${stDetail.st_nm }</h1>
 <!--                     <div><em>Mexican / American</em></div> -->
-                    <div><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
+                    <div id="strongs"><i class="icon_pin"></i>${stDetail.st_addr } - <strong> OPEN - CLOSE:</strong>${stDetail.st_time }</div>
     </div><!-- End sub_content -->
 </div><!-- End subheader -->
 </section><!-- End section -->
@@ -30,9 +73,14 @@
 <div class="container margin_60_35">
 		<div class="row">
         
-			<div class="col-md-3">
+			<div class="col-md-3" id="back_to">
             	<p><a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }" class="btn_side">Back to search</a></p>
-				<div class="box_style_1">
+				<div id=pngs>
+				<img src=img/pizza.png width=60>
+				   <img src=img/chicken.png width=60>
+				   <img src=img/china.png width=60>
+				</div>
+				<!-- <div class="box_style_1">
 					<ul id="cat_nav">
 						<li><a href="#starters" class="active">Starters <span>(141)</span></a></li>
 						<li><a href="#main_courses">Main Courses <span>(20)</span></a></li>
@@ -45,18 +93,18 @@
 				<div class="box_style_2 hidden-xs" id="help">
 					<i class="icon_lifesaver"></i>
 					<h4>Need <span>Help?</span></h4>
-					<a href="tel://004542344599" class="phone">+45 423 445 99</a>
-					<small>Monday to Friday 9.00am - 7.30pm</small>
+					<a href="tel://004542344599" class="phone">+82 010 123 456</a>
+					<small>Monday to Friday 10:00am - 7:00pm</small>
 				</div>
 			</div><!-- End col-md-3 -->
             
-			<div class="col-md-6">
+			<div class="col-md-6" id="idid">
 				<div class="box_style_2" id="main_menu">
-					<h2 class="inner">Menu</h2>
+					<h2 class="inner" id="inner">Menu</h2>
 					<h3 class="nomargin_top" id="starters">Starters</h3>
-					<p>
+					<!-- <p>
 						Te ferri iisque aliquando pro, posse nonumes efficiantur in cum. Sensibus reprimique eu pro. Fuisset mentitum deleniti sit ea.
-					</p>
+					</p> -->
 					<table class="table table-striped cart-list">
 					<thead>
 					<tr>
@@ -77,10 +125,9 @@
 					<tr>
 						<td>
                         	<figure class="thumb_menu_list"><img src="img/menu-thumb-1.jpg" alt="thumb"></figure>
-							<h5 class="foodName">${menu.f_name }</h5>
-							<p>
-								Fuisset mentitum deleniti sit ea.
-							</p>
+<br>							<h5 class="foodName">${menu.f_name }</h5>
+								
+							
 						</td>
 						<td>
 							<strong class="f_price"><fmt:formatNumber value="${menu.f_price }" groupingUsed="true"/></strong>
@@ -91,6 +138,7 @@
                          </div>
                      </td>
 					</tr>
+<!--  -->
 </c:forEach>
 					</tbody>
 					</table>
@@ -188,11 +236,12 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
 				window.location.hash = target;
 			});
 		});
-		
+
+var index = 0;
+
 function addItem(menu_nm, menu_price, menu_img, menu_key){
 	var newdiv = document.createElement('div');
-	calTotal(menu_price);
-	
+	calTotal(menu_price);	
 	for(var i=0; i <= $('#addItem tr').length; i++){
 /* 		alert($('#addItem tr').eq(i).find('td').eq(1).find('span').text() + "and menu_nm : " + menu_nm + " tr cnt :" + i ); */
  		if($('#addItem tr').eq(i).find('td').eq(1).find('span').text() == menu_nm ){
@@ -200,46 +249,56 @@ function addItem(menu_nm, menu_price, menu_img, menu_key){
 			var cnt = $('#addItem tr').eq(i).find('td').eq(1).find('strong').text();
 			cnt++;
 			$('#addItem tr').eq(i).find('td').eq(1).find('strong').text(cnt + " ");
-			/* 상품 개수 setting */			
- 			$('#addItem tr').eq(i).find('td').eq(1).find('input[name="of_cnt"]').val(cnt + "");
-			console.log($('#addItem tr').eq(i).find('td').eq(1).find('input[name="of_cnt"]').val());
+			/* 상품 개수 setting */
+ 			$('#addItem tr').eq(i).find('td').eq(1).find('input[class=of_cnt]').val(cnt + "");
+			console.log($('#addItem tr').eq(i).find('td').eq(1).find('input[class=of_cnt]').val());
  			return;
  		}
  	}
 /*  	var str = $('tb tr').html(); */
- 	
 	var out = '<tr>';
 	out += '<td>';
-	out += '<input type="hidden" name="st_key" value="${stDetail.st_key}" />';
-	out += '<input type="hidden" name="st_nm" value="${stDetail.st_nm}" />';
-	out += '<input type="hidden" name="st_addr" value="${stDetail.st_addr}" />';
+	out += '<input type="hidden" name="ofd_list[' + index + '].'; 
+	out += 'st_key" value="${stDetail.st_key}" />';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'st_nm" value="${stDetail.st_nm}" />';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'st_addr" value="${stDetail.st_addr}" />';
 	out += '<a onclick="removeItem(this)" class="remove_item">';
 	out += '<i class="icon_minus_alt">';
 	out += '</i>';
 	out += '</a>';
 	out += '</td>';
 	out += '<td>';
-	out += '<input type="hidden" name="of_cnt" value="1" />';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'of_cnt" class="of_cnt" value="1" />';
 	out += '<strong class="item_cnt" >';
 	out += '1 ';
 	out += '</strong>';
 	out += 'x';
-	out += '<input type="hidden" name="f_key" value="';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'f_key" value="';
 	out += menu_key + '" />';
-	out += '<input type="hidden" name="f_name" value="';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'f_name" value="';
 	out += menu_nm + '" />';
-	out += '<input type="hidden" name="f_price" value="';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'f_price" value="';
 	out += menu_price + '" />';
-	out += '<input type="hidden" name="f_img" value="';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'f_img" value="';
 	out += menu_img + '" />';
-	out += '<input type="hidden" name="o_total" id="o_total" value="0" />';
+	out += '<input type="hidden" name="ofd_list[' + index + '].';
+	out += 'o_total" class="o_total" value="" />';
 	out += '<span id=mName>';
 	out += menu_nm;	
 	out += '</span>';
 	out += '</td>';
 	out += '</tr>';
-	
+	index++;	
  	$('#addItem').append(out);
+ 	
+	calTotal(menu_price);
 };
 function removeItem(obj){	
 	var menu = $(obj).parent().parent().find('#mName').text();
@@ -260,13 +319,13 @@ function removeItem(obj){
 
  	var subtotal =  $('#subtotal').text();
   	subtotal = subtotal.replace(/,/g,'');
- 	subtotal = Number(subtotal) -  amount ;
+ 	subtotal = Number(subtotal) - amount ;
   	$('#subtotal').text(subtotal.comma());
 
  	var total = $('#total').text();
  	total = total.replace(/,/g,'');
  	total = Number(total) - amount;
- 	$('#o_total').val(total + "");
+ 	$('.o_total').val(total + "");
  	$('#total').text(total.comma());
 	
  	$(obj).parent().parent().remove(); 
@@ -283,7 +342,7 @@ function calTotal(tprice){
  	var total = $('#total').text();
  	total = total.replace(/,/g,'');
 	total = Number(total) + tprice;
- 	$('#o_total').val(total + ""); 	
+ 	$('.o_total').val(total + ""); 	
  	$('#total').text(total.comma());
 }
 /* 20171229_JS comma in number */
