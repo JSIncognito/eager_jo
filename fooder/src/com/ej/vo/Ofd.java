@@ -1,5 +1,7 @@
 package com.ej.vo;
 
+import java.util.List;
+
 /* 20171214_JS
  * //==========================
  * 	주문상품키 double of_key;
@@ -26,7 +28,8 @@ public class Ofd {
 	String o_addr;
 	String st_addr;
 	int of_cnt;
-	
+	List<Ofd> ofd_list;
+
 	public Ofd() {
 		super();
 	}
@@ -123,6 +126,35 @@ public class Ofd {
 		this.o_total = o_total;
 		this.o_way = o_way;
 		this.o_addr = o_addr;
+		this.st_addr = st_addr;
+		this.of_cnt = of_cnt;
+	}
+	
+	public Ofd(double f_key, String f_name, double f_price, String f_img, double st_key, String st_nm, double o_total,
+			String st_addr, int of_cnt, List<Ofd> ofd_list) {
+		super();
+		this.f_key = f_key;
+		this.f_name = f_name;
+		this.f_price = f_price;
+		this.f_img = f_img;
+		this.st_key = st_key;
+		this.st_nm = st_nm;
+		this.o_total = o_total;
+		this.st_addr = st_addr;
+		this.of_cnt = of_cnt;
+		this.ofd_list = ofd_list;
+	}
+
+	public Ofd(double f_key, String f_name, double f_price, String f_img, double st_key, String st_nm, double o_total,
+			String st_addr, int of_cnt) {
+		super();
+		this.f_key = f_key;
+		this.f_name = f_name;
+		this.f_price = f_price;
+		this.f_img = f_img;
+		this.st_key = st_key;
+		this.st_nm = st_nm;
+		this.o_total = o_total;
 		this.st_addr = st_addr;
 		this.of_cnt = of_cnt;
 	}
@@ -225,10 +257,20 @@ public class Ofd {
 	public void setSt_key(double st_key) {
 		this.st_key = st_key;
 	}
+	public List<Ofd> getOfd_list() {
+		return ofd_list;
+	}
+
+	public void setOfd_list(List<Ofd> ofd_list) {
+		this.ofd_list = ofd_list;
+	}
+
 	@Override
 	public String toString() {
-		return "Of [of_key=" + of_key + ", o_key=" + o_key + ", f_key=" + f_key + ", f_name=" + f_name + ", f_price="
-				+ f_price + ", f_img=" + f_img + ", st_key=" + st_key + "]";
+		return "Ofd [of_key=" + of_key + ", o_key=" + o_key + ", f_key=" + f_key + ", f_name=" + f_name + ", f_price="
+				+ f_price + ", f_img=" + f_img + ", st_key=" + st_key + ", st_nm=" + st_nm + ", o_date=" + o_date
+				+ ", o_total=" + o_total + ", o_way=" + o_way + ", o_addr=" + o_addr + ", st_addr=" + st_addr
+				+ ", of_cnt=" + of_cnt + ", ofd_list=" + ofd_list + "]";
 	}
 	
 }

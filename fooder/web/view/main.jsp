@@ -139,9 +139,10 @@ body {
                     </ul>
                     </li> -->
 <c:choose>
-<c:when test="${loginuser.u_id != null }">
- 	                <li><a href="logout.ej">${loginuser.u_nm }??/a></li>
- <%--  	                <li><h3>${loginuser.u_nm } User</h3></li> --%>
+<c:when test="${loginUser.u_id != null }">
+<%--  	                <li><a href="logout.ej">${loginUser.u_nm } ดิ </a></li> --%>
+ 	                <li><a href="logout.ej">${loginUser.u_nm } ดิ </a></li>
+ <%--  	                <li><h3>${loginUser.u_nm } User</h3></li> --%>
 </c:when>
 </c:choose>
                     <li><a href="main.ej">Home</a></li>
@@ -156,14 +157,14 @@ body {
                     </li>
                     <li><a href="coupon_event.ej">Event</a></li>
 <c:choose>
-<c:when test="${loginuser.u_id == null }">
+<c:when test="${loginUser.u_id == null }">
                     <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
                     <li><a href="#0" data-toggle="modal" data-target="#register_select">Register</a></li>
 </c:when>
 <c:otherwise>
                     <li><a href="logout.ej">Logout</a></li>
 	<c:choose>
-	<c:when test="${loginuser.u_flag == 1}">
+	<c:when test="${loginUser.u_flag == 1}">
                     <li><a href="user_mypage.ej">Mypage</a></li>
 	</c:when>
 	<c:otherwise>

@@ -225,7 +225,7 @@ font-family: 'Cookie', cursive;
 		<div class="row">
 			<div class="column">
 				<div class="card">
-					<a onclick="cateListGo('chicken')" id="chicken" > <img id="food_img" src="img/chicken.png" alt="Paris"
+					<a onclick="cateListGo('chicken', '${loginUser.u_id }')" id="chicken" > <img id="food_img" src="img/chicken.png" alt="Paris"
 						width="360" height="280">
 					</a>
 					<div class="containers">
@@ -237,7 +237,7 @@ font-family: 'Cookie', cursive;
 
 			<div class="column">
 				<div class="card">
-					<a onclick="cateListGo('pizza')" id="pizza"> <img id="food_img" src="img/pizza.png" alt="Paris"
+					<a onclick="cateListGo('pizza', '${loginUser.u_id }')" id="pizza"> <img id="food_img" src="img/pizza.png" alt="Paris"
 						width="360" height="280" >
 					</a>
 					<div class="containers">
@@ -248,7 +248,7 @@ font-family: 'Cookie', cursive;
 			</div>
 			<div class="column">
 				<div class="card">
-					<a onclick="cateListGo('china')" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
+					<a onclick="cateListGo('china') , '${loginUser.u_id }'" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
 						width="360" height="280">
 					</a>
 					<div class="containers">
@@ -655,11 +655,24 @@ $(document).ready(function() {
 var toAddrStr = "";
 var stAddr_lat = null;
 var stAddr_lng = null;
-function cateListGo(cate){
+function cateListGo(cate, name){
 	geocodeToAddr();
-	alert(cate + " 되냥?" + toAddrStr + stAddr_lat + stAddr_lng);
+	//alert(cate + " 되냥?" + toAddrStr + stAddr_lat + stAddr_lng);
  	var str = "st_type=" + cate;
  	str += "&st_addr=" + toAddrStr;
+ 	
+ 	if(toAddrStr == null || toAddrStr == ''){
+ 		alert("동을 검색해 주세요.");
+ 		return;
+ 	}
+ 	if(name == null || name == ''){
+ 		alert("로그인을 해주세요.");
+ 		return;
+ 	}
+ 	
+/*  	alert(str);
+ 	console.log(str);
+ */ 
  	location.href = "store_list.ej?"+ str;
 /* 	location.href="store_list.ej?cate="+cate+"&toAddStr="+toAddrStr+"&stAddr_lat="+stAddr_lat+"&stAddr_lng="+stAddr_lng; */
 /*
@@ -681,6 +694,7 @@ function cateListGo(cate){
 
 /* 20171226_JS 주소를 위도 경도로 표시 */
 function geocodeToAddr(){
+/* 	alert($('input[id="autocomplete"]').val()); */
 	toAddrStr = $('input[id="autocomplete"]').val();
 	var geocoder;
 	geocoder = new google.maps.Geocoder();

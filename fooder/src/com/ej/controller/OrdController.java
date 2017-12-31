@@ -2,14 +2,17 @@ package com.ej.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.jdbc.support.incrementer.DataFieldMaxValueIncrementer;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ej.frame.Biz;
 import com.ej.ord.OrdBiz;
@@ -53,8 +56,28 @@ public class OrdController {
 	*/
 	// order1.jsp 띄우기
 	// 가게 이름, 주문 메뉴 목록, 사용 쿠폰 받아옴
+
+/*	public String order1(HttpServletRequest request, Ord ord,@RequestBody List<Ofd> ofd_list,Model model) {*/
 	@RequestMapping("/order1.ej")
-	public String order1(HttpServletRequest request, Ord ord) {
+	public String order1(@ModelAttribute Ofd ofd, Model model) {
+		System.out.println("order1 확인 위치확인");
+
+		List<Ofd> ofdList = ofd.getOfd_list();
+		
+		for(Ofd o : ofdList) {
+			System.out.println(o);
+		}
+		
+		/*		List<Ofd> ofdList2 = ofd.getOfd_list();*/
+/*		System.out.println(ofdList);*/
+		
+		
+/*		List<Ofd> ofdList = ofd.getOfd_list();*/
+		
+/*		for(Ofd of : ofdList) {
+			System.out.println(of);
+		}
+*/		
 		// 세션에 있던 기존 주문 정보, ofd 목록 삭제
 //		HttpSession session = request.getSession();
 //		session.removeAttribute("orderInfo");	// TODO : 삭제 잘 되는지 확인하기
@@ -99,14 +122,15 @@ public class OrdController {
 //		session.setAttribute("ofdList", ofds);
 		
 		// TEST 용!
-		List<Ofd> ofdList = new ArrayList<>();
+/*		List<Ofd> ofdList = new ArrayList<>();
 		ofdList.add(new Ofd(1234, "test1", 1));
 		ofdList.add(new Ofd(1235, "test2", 2));
 		ofdList.add(new Ofd(1236, "test3", 1));
 		request.setAttribute("ofdList", ofdList);
 		request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
 		
-		request.setAttribute("center", "store/order1");
+		request.setAttribute("center", "store/order1");*/
+/*		model.addAttribute("center", "store/order1");*/
 		return "main";
 	}
 	
