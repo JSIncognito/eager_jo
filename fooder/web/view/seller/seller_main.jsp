@@ -1,6 +1,107 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script>
+$(document).ready(function() {
+	Highcharts.chart('weather', {
+	    chart: {
+	        type: 'line'
+	    },
+	    title: {
+	        text: 'Monthly Average Temperature'
+	    },
+	    xAxis: {
+	        categories: [7,6,5,4,3,2,1]
+	    },
+	    yAxis: {
+	        title: {
+	            text: 'Temperature (¡ÆC)'
+	        }
+	    },
+	    plotOptions: {
+	        line: {
+	            dataLabels: {
+	                enabled: true
+	            },
+	            enableMouseTracking: false
+	        }
+	    },
+	    series: [{
+	        name: 'Tokyo',
+	        data: [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2]
+	    }, {
+	        name: 'London',
+	        data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0]
+	    }, {
+	        name: 'test1',
+	        data: [4.9, 5.2, 3.7, 6.5, 13.9, 12.2, 16.0]
+	    }, {
+	        name: 'test2',
+	        data: [1, 2, 3,4, 5, 6, 7]
+	    }]
+	});
+	
+	Highcharts.chart('count', {
+	    chart: {
+	        type: 'column'
+	    },
+	    title: {
+	        text: 'World\'s largest cities per 2014'
+	    },
+	    xAxis: {
+	        type: 'category',
+	        labels: {
+	            rotation: -45,
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Population (millions)'
+	        }
+	    },
+	    legend: {
+	        enabled: false
+	    },
+	    tooltip: {
+	        pointFormat: 'Population in 2008: <b>{point.y:.1f} millions</b>'
+	    },
+	    series: [{
+	        name: 'Population',
+	        data: [
+	            ['Shanghai', 23.7],
+	            ['Lagos', 16.1],
+	            ['Istanbul', 14.2],
+	            ['Karachi', 14.0],
+	            ['Mumbai', 12.5],
+	            ['Moscow', 12.1],
+	            ['Sao Paulo', 11.8]
+	        ],
+	        dataLabels: {
+	            enabled: true,
+	            rotation: -90,
+	            color: '#FFFFFF',
+	            align: 'right',
+	            format: '{point.y:.1f}', // one decimal
+	            y: 10, // 10 pixels down from the top
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    }]
+	});
+});
+
+
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
@@ -9,6 +110,13 @@
 font-family: 'Questrial', sans-serif;
 }
 
+#weather {
+	position: absolute;
+}
+#count {
+	position: relative;
+	background-color: white;
+}
 * {box-sizing: border-box}
 body {font-family: Verdana, sans-serif; margin:0}
 .mySlides1 {display: none}
@@ -270,45 +378,55 @@ margin-top: 100px;
 	<div class="row">
 	
 	
-	<!-- ?¬ë¼?´ë“œ???¬ì§„ -->
 	
-<div class="slideshow-container1">
+<!-- <div class="slideshow-container1"> -->
 
-<div class="mySlides fade1">
-  <div class="numbertext">1 / 3</div>
-  <img src="img/blog-1.jpg" style="width:1400">
-  <div class="text">Caption Text</div>
-</div>
+<!-- <div class="mySlides fade1"> -->
+<!--   <div class="numbertext">1 / 3</div> -->
+<!--   <img src="img/blog-1.jpg" style="width:1400"> -->
+<!--   <div class="text">Caption Text</div> -->
+<!-- </div> -->
 
-<div class="mySlides fade1">
-  <div class="numbertext">2 / 3</div>
-  <img src="img/blog-2.jpg" style="width:1400">
-  <div class="text">Caption Two</div>
-</div>
+<!-- <div class="mySlides fade1"> -->
+<!--   <div class="numbertext">2 / 3</div> -->
+<!--   <img src="img/blog-2.jpg" style="width:1400"> -->
+<!--   <div class="text">Caption Two</div> -->
+<!-- </div> -->
 
-<div class="mySlides fade1">
-  <div class="numbertext">3 / 3</div>
-  <img src="img/blog-3.jpg" style="width:1400">
-  <div class="text">Caption Three</div>
-</div>
+<!-- <div class="mySlides fade1"> -->
+<!--   <div class="numbertext">3 / 3</div> -->
+<!--   <img src="img/blog-3.jpg" style="width:1400"> -->
+<!--   <div class="text">Caption Three</div> -->
+<!-- </div> -->
 
-<a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
-<a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+<!-- <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a> -->
+<!-- <a class="next" onclick="plusSlides(1, 0)">&#10095;</a> -->
 
+<!-- </div> -->
+<div class="row" id="charts">
+		<div class="col-md-6 col-sm-6">
+			<div class="form-group">
+				<div id="weather"></div><!-- min-width: 310px; height: 400px; -->
+			</div>
+		</div>
+		<div class="col-md-6 col-sm-6">
+			<div class="form-group">
+				<div id="count"></div>
+			</div>
+		</div>
 </div>
 <br>
 
-<div style="text-align:center">
+<!-- <div style="text-align:center">
   <span class="dot" onclick="currentSlide(1,0)"></span> 
   <span class="dot" onclick="currentSlide(2,0)"></span> 
   <span class="dot" onclick="currentSlide(3,0)"></span> 
 </div>
+ -->
 
 
 
-<!-- ?ë²ˆì§??¬ë¼?´ë“œ???¬ì§„ -->
-
-<div id=term></div>
+<!-- <div id=term></div>
 
 <div class="slideshow-container2" >
 
@@ -340,10 +458,10 @@ margin-top: 100px;
   <span class="dot" onclick="currentSlide(1,1)"></span> 
   <span class="dot" onclick="currentSlide(2,1)"></span> 
   <span class="dot" onclick="currentSlide(3,1)"></span> 
-</div>
+</div> -->
 
 <script>
-var slideIndex = 1;
+/* var slideIndex = 1;
 showSlides(slideIndex, 0);
 showSlides(slideIndex, 1);
 
@@ -359,7 +477,7 @@ function showSlides(n, p) {
   var i;
   var slides = new Array();
   var dots = document.getElementsByClassName("dot");
-  if(p==0) { // ì²«ë²ˆì§??¬ë¼?´ë“œ
+  if(p==0) {
 	  slides[0] = document.getElementsByClassName("mySlides")[0];
 	  slides[1] = document.getElementsByClassName("mySlides")[1];
 	  slides[2] = document.getElementsByClassName("mySlides")[2];
@@ -372,7 +490,7 @@ function showSlides(n, p) {
 	      dots[i].className = dots[i].className.replace(" active", "");
 	  }
 	  slides[slideIndex-1].style.display = "block";
-  } else if(p==1) { // ?ë²ˆì§??¬ë¼?´ë“œ
+  } else if(p==1) { 
 	  slides[0] = document.getElementsByClassName("mySlides")[3];
 	  slides[1] = document.getElementsByClassName("mySlides")[4];
 	  slides[2] = document.getElementsByClassName("mySlides")[5];
@@ -385,7 +503,7 @@ function showSlides(n, p) {
 	      dots[i].className = dots[i].className.replace(" active", "");
 	  }
 	  slides[slideIndex-1].style.display = "block";
-  }
+  } */
   /* 
   
   if (n > slides.length) {slideIndex = 1}    
@@ -398,7 +516,7 @@ function showSlides(n, p) {
   } */
     
  /*  dots[slideIndex-1].className += " active"; */
-}
+// }
 </script>
 
 
@@ -648,5 +766,4 @@ function showSlides(n, p) {
      </aside>End aside -->
 
 	</div>
-</div>
 <!-- End container -->

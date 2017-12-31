@@ -46,11 +46,14 @@ public class SellerController {
 	
 	@RequestMapping("/seller_mypage.ej")
 	public String seller_mypage(HttpServletRequest request) {
-//		HttpSession session = request.getSession();
-//		Users user = (Users) session.getAttribute("loginUser");s
-		
+		request.setAttribute("center", "seller/seller_mypage");
+		return "main";
+	}
+	
+	@RequestMapping("/seller_mypage_test.ej")
+	public String seller_mypage_test(HttpServletRequest request) {
 		// TEST !!!
-		String id = "admin306";	// ÀÓÀÇ
+		String id = "admin306";	// ï¿½ï¿½ï¿½ï¿½
 		Users user = usersbiz.get(id);
 		request.setAttribute("loginUser", user);
 		
@@ -62,22 +65,24 @@ public class SellerController {
 	public String seller_mypage_modify(HttpServletRequest request, Users u) {
 		System.out.println("/seller_mypage_modify");
 		System.out.println("new users info: " + u);
-		usersbiz.modify(u);
-		
 		Users user = usersbiz.get(u.getU_id());
 		
-//		HttpSession session = request.getSession();
-//		session.removeAttribute("loginUser");
-//		session.setAttribute("loginUser", user);
+		if(u.getU_pwd() == null || u.getU_pwd().equals("")) {
+			u.setU_pwd(user.getU_pwd());
+		}
+		usersbiz.modify(u);
+		user = usersbiz.get(u.getU_id());
+		
+		HttpSession session = request.getSession();
+		session.setAttribute("loginUser", user);
 		
 		request.setAttribute("center", "seller/seller_mypage");
-		request.setAttribute("loginUser", user);
 		return "main";
 	}
 
 	@RequestMapping("/seller_main.ej")
 	public String my_store(Model model, String u_id) {
-		System.out.println("¾È³ç ³­ ¼¿·¯¸ŞÀÎÀÌ¾ß");
+		System.out.println("ï¿½È³ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾ï¿½");
 		u_id = "admin66";
 		List<Store> list = null;
 		try {
@@ -86,7 +91,7 @@ public class SellerController {
 			model.addAttribute("center", "seller/seller_main");
 			model.addAttribute("myStore", list);
 			for (Store store : list) {
-				System.out.println("³ªÀÇ °¡°Ô(µé) " + list);
+				System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½) " + list);
 			}
 		} catch (Exception e) {
 			
@@ -96,11 +101,13 @@ public class SellerController {
 
 	}
 	
-	// test?š©!! seller_store_detail.jsp ë³´ì—¬ì£¼ê¸°
+	// test?ï¿½ï¿½!! seller_store_detail.jsp ë³´ì—¬ì£¼ê¸°
 	@RequestMapping("/seller_store_detail_test.ej")
 	public String seller_store_detail_test(HttpServletRequest request) {
 		// TEST !!!
-		Store store = new Store(9090098358.0, "test store", "Å×½ºÆ®", 127.123, 34.123, "devices.jpg", "11:00-22:00", "Å×Çì¶õ·Î 212", 5, "test_id");
+		HttpSession session = request.getSession();
+		session.setAttribute("st_key",  9090098358.0);
+		Store store = new Store(9090098358.0, "test store", "ï¿½×½ï¿½Æ®", 127.123, 34.123, "devices.jpg", "11:00-22:00", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 212", 5, "test_id");
 		request.setAttribute("store", store);
 		request.setAttribute("stMenu", foodbiz.select_stMenu(9090098358.0));
 		
@@ -109,13 +116,13 @@ public class SellerController {
 	}
 	
 	
-	// seller_store_detail.jsp º¸¿©ÁÖ±â
+	// seller_store_detail.jsp ë„ìš°ê¸°
 	@RequestMapping("/seller_store_detail.ej")
 	public String seller_store_detail(HttpServletRequest request) {
 		System.out.println("/seller_store_detail");
 		
-		// Store Á¤º¸ °¡Á®¿À±â
-		String key = (String)request.getParameter("st_key");
+		// Store ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+		String key = (String)request.getParameter("st_key");	// TODO : ì˜¤ë¥˜ ì•ˆë‚˜ë‚˜ ì²´í¬
 		System.out.println("st_key: " + key);
 		
 		HttpSession session = request.getSession();
@@ -125,17 +132,17 @@ public class SellerController {
 		Double st_key = Double.parseDouble(key);
 		Store store = storebiz.get(st_key);
 		
-		// st_key session¿¡ ³Ö±â
-//		HttpSession session = request.getSession();
+		// st_key sessionì— ë„£ê¸°
 		session.setAttribute("st_key", st_key);
 		
-		// Store Á¤º¸ º¸³»±â
+		// Store ì •ë³´ ë³´ë‚´ê¸°
 		request.setAttribute("store", store);
 		request.setAttribute("stMenu", foodbiz.select_stMenu(store.getSt_key()));
 		request.setAttribute("center", "seller/seller_store_detail");
 		return "main";
 	}
 	
+	// store ì •ë³´ ìˆ˜ì •
 	@RequestMapping("/seller_store_modify_store.ej")
 	public void seller_store_modify_store(HttpServletRequest request, HttpServletResponse res) throws Exception {
 		res.setCharacterEncoding("utf-8");
@@ -158,11 +165,11 @@ public class SellerController {
 		
 		System.out.println("key: " + key + "addr: " + addr );
 		
-		// time ¼³Á¤
+		// time ì„¤ì •
 		String hour = ohour + ":" + ominute + "-" + chour + ":" + cminute;
 		System.out.println("hour: " + hour);
 		
-		// img ¼³Á¤
+		// img ì„¤ì •
 		MultipartRequest mr = (MultipartRequest) request;
 		MultipartFile mf = mr.getFile("st_changed_img");
 		
@@ -195,52 +202,52 @@ public class SellerController {
 		} 
 	}
 	
-	// storeÀÇ food Á¤º¸ ¼öÁ¤
+	// storeì˜ food ì •ë³´ ìˆ˜ì •
 	@RequestMapping("/seller_store_modify_food.ej")
 	public void seller_store_modify_food(HttpServletRequest request, HttpServletResponse res) {
 		System.out.println("/seller_store_modify_food");
 		int idx = 1;
 		
-		// »çÁø °¡Á®¿À±â¿ë
+		// ì´ë¯¸ì§€ ë°›ê¸°ìš©
 		MultipartRequest mr = (MultipartRequest) request;
 
-		// st_key ¼³Á¤
+		// st_key ì„¤ì •
 		String skey = (String) request.getParameter("st_key");
 		double key = Double.parseDouble(skey);
 
-		// food key °¡Á®¿À±â¿ë 
+		// food key ë°›ê¸°ìš© ë¦¬ìŠ¤íŠ¸
 		List<Double> keys = new ArrayList<>();
 		
-		// food ¾÷µ¥ÀÌÆ®
+		// food ì •ë³´ ë°›ì•„ì˜¤ê¸°
 		while(true) {
-			// ±âº» Á¤º¸ °¡Á®¿À±â
+			// food ì •ë³´ í•œê°œ ë°›ê¸°
 			String f_key = request.getParameter("item" + idx + "_f_key");
 			String img_original = (String) request.getParameter("item" + idx + "_f_img_original");
 			String name = (String) request.getParameter("item" + idx + "_f_name");
 			String price = (String) request.getParameter("item" + idx + "_f_price");
 			
 			System.out.println("data: " + f_key + "/" + img_original + "/" + name + "/" + price + "/");
-			// while¹® ³¡
+			// whileë¬¸ ë‚˜ê°€ê¸°ìš© 
 			if(name == null || name.equals("")) break;	
 			keys.add(Double.parseDouble(f_key));
 			
-			// º¯°æ ÀÌ¹ÌÁö °¡Á®¿À±â
+			// ì´ë¯¸ì§€ ì„¤ì •ìš©
 			MultipartFile mf = mr.getFile("item" + idx + "_f_img_changed");
 			
-			// ÀÌ¹ÌÁöÀÌ¸§
+			// ì´ë¯¸ì§€ ì´ë¦„
 			String imgname = "";
 			
 			Food food = null;
-			if(img_original.equals("") || img_original == null) {	// »õ·Î¿î À½½Ä Ãß°¡
+			if(img_original.equals("") || img_original == null) {	// ìƒˆë¡œìš´ ìŒì‹ ì¶”ê°€
 				System.out.println("new food");
 				imgname = mf.getOriginalFilename();
 				food = new Food(name, Double.parseDouble(price), imgname, key);
 				foodbiz.register(food);
 			} else {
-				if(mf.isEmpty()) { // À½½Ä »çÁø º¯°æ x
+				if(mf.isEmpty()) { // ìŒì‹ ì‚¬ì§„ ë³€ê²½ x
 					System.out.println("not changed");
 					imgname = img_original;
-				} else { // À½½Ä »çÁø º¯°æ o
+				} else { // ìŒì‹ ì‚¬ì§„ ë³€ê²½ o
 					System.out.println("changed");
 					imgname = mf.getOriginalFilename();
 				}
@@ -249,7 +256,7 @@ public class SellerController {
 			}
 			System.out.println("food" + idx + ": " + food);
 			
-			if(!mf.isEmpty()) {		// À½½Ä »çÁø ÀúÀå
+			if(!mf.isEmpty()) {		// ì‚¬ì§„ ì„œë²„ì— ì˜¬ë¦¬ê¸°
 				byte[] data;
 				try {
 					data = mf.getBytes();
@@ -264,9 +271,9 @@ public class SellerController {
 			idx++;
 		}
 		
-		// food Á¦°Å
+		// food ì‚­ì œí•˜ê¸°
 		List<Food> foods = foodbiz.select_stMenu(key);
-		if(foods.size() != idx-1) {	// Á¦°ÅµÈ food ÀÖÀ» °æ¿ì
+		if(foods.size() != idx-1) {	// ì¸ë±ìŠ¤ê°’ê³¼ ë¦¬ìŠ¤íŠ¸ì˜ ì‚¬ì´ì¦ˆê°€ ë‹¤ë¥¼ ê²½ìš°ì—ë§Œ ìŒì‹ì´ ì‚­ì œëœ ê²½ìš°ì„
 			for(Food f : foods) {
 				if(!keys.contains(f.getF_key())) {
 					foodbiz.remove(f.getF_key());
@@ -289,8 +296,8 @@ public class SellerController {
 		System.out.println("/getlatlot.ej");
 		JSONObject result = null;
 		
-		String clientId = "MoWWppcCbc3maWhpTijC";//¾ÖÇÃ¸®ÄÉÀÌ¼Ç Å¬¶óÀÌ¾ğÆ® ¾ÆÀÌµğ°ª";
-        String clientSecret = "WHLQ_6RSaM";//¾ÖÇÃ¸®ÄÉÀÌ¼Ç Å¬¶óÀÌ¾ğÆ® ½ÃÅ©¸´°ª";
+		String clientId = "MoWWppcCbc3maWhpTijC";//ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½ï¿½Ìµï¿½";
+        String clientSecret = "WHLQ_6RSaM";//ï¿½ï¿½ï¿½Ã¸ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ Å¬ï¿½ï¿½ï¿½Ì¾ï¿½Æ® ï¿½ï¿½Å©ï¿½ï¿½ï¿½ï¿½";
 		
 		try {
             String newaddr = URLEncoder.encode(addr, "UTF-8");
@@ -307,9 +314,9 @@ public class SellerController {
             int responseCode = con.getResponseCode();
             InputStreamReader isr;
             
-            if(responseCode==200) { // Á¤»ó È£Ãâ
+            if(responseCode==200) { // ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½
                 isr = new InputStreamReader(con.getInputStream(), "utf-8");
-            } else {  // ¿¡·¯ ¹ß»ı
+            } else {  // ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½
                 isr = new InputStreamReader(con.getErrorStream(), "utf-8");
             }
             

@@ -54,20 +54,18 @@ public class OrdController {
 	// order1.jsp 띄우기
 	// 가게 이름, 주문 메뉴 목록, 사용 쿠폰 받아옴
 	@RequestMapping("/order1.ej")
-	public String order1(HttpServletRequest request, Ord ord) {
-		// 세션에 있던 기존 주문 정보, ofd 목록 삭제
+	public String order1(HttpServletRequest request) {
 //		HttpSession session = request.getSession();
-//		session.removeAttribute("orderInfo");	// TODO : 삭제 잘 되는지 확인하기
-//		session.removeAttribute("ofdList");
 //		
 //		// 주문정보 만들기
-////		Ord ord = new Ord();
+//		Ord ord = new Ord();
 //		
 //		// 가게 이름 받아와서 설정
 ////		ord.setSt_nm((String) request.getAttribute("st_nm"));		// 협의 필요
-//		int maxID = new Integer(incrementer.nextIntValue());
+//		int maxID = new Integer(incrementer.nextIntValue());	// o_key 받아오기
 //		ord.setO_key(maxID);
 //		
+		// 1번 방법
 //		// 주문 메뉴 목록 가져오기
 //		List<Food> foods = (List<Food>) request.getAttribute("foods");	//협의 필요
 //		
@@ -80,6 +78,9 @@ public class OrdController {
 //			total += f.getF_price();
 //		}
 ////		ord.setO_all(total);	// o_all(총 금액) 입력
+//		
+//		// 2번 방법
+//		// ofd 받아오기, 가게정보 넣어주기
 //		
 //		// 쿠폰 받아오기
 //		Coupon gCpn = (Coupon) request.getAttribute("gCoupon");	// 협의 필요, 증정 쿠폰
@@ -110,6 +111,19 @@ public class OrdController {
 		return "main";
 	}
 	
+	@RequestMapping("/order1_test.ej")
+	public String order1_test(HttpServletRequest request, Ord ord) {
+		// TEST 용!
+				List<Ofd> ofdList = new ArrayList<>();
+				ofdList.add(new Ofd(1234, "test1", 1));
+				ofdList.add(new Ofd(1235, "test2", 2));
+				ofdList.add(new Ofd(1236, "test3", 1));
+				request.setAttribute("ofdList", ofdList);
+				request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
+				
+				request.setAttribute("center", "store/order1");
+		return "main";
+	}
 	// order2.jsp 띄우기
 	// 결제수단 받아옴
 //	@RequestMapping("/order2.ej")
