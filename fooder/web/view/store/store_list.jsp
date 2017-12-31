@@ -38,7 +38,9 @@ font-family: 'Questrial', sans-serif;
 }
 #filters_col_bt{
 font-family: 'Questrial', sans-serif;
-
+}
+#pngs{
+margin-left:30px;
 }
 </style>
 <!-- SubHeader =============================================== -->
@@ -76,7 +78,11 @@ font-family: 'Questrial', sans-serif;
     
 		<div class="col-md-3">
 			<p>
-				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" id="view">View on map</a>
+			<div id=pngs>
+				<img src=img/pizza.png width=60>
+				   <img src=img/chicken.png width=60>
+				   <img src=img/china.png width=60>
+				</div>
 			</p>
 			<div id="filters_col">
 				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters <i class="icon-plus-1 pull-right"></i></a>

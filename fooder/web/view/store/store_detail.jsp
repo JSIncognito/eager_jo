@@ -57,7 +57,6 @@ font-family: 'Questrial', sans-serif;
 			<div class="col-md-4" id="view">
 				<p>
             	<a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }" class="btn_side">Back to search</a>
-					<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
 				</p>
 				<div class="box_style_2">
 					<h4 class="nomargin_top">Opening time <i class="icon_clock_alt pull-right"></i></h4>
