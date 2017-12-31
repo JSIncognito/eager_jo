@@ -87,11 +87,10 @@
 						</td>
 						<td class="options">
                          <div class="dropdown dropdown-options">
-                            <a onclick="addItem('${menu.f_name }', ${menu.f_price });" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
+                            <a onclick="addItem('${menu.f_name }', ${menu.f_price }, '${menu.f_img }', '${menu.f_key }');" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"><i class="icon_plus_alt2"></i></a>
                          </div>
                      </td>
 					</tr>
-<!--  -->
 </c:forEach>
 					</tbody>
 					</table>
@@ -103,6 +102,12 @@
             <div class="theiaStickySidebar">
 				<div id="cart_box" >
 					<h3>Your order <i class="icon_cart_alt pull-right"></i></h3>
+<form action="order1.ej" >
+<%--
+ 					<input type="hidden" name="st_key" value="${stDetail.st_key}" />
+					<input type="hidden" name="st_nm" value="${stDetail.st_nm}" />
+					<input type="hidden" name="st_addr" value="${stDetail.st_addr}" />
+ --%>
 					<table class="table table_summary">
 					<tbody id="addItem">
 <!--  -->
@@ -122,10 +127,10 @@
 					<hr>
 					<div class="row" id="options_2">
 						<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-							<label><input type="radio" value="" checked name="option_2" class="icheck">증정쿠폰</label>
+							<label><input type="radio" value="G" checked name="option_2" class="icheck">증정쿠폰</label>
 						</div>
 						<div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-							<label><input type="radio" value="" name="option_2" class="icheck">할인쿠폰</label>
+							<label><input type="radio" value="D" name="option_2" class="icheck">할인쿠폰</label>
 						</div>
 					</div><!-- Edn options 2 -->
                     
@@ -146,13 +151,16 @@
 -->
 					<tr>
 						<td class="total">
+<!-- 							<input type="hidden" name="o_total" id="o_total" value="" /> -->						
 							 TOTAL <span class="pull-right" id="total"></span>
 						</td>
 					</tr>
 					</tbody>
 					</table>
 					<hr>
-						<a class="btn_full" href="cart.html">Order now</a>
+<!-- 						<a class="btn_full" href="cart.html">Order now</a> -->
+						<button type="submit" class="btn_full">Order now</button>
+</form>						
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->
@@ -181,7 +189,7 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
 			});
 		});
 		
-function addItem(menu_nm, menu_price){
+function addItem(menu_nm, menu_price, menu_img, menu_key){
 	var newdiv = document.createElement('div');
 	calTotal(menu_price);
 	
@@ -192,22 +200,39 @@ function addItem(menu_nm, menu_price){
 			var cnt = $('#addItem tr').eq(i).find('td').eq(1).find('strong').text();
 			cnt++;
 			$('#addItem tr').eq(i).find('td').eq(1).find('strong').text(cnt + " ");
-			return;
+			/* 상품 개수 setting */			
+ 			$('#addItem tr').eq(i).find('td').eq(1).find('input[name="of_cnt"]').val(cnt + "");
+			console.log($('#addItem tr').eq(i).find('td').eq(1).find('input[name="of_cnt"]').val());
+ 			return;
  		}
  	}
 /*  	var str = $('tb tr').html(); */
+ 	
 	var out = '<tr>';
 	out += '<td>';
+	out += '<input type="hidden" name="st_key" value="${stDetail.st_key}" />';
+	out += '<input type="hidden" name="st_nm" value="${stDetail.st_nm}" />';
+	out += '<input type="hidden" name="st_addr" value="${stDetail.st_addr}" />';
 	out += '<a onclick="removeItem(this)" class="remove_item">';
 	out += '<i class="icon_minus_alt">';
 	out += '</i>';
 	out += '</a>';
 	out += '</td>';
 	out += '<td>';
-	out += '<strong class="item_cnt">';
+	out += '<input type="hidden" name="of_cnt" value="1" />';
+	out += '<strong class="item_cnt" >';
 	out += '1 ';
 	out += '</strong>';
 	out += 'x';
+	out += '<input type="hidden" name="f_key" value="';
+	out += menu_key + '" />';
+	out += '<input type="hidden" name="f_name" value="';
+	out += menu_nm + '" />';
+	out += '<input type="hidden" name="f_price" value="';
+	out += menu_price + '" />';
+	out += '<input type="hidden" name="f_img" value="';
+	out += menu_img + '" />';
+	out += '<input type="hidden" name="o_total" id="o_total" value="0" />';
 	out += '<span id=mName>';
 	out += menu_nm;	
 	out += '</span>';
@@ -235,13 +260,14 @@ function removeItem(obj){
 
  	var subtotal =  $('#subtotal').text();
   	subtotal = subtotal.replace(/,/g,'');
- 	subtotal = Number(subtotal) - amount ;
+ 	subtotal = Number(subtotal) -  amount ;
   	$('#subtotal').text(subtotal.comma());
 
  	var total = $('#total').text();
  	total = total.replace(/,/g,'');
  	total = Number(total) - amount;
- 	$('#total').text(total.comma());	
+ 	$('#o_total').val(total + "");
+ 	$('#total').text(total.comma());
 	
  	$(obj).parent().parent().remove(); 
 /* 	$('#addItem tr:last-child').remove(); */
@@ -257,8 +283,8 @@ function calTotal(tprice){
  	var total = $('#total').text();
  	total = total.replace(/,/g,'');
 	total = Number(total) + tprice;
- 	
- 	$('#total').text(total.comma());	
+ 	$('#o_total').val(total + ""); 	
+ 	$('#total').text(total.comma());
 }
 /* 20171229_JS comma in number */
 	Number.prototype.comma = function(){

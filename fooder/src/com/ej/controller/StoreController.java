@@ -34,8 +34,7 @@ public class StoreController {
 	@RequestMapping("/store_list.ej")
 	public String store_list(@RequestParam Map<String, String> paramMap, Model model) {
 /*		System.out.println(paramMap.get("st_type") + " "+ paramMap.get("st_addr")+" " + paramMap.get("lat") + " " + paramMap.get("lot"));*/
-/*		System.out.println(paramMap);*/
-		// test
+		System.out.println(paramMap);
 //		st_type="치킨";
 //		st_addr="행당동";
 		String st_type = (String) paramMap.get("st_type");
@@ -48,6 +47,7 @@ public class StoreController {
 		}else if(st_type.equals("pizza")) {
 			st_type = "피자";
 		}
+
 		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
 		//		List<Store> cate_list = sBiz.select_cete();
 		

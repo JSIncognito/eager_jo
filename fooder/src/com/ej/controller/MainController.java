@@ -51,14 +51,14 @@ public class MainController {
 			if(u.getU_pwd().equals(user.getU_pwd())) {
 				HttpSession session = request.getSession();
 				session.setAttribute("loginUser", user);				
-//				System.out.println(user + "loginuser");
-//				System.out.println(user.getU_flag());
+				//System.out.println(user + "loginuser");
+				//System.out.println(user.getU_flag());
 			}else {
 				System.out.println("error2");				
 				return "error";				
 			}
 		}
-//		System.out.println("로그인 처리");
+		//System.out.println("로그인 처리");
 		return "main";
 	}
 
