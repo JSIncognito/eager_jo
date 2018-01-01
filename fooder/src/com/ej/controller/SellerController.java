@@ -80,9 +80,10 @@ public class SellerController {
 	}
 
 	@RequestMapping("/seller_main.ej")
-	public String my_store(Model model, String u_id) {
+	public String my_store(Model model, String u_id, HttpServletRequest request) {
 		System.out.println("안녕 난 셀러메인이야");
-		u_id = "admin66";
+		/*u_id = "admin66";*/
+		u_id = request.getParameter("u_id");
 		List<Store> list = null;
 		try {
 			list = storebiz.select_myStore(u_id);
@@ -92,6 +93,7 @@ public class SellerController {
 			for (Store store : list) {
 				System.out.println("나의 가게(들) " + list);
 			}
+			
 		} catch (Exception e) {
 			
 			e.printStackTrace();
@@ -344,4 +346,7 @@ public class SellerController {
 			out.close();
 		}
 	}
+
+	
+	
 }

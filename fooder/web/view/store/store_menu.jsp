@@ -151,14 +151,8 @@ h1{
 				<div id="cart_box" >
 					<h3>Your order <i class="icon_cart_alt pull-right"></i></h3>
 <form action="order1.ej" >
-<%--
- 					<input type="hidden" name="st_key" value="${stDetail.st_key}" />
-					<input type="hidden" name="st_nm" value="${stDetail.st_nm}" />
-					<input type="hidden" name="st_addr" value="${stDetail.st_addr}" />
- --%>
 					<table class="table table_summary">
 					<tbody id="addItem">
-<!--  -->
 <!--
  					<tr id="item_tr">
 						<td>
@@ -169,7 +163,6 @@ h1{
 						</td>
 					</tr>
  -->
-<!--  -->
 					</tbody>
 					</table>
 					<hr>
@@ -241,7 +234,7 @@ var index = 0;
 
 function addItem(menu_nm, menu_price, menu_img, menu_key){
 	var newdiv = document.createElement('div');
-	calTotal(menu_price);	
+	
 	for(var i=0; i <= $('#addItem tr').length; i++){
 /* 		alert($('#addItem tr').eq(i).find('td').eq(1).find('span').text() + "and menu_nm : " + menu_nm + " tr cnt :" + i ); */
  		if($('#addItem tr').eq(i).find('td').eq(1).find('span').text() == menu_nm ){
@@ -252,7 +245,8 @@ function addItem(menu_nm, menu_price, menu_img, menu_key){
 			/* 상품 개수 setting */
  			$('#addItem tr').eq(i).find('td').eq(1).find('input[class=of_cnt]').val(cnt + "");
 			console.log($('#addItem tr').eq(i).find('td').eq(1).find('input[class=of_cnt]').val());
- 			return;
+			calTotal(menu_price);
+			return;
  		}
  	}
 /*  	var str = $('tb tr').html(); */
@@ -296,8 +290,7 @@ function addItem(menu_nm, menu_price, menu_img, menu_key){
 	out += '</td>';
 	out += '</tr>';
 	index++;	
- 	$('#addItem').append(out);
- 	
+ 	$('#addItem').append(out); 	
 	calTotal(menu_price);
 };
 function removeItem(obj){	

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<style>
+<style>
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
@@ -28,7 +28,6 @@ font-family: 'Questrial', sans-serif;
 }
 strong{
 font-family: 'Questrial', sans-serif;
-font-size:3px;
 } 
 
 	</style>
@@ -40,6 +39,7 @@ font-size:3px;
 function order1Submit(f) {
 	var tel = f.tel.value;
 	var addr = f.addr.value;
+	
 	if(addr == '' || addr == null) {
 		$('#message_addr').html('Please enter full address').css('color', 'red').css('visibility', 'visible');
 		return;
@@ -53,10 +53,40 @@ function order1Submit(f) {
 		$('#message_tel').html('').css('visibility', 'hidden');
 	}
 	
+	/* comma 제거 */
+	var o_all = $('#o_all').text().replace(/,/g,'');
+	var o_dc = $('#o_dc').text().replace(/,/g,'');
+	var o_total = $('#o_total').text().replace(/,/g,'');
+
+	$('#o_all').text(o_all);
+	$('#o_dc').text(o_dc);
+	$('#o_total').text(o_total);
+/* 	alert($('input=[name=o_addr]').val()); */
 	f.method = 'post';
-	f.action = 'order2.ej';
-	f.submit();
+/* 	f.action = 'order2.ej'; */
+	f.action = 'order3.ej';
+/* 	console.log("order1Submit 확인 111"); */
+ 	f.submit();
 }
+$(document).ready(function(){
+	var o_all = parseInt($('#o_all').text());
+	var o_dc = parseInt($('#o_dc').text());
+	var o_total = parseInt($('#o_total').text());
+	$('#o_all').text(o_all.comma());
+	$('#o_dc').text(o_dc.comma());
+	$('#o_total').text(o_total.comma());
+	
+	alert(o_all + " " + o_dc + " " + o_total);
+});
+
+/* 20171229_JS comma in number */
+Number.prototype.comma = function(){
+	return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+String.prototype.comma = function(){
+	return this.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
 </script>
 <!-- SubHeader =============================================== -->
 <section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/seller_mypage.gif" data-natural-width="1000" data-natural-height="300">
@@ -164,7 +194,7 @@ function order1Submit(f) {
 						<tr>
 							<td id="${ofd.of_key }">
 	<!-- 							<a class="remove_item"><i class="icon_minus_alt"></i></a>  -->
-								<strong>${ofd.of_cnt }x</strong> ${ofd.f_name }
+								<strong> ${ofd.of_cnt } x </strong> ${ofd.f_name }
 							</td>
 						</tr>
 						</c:forEach>
@@ -184,17 +214,17 @@ function order1Submit(f) {
 					<tbody>
 					<tr>
 						<td>
-							 Subtotal <span class="pull-right">￦${orderInfo.o_all }</span>
+							 Subtotal <span class="pull-right" id="o_all">${orderInfo.o_all }</span>
 						</td>
 					</tr>
 					<tr>
 						<td>
-							 Discount <span class="pull-right">￦${orderInfo.o_dc }</span>
+							 Discount <span class="pull-right" id="o_dc">${orderInfo.o_dc }</span>
 						</td>
 					</tr>
 					<tr>
 						<td class="total">
-							 TOTAL <span class="pull-right">￦${orderInfo.o_total }</span>
+							 TOTAL <span class="pull-right" id="o_total">${orderInfo.o_total }</span>
 						</td>
 					</tr>
 					</tbody>

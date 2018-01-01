@@ -32,8 +32,13 @@ public class Ord {
 	double st_gift;
 	double st_dc;
 	String st_nm;
-	String st_type;
+	String st_type;	
+	
 	public Ord() {
+		super();
+	}
+
+	public Ord(double d, double e, double f, String string) {
 		super();
 	}
 	

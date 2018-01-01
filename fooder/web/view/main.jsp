@@ -155,7 +155,7 @@ body {
                         <li><a href="store_list.ej">Chinese</a></li>
                     </ul>
                     </li>
-                    <li><a href="coupon_event.ej">Event</a></li>
+                    <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}">Event</a></li>
 <c:choose>
 <c:when test="${loginUser.u_id == null }">
                     <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
@@ -165,10 +165,11 @@ body {
                     <li><a href="logout.ej">Logout</a></li>
 	<c:choose>
 	<c:when test="${loginUser.u_flag == 1}">
-                    <li><a href="user_mypage.ej">Mypage</a></li>
+                    <li><a href="user_mypage.ej?u_id=${loginUser.u_id}">Mypage</a></li>
 	</c:when>
 	<c:otherwise>
-                    <li><a href="seller_main.ej">SellerPage</a></li>
+                    <li><a href="seller_main.ej?u_id=${loginUser.u_id}">SellerPage</a></li>
+                    	
 	</c:otherwise>
 	</c:choose>
 </c:otherwise>

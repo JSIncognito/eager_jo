@@ -59,13 +59,39 @@ public class OrdController {
 	@RequestMapping("/order1.ej")
 	public String order1(@ModelAttribute Ofd ofd, Model model) {
 		System.out.println("order1 확인 위치확인");
-
 		List<Ofd> ofdList = ofd.getOfd_list();
+		Ofd o= ofdList.get(0);
+/*		Ord ord = new Ord(o.getO_total(), o.getO_total(), o.getSt_key(),o.getSt_nm());*/
+		Ord ord = new Ord();
 		
-		for(Ofd o : ofdList) {
-			System.out.println(o);
-		}
+		ord.setO_all(o.getO_total());
+		ord.setO_dc(o.getO_total());
+		ord.setO_total(o.getO_total());
+		ord.setSt_key(o.getSt_key());
+		ord.setSt_nm(o.getSt_nm());
 		
+		System.out.println("Ofd 확인" + o + " Ord 확인 : " + ord);
+		System.out.println(ord);
+		
+		
+//		// 주문 메뉴 목록 넘기기 
+//		request.setAttribute("fList", foods);
+//		
+//		// 주문 정보, ofd 리스트 세션에 넣기
+//		session.setAttribute("orderInfo", ord);
+//		session.setAttribute("ofdList", ofds);
+		
+		// TEST 용!
+/*		request.setAttribute("ofdList", ofdList);
+		request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
+		
+		request.setAttribute("center", "store/order1");
+*/		
+
+		// ordInfo 생성할것
+		model.addAttribute("ofdList", ofdList);
+		model.addAttribute("orderInfo", ord);
+		model.addAttribute("center", "store/order1");
 		/*		List<Ofd> ofdList2 = ofd.getOfd_list();*/
 /*		System.out.println(ofdList);*/
 		
@@ -123,16 +149,6 @@ public class OrdController {
 //		session.setAttribute("orderInfo", ord);
 //		session.setAttribute("ofdList", ofds);
 		
-		// TEST 용!
-/*		List<Ofd> ofdList = new ArrayList<>();
-		ofdList.add(new Ofd(1234, "test1", 1));
-		ofdList.add(new Ofd(1235, "test2", 2));
-		ofdList.add(new Ofd(1236, "test3", 1));
-		request.setAttribute("ofdList", ofdList);
-		request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
-		
-		request.setAttribute("center", "store/order1");*/
-/*		model.addAttribute("center", "store/order1");*/
 		return "main";
 	}
 	
@@ -163,10 +179,11 @@ public class OrdController {
 	
 	// order3.jsp 띄우기
 	@RequestMapping("/order3.ej")
-	public String order3(HttpServletRequest request, String o_addr, String o_tel, Integer o_way) {
-		System.out.println("o_way: " + o_way);
-		System.out.println("o_addr: " + o_addr);
-		System.out.println("o_tel: " + o_tel);
+	public String order3(@ModelAttribute Ord ord,Model model) {
+/*		public String order3(HttpServletRequest request, String o_addr, String o_tel, Integer o_way) {*/
+		System.out.println("o_way: " + ord.getO_way());
+		System.out.println("o_addr: " + ord.getO_addr());
+		System.out.println("o_tel: " + ord.getO_tel());
 		
 //		// orderInfo(주문 정보, session 내 데이터)에 값 넣기
 //		// 주소, 전화번호, 결제 방법
@@ -188,10 +205,11 @@ public class OrdController {
 		ofdList.add(new Ofd(1234, "test1", 2500, 1));
 		ofdList.add(new Ofd(1235, "test2", 2500, 2));
 		ofdList.add(new Ofd(1236, "test3", 5000, 1));
-		request.setAttribute("ofdList", ofdList);
+/*		request.setAttribute("ofdList", ofdList);
 		request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
 				
 		request.setAttribute("center", "store/order3");
+*/
 		return "main";
 	}
 }

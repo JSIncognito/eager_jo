@@ -96,7 +96,7 @@ font-weight: bold;
 	    <div class="widget" id="category">
 		<h4 id="food_nums">Categories</h4>
 		<ul id="cat_nav_blog">
-			<li><a href="coupon_list.ej">Coupon List</a></li>
+			<li><a href="coupon_list.ej?st_key=${st_key}">Coupon List</a></li>
 			<li><a href="coupon_add.ej">Coupon Add</a></li>
 			<li><a href="seller_store_detail_test.ej">Update my store</a></li>
 			<li><a href="seller_mypage.ej">Update seller profile</a></li>

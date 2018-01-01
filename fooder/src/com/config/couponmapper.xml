@@ -51,7 +51,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<!-- SELECT * FROM COUPON C WHERE C.ST_KEY IN (SELECT S.ST_KEY FROM STORE S WHERE U_ID= #{obj})	-->
 	<!-- 20171220_ksy add-->
 	<select id="select_myCoupon" parameterType="Double" resultType="coupon">
-		select * from coupon where st_key=#{st_key}
+		SELECT * FROM COUPON WHERE ST_KEY=#{st_key}
 	</select>
 	
 </mapper>

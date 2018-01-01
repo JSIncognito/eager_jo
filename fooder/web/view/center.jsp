@@ -694,7 +694,6 @@ function cateListGo(cate, name){
 
 /* 20171226_JS 주소를 위도 경도로 표시 */
 function geocodeToAddr(){
-	alert($('input[id="autocomplete"]').val());
 	toAddrStr = $('input[id="autocomplete"]').val();
 	var geocoder;
 	geocoder = new google.maps.Geocoder();

@@ -52,7 +52,7 @@ public class CouponController {
 	
 
 	// addimpl
-	@RequestMapping("/coupon_add_impl.ej") 
+	@RequestMapping("/coupon_add_impl.ej")
 	public void addimpl(HttpServletRequest request, HttpServletResponse res) {
 		HttpSession session = request.getSession();
 		double st_key = (double) session.getAttribute("st_key");
@@ -129,8 +129,10 @@ public class CouponController {
 
 	// 현재 지역에서 진행중인 이벤트 및 쿠폰
 	@RequestMapping("/coupon_event.ej")
-	public String localCouponEvent(Model model, String st_addr) {
-		st_addr = "주소2";
+	public String localCouponEvent(Model model, String st_addr, HttpServletRequest request) {
+
+		st_addr = request.getParameter("u_addr");
+
 		try {
 			List<Coupon> list = null;
 			list = biz.select_area(st_addr);
@@ -149,16 +151,28 @@ public class CouponController {
 	// 로그인한 유저가 갖고있는 쿠폰
 	//	1228 ksy
 	@RequestMapping("/coupon_list.ej")
-	public String myCouponlist(Model model, Double st_key, HttpServletRequest request) {
-		//	test
-		st_key = (double) 111;
+	public String myCouponlist(Model model, HttpServletRequest request) {
+		System.out.println("안녕 나는 쿠폰리스트야");
+		// test
+		/* st_key = (double) 111; */
 		//
+		// Store 정보 가져오기
+		String key = (String) request.getParameter("st_key"); 		
+		System.out.println("st_key: " + key);
+
+		HttpSession session = request.getSession();
+		if (key == null || key.equals("")) {
+			key = (String) session.getAttribute("st_key");
+		}
+		Double st_key = Double.parseDouble(key);
+
+		
+		/*Double st_key = Double.parseDouble(request.getParameter("st_key"));*/
 		List<Coupon> list = null;
 		list = biz.select_myCoupon(st_key);
 		model.addAttribute("center", "seller/coupon_list");
 		model.addAttribute("myCoupon", list);
- 		
-		HttpSession session = request.getSession();
+
 		session.setAttribute("st_key", st_key);
 		
 		System.out.println("로그인한 유저가 갖고있는 쿠폰 "+list);
