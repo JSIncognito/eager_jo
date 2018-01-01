@@ -8,6 +8,10 @@
 /*한글폰트*/
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+body{
+background-color: white;
+}
+
 #idid{
 font-family: 'Questrial', sans-serif;
 }
@@ -45,7 +49,7 @@ h1{
 }
 
 </style>
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/fruit_view.jpg" data-natural-width="1400" data-natural-height="570">
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/ham.jpg" data-natural-width="1400" data-natural-height="570">
     <div id="subheader">
 	<div id="sub_content">
     	<div id="thumb"><img src="img/view_store.gif" alt=""></div>

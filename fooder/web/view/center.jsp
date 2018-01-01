@@ -11,8 +11,14 @@
 @import url('https://fonts.googleapis.com/css?family=Dosis');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 
-
+#custom-search-input{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+body{
+background-color: white;
+}
 /*카테고리 시작*/
 #food_div{
 margin-left: 40px;

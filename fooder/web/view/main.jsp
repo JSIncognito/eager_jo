@@ -2,11 +2,30 @@
 pageEncoding="utf-8"%>
 
 <%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
- --%>
+	pageEncoding="EUC-KR"%> --%>
+
 <!-- 20171212_JS Sprint and jstl add -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+#logo{
+font-family: 'Questrial', sans-serif;
+color:white;
+font-size: 20px;
+}
+
+#modal-dialog{
+font-family: 'Questrial', sans-serif;
+}
+#register{
+font-family: 'Questrial', sans-serif;
+overflow: auto;
+}
+#btn{
+font-family: 'Questrial', sans-serif;
+}
+</style>
 <!DOCTYPE html>
 <!--[if IE 9]><html class="ie ie9"> <![endif]-->
 <html>
@@ -113,7 +132,8 @@ body {
         <div class="row">
             <div class="col--md-4 col-sm-4 col-xs-4">
                 <a href="index.html" id="logo">
-                <img src="img/logo.png" width="190" height="23" alt="" data-retina="true" class="hidden-xs">
+                <img src="img/sun.png" width="32" height="32" alt="" data-retina="true" class="hidden-xs">Food Weather
+                
                 <img src="img/logo_mobile.png" width="59" height="23" alt="" data-retina="true" class="hidden-lg hidden-md hidden-sm">
                 </a>
             </div>
@@ -292,7 +312,7 @@ body {
 <!-- 20171221_JS login and register Modify -->
 <!-- Login modal -->   
 <div class="modal fade" id="login_2" tabindex="-1" role="dialog" aria-labelledby="myLogin" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog" id="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
 				<form action="login.ej" class="popup-form" id="myLogin" method="post">
@@ -358,8 +378,10 @@ body {
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
 				<form action="#" class="popup-form" id="myRegister_select">
                 	<div class="login_icon"><i class="icon_lock_alt"></i></div>
+                	<div id="btn">
 					<button type="button" class="btn btn-submit close-link" data-toggle="modal" data-target="#register">User Register</button>
-					<button type="button" class="btn btn-submit" onclick="location.href='seller_register.ej'">Seller Register</button>
+					<button type="button" class="btn btn-submit" onclick="location.href='seller_register.ej'" >Seller Register</button>
+			</div>
 				</form>
 			</div>
 		</div>

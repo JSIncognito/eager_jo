@@ -1,10 +1,11 @@
-
 <style>
 
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 
-
+body{
+background-color: white;
+}
 /* #update_form {
 	margin: 0 auto;
 } */
@@ -18,8 +19,12 @@
  width:500px;
  }
 #category {
+margin-left:100px;
+margin-top:80px;
+
 	float: left;
-	width:150px;		
+	width:150px;	
+	position:absolute;	
 }
 li{
 font-family: 'Questrial', sans-serif;
@@ -64,8 +69,11 @@ font-family: 'Questrial', sans-serif;
 font-weight: bold;
 margin-left: 20px;
 }
+#update_form{
+margin-left:150px;
+position:relative;
+}
 </style>
-<!-- 180101 ksy  -->
 <script>
 	function update(f) {
 		var u_nm = f.u_nm.value;
@@ -251,6 +259,14 @@ margin-left: 20px;
 </div>End white_bg
  -->
 
+<div class="widget" id="category">
+		<h4>Categories</h4>
+		<ul id="cat_nav_blog">
+			<li><a href="#">Update my profile</a></li>
+			<li><a href="order_history.ej">My order history</a></li>
+			
+		</ul>
+	</div>
 
 <div id="form_wrapper" class="container margin_60">
 	<div class="main_title margin_mobile">
@@ -349,7 +365,7 @@ margin-left: 20px;
 						<div class="form-group" id="form-group">
 							<label>Change your password</label> <input type="password"
 								class="form-control" placeholder="Password" id="u_pwd"
-								name="u_pwd" value="">
+								name="u_pwd" value="${loginUser.u_pwd }">
 						</div>
 					</div>
 				</div>

@@ -4,6 +4,9 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+body{
+background-color: white;
+}
 #check{
 float:left;
 }

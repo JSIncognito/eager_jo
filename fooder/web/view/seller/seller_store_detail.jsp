@@ -4,6 +4,10 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 
+body{
+background-color: white;
+}
+
 #category {
 margin-top:80px;
 margin-left:100px;
@@ -43,6 +47,9 @@ font-weight: bold;
 #save_now{
 font-family: 'Questrial', sans-serif;
 margin-left:250px;
+}
+.menu-item-section{
+background-color: white;
 }
 </style>
 <script>
@@ -353,7 +360,8 @@ function getLatLot(f) {
 
 				<form id="submitFood" method="post" action="seller_store_modify_food.ej" enctype="multipart/form-data">
 				<input type="hidden" value="${store.st_key }" name="st_key" id="st_key"/>
-				<div class="wrapper_indent">
+				<div class="wrapper_indent" id="dddd">
+				
 					<!-- 2017.12.21 Modified by HB Choi -->
 <%-- 					<c:set var="length" value="${fn:length(stMenu)} "/> --%>
 					<c:set var="slength" scope="session" value="${fn:length(stMenu) }"/> 
