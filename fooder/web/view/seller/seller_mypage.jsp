@@ -1,6 +1,10 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
+body{
+background-color: white;
+}
+
 #category {
 margin-top:80px;
 margin-left:100px;

@@ -4,6 +4,11 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
+body{
+background-color: white;
+}
+
+
 #coupon_wrapper {
 	
 	width: 72%;

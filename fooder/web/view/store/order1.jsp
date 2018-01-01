@@ -5,6 +5,9 @@
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 
+body{
+background-color: white;
+}
 h3{
 font-family: 'Questrial', sans-serif;
 

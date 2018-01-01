@@ -1,6 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<style>
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+#ccc{
+width:1100px;
+}
+#tools{
+width:1100px;
+}
+h3{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+body{
+background-color: white;
+}
+a{
+letter-spacing: 0;
+}
+
+</style>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
@@ -112,6 +131,7 @@ font-family: 'Questrial', sans-serif;
 
 #weather {
 	position: absolute;
+margin-top: 12px;
 }
 #count {
 	position: relative;
@@ -348,17 +368,18 @@ margin-top: 100px;
 
 
 <section class="parallax-window" id="short" data-parallax="scroll"
-	data-image-src="img/data.gif" data-natural-width="1000"
+	data-image-src="img/seller_main.gif" data-natural-width="1000"
 	data-natural-height="400">
 	<div id="subheader">
 		<div id="sub_content">
-			<h1>Seller Page</h1>
+			<h1>Seller Main Page</h1>
 			<p></p>
 		</div>
 		<!-- End sub_content -->
 	</div>
 	<!-- End subheader -->
 </section>
+
 <!-- End section -->
 <!-- End SubHeader ============================================ -->
 
@@ -611,10 +632,10 @@ function showSlides(n, p) {
 				<!--End tools -->
 			
 				<c:forEach var="s" items="${myStore}">
-					<div class="strip_list wow fadeIn" data-wow-delay="0.1s">
+					<div class="strip_list wow fadeIn" data-wow-delay="0.1s" id="ccc">
 						<div class="ribbon_1">Popular</div>
 						<div class="row">
-							<div class="col-md-9 col-sm-9">
+							<div class="col-md-9 col-sm-9" >
 								<div class="desc">
 									<div class="thumb_strip">
 

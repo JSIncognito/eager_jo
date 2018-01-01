@@ -4,6 +4,9 @@
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
+body{
+background-color: white;
+}
 #wrapper {
 	height: auto;
 }
@@ -48,7 +51,7 @@ font-weight: bold;
 
 
 <section class="parallax-window" id="short" data-parallax="scroll"
-	data-image-src="img/coupon_event.gif" data-natural-width="1400"
+	data-image-src="img/coupon_event.gif" data-natural-width="900"
 	data-natural-height="450">
 	<div id="subheader">
 		<div id="sub_content">

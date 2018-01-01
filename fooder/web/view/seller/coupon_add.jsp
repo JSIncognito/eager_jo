@@ -14,7 +14,12 @@ input[type="text"] {
 }
 #add_coupon {
 font-family: 'Questrial', sans-serif;
-
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+body{
+background-color: white;
 }
 #category{
 font-family: 'Questrial', sans-serif;
@@ -170,22 +175,24 @@ $(document).ready(function() {
 </script>
 
 <section class="parallax-window" data-parallax="scroll"
-	data-image-src="img/food2.jpg" data-natural-width="1000"
+	data-image-src="img/food2.jpg" data-natural-width="1400"
 	data-natural-height="670">
 	<div id="subheader">
 		<div id="sub_content">
-			<div id="thumb">
+					<h1>Coupon Add</h1>
+		
+			<!-- <div id="thumb">
 				<img src="img/thumb_restaurant.jpg" alt="">
 			</div>
-			<div class="rating" id="ratt" >
+			 --><!-- <div class="rating" id="ratt" > -->
 				<c:forEach begin="1" end="${store.st_star }" varStatus="status">
 					<c:set var="index" value="${status.current }"></c:set>
-					<i class="icon_star voted"></i>
-				</c:forEach>
+				<!-- 	<i class="icon_star voted"></i>
+ -->				</c:forEach>
 				<c:if test="${index < 5 }">
 					<c:set var="index" value="${5-index }"></c:set>
 					<c:forEach begin="1" end="${index }">
-						<i class="icon_star"></i> 
+						<!-- <i class="icon_star"></i>  -->
 					</c:forEach>
 				</c:if>
 				<!-- 
@@ -193,8 +200,8 @@ $(document).ready(function() {
 				<i class="icon_star voted"></i>
 				<i class="icon_star voted"></i>
 				 -->
-					(<small><a href="detail_page_2.html">Read 98 reviews</a></small>)
-			</div>
+<!-- 					(<small><a href="detail_page_2.html">Read 98 reviews</a></small>)
+ -->			</div>
 			<h1 id="kkk">${store.st_nm }</h1>
 			<div>
 				<em>${store.st_type }</em>

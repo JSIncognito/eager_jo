@@ -3,7 +3,9 @@
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 
-
+body{
+background-color: white;
+}
 /* #update_form {
 	margin: 0 auto;
 } */
@@ -17,8 +19,12 @@
  width:500px;
  }
 #category {
+margin-left:100px;
+margin-top:80px;
+
 	float: left;
-	width:150px;		
+	width:150px;	
+	position:absolute;	
 }
 li{
 font-family: 'Questrial', sans-serif;
@@ -62,6 +68,10 @@ h4{
 font-family: 'Questrial', sans-serif;
 font-weight: bold;
 margin-left: 20px;
+}
+#update_form{
+margin-left:150px;
+position:relative;
 }
 </style>
 <script>
@@ -249,6 +259,14 @@ margin-left: 20px;
 </div>End white_bg
  -->
 
+<div class="widget" id="category">
+		<h4>Categories</h4>
+		<ul id="cat_nav_blog">
+			<li><a href="#">Update my profile</a></li>
+			<li><a href="order_history.ej">My order history</a></li>
+			
+		</ul>
+	</div>
 
 <div id="form_wrapper" class="container margin_60">
 	<div class="main_title margin_mobile">
@@ -262,14 +280,7 @@ margin-left: 20px;
 				   <img src=img/pizza5.png width=60>
            
 	</div>
-	<div class="widget" id="category">
-		<h4>Categories</h4>
-		<ul id="cat_nav_blog">
-			<li><a href="#">Update my profile</a></li>
-			<li><a href="order_history.ej">My order history</a></li>
-			
-		</ul>
-	</div>
+	
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 			<form id="update_form">

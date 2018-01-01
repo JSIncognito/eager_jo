@@ -8,6 +8,10 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+body{
+background-color: white;
+}
+
 #btn_1{
 width:150px;
 margin-top: 20px;
@@ -49,7 +53,7 @@ margin-left:30px;
     <div id="subheader">
 	<div id="sub_content">
     	<h1>Store List</h1>
-        <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+        <!-- <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div> -->
     </div>
 </div> 
 </section>

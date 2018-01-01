@@ -7,6 +7,10 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+body{
+background-color: white;
+}
+
 h1{
  font-family: 'Jeju Gothic', sans-serif; 
 }
@@ -22,7 +26,7 @@ font-family: 'Questrial', sans-serif;
 }
 	</style>
 <!-- SubHeader =============================================== -->
-<section class="parallax-window" data-parallax="scroll" data-image-src="img/kkk.jpg" data-natural-width="1000" data-natural-height="370">
+<section class="parallax-window" data-parallax="scroll" data-image-src="img/ham2.jpeg" data-natural-width="900" data-natural-height="370">
     <div id="subheader">
 	<div id="sub_content">
     	<div id="thumb"><img src="img/view_store.gif" alt=""></div>

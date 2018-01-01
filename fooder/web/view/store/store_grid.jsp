@@ -8,6 +8,10 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+body{
+background-color: white;
+}
+
 #sort_rating{
 font-family: 'Questrial', sans-serif;
 }
@@ -32,8 +36,8 @@ font-family: 'Dancing Script', cursive;
     <div id="subheader">
 	<div id="sub_content">
     	<h1>Store List</h1>
-        <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
-    </div><!-- End sub_content -->
+     <!--    <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+ -->    </div><!-- End sub_content -->
 </div><!-- End subheader -->
 </section><!-- End section -->
 <!-- End SubHeader ============================================ -->
