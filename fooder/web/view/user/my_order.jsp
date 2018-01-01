@@ -79,8 +79,8 @@ font-family: 'Questrial', sans-serif;
 <div class="widget" id="category">
 		<h4>Categories</h4>
 		<ul id="cat_nav_blog">
-			<li><a href="user_mypage.ej">Update my profile</a></li>
-			<li><a href="order_history.ej">My order history</a></li>
+			<li><a href="user_mypage.ej?u_id=${loginUser.u_id  }">Update my profile</a></li>
+			<li><a href="order_history.ej?u_id=${loginUser.u_id }">My order history</a></li>
 
 		</ul>
 	</div>	

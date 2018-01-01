@@ -1,3 +1,4 @@
+
 <style>
 
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
@@ -64,6 +65,7 @@ font-weight: bold;
 margin-left: 20px;
 }
 </style>
+<!-- 180101 ksy  -->
 <script>
 	function update(f) {
 		var u_nm = f.u_nm.value;
@@ -73,22 +75,22 @@ margin-left: 20px;
 		var pwd_confirm = f.pwd_confirm.value;
 
 		if (u_nm == null || u_nm == '') {
-			alert('이름을 입력해주세요.');
+			alert("Please enter your name");
 			f.u_nm.focus();
 			return;
 		}
 		if (u_tel == null || u_tel == '') {
-			alert('전화번호를 입력해주세요.');
+			alert("Please enter your telephone number");
 			f.u_tel.focus();
 			return;
 		}
 		if (u_addr == null || u_addr == '') {
-			alert('주소를 입력해주세요.');
+			alert("Please enter your address");
 			f.u_addr.focus();
 			return;
 		}
 		if (u_pwd != pwd_confirm) {
-			alert('비밀번호가 다르게 입력되었습니다. ');
+			alert("Password does not match");
 			f.pwd_confirm.focus();
 			return;
 		}
@@ -265,28 +267,30 @@ margin-left: 20px;
 	<div class="widget" id="category">
 		<h4>Categories</h4>
 		<ul id="cat_nav_blog">
-			<li><a href="#">Update my profile</a></li>
-			<li><a href="order_history.ej">My order history</a></li>
+			<li><a href="user_mypage.ej?u_id=${loginUser.u_id }">Update my profile</a></li>
+			<li><a href="order_history.ej?u_id=${loginUser.u_id }">My order history</a></li>
 			
 		</ul>
 	</div>
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<form id="update_form">
+		
+		<!-- 180101 ksy -->	
+			<form id="update_form" accept-charset="euc-kr">
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
 						<div class="form-group" id="form-group">
 							<label>Name</label> <input type="text" class="form-control"
-								id="u_nm" name="u_nm" value="${usr.u_nm }">
+								id="u_nm" name="u_nm" value="${loginUser.u_nm }">
 							<!-- 폼에 없는 컬럼들 받기 -->
 							<input type="hidden" class="form-control" id="u_id" name="u_id"
-								value="${usr.u_id }"> <input type="hidden"
+								value="${loginUser.u_id }"> <input type="hidden"
 								class="form-control" id="u_gen" name="u_gen"
-								value="${usr.u_gen }"> <input type="hidden"
+								value="${loginUser.u_gen }"> <input type="hidden"
 								class="form-control" id="u_age" name="u_age"
-								value="${usr.u_age }"> <input type="hidden"
+								value="${loginUser.u_age }"> <input type="hidden"
 								class="form-control" id="u_flag" name="u_flag"
-								value="${usr.u_flag }">
+								value="${loginUser.u_flag }">
 						</div>
 					</div>
 					<!-- <div class="col-md-6 col-sm-6">
@@ -306,7 +310,7 @@ margin-left: 20px;
 					<div class="col-md-6 col-sm-6">
 						<div class="form-group" id="form-group">
 							<label>Phone number</label> <input type="text" id="u_tel"
-								name="u_tel" class="form-control" value="${usr.u_tel }">
+								name="u_tel" class="form-control" value="${loginUser.u_tel}">
 						</div>
 					</div>
 				</div>
@@ -329,7 +333,7 @@ margin-left: 20px;
 					<div class="col-md-6">
 						<div class="form-group" id="form-group">
 							<label>City</label> <input type="text" id="u_addr" name="u_addr"
-								class="form-control" value="${usr.u_addr }">
+								class="form-control" value="${loginUser.u_addr }">
 						</div>
 					</div>
 					<!-- <div class="col-md-6">
@@ -345,7 +349,7 @@ margin-left: 20px;
 						<div class="form-group" id="form-group">
 							<label>Change your password</label> <input type="password"
 								class="form-control" placeholder="Password" id="u_pwd"
-								name="u_pwd" value="${usr.u_pwd }">
+								name="u_pwd" value="">
 						</div>
 					</div>
 				</div>

@@ -131,6 +131,7 @@ public class CouponController {
 
 		st_addr = request.getParameter("u_addr");
 
+		System.out.println("어디니 지금? "+st_addr);
 		try {
 			List<Coupon> list = null;
 			list = biz.select_area(st_addr);
@@ -145,9 +146,9 @@ public class CouponController {
 		return "main";
 
 	}
-	
-	// 로그인한 유저가 갖고있는 쿠폰
-	//	1228 ksy
+
+	// store가 갖고 있는 쿠폰
+	// 1228 ksy
 	@RequestMapping("/coupon_list.ej")
 	public String myCouponlist(Model model, HttpServletRequest request) {
 		System.out.println("안녕 나는 쿠폰리스트야");
@@ -172,8 +173,8 @@ public class CouponController {
 		model.addAttribute("myCoupon", list);
 
 		session.setAttribute("st_key", st_key);
-		
-		System.out.println("로그인한 유저가 갖고있는 쿠폰 "+list);
+
+		System.out.println("가게가 갖고있는 쿠폰 " + list);
 		return "main";
 	}
 
