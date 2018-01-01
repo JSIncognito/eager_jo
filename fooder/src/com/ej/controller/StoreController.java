@@ -49,6 +49,7 @@ public class StoreController {
 			st_type = "피자";
 		}
 
+		
 		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
 		//		List<Store> cate_list = sBiz.select_cete();
 		
@@ -142,19 +143,5 @@ public class StoreController {
 		model.addAttribute("center", "store/store_detail");
 		return "main";
 	}
-/*
-	//	점주의 가게 목록
-	@RequestMapping("/seller_main.ej")
-	public String mystore_list(Model model,String u_id) {
-		u_id = "admin66";
-		List<Store> list = null;
-		sBiz.select_myStore(u_id);
-		model.addAttribute("myStore",list);
-		model.addAttribute("center","seller/seller_main");
-		return "main";
-		
-	}
-		*/
-	
 	
 }

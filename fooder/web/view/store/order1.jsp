@@ -61,10 +61,11 @@ function order1Submit(f) {
 	$('#o_all').text(o_all);
 	$('#o_dc').text(o_dc);
 	$('#o_total').text(o_total);
-/* 	alert($('input=[name=o_addr]').val()); */
+ 	alert($('input[name=o_addr]').val());
 	f.method = 'post';
 /* 	f.action = 'order2.ej'; */
 	f.action = 'order3.ej';
+	
 /* 	console.log("order1Submit »Æ¿Œ 111"); */
  	f.submit();
 }
@@ -76,7 +77,7 @@ $(document).ready(function(){
 	$('#o_dc').text(o_dc.comma());
 	$('#o_total').text(o_total.comma());
 	
-	alert(o_all + " " + o_dc + " " + o_total);
+/* 	alert(o_all + " " + o_dc + " " + o_total); */
 });
 
 /* 20171229_JS comma in number */
@@ -152,7 +153,7 @@ String.prototype.comma = function(){
 				</div>
                 
 			</div>End col-md-3 -->
-            <form>
+            <form accept-charset="EUC-KR">
 			<div class="col-md-9">
 				<div class="box_style_2" id="order_process">
 					<h2 class="inner" id="inner">Your order details</h2>

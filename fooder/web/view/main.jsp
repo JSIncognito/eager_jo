@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" 
 pageEncoding="utf-8"%>
-<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%> --%>
 
+<%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+ --%>
 <!-- 20171212_JS Sprint and jstl add -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -141,7 +142,7 @@ body {
 <c:choose>
 <c:when test="${loginUser.u_id != null }">
 <%--  	                <li><a href="logout.ej">${loginUser.u_nm } ดิ </a></li> --%>
- 	                <li><a href="logout.ej">${loginUser.u_nm } ดิ </a></li>
+ 	                <li><a href="logout.ej">${loginUser.u_nm } </a></li>
  <%--  	                <li><h3>${loginUser.u_nm } User</h3></li> --%>
 </c:when>
 </c:choose>

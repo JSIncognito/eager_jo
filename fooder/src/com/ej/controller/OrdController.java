@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.jdbc.support.incrementer.DataFieldMaxValueIncrementer;
 import org.springframework.stereotype.Controller;
@@ -57,7 +58,7 @@ public class OrdController {
 
 /*	public String order1(HttpServletRequest request, Ord ord,@RequestBody List<Ofd> ofd_list,Model model) {*/
 	@RequestMapping("/order1.ej")
-	public String order1(@ModelAttribute Ofd ofd, Model model) {
+	public String order1(@ModelAttribute Ofd ofd, Model model, HttpServletRequest request) {
 		System.out.println("order1 확인 위치확인");
 		List<Ofd> ofdList = ofd.getOfd_list();
 		Ofd o= ofdList.get(0);
@@ -70,65 +71,16 @@ public class OrdController {
 		ord.setSt_key(o.getSt_key());
 		ord.setSt_nm(o.getSt_nm());
 		
+		HttpSession session = request.getSession();
+		System.out.println(session);
 		System.out.println("Ofd 확인" + o + " Ord 확인 : " + ord);
 		System.out.println(ord);
-		
-		
-//		// 주문 메뉴 목록 넘기기 
-//		request.setAttribute("fList", foods);
-//		
-//		// 주문 정보, ofd 리스트 세션에 넣기
-//		session.setAttribute("orderInfo", ord);
-//		session.setAttribute("ofdList", ofds);
-		
-		// TEST 용!
-/*		request.setAttribute("ofdList", ofdList);
-		request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
-		
-		request.setAttribute("center", "store/order1");
-*/		
 
 		// ordInfo 생성할것
-		model.addAttribute("ofdList", ofdList);
-		model.addAttribute("orderInfo", ord);
+		session.setAttribute("ofdList", ofdList);
+		session.setAttribute("orderInfo", ord);
 		model.addAttribute("center", "store/order1");
-		/*		List<Ofd> ofdList2 = ofd.getOfd_list();*/
-/*		System.out.println(ofdList);*/
-		
-		
-/*		List<Ofd> ofdList = ofd.getOfd_list();*/
-		
-/*		for(Ofd of : ofdList) {
-			System.out.println(of);
-		}
-*/		
-		// 세션에 있던 기존 주문 정보, ofd 목록 삭제
-//		HttpSession session = request.getSession();
-//		session.removeAttribute("orderInfo");	// TODO : 삭제 잘 되는지 확인하기
-//		session.removeAttribute("ofdList");
-//		
-//		// 주문정보 만들기
-//		Ord ord = new Ord();
-//		
-//		// 가게 이름 받아와서 설정
-////		ord.setSt_nm((String) request.getAttribute("st_nm"));		// 협의 필요
-//		int maxID = new Integer(incrementer.nextIntValue());	// o_key 받아오기
-//		ord.setO_key(maxID);
-//		
-		// 1번 방법
-//		// 주문 메뉴 목록 가져오기
-//		List<Food> foods = (List<Food>) request.getAttribute("foods");	//협의 필요
-//		
-//		// ofd 리스트 만들어주기 & 메뉴 총 금액 구하기
-//		List<Ofd> ofds = new ArrayList<>();
-//		double total = .0;
-//		for(Food f : foods) {
-//			Ofd ofd = new Ofd(maxID, f.getF_key(), f.getF_name(), f.getF_price(), f.getF_img(), f.getSt_key());
-//			ofds.add(ofd);
-//			total += f.getF_price();
-//		}
-////		ord.setO_all(total);	// o_all(총 금액) 입력
-//		
+	
 //		// 2번 방법
 //		// ofd 받아오기, 가게정보 넣어주기
 //		
@@ -179,11 +131,22 @@ public class OrdController {
 	
 	// order3.jsp 띄우기
 	@RequestMapping("/order3.ej")
-	public String order3(@ModelAttribute Ord ord,Model model) {
+	public String order3(@ModelAttribute Ord ord,HttpServletRequest request, Model model) {
 /*		public String order3(HttpServletRequest request, String o_addr, String o_tel, Integer o_way) {*/
-		System.out.println("o_way: " + ord.getO_way());
-		System.out.println("o_addr: " + ord.getO_addr());
-		System.out.println("o_tel: " + ord.getO_tel());
+		HttpSession session = request.getSession();
+		List<Ofd> ofdList =(List<Ofd>) session.getAttribute("ofdList");
+		
+		Ord ordInfo = (Ord) session.getAttribute("orderInfo");
+		
+		System.out.println(ordInfo);
+		
+		System.out.println(ord.getO_addr());
+		System.out.println(ord.getO_tel());
+		
+		// ord table 주소, 전화번호, 결제수단 추가
+		ordInfo.setO_addr(ord.getO_addr());
+		ordInfo.setO_tel(ord.getO_tel());
+		ordInfo.setO_way(ord.getO_way());
 		
 //		// orderInfo(주문 정보, session 내 데이터)에 값 넣기
 //		// 주소, 전화번호, 결제 방법
@@ -199,17 +162,9 @@ public class OrdController {
 //		for(Ofd o : list) {
 //			ofdbiz.register(o);
 //		}
-		
-		// TEST 용!
-		List<Ofd> ofdList = new ArrayList<>();
-		ofdList.add(new Ofd(1234, "test1", 2500, 1));
-		ofdList.add(new Ofd(1235, "test2", 2500, 2));
-		ofdList.add(new Ofd(1236, "test3", 5000, 1));
-/*		request.setAttribute("ofdList", ofdList);
-		request.setAttribute("orderInfo", new Ord(10000, 1000, 9000));
-				
-		request.setAttribute("center", "store/order3");
-*/
+		session.setAttribute("ordInfo", ordInfo);
+		model.addAttribute("ofdList", ofdList);
+		model.addAttribute("center", "store/order3");
 		return "main";
 	}
 }
