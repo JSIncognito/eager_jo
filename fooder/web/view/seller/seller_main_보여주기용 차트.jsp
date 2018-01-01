@@ -5,86 +5,144 @@
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script>
-// 20180101 hb choi
 $(document).ready(function() {
-	$.ajax({
-		url: 'get_chart_data.ej', 
-		data: {'data': '°­³²±¸'}, 
-		success: function(data) {
-			console.log(data);
-			display_weather(data[0]);
-			display_count(data[1]);
-		}, 
-		error:function(request,status,error){
-		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-		}
+	Highcharts.chart('weather', {
+	    chart: {
+	        type: 'line'
+	    },
+	    title: {
+	        text: 'Weekly Average Temperature'
+	    },
+	    xAxis: {
+	        categories: [7,6,5,4,3,2,1]
+	    },
+	    yAxis: {
+	        title: {
+	            text: 'Temperature (¡ÆC)'
+	        }
+	    },
+	    plotOptions: {
+	        line: {
+	            dataLabels: {
+	                enabled: true
+	            },
+	            enableMouseTracking: false
+	        }
+	    },
+	    series: [{
+	        name: 'Temperature',
+	        data: [2.8, 3.3, -0.1, 0.2, 2.7, 4.8, 0.9]
+	    }, {
+	        name: 'Humidity',
+	        data: [7.52, 6.78, 5.24, 4.61, 4.54, 5.55, 7.33]
+	    }, {
+	        name: 'Windy',
+	        data: [1.5, 2.3, 1.7, 1.4, 1.8, 1.6, 1.6]
+	    }, {
+	        name: 'Rain',
+	        data: [3,4,0,0,0,0,0]
+	    }]
 	});
 	
-	function display_weather(data) {
-		alert(data);
-		Highcharts.chart('weather', {
-		    chart: {
-		        type: 'line'
-		    },
-		    title: {
-		        text: 'Weekly Average Temperature'
-		    },
-		    xAxis: {
-		        categories: [7,6,5,4,3,2,1]
-		    },
-		    yAxis: {
-		        title: {
-		            text: 'Temperature (¡ÆC)'
-		        }
-		    },
-		    plotOptions: {
-		        line: {
-		            dataLabels: {
-		                enabled: true
-		            },
-		            enableMouseTracking: false
-		        }
-		    },
-		    series: data
-		});
-	}
-	
-	function display_count(data) {
-		alert(data);
-		Highcharts.chart('count', {
-		    chart: {
-		        type: 'column'
-		    },
-		    title: {
-		        text: 'Weekly Total Count'
-		    },
-		    xAxis: {
-		        categories: [7,6,5,4,3,2,1],
-		        crosshair: true
-		    },
-		    yAxis: {
-		        min: 0,
-		        title: {
-		            text: 'Counts'
-		        }
-		    },
-		    tooltip: {
-		        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-		        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-		            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
-		        footerFormat: '</table>',
-		        shared: true,
-		        useHTML: true
-		    },
-		    plotOptions: {
-		        column: {
-		            pointPadding: 0.2,
-		            borderWidth: 0
-		        }
-		    },
-		    series: data
-		})
-	}
+	Highcharts.chart('count', {
+	    chart: {
+	        type: 'column'
+	    },
+	    title: {
+	        text: 'Weekly Total Count'
+	    },
+	    xAxis: {
+	        categories: [7,6,5,4,3,2,1],
+	        crosshair: true
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Counts'
+	        }
+	    },
+	    tooltip: {
+	        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+	        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+	            '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+	        footerFormat: '</table>',
+	        shared: true,
+	        useHTML: true
+	    },
+	    plotOptions: {
+	        column: {
+	            pointPadding: 0.2,
+	            borderWidth: 0
+	        }
+	    },
+	    series: [{
+	        name: 'Chinese',
+	        data: [15320, 16538, 20542, 20779, 14286, 15081, 16191]
+
+	    }, {
+	        name: 'Pizza',
+	        data: [16777, 18414, 20734, 20452, 14383, 15246, 16514]
+
+	    }, {
+	        name: 'Chicken',
+	        data: [18376, 17817, 21100, 20741, 15258, 16617, 17389]
+
+	    }]
+	});
+	/* Highcharts.chart('count', {
+	    chart: {
+	        type: 'column'
+	    },
+	    title: {
+	        text: 'Weekly Delivery Count'
+	    },
+	    xAxis: {
+	        type: 'category',
+	        labels: {
+	            rotation: -45,
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    },
+	    yAxis: {
+	        min: 0,
+	        title: {
+	            text: 'Count'
+	        }
+	    },
+	    legend: {
+	        enabled: false
+	    },
+	    tooltip: {
+	        pointFormat: 'Counts in this week: <b>{point.y:.1f}</b>'
+	    },
+	    series: [{
+	        name: 'Counts',
+	        data: [
+	            ['Shanghai', 23.7],
+	            ['Lagos', 16.1],
+	            ['Istanbul', 14.2],
+	            ['Karachi', 14.0],
+	            ['Mumbai', 12.5],
+	            ['Moscow', 12.1],
+	            ['Sao Paulo', 11.8]
+	        ],
+	        dataLabels: {
+	            enabled: true,
+	            rotation: -90,
+	            color: '#FFFFFF',
+	            align: 'right',
+	            format: '{point.y:.1f}', // one decimal
+	            y: 10, // 10 pixels down from the top
+	            style: {
+	                fontSize: '13px',
+	                fontFamily: 'Verdana, sans-serif'
+	            }
+	        }
+	    }]
+	}); */
 });
 
 
@@ -98,7 +156,7 @@ font-family: 'Questrial', sans-serif;
 }
 
 #weather {
-	display: block;
+	position: absolute;
 }
 #count {
 	position: relative;
