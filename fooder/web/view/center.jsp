@@ -248,7 +248,9 @@ font-family: 'Cookie', cursive;
 			</div>
 			<div class="column">
 				<div class="card">
-					<a onclick="cateListGo('china') , '${loginUser.u_id }'" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
+				<%-- 20180101jsw<a onclick="cateListGo('china' , '${loginUser.u_id }')" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
+						width="360" height="280">
+ --%>					<a onclick="cateListGo('china' , '${loginUser.u_id }')" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
 						width="360" height="280">
 					</a>
 					<div class="containers">
