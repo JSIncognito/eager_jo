@@ -129,7 +129,7 @@ public class CouponController {
 		return "main";
 	}
 
-	//	180102 ksy	
+	//	180102 ksy!!!!!!	
 	//	현재 지역에서 진행중인 이벤트 및 쿠폰
 	@RequestMapping("/coupon_event.ej")
 	public String localCouponEvent(@RequestParam("st_addr") String st_addr, Model model, HttpServletRequest request) {

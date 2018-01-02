@@ -190,7 +190,7 @@ body {
                     </li>
 </c:otherwise>
 </c:choose>
-                    <!-- 180102 ksy  -->
+                    <!-- 180102 ksy !!!!!!!!!! -->
                     <%-- <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}" onclick="">Event</a></li> --%>
                     <li><a id="event_menu" onclick="dong('${stAddr }','${loginUser.u_id }')">Event</a></li>
 <c:choose>
@@ -415,7 +415,7 @@ body {
 	<!-- End Search Menu -->
 
 </body>
-<!-- 180102 ksy  -->
+<!-- 180102 ksy !!!!!!!! -->
 <script>
 //20180102 동 이름만 추출
 function dong(toAddrStr,name){
