@@ -1,5 +1,6 @@
 package com.ej.controller;
 
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
@@ -9,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -102,19 +102,27 @@ public class StoreController {
 	
 	//	가게의 메뉴 리스트
 	@RequestMapping("/store_menu.ej")
-	public String store_menu(@RequestParam("st_key") Double st_key,@RequestParam Map<String,String> paramMap ,Model model) {
+	public String store_menu(@RequestParam("st_key") Double st_key,@RequestParam Map<String,String> paramMap ,Model model, HttpServletRequest request) {
 		System.out.println("store_menu 진입");
-		String st_addr = (String) paramMap.get("st_addr");
+/*		String st_addr = (String) paramMap.get("st_addr");
 		String st_type = (String) paramMap.get("st_type");
-
+*/
 /*		Double st_key1 = 5275626750.0;
 		Double st_key2 = 126.0;
 */
-		System.out.println(st_key);
+/*		System.out.println(st_key);*/
 		List<Food> stMenu = fBiz.select_stMenu(st_key);
 		for(Food f:stMenu) {
 			System.out.println("확인1" + f);
 		}
+		HttpSession session = request.getSession();
+/*		Enumeration se = session.getAttributeNames();
+		  
+		while(se.hasMoreElements()){
+			String getse = se.nextElement()+"";
+			System.out.println("@@@@@@@ session : "+getse+" : "+session.getAttribute(getse));
+		}
+*/
 
 		List<Cu> uCoupon = cuBiz.select_uCoupon(st_key);
 
@@ -124,9 +132,12 @@ public class StoreController {
 			System.out.println("확인2" + c);			
 		}
 		Store stDetail = sBiz.get(st_key);
-
-		model.addAttribute("stType", st_type);
+		
+/*
+ * 		model.addAttribute("stType", st_type);
 		model.addAttribute("stAddr", st_addr);
+*/
+		session.setAttribute("stKey", st_key);		
 		model.addAttribute("stDetail", stDetail);		
 		model.addAttribute("stMenu", stMenu);
 		model.addAttribute("uCoupon", uCoupon);

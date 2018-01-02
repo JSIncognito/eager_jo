@@ -154,7 +154,7 @@ h1{
             <div class="theiaStickySidebar">
 				<div id="cart_box" >
 					<h3>Your order <i class="icon_cart_alt pull-right"></i></h3>
-<form action="order1.ej" >
+<form accept-charset="EUC-KR">
 					<table class="table table_summary">
 					<tbody id="addItem">
 <!--
@@ -204,7 +204,8 @@ h1{
 					</table>
 					<hr>
 <!-- 						<a class="btn_full" href="cart.html">Order now</a> -->
-						<button type="submit" class="btn_full">Order now</button>
+<!-- 						<button type="submit" class="btn_full">Order now</button> -->
+						<button type="button" class="btn_full" onclick="menuSubmit(this.form);">Order now</button>
 </form>						
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
@@ -233,7 +234,6 @@ $('#cat_nav a[href^="#"]').on('click', function (e) {
 				window.location.hash = target;
 			});
 		});
-
 var index = 0;
 
 function addItem(menu_nm, menu_price, menu_img, menu_key){
@@ -350,5 +350,19 @@ function calTotal(tprice){
 	String.prototype.comma = function(){
 		return this.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 	};
+function menuSubmit(f){
+	
+	if($('#addItem tr').length == 0){
+		alert("상품을 선택해주세요.");
+		return;
+	}else{
+		f.method = 'post';
+		f.action = 'order1.ej';
+		
+		f.submit();		
+	}
+	
+	
+}
 </script>
 <!-- 20171214_JS store_menu.jsp add -->

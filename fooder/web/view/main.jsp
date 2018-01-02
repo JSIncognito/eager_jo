@@ -179,9 +179,9 @@ body {
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
                     <ul>
-                        <li><a href="store_list.ej?st_type='chicken'&st_addr=${stAddr }">Chicken</a></li>
-                        <li><a href="store_list.ej?st_type='pizza'&st_addr=${stAddr }">Pizza</a></li>
-                        <li><a href="store_list.ej?st_type='china'&st_addr=${stAddr }">Chinese</a></li>
+                        <li><a href="store_list.ej?st_type=chicken&st_addr=${stAddr }">Chicken</a></li>
+                        <li><a href="store_list.ej?st_type=pizza&st_addr=${stAddr }">Pizza</a></li>
+                        <li><a href="store_list.ej?st_type=china&st_addr=${stAddr }">Chinese</a></li>
                     </ul>
                     </li>
 </c:otherwise>
@@ -409,5 +409,4 @@ body {
 	<!-- End Search Menu -->
 
 </body>
-
 </html>

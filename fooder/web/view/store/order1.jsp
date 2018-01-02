@@ -64,11 +64,10 @@ function order1Submit(f) {
 	$('#o_all').text(o_all);
 	$('#o_dc').text(o_dc);
 	$('#o_total').text(o_total);
- 	alert($('input[name=o_addr]').val());
+/*  	alert($('input[name=o_addr]').val()); */
 	f.method = 'post';
 /* 	f.action = 'order2.ej'; */
 	f.action = 'order3.ej';
-	
 /* 	console.log("order1Submit »Æ¿Œ 111"); */
  	f.submit();
 }
@@ -236,7 +235,7 @@ String.prototype.comma = function(){
 					<hr>
 <!-- 					<a class="btn_full" href="javascript:void(0);" onclick="order1Submit(this.form);" >Go to checkout</a> -->
 					<button class="btn_full" type="button" onclick="order1Submit(this.form);">Go to checkout</button>
-					<a class="btn_full_outline" href="store_menu.ej"><i class="icon-right"></i> Add other items</a>
+					<a class="btn_full_outline" href="store_menu.ej?st_key=${stKey }"><i class="icon-right"></i> Add other items</a>
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->
