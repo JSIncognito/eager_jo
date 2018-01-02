@@ -9,6 +9,7 @@ import java.util.List;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,7 +38,7 @@ public class CuController {
 	 * }
 	 */
 
-	// 1227 ksy
+	// 180102 ksy
 	@RequestMapping("/cu_insert.ej")
 	public String getcoupon(Cu cu, Coupon coupon, HttpServletRequest request, HttpServletResponse response)
 			throws IOException {
@@ -53,11 +54,25 @@ public class CuController {
 
 		cu.setCu_used(0);
 		cu.setCu_date(Double.parseDouble(sdf.format(d)));
-		System.out.println("쿠폰이 고객에게로 " + cu);
+	
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		List<Cu> list = null;
 		list = cbiz.select_userCu(cu.getU_id());
+		
+		/*
+		String u_id = request.getParameter("u_id");
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("u_id", u_id);
+		System.out.println("아이디를 보여줘  "+ session.getAttribute("u_id"));
+		
+		String sessionId = (String) session.getAttribute("u_id");
+		
+		list = cbiz.select_userCu(sessionId);
+*/		
+		System.out.println("쿠폰이 고객에게로 " + cu);
+
 		for (Cu data : list) {
 			if (data.getC_key() == coupon.getC_key() && data.getCu_used() == 0) {
 				out.println("<script>alert('이미 발급된 쿠폰입니다.'); history.go(-1); </script>");
@@ -68,7 +83,6 @@ public class CuController {
 		cbiz.register(cu);
 		out.println("<script>alert('쿠폰이 발급되었습니다.'); history.go(-1); </script>");
 		out.flush();
-
 		return "main";
 
 		/*

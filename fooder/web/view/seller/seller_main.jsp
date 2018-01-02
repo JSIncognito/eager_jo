@@ -35,12 +35,11 @@ $(document).ready(function() {
 			display_count(data[1]);
 		}, 
 		error:function(request,status,error){
-		    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+		    console.log("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 		}
 	});
 	
 	function display_weather(data) {
-		alert(data);
 		Highcharts.chart('weather', {
 		    chart: {
 		        type: 'line'
@@ -69,7 +68,6 @@ $(document).ready(function() {
 	}
 	
 	function display_count(data) {
-		alert(data);
 		Highcharts.chart('count', {
 		    chart: {
 		        type: 'column'

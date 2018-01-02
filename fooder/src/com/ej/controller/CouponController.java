@@ -30,7 +30,7 @@ public class CouponController {
 	public String add(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Double st_key = (Double) session.getAttribute("st_key");
-		// 가게 정보 가져오기
+		// 가게 정보 가져오기	
 		Store store = storebiz.get(st_key);
 		
 		request.setAttribute("store", store);
@@ -62,6 +62,7 @@ public class CouponController {
 //		HttpSession session = request.getSession();
 //		session.setAttribute("st_key", st_key);
 		
+//		<!-- 20180102 hb Choi --> 수정사항 없을수도 있음..
 		// dc coupon 받기 & 등록
 		int idx = 1;
 		System.out.println("dc"+idx+"_c_start");
@@ -81,10 +82,12 @@ public class CouponController {
 			
 			Coupon c = new Coupon(st_key, "D", "", c_dc, c_nm, c_start, c_end, 
 					store.getSt_nm(), store.getSt_addr(), store.getLat(), store.getLot());
-			biz.register(c);
 			System.out.println("dc" + idx + ": " + c);
+			biz.register(c);
 			idx++;
 		}
+		
+		System.out.println("dc 끝");
 		
 		// gift coupon 받기 & 등록
 		idx = 1;
@@ -159,11 +162,14 @@ public class CouponController {
 		String key = (String) request.getParameter("st_key"); 		
 		System.out.println("st_key: " + key);
 
+//		<!-- 20180102 hb Choi -->
 		HttpSession session = request.getSession();
+		Double st_key = 0.;
 		if (key == null || key.equals("")) {
-			key = (String) session.getAttribute("st_key");
+			st_key = (Double) session.getAttribute("st_key");
+		} else {
+			st_key = Double.parseDouble(key);
 		}
-		Double st_key = Double.parseDouble(key);
 
 		
 		/*Double st_key = Double.parseDouble(request.getParameter("st_key"));*/
