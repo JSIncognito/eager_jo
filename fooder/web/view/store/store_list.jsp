@@ -167,7 +167,8 @@ margin-left:30px;
 					<div class="col-md-9 col-sm-9">
 						<div class="desc">
 							<div class="thumb_strip">
-								<a href="store_menu.ej?st_key=${st.st_key }&st_type=${stType }&st_addr=${stAddr }"><img src="img/thumb_restaurant.jpg" alt=""></a>
+							<%-- 20180101jsw<img src="img/${st.st_img }" alt=""> --%>
+								<a href="store_menu.ej?st_key=${st.st_key }&st_type=${stType }&st_addr=${stAddr }"><img src="img/${st.st_img }" alt=""></a>
 							</div>
 							<div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i> (<small><a href="#0">98 reviews</a></small>)
