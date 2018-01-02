@@ -172,12 +172,13 @@ function getLatLot(f) {
 <!-- Position -->
 
 <!-- 카테고리 -->
+<!-- 20180102 hb Choi -->
 <div class="widget" id="category">
 		<h4 id="food_nums">Categories</h4>
 		<ul id="cat_nav_blog">
 			<li><a href="coupon_list.ej?st_key=${st_key}">Coupon List</a></li>
 			<li><a href="coupon_add.ej?st_key=${st_key}">Coupon Add</a></li>
-			<li><a href="seller_store_detail_test.ej">Update my store</a></li>
+			<li><a href="seller_store_detail.ej">Update my store</a></li>
 			<li><a href="seller_mypage.ej">Update seller profile</a></li>
 
 		</ul>
@@ -387,7 +388,8 @@ function getLatLot(f) {
 							</div>
 							<div class="strip_menu_items">
 								<div class="row">
-									<div class="col-sm-2">
+									<!-- 20180102 hb Choi -->
+									<div class="col-sm-3">
 										<div class="col-sm-12">
 										<div class="form-group">
 											<label id="food_num">Current   Image</label>
@@ -405,7 +407,7 @@ function getLatLot(f) {
 											</div>
 										</div>
 									</div> --%>
-									<div class="col-sm-10">
+									<div class="col-sm-9">
 										<div class="col-md-12">
 											<div class="form-group">
 												<label id="food_num">Title</label> <input type="text" name="item${status.count }_f_name" value="${food.f_name }" class="form-control" required>

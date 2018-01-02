@@ -98,7 +98,6 @@ public class UsersController {
 		List<Ord> list = null;
 		try {
 			list = obiz.select_myOrder(u_id);
-			model.addAttribute("center", "user/my_order");
 			model.addAttribute("myOrder", list);
 			for (Ord ord : list) {
 				System.out.println("내가 여태껏 주문했던 내역 "+ord);
@@ -108,6 +107,7 @@ public class UsersController {
 			e.printStackTrace();
 		}
 		
+		model.addAttribute("center", "user/my_order");
 		return "main";
 
 	}

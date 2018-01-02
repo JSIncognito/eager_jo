@@ -179,7 +179,6 @@ body {
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
                     <ul>
-<%--                         <li><a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }">All</a></li> --%>
                         <li><a href="store_list.ej?st_type='chicken'&st_addr=${stAddr }">Chicken</a></li>
                         <li><a href="store_list.ej?st_type='pizza'&st_addr=${stAddr }">Pizza</a></li>
                         <li><a href="store_list.ej?st_type='china'&st_addr=${stAddr }">Chinese</a></li>
@@ -349,7 +348,7 @@ body {
 		<div class="modal-dialog">
 			<div class="modal-content modal-popup">
 				<a href="#" class="close-link"><i class="icon_close_alt2"></i></a>
-				<form action="users_register.ej" class="popup-form" id="myRegister" method="post">
+				<form action="users_register.ej" class="popup-form" id="myRegister" method="post" accept-charset="euc-kr">
                 	<div class="login_icon"><i class="icon_lock_alt"></i></div>
 					<!-- 20171220_JS Register modify -->
 					<input type="text" class="form-control form-white" placeholder="ID" name="u_id" required/>
@@ -410,4 +409,5 @@ body {
 	<!-- End Search Menu -->
 
 </body>
+
 </html>
