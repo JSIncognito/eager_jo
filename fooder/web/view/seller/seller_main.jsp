@@ -20,7 +20,6 @@ letter-spacing: 0;
 }
 
 </style>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script>
@@ -45,14 +44,14 @@ $(document).ready(function() {
 		        type: 'line'
 		    },
 		    title: {
-		        text: 'Weekly Average Temperature'
+		        text: '1林老 朝揪'
 		    },
 		    xAxis: {
-		        categories: [7,6,5,4,3,2,1]
+		        categories: ['6老傈','5老傈','4老傈','3老傈','2老傈','1老傈','寸老']
 		    },
 		    yAxis: {
 		        title: {
-		            text: 'Temperature (∑C)'
+		            text: ''
 		        }
 		    },
 		    plotOptions: {
@@ -73,16 +72,16 @@ $(document).ready(function() {
 		        type: 'column'
 		    },
 		    title: {
-		        text: 'Weekly Total Count'
+		        text: '1林老 林巩樊'
 		    },
 		    xAxis: {
-		        categories: [7,6,5,4,3,2,1],
+		        categories: ['6老傈','5老傈','4老傈','3老傈','2老傈','1老傈','寸老'],
 		        crosshair: true
 		    },
 		    yAxis: {
 		        min: 0,
 		        title: {
-		            text: 'Counts'
+		            text: '林巩樊'
 		        }
 		    },
 		    tooltip: {
