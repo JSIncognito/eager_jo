@@ -186,9 +186,10 @@ body {
                         <li><a href="store_list.ej?st_type=china&st_addr=${stAddr }">Chinese</a></li>
                     </ul>
                     </li>
-                    
 </c:if>
-                    <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}">Event</a></li>
+                    <!-- 180102 ksy !!!!!!!!!! -->
+                    <%-- <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}" onclick="">Event</a></li> --%>
+                    <li><a id="event_menu" onclick="dong('${stAddr }','${loginUser.u_id }')">Event</a></li>
 <c:choose>
 <c:when test="${loginUser.u_id == null }">
                     <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>

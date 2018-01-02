@@ -89,7 +89,7 @@ font-weight: bold;
 	<div class="row">
 
 
-		<div class="col-md-9">
+		<div class="col-md-12">
 
 			<div id="tools">
 				<div class="row">
@@ -105,7 +105,7 @@ font-weight: bold;
 
 				<c:forEach var="c" items="${cArea}">
 				<form action="cu_insert.ej" method="post">
-					<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
+					<div class="col-md-3 col-sm-3 wow zoomIn" data-wow-delay="0.1s">
 						<a class="strip_list grid" href="#">
 							<div class="ribbon_1">Popular</div>
 							<div class="desc">
