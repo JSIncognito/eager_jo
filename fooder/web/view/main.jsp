@@ -417,30 +417,30 @@ body {
 </body>
 <!-- 180102 ksy !!!!!!!! -->
 <script>
-//20180102 ë™ ì´ë¦„ë§Œ ì¶”ì¶œ
+//20180102 ?? ?´ë?ë§? ì¶?ì¶?
 function dong(toAddrStr,name){
  
 	var toAddrStr = $('input[id="autocomplete"]').val();
 	var arry = toAddrStr.split(" ");
  	for(var i=arry.length-1 ; i >= 0; i--){
- 	 	console.log(arry[i].indexOf("ë™"));
-		if(arry[i].indexOf("ë™") != -1){
+ 	 	console.log(arry[i].indexOf("??"));
+		if(arry[i].indexOf("??") != -1){
 		 	var st_addr = arry[i];
 		 	break;
 		}
 	}
 
  	var str = "st_addr=" + st_addr;
-	 alert("ì•ˆë…• ë‚˜ëŠ” ë™ì´ë¦„ì´ì•¼ "+st_addr);
+	 alert("???? ???? ???´ë??´ì?? "+st_addr);
  	if(toAddrStr == null || toAddrStr == ''){
- 		alert("ê²€ìƒ‰ì°½ì— ì£¼ì†Œë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+ 		alert("ê²???ì°½ì?? ì£¼ì??ë¥? ???¥í?´ì£¼?¸ì??.");
  		return;
  	}
  	if(name == null || name == ''){
- 		alert("ë¡œê·¸ì¸ì„ í•´ì£¼ì„¸ìš”.");
+ 		alert("ë¡?ê·¸ì?¸ì?? ?´ì£¼?¸ì??.");
  		return;
  	}
-	alert("ì•ˆë…• ë‚˜ëŠ” ë™ì´ë¦„ì´ì•¼ "+str);
+	alert("???? ???? ???´ë??´ì?? "+str);
  	console.log(str);
  	location.href = "coupon_event.ej?"+ str;
 
