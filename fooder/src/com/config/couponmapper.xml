@@ -20,28 +20,35 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		<result column="st_lot" property="st_lot"/>
 		
 	</resultMap>
-	
+
 	<select id="select" parameterType="Double" resultMap="couponResult">
-		SELECT * FROM COUPON WHERE C_KEY=#{obj}
+		SELECT *
+		FROM COUPON WHERE C_KEY=#{obj}
 	</select>
 	<select id="selectall" resultType="coupon">
 		SELECT * FROM COUPON
 	</select>
 	<insert id="insert" parameterType="coupon">
-		INSERT INTO COUPON VALUES (#{c_key},#{st_key},#{c_code},#{c_gift},#{c_dc},#{c_nm},#{c_start},#{c_end},#{c_date},#{st_nm},#{st_addr},#{st_lat},#{st_lot})
+		INSERT INTO COUPON VALUES
+		(c_key.nextval,#{st_key},#{c_code},#{c_gift},#{c_dc},#{c_nm},#{c_start},#{c_end},#{c_date},#{st_nm},#{st_addr},#{st_lat},#{st_lot})
 	</insert>
-	<!-- 
-	<update id="update" parameterType="user">
-		UPDATE T_USER SET PWD=#{pwd},NAME=#{name} WHERE ID=#{id}
-	</update> -->
+	<!-- <update id="update" parameterType="user"> UPDATE T_USER SET PWD=#{pwd},NAME=#{name} 
+		WHERE ID=#{id} </update> -->
 	<delete id="delete" parameterType="Double">
 		DELETE FROM COUPON WHERE C_KEY=#{obj}
 	</delete>
 	
+	<!-- 20171220_ksy add-->
+	<!-- SELECT * FROM COUPON WHERE ST_ADDR LIKE #{obj} -->
+	<!-- SELECT * FROM COUPON WHERE ST_ADDR LIKE '%'|| #{st_addr} || '%' -->
+	<select id="select_area" parameterType="String" resultType="coupon">
+		SELECT * FROM COUPON WHERE ST_ADDR LIKE '%'|| #{st_addr} ||'%'
+		
+	</select>	
+	<!-- SELECT * FROM COUPON C WHERE C.ST_KEY IN (SELECT S.ST_KEY FROM STORE S WHERE U_ID= #{obj})	-->
+	<!-- 20171220_ksy add-->
+	<select id="select_myCoupon" parameterType="Double" resultType="coupon">
+		SELECT * FROM COUPON WHERE ST_KEY=#{st_key}
+	</select>
+	
 </mapper>
-
-
-
-
-
-

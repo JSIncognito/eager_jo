@@ -25,8 +25,10 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<select id="selectall" resultType="cu">
 		SELECT * FROM CU
 	</select>
+	
+	<!-- 180102 ksy  -->
 	<insert id="insert" parameterType="cu">
-		INSERT INTO CU VALUES (#{cu_key},#{c_key},#{u_id},#{cu_used},#{cu_date},#{c_gift},#{c_dc},#{c_nm},#{c_start},#{c_end},#{c_code},#{st_nm})
+	INSERT INTO CU VALUES (cu_key.nextval,#{c_key},#{u_id},#{cu_used},#{cu_date},#{c_gift},#{c_dc},#{c_nm},#{c_start},#{c_end},#{c_code},#{st_nm})
 	</insert>
 	
 	<!-- <update id="update" parameterType="user">
@@ -35,5 +37,17 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 	<delete id="delete" parameterType="Double">
 		DELETE FROM CU WHERE C_KEY=#{obj}
 	</delete>
+
+	<!-- 20171219_JS add -->
+	<select id="select_uCoupon" parameterType="Double" resultType="cu">
+		SELECT * FROM CU C WHERE C.C_KEY IN (SELECT CP.C_KEY FROM COUPON CP WHERE ST_KEY=#{stKey})
+	</select>
+	
+	<!-- 1227 ksy  -->
+	<select id="select_userCu" parameterType="String" resultType="cu">
+		SELECT * FROM CU WHERE U_ID=#{obj}
+	</select>
+	
+	
 	
 </mapper>

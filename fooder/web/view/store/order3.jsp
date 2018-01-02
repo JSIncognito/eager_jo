@@ -1,7 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+body{
+background-color: white;
+}
+#check{
+float:left;
+}
+h3{
+font-family: 'Questrial', sans-serif;
+font-size:40px;
+font-weight: bold;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+h4{
+font-family: 'Questrial', sans-serif;
+
+}
+td{
+font-family: 'Questrial', sans-serif;
+
+}
+#inner{
+font-family: 'Questrial', sans-serif;
+letter-spacing: 1px;
+}
+
+</style>
 <!-- SubHeader =============================================== -->
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/order.gif" data-natural-width="1000" data-natural-height="350">
     <div id="subheader">
     	<div id="sub_content">
     	 <h1>Place your order</h1>
@@ -34,9 +66,8 @@
             <ul>
                 <li><a href="#0">Home</a></li>
                 <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li>Order Complete</li>
             </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
         </div>
     </div><!-- Position -->
 
@@ -45,71 +76,49 @@
 	<div class="row">
 		<div class="col-md-offset-3 col-md-6">
 			<div class="box_style_2">
-				<h2 class="inner">Order confirmed!</h2>
+				<h2 class="inner" id="inner">Order confirmed!</h2>
 				<div id="confirm">
-					<i class="icon_check_alt2"></i>
-					<h3>Thank you!</h3>
+				<i class="check">
+					<!-- <i class="icon_check_alt2"></i> -->
+					<img src="img/pizza.png" width=100>
+					<img src="img/chicken.png" width=100>
+					<img src="img/china.png" width=100>
+				</i>
+					
+					<h3>Thank you</h3>
+					<br>
 					<p>
-						Lorem ipsum dolor sit amet, nostrud nominati vis ex, essent conceptam eam ad. Cu etiam comprehensam nec. Cibo delicata mei an, eum porro legere no.
+						
 					</p>
 				</div>
 				<h4>Summary</h4>
 				<table class="table table-striped nomargin">
-				<tbody>
-				<tr>
+				<tbody id="ofdT">
+<c:forEach var="ofd" items="${ofdList }">
+					<tr>
+						<td>
+							<strong id="of_cnt">${ofd.of_cnt }</strong>x ${ofd.f_name }
+						</td>
+						<td>
+							<strong class="pull-right" id="f_price">${ofd.f_price }</strong>
+						</td>
+					</tr>
+</c:forEach>
+				<!-- <tr>
 					<td>
 						<strong>1x</strong> Enchiladas
 					</td>
 					<td>
 						<strong class="pull-right">$11</strong>
 					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>2x</strong> Burrito
-					</td>
-					<td>
-						<strong class="pull-right">$14</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>1x</strong> Chicken
-					</td>
-					<td>
-						<strong class="pull-right">$20</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>2x</strong> Corona Beer
-					</td>
-					<td>
-						<strong class="pull-right">$9</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<strong>2x</strong> Cheese Cake
-					</td>
-					<td>
-						<strong class="pull-right">$12</strong>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						 Delivery schedule <a href="#" class="tooltip-1" data-placement="top" title="" data-original-title="Please consider 30 minutes of margin for the delivery!"><i class="icon_question_alt"></i></a>
-					</td>
-					<td>
-						<strong class="pull-right">Today 07.30 pm</strong>
-					</td>
-				</tr>
+				</tr> -->
+				
 				<tr>
 					<td class="total_confirm">
 						 TOTAL
 					</td>
 					<td class="total_confirm">
-						<span class="pull-right">$66</span>
+						<span class="pull-right" id="o_total">${orderInfo.o_total }</span>
 					</td>
 				</tr>
 				</tbody>
@@ -118,4 +127,28 @@
 		</div>
 	</div><!-- End row -->
 </div><!-- End container -->
+<script>
+/* 20180102_JS 금액 연산처리해서 보여주도록 추가 */
+$(document).ready(function(){
+	var o_total = parseInt($('#o_total').text());
+	$('#o_total').text(o_total.comma());
+	for(var i=0; i <= $('#ofdT tr').length; i++){
+		var of_cnt = $('#ofdT tr').eq(i).find('td:eq(0)').find('strong').text();
+		var f_price = $('#ofdT tr').eq(i).find('td:eq(1)').find('strong').text();
+/* 		console.log(typeof(of_cnt) + " " + typeof(f_price)); */
+		sAmount = parseInt(of_cnt) * parseInt(f_price);		
+/* 		console.log(sAmount); */
+		$('#ofdT tr').eq(i).find('td:eq(1)').find('strong').text(sAmount.comma());
+	}
+});
+
+/* 20171229_JS comma in number */
+Number.prototype.comma = function(){
+	return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+String.prototype.comma = function(){
+	return this.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+</script>
 <!-- End Content =============================================== -->

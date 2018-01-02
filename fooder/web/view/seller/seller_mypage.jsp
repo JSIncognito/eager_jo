@@ -1,12 +1,110 @@
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_cart.jpg" data-natural-width="1400" data-natural-height="350">
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+body{
+background-color: white;
+}
+
+#category {
+margin-top:80px;
+margin-left:100px;
+	float: left;
+	width:190px;	
+margin-bottom: 150px;	
+font-family: 'Questrial', sans-serif;
+position:absolute;
+}
+#food_nums{
+font-family: 'Questrial', sans-serif;
+font-weight:bold;
+}
+#seller_div{
+margin-left:130px;
+}
+form{
+position:relative;
+margin-left:80px;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+#btn_submit{
+background-color:#85c99d;
+color:white;
+font-family: 'Questrial', sans-serif;
+letter-spacing: 2px;
+}
+#btn_submit:hover{
+background-color:#b3cccc;
+color:white;
+border-color: #b3cccc;
+}
+h2{
+font-family: 'Questrial', sans-serif;
+}
+p{
+font-family: 'Questrial', sans-serif;
+}
+label{
+font-family: 'Questrial', sans-serif;
+}
+.form-control{
+background-color:#d1e0e0;
+color:gray;
+}
+.form-control:hover{
+background-color:white;
+}
+
+</style>
+
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/weather.gif" data-natural-width="1000" data-natural-height="600">
+
+<script>
+$(document).ready(function() {
+	$('#pwd2').on('keyup', function() {
+		if ($('#pwd').val() == $('#pwd2').val()) {
+			$('#message').html('Matching').css('color', 'green');
+		} else 
+			$('#message').html('Not Matching').css('color', 'red');
+	});
+	
+});
+
+function checkpwd(f) {
+	var pwd1 = f.u_pwd.value;
+	var pwd2 = f.u_pwd2.value;
+	var tel = f.u_tel.value;
+	var addr = f.u_addr.value;
+	
+	if(pwd1 == pwd2 && tel != '' && addr != ''){
+		f.method = 'post';
+		f.action = 'seller_mypage_modify.ej';
+		f.submit();
+	}
+};
+
+</script>
     <div id="subheader">
     	<div id="sub_content">
-    	 <h1>Work with us</h1>
-         <p>Qui debitis meliore ex, tollit debitis conclusionemque te eos.</p>
+    	 <h1>Update Seller Profile</h1>
+         <p></p>
          <p></p>
         </div><!-- End sub_content -->
 	</div><!-- End subheader -->
 </section><!-- End section -->
+<!-- 확인해봐야함 20171230_JS-->
+<!-- 20180102 hb Choi -->
+    <div class="widget" id="category">
+		<h4 id="food_nums">Categories</h4>
+		<ul id="cat_nav_blog">
+			<li><a href="coupon_list.ej?st_key=${st_key}">Coupon List</a></li>
+			<li><a href="coupon_add.ej?st_key=${st_key}">Coupon Add</a></li>
+			<li><a href="seller_store_detail.ej">Update my store</a></li>
+			<li><a href="seller_mypage.ej">Update seller profile</a></li>
+
+		</ul>
+	</div>
 <!-- End SubHeader ============================================ -->
 
     <div id="position">
@@ -14,11 +112,13 @@
             <ul>
                 <li><a href="#0">Home</a></li>
                 <li><a href="#0">Category</a></li>
-                <li>Page active</li>
+                <li>Seller Mypage</li>
             </ul>
-            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a>
+<!--             <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i> Search</a> -->
         </div>
     </div><!-- Position -->
+    <div id="seller_div">
+
 
 <!-- Content ================================================== -->
 <!-- 1214 ksy -->
@@ -140,95 +240,74 @@
     </div>End container
 </div>End white_bg
  -->
-<div class="container margin_60">
+ 
+<!-- <div class ="seller">
+<img src=img/pizza.png width=80> -->
+<!-- <img src=img/chicken.png width=100>
+<img src=img/china.png width=100>
+<img src=img/pizza.png width=100>
+<img src=img/chicken.png width=100> -->
+
+
+
+<div class="container margin_60" id="content">
 	 <div class="main_title margin_mobile">
-            <h2 class="nomargin_top">Please submit the form below</h2>
-            <p>
-                Cum doctus civibus efficiantur in imperdiet deterruisset.
-            </p>
+           <h2 class="nomargin_top">Seller Mypage</h2>
+           <p>
+<!--                 Cum doctus civibus efficiantur in imperdiet deterruisset. -->
+				Update your information
+           </p>
+                      <img src=img/pizza.png width=70>
+           
         </div>
 	<div class="row">
-    	<div class="col-md-8 col-md-offset-2">
-        	<form >
-						<div class="row">
-							<div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>First name</label>
-									<input type="text" class="form-control" id="name_contact" name="name_contact" placeholder="Jhon">
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Last name</label>
-									<input type="text" class="form-control" id="lastname_contact" name="lastname_contact" placeholder="Doe">
-								</div>
-							</div>
+    	<div class="col-md-7 col-md-offset-2">
+        	<form>
+        	<!-- TODO : set value -->
+				<input type="hidden" name="u_id" value="${loginUser.u_id }"/>
+<!--        		<input type="text" name="id"  hidden="hidden">-->
+				<div class="row">
+					<div class="col-md-12 col-sm-6">
+						<div class="form-group">
+							<label>Address</label>
+							<input type="text" class="form-control" id="addr" name="u_addr" value="${loginUser.u_addr }" placeholder="Enter your address" required="required">
+<!--							<input type="text" class="form-control" id="addr" name="u_addr" placeholder="Enter your address" required="required">-->
 						</div>
-						<div class="row">
-							<div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Email:</label>
-									<input type="email" id="email_contact" name="email_contact" class="form-control " placeholder="jhon@email.com">
-								</div>
-							</div>
-							<div class="col-md-6 col-sm-6">
-								<div class="form-group">
-									<label>Phone number:</label>
-									<input type="text" id="phone_contact" name="phone_contact" class="form-control" placeholder="00 44 5435435">
-								</div>
-							</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 col-sm-6">
+						<div class="form-group">
+							<label>Phone number</label>
+							<input type="tel" id="tel" name="u_tel" class="form-control" value="${loginUser.u_tel }" placeholder="010-1234-1234" required="required"><!-- pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  -->
+<!--							<input type="tel" id="tel" name="u_tel" class="form-control" placeholder="010-1234-1234" required="required">--><!-- pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}"  -->
 						</div>
-						<div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-									<label>Restaurant name</label>
-                                   <input type="text" id="restaurant" name="restaurant" class="form-control" placeholder="Pizza King">
-								</div>
-							</div>
-                            <div class="col-md-6">
-								<div class="form-group">
-									<label>Website</label>
-                                   <input type="text" id="restaurant_web" name="restaurant_web" class="form-control" placeholder="http://">
-								</div>
-							</div>
-						</div><!-- End row  -->
-                        <div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-                                	<label>City</label>
-                                   <input type="text" id="restaurant_city" name="restaurant_city" class="form-control" placeholder="Las Vegas">
-								</div>
-							</div>
-                            <div class="col-md-6">
-								<div class="form-group">
-                                	<label>Postal code</label>
-                                   <input type="text" id="restaurant_postal_code" name="restaurant_postal_code" class="form-control" placeholder="00103">
-								</div>
-							</div>
-						</div><!-- End row  -->
-                        <div class="row">
-							<div class="col-md-6">
-								<div class="form-group">
-                                	<label>Create a password</label>
-                                   <input type="text" class="form-control" placeholder="Password"  id="password1">
-								</div>
-							</div>
-                            <div class="col-md-6">
-								<div class="form-group">
-                                	<label>Confirm password</label>
-                                   <input type="text" class="form-control" placeholder="Confirm password"  id="password2">
-								</div>
-							</div>
-						</div><!-- End row  -->
-                        <div id="pass-info" class="clearfix"></div>
-                        <div class="row">
-                        	<div class="col-md-6">
-									<label><input name="mobile" type="checkbox" value="" class="icheck" checked>Accept <a href="#0">terms and conditions</a>.</label>
-							</div>
-                            </div><!-- End row  -->
-                        <hr style="border-color:#ddd;">
-                        <div class="text-center"><button class="btn_full_outline">Submit</button></div>
-					</form>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+                            <label>Enter new password</label>
+                            <input type="password" class="form-control" placeholder="Password" name="u_pwd" id="pwd" required="required">
+						</div>
+					</div>
+                          <div class="col-md-6">
+						<div class="form-group">
+                           	<label>Confirm new password</label>
+                            <input type="password" class="form-control" placeholder="Confirm password" name="u_pwd2" id="pwd2" required="required"><!--  onchange="check_pwd()" -->
+                            <span id="message"></span>
+						</div>
+					</div>
+				</div><!-- End row  -->
+                <div id="pass-info" class="clearfix"></div>
+                <div class="text-center">
+<!--              	  <button type="button" id="btn_submit" class="btn_full_outline" onclick="checkpwd(this.form);" >Modify</button>-->
+              	  <button type="button" id="btn_submit" class="btn_full_outline" onclick="checkpwd(this.form);" >Update</button>
+<!--               	  <input type="button" class="btn_full_outline" value="Modify" onclick="checkpwd(this.form);"> -->
+                </div>
+			</form>
+<!-- 20171230_JS div 확인해보기 -->
+			</div>
         </div><!-- End col  -->
     </div><!-- End row  -->
 </div><!-- End container  -->
