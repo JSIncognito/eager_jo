@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ej.coupon.CouponBiz;
 import com.ej.store.StoreBiz;
@@ -128,13 +129,17 @@ public class CouponController {
 		return "main";
 	}
 
-	// 현재 지역에서 진행중인 이벤트 및 쿠폰
+	//	180102 ksy!!!!!!	
+	//	현재 지역에서 진행중인 이벤트 및 쿠폰
 	@RequestMapping("/coupon_event.ej")
-	public String localCouponEvent(Model model, String st_addr, HttpServletRequest request) {
-
-		st_addr = request.getParameter("u_addr");
+	public String localCouponEvent(@RequestParam("st_addr") String st_addr, Model model, HttpServletRequest request) {
+		
+		/*st_addr = request.getParameter("u_addr");*/
 
 		System.out.println("어디니 지금? "+st_addr);
+		
+		
+		
 		try {
 			List<Coupon> list = null;
 			list = biz.select_area(st_addr);

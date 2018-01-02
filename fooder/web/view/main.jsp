@@ -27,6 +27,10 @@ overflow: auto;
 #btn{
 font-family: 'Questrial', sans-serif;
 }
+#event_menu:hover{
+	cursor: pointer;
+}
+
 </style>
 <!DOCTYPE html>
 <!--[if IE 9]><html class="ie ie9"> <![endif]-->
@@ -186,7 +190,9 @@ body {
                     </li>
 </c:otherwise>
 </c:choose>
-                    <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}">Event</a></li>
+                    <!-- 180102 ksy !!!!!!!!!! -->
+                    <%-- <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}" onclick="">Event</a></li> --%>
+                    <li><a id="event_menu" onclick="dong('${stAddr }','${loginUser.u_id }')">Event</a></li>
 <c:choose>
 <c:when test="${loginUser.u_id == null }">
                     <li><a href="#0" data-toggle="modal" data-target="#login_2">Login</a></li>
@@ -409,4 +415,35 @@ body {
 	<!-- End Search Menu -->
 
 </body>
+<!-- 180102 ksy !!!!!!!! -->
+<script>
+//20180102 동 이름만 추출
+function dong(toAddrStr,name){
+ 
+	var toAddrStr = $('input[id="autocomplete"]').val();
+	var arry = toAddrStr.split(" ");
+ 	for(var i=arry.length-1 ; i >= 0; i--){
+ 	 	console.log(arry[i].indexOf("동"));
+		if(arry[i].indexOf("동") != -1){
+		 	var st_addr = arry[i];
+		 	break;
+		}
+	}
+
+ 	var str = "st_addr=" + st_addr;
+	 alert("안녕 나는 동이름이야 "+st_addr);
+ 	if(toAddrStr == null || toAddrStr == ''){
+ 		alert("검색창에 주소를 입력해주세요.");
+ 		return;
+ 	}
+ 	if(name == null || name == ''){
+ 		alert("로그인을 해주세요.");
+ 		return;
+ 	}
+	alert("안녕 나는 동이름이야 "+str);
+ 	console.log(str);
+ 	location.href = "coupon_event.ej?"+ str;
+
+}
+</script>
 </html>
