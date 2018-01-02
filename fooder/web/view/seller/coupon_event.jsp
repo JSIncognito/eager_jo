@@ -126,7 +126,8 @@ font-weight: bold;
 								<input type="hidden" value="${c.c_end }" name="c_end">
 								<input type="hidden" value="${c.c_code }" name="c_code">
 								<input type="hidden" value="${c.st_nm }" name="st_nm">
-								<input type="hidden" value="${loginuser.u_id }" name="u_id">
+								<!-- 180102 ksy -->
+								<input type="hidden" value="${loginUser.u_id }" name="u_id">
 								<input type="hidden" value="0" name="cu_used">
 								
 								<div class="type">
