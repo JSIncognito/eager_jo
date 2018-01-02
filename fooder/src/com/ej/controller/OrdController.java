@@ -1,7 +1,10 @@
 package com.ej.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -75,7 +78,7 @@ public class OrdController {
 		System.out.println(session);
 		System.out.println("Ofd 확인" + o + " Ord 확인 : " + ord);
 		System.out.println(ord);
-
+		
 		// ordInfo 생성할것
 		session.setAttribute("ofdList", ofdList);
 		session.setAttribute("orderInfo", ord);
@@ -136,6 +139,11 @@ public class OrdController {
 		HttpSession session = request.getSession();
 		List<Ofd> ofdList =(List<Ofd>) session.getAttribute("ofdList");
 		
+		// 20180102 
+		System.out.println("order3 확인");
+		for(Ofd o : ofdList) {
+			System.out.println(o);			
+		}
 		Ord ordInfo = (Ord) session.getAttribute("orderInfo");
 		
 		System.out.println(ordInfo);

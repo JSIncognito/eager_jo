@@ -163,7 +163,7 @@ body {
                     </li> -->
 <c:choose>
 <c:when test="${loginUser.u_id != null }">
-<%--  	                <li><a href="logout.ej">${loginUser.u_nm } ´Ô </a></li> --%>
+<%--  	                <li><a href="logout.ej">${loginUser.u_nm } ï¿½ï¿½ </a></li> --%>
  	                <li><a href="logout.ej">${loginUser.u_nm } </a></li>
  <%--  	                <li><h3>${loginUser.u_nm } User</h3></li> --%>
 </c:when>
@@ -180,9 +180,9 @@ body {
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
                     <ul>
 <%--                         <li><a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }">All</a></li> --%>
-                        <li><a href="store_list.ej?st_type='chicken'&st_addr=${stAddr }">Chicken</a></li>
-                        <li><a href="store_list.ej?st_type='pizza'&st_addr=${stAddr }">Pizza</a></li>
-                        <li><a href="store_list.ej?st_type='china'&st_addr=${stAddr }">Chinese</a></li>
+                        <li><a href="store_list.ej?st_type=chicken&st_addr=${stAddr }">Chicken</a></li>
+                        <li><a href="store_list.ej?st_type=pizza&st_addr=${stAddr }">Pizza</a></li>
+                        <li><a href="store_list.ej?st_type=china&st_addr=${stAddr }">Chinese</a></li>
                     </ul>
                     </li>
 </c:otherwise>

@@ -236,7 +236,7 @@ String.prototype.comma = function(){
 					<hr>
 <!-- 					<a class="btn_full" href="javascript:void(0);" onclick="order1Submit(this.form);" >Go to checkout</a> -->
 					<button class="btn_full" type="button" onclick="order1Submit(this.form);">Go to checkout</button>
-					<a class="btn_full_outline" href="store_menu.ej"><i class="icon-right"></i> Add other items</a>
+					<a class="btn_full_outline" href="store_menu.ej?st_key=${stKey }"><i class="icon-right"></i> Add other items</a>
 				</div><!-- End cart_box -->
                 </div><!-- End theiaStickySidebar -->
 			</div><!-- End col-md-3 -->
