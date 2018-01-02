@@ -174,10 +174,12 @@ body {
 </c:choose>
                     <li><a href="main.ej">Home</a></li>
 <c:set var="reURL" value="${pageContext.request.requestURL }"/>
-
-<!-- 20180102 hb Choi -->
-<%-- <c:if test="${fn:contains(reURL,'main.jsp')}=='false'"> --%>
-<c:if test="${center != null }">
+<c:if test="${fn:contains(reURL,'main.jsp')}">
+</c:if>
+<c:choose>
+<c:when test="${center == null }">
+</c:when>
+<c:otherwise>
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
                     <ul>
@@ -186,7 +188,8 @@ body {
                         <li><a href="store_list.ej?st_type=china&st_addr=${stAddr }">Chinese</a></li>
                     </ul>
                     </li>
-</c:if>
+</c:otherwise>
+</c:choose>
                     <!-- 180102 ksy !!!!!!!!!! -->
                     <%-- <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}" onclick="">Event</a></li> --%>
                     <li><a id="event_menu" onclick="dong('${stAddr }','${loginUser.u_id }')">Event</a></li>

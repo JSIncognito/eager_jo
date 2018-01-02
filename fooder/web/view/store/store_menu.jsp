@@ -85,6 +85,7 @@ h1{
 				   <img src=img/china.png width=60>
 				</div>
 				<!-- <div class="box_style_1">
+				
 					<ul id="cat_nav">
 						<li><a href="#starters" class="active">Starters <span>(141)</span></a></li>
 						<li><a href="#main_courses">Main Courses <span>(20)</span></a></li>
@@ -128,10 +129,9 @@ h1{
 <c:forEach var="menu" items="${stMenu }">
 					<tr>
 						<td>
-                        	<figure class="thumb_menu_list"><img src="img/menu-thumb-1.jpg" alt="thumb"></figure>
+							<!-- 20180101 jsw + img add <src="img/${menu.f_img } -->
+                        	<figure class="thumb_menu_list"><img src="img/${menu.f_img }" alt="thumb"></figure>
 <br>							<h5 class="foodName">${menu.f_name }</h5>
-								
-							
 						</td>
 						<td>
 							<strong class="f_price"><fmt:formatNumber value="${menu.f_price }" groupingUsed="true"/></strong>
