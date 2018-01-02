@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,7 +34,7 @@ public class StoreController {
 
 	// 가게 리스트
 	@RequestMapping("/store_list.ej")
-	public String store_list(@RequestParam Map<String, String> paramMap, Model model) {
+	public String store_list(@RequestParam Map<String, String> paramMap, Model model, HttpServletRequest request) {
 /*		System.out.println(paramMap.get("st_type") + " "+ paramMap.get("st_addr")+" " + paramMap.get("lat") + " " + paramMap.get("lot"));*/
 /*		System.out.println(paramMap);*/
 		// test
@@ -52,10 +54,13 @@ public class StoreController {
 		
 		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
 		//		List<Store> cate_list = sBiz.select_cete();
-		
-		model.addAttribute("stType", st_type);
+		HttpSession session = request.getSession();
+		session.setAttribute("stType", st_type);		
+		session.setAttribute("stAddr", st_addr);		
+/*
+ * 		model.addAttribute("stType", st_type);
 		model.addAttribute("stAddr", st_addr);
-		
+*/		
 		model.addAttribute("stList", st_list);
 //		model.addAttribute("list_cate", cate_list);
 		model.addAttribute("center", "store/store_list");

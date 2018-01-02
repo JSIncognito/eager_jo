@@ -158,7 +158,7 @@ font-family: 'Cookie', cursive;
 }
 </style>
     <!-- SubHeader =============================================== -->
-     <section class="header-video">
+    <section class="header-video">
     <div id="hero_video">
         <div id="sub_content">
             <h1 id="main_1">Order And Delivery Food</h1>
@@ -584,23 +584,6 @@ $(document).ready(function() {
     });
 	/* Geocoder 20171226_JS 주소 값을 위도 경도로 변환 */
    	$('input[id="search-bt"]').click(function(){
-/* 
-		var str = $('input[id="autocomplete"]').val();
-		alert(str);
-		var geocoder;
-		geocoder = new google.maps.Geocoder();
-		geocoder.geocode({'address':str}, function(results, status){
-			if (status == google.maps.GeocoderStatus.OK) {
-				var faddr_lat = results[0].geometry.location.lat();	//위도
-				var faddr_lng = results[0].geometry.location.lng();	//경도
-			} else {
-				var faddr_lat = "";
-				var faddr_lng = "";
-			}
- 			alert('주소 : ' + str + '\n\n위도 : ' + faddr_lat + '\n\n경도 : ' + faddr_lng);
-			return;
-		});
- */
    		geocodeToAddr();
    	});
 	$('input[id="autocomplete"]').keydown(function (key) {
@@ -655,27 +638,36 @@ $(document).ready(function() {
 			alert("이 브라우저에서는 Geolocation 이 지원되지 않습니다.");
 		}
 	});
-	
 
 });
-var toAddrStr = "";
 var stAddr_lat = null;
 var stAddr_lng = null;
+var toAddrStr = "";
 function cateListGo(cate, name){
 	geocodeToAddr();
 	//alert(cate + " 되냥?" + toAddrStr + stAddr_lat + stAddr_lng);
+	// 20180102 동 이름만 추출 
+	var arry = toAddrStr.split(" ");
+ 	for(var i=arry.length-1 ; i >= 0; i--){
+ 	 	console.log(arry[i].indexOf("동"));
+		if(arry[i].indexOf("동") != -1){
+		 	var st_addr = arry[i];
+		 	break;
+		}
+	}
+
  	var str = "st_type=" + cate;
- 	str += "&st_addr=" + toAddrStr;
- 	
+ 	str += "&st_addr=" + st_addr;
+
  	if(toAddrStr == null || toAddrStr == ''){
- 		alert("동을 검색해 주세요.");
+ 		alert("동 이름 을 검색해 주세요.");
  		return;
  	}
  	if(name == null || name == ''){
  		alert("로그인을 해주세요.");
  		return;
  	}
- 	
+
 /*  	alert(str);
  	console.log(str);
  */ 
@@ -693,11 +685,9 @@ function cateListGo(cate, name){
 		,error:function(){
 			console.log("cateListGo Error");
 		}
-		
 	});
 */
 }
-
 /* 20171226_JS 주소를 위도 경도로 표시 */
 function geocodeToAddr(){
 	toAddrStr = $('input[id="autocomplete"]').val();

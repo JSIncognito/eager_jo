@@ -7,6 +7,8 @@ pageEncoding="utf-8"%>
 <!-- 20171212_JS Sprint and jstl add -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 #logo{
@@ -167,15 +169,24 @@ body {
 </c:when>
 </c:choose>
                     <li><a href="main.ej">Home</a></li>
+<c:set var="reURL" value="${pageContext.request.requestURL }"/>
+<c:if test="${fn:contains(reURL,'main.jsp')}">
+</c:if>
+<c:choose>
+<c:when test="${center == null }">
+</c:when>
+<c:otherwise>
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
                     <ul>
-                        <li><a href="store_list.ej">All</a></li>
-                        <li><a href="store_list.ej">Chicken</a></li>
-                        <li><a href="store_list.ej">Pizza</a></li>
-                        <li><a href="store_list.ej">Chinese</a></li>
+<%--                         <li><a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }">All</a></li> --%>
+                        <li><a href="store_list.ej?st_type='chicken'&st_addr=${stAddr }">Chicken</a></li>
+                        <li><a href="store_list.ej?st_type='pizza'&st_addr=${stAddr }">Pizza</a></li>
+                        <li><a href="store_list.ej?st_type='china'&st_addr=${stAddr }">Chinese</a></li>
                     </ul>
                     </li>
+</c:otherwise>
+</c:choose>
                     <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}">Event</a></li>
 <c:choose>
 <c:when test="${loginUser.u_id == null }">
