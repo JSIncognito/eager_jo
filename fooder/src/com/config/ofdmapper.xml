@@ -20,9 +20,10 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		SELECT * FROM OFD
 	</select>
 	<insert id="insert" parameterType="ofd">
-		INSERT INTO OFD VALUES (#{of_key},#{o_key},#{f_key},#{f_name},
-								#{f_price},#{f_img},#{st_key})
-	</insert>
+		INSERT INTO OFD VALUES (OF_KEY.nextval, #{o_key}, #{f_key}, #{f_name},
+			#{f_price},#{f_img},#{st_key}, #{st_nm}, #{o_date}, #{o_total}, 
+			#{st_addr}, #{o_way}, #{o_addr}, #{of_cnt})
+		</insert>
 	<update id="update" parameterType="ofd">
 		UPDATE OFD SET O_KEY=#{o_key},F_KEY=#{f_key}, F_NAME=#{f_name}, 
 							F_PRICE=#{f_price}, F_IMG=#{f_img}, ST_KEY=#{st_key} WHERE OF_KEY=#{of_key}
