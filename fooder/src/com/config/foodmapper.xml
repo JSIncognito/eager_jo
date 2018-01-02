@@ -28,6 +28,12 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		DELETE FROM FOOD WHERE F_KEY=#{obj}
 	</delete>
 	
+	<!-- 20171219_JS store_menu Add -->
+	<select id="select_stMenu" parameterType="Double" resultType="food">
+<!-- 		SELECT TMP1.F_NAME=#{f_name},TMP2.ST_NM=#{st_nm} FROM FOOD TMP1, STORE TMP2 WHERE TMP1.ST_KEY=#{st_key} = TMP2.ST_KEY=#{st_key} ORDER BY 2 -->	
+		SELECT * FROM FOOD F WHERE F.ST_KEY IN (SELECT S.ST_KEY FROM STORE S WHERE ST_KEY=#{stKey})
+	</select>
+	
 </mapper>
 
 

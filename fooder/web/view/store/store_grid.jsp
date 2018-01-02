@@ -1,9 +1,43 @@
-<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/sub_header_short.jpg" data-natural-width="1400" data-natural-height="350">
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<style>
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+@import url('https://fonts.googleapis.com/css?family=Questrial');
+/*한글폰트*/
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+body{
+background-color: white;
+}
+
+#sort_rating{
+font-family: 'Questrial', sans-serif;
+}
+#view{
+font-family: 'Questrial', sans-serif;
+}
+#filters_col_bt{
+font-family: 'Questrial', sans-serif;
+}
+h3{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
+#locat{
+ font-family: 'Jeju Gothic', sans-serif; 
+ margin-top:5px;
+}
+h1{
+font-family: 'Dancing Script', cursive;
+}
+</style>
+<section class="parallax-window" id="short" data-parallax="scroll" data-image-src="img/store_list.gif" data-natural-width="1400" data-natural-height="600">
     <div id="subheader">
 	<div id="sub_content">
-    	<h1>24 results in your zone</h1>
-        <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
-    </div><!-- End sub_content -->
+    	<h1>Store List</h1>
+     <!--    <div><i class="icon_pin"></i> 135 Newtownards Road, Belfast, BT4 1AB</div>
+ -->    </div><!-- End sub_content -->
 </div><!-- End subheader -->
 </section><!-- End section -->
 <!-- End SubHeader ============================================ -->
@@ -29,7 +63,7 @@
     
 		<div class="col-md-3">
 			<p>
-				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap">View on map</a>
+				<a class="btn_map" data-toggle="collapse" href="#collapseMap" aria-expanded="false" aria-controls="collapseMap" id=view>View on map</a>
 			</p>
 			<div id="filters_col">
 				<a data-toggle="collapse" href="#collapseFilters" aria-expanded="false" aria-controls="collapseFilters" id="filters_col_bt">Filters <i class="icon-plus-1 pull-right"></i></a>
@@ -40,13 +74,13 @@
 						<h6>Type</h6>
 						<ul>
 							<li><label><input type="checkbox" checked class="icheck">All <small>(49)</small></label></li>
-							<li><label><input type="checkbox" class="icheck">American <small>(12)</small></label><i class="color_1"></i></li>
+							<li><label><input type="checkbox" class="icheck">Chicken <small>(12)</small></label><i class="color_1"></i></li>
 							<li><label><input type="checkbox" class="icheck">Chinese <small>(5)</small></label><i class="color_2"></i></li>
-							<li><label><input type="checkbox" class="icheck">Hamburger <small>(7)</small></label><i class="color_3"></i></li>
-							<li><label><input type="checkbox" class="icheck">Fish <small>(1)</small></label><i class="color_4"></i></li>
+							<li><label><input type="checkbox" class="icheck">Pizza <small>(7)</small></label><i class="color_3"></i></li>
+							<!-- <li><label><input type="checkbox" class="icheck">Fish <small>(1)</small></label><i class="color_4"></i></li>
 							<li><label><input type="checkbox" class="icheck">Mexican <small>(49)</small></label><i class="color_5"></i></li>
 							<li><label><input type="checkbox" class="icheck">Pizza <small>(22)</small></label><i class="color_6"></i></li>
-							<li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li>
+							<li><label><input type="checkbox" class="icheck">Sushi <small>(43)</small></label><i class="color_7"></i></li> -->
 						</ul>
 					</div>
 					<div class="filter_type">
@@ -96,14 +130,15 @@
 						</div>
 					</div>
 					<div class="col-md-9 col-sm-9 hidden-xs">
-						<a href="list_page.html" class="bt_filters"><i class="icon-list"></i></a>
+						<a href="store_list.ej?st_type=${stType }&st_addr=${stAddr }" class="bt_filters"><i class="icon-list"></i></a>
 					</div>
 				</div>
 			</div><!--End tools -->
         
         	<div class="row">
+<c:forEach var="st" items="${stList }">
             	<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
-                	<a class="strip_list grid" href="detail_page.html">
+                	<a class="strip_list grid" href="store_menu.ej?stKey=${st.st_key }">
                     	<div class="ribbon_1">Popular</div>
                     	<div class="desc">
 							<div class="thumb_strip">
@@ -112,146 +147,52 @@
 							<div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
 							</div>
-							<h3>Taco Mexican</h3>
-							<div class="type">
+							<h3>${st.st_nm }</h3>
+
+<!--
+ 							<div class="type">
 								Mexican / American
 							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
+ -->
+							<div class="location" id="locat">
+								${st.st_addr } <br><span class="opening">Open - Close ${st.st_time }</span> <!-- Minimum order: $15 -->
 							</div>
 							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
 								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
 							</ul>
 						</div>
                     </a><!-- End strip_list-->
                 </div><!-- End col-md-6-->
-               <div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.2s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="ribbon_1">Popular</div>
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_2.jpg" alt="">
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>Naples Pizza</h3>
-							<div class="type">
-								Italian / Pizza
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->                
-            </div><!-- End row-->
-            
-            <div class="row">
-            	<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.3s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="ribbon_1">Popular</div>
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_3.jpg" alt="">
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>Japan Food</h3>
-							<div class="type">
-								Sushi / Japanese
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->
-                <div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.4s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_4.jpg" alt="">
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>Sushi Gold</h3>
-							<div class="type">
-								Sushi / Japanese
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->                
-            </div><!-- End row-->
-            
-            <div class="row">
-            	<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.5s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_5.jpg" alt="">
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>Dragon Tower</h3>
-							<div class="type">
-								Chinese / Thai
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->
-                <div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.6s">
-                	<a class="strip_list grid" href="detail_page.html">
-                    	<div class="desc">
-							<div class="thumb_strip">
-								<img src="img/thumb_restaurant_6.jpg" alt="">
-							</div>
-							<div class="rating">
-								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>
-							</div>
-							<h3>China Food</h3>
-							<div class="type">
-								Chinese / Vietnam
-							</div>
-							<div class="location">
-								135 Newtownards Road, Belfast, BT4. <br><span class="opening">Opens at 17:00.</span> Minimum order: $15
-							</div>
-							<ul>
-								<li>Take away<i class="icon_check_alt2 ok"></i></li>
-								<li>Delivery<i class="icon_check_alt2 ok"></i></li>
-							</ul>
-						</div>
-                    </a><!-- End strip_list-->
-                </div><!-- End col-md-6-->                
+</c:forEach>
             </div><!-- End row-->
             <a href="#0" class="load_more_bt wow fadeIn" data-wow-delay="0.2s">Load more...</a>           
 		</div><!-- End col-md-9-->
         
 	</div><!-- End row -->
 </div><!-- End container -->
+<!-- 20171214_JS store_grid.jsp, store_list.jsp, store_map.jsp add -->
+<!-- SPECIFIC SCRIPTS -->
+<!-- <script  src="js/cat_nav_mobile.js"></script>
+<script>$('#cat_nav').mobileMenu();</script>
+<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCO-5elUHG0jQxmqfoZ37TqGOu73yjouzE"></script>
+<script src="js/map.js"></script>
+<script src="js/infobox.js"></script>
+<script src="js/ion.rangeSlider.js"></script>
+<script>
+    $(function () {
+		 'use strict';
+        $("#range").ionRangeSlider({
+            hide_min_max: true,
+            keyboard: true,
+            min: 0,
+            max: 15,
+            from: 0,
+            to:5,
+            type: 'double',
+            step: 1,
+            prefix: "Km ",
+            grid: true
+        });
+    });
+</script>
+ -->

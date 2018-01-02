@@ -15,6 +15,7 @@ package com.ej.vo;
  	가게이름 String st_nm;
  */
 public class Cu {
+	
 	double cu_key;
 	double c_key;
 	String u_id;
@@ -31,6 +32,24 @@ public class Cu {
 		super();
 	}
 	
+	
+	public Cu(double c_key, String u_id, int cu_used, double cu_date, String c_gift, double c_dc, String c_nm,
+			double c_start, double c_end, String c_code, String st_nm) {
+		super();
+		this.c_key = c_key;
+		this.u_id = u_id;
+		this.cu_used = cu_used;
+		this.cu_date = cu_date;
+		this.c_gift = c_gift;
+		this.c_dc = c_dc;
+		this.c_nm = c_nm;
+		this.c_start = c_start;
+		this.c_end = c_end;
+		this.c_code = c_code;
+		this.st_nm = st_nm;
+	}
+
+
 	public Cu(double cu_key, double c_key, String u_id, int cu_used, double cu_date, String c_gift, double c_dc,
 			String c_nm, double c_start, double c_end, String c_code, String st_nm) {
 		super();
