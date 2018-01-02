@@ -1,10 +1,8 @@
 package com.ej.controller;
 
-import java.util.Enumeration;
 import java.util.List;
 
 import javax.annotation.Resource;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,7 +30,7 @@ public class CouponController {
 	public String add(HttpServletRequest request) {
 		HttpSession session = request.getSession();
 		Double st_key = (Double) session.getAttribute("st_key");
-		// 가게 정보 가져오기
+		// 가게 정보 가져오기	
 		Store store = storebiz.get(st_key);
 		
 		request.setAttribute("store", store);
@@ -64,6 +62,7 @@ public class CouponController {
 //		HttpSession session = request.getSession();
 //		session.setAttribute("st_key", st_key);
 		
+//		<!-- 20180102 hb Choi --> 수정사항 없을수도 있음..
 		// dc coupon 받기 & 등록
 		int idx = 1;
 		System.out.println("dc"+idx+"_c_start");
@@ -83,10 +82,12 @@ public class CouponController {
 			
 			Coupon c = new Coupon(st_key, "D", "", c_dc, c_nm, c_start, c_end, 
 					store.getSt_nm(), store.getSt_addr(), store.getLat(), store.getLot());
-			biz.register(c);
 			System.out.println("dc" + idx + ": " + c);
+			biz.register(c);
 			idx++;
 		}
+		
+		System.out.println("dc 끝");
 		
 		// gift coupon 받기 & 등록
 		idx = 1;
@@ -133,6 +134,7 @@ public class CouponController {
 
 		st_addr = request.getParameter("u_addr");
 
+		System.out.println("어디니 지금? "+st_addr);
 		try {
 			List<Coupon> list = null;
 			list = biz.select_area(st_addr);
@@ -147,9 +149,9 @@ public class CouponController {
 		return "main";
 
 	}
-	
-	// 로그인한 유저가 갖고있는 쿠폰
-	//	1228 ksy
+
+	// store가 갖고 있는 쿠폰
+	// 1228 ksy
 	@RequestMapping("/coupon_list.ej")
 	public String myCouponlist(Model model, HttpServletRequest request) {
 		System.out.println("안녕 나는 쿠폰리스트야");
@@ -160,11 +162,14 @@ public class CouponController {
 		String key = (String) request.getParameter("st_key"); 		
 		System.out.println("st_key: " + key);
 
+//		<!-- 20180102 hb Choi -->
 		HttpSession session = request.getSession();
+		Double st_key = 0.;
 		if (key == null || key.equals("")) {
-			key = (String) session.getAttribute("st_key");
+			st_key = (Double) session.getAttribute("st_key");
+		} else {
+			st_key = Double.parseDouble(key);
 		}
-		Double st_key = Double.parseDouble(key);
 
 		
 		/*Double st_key = Double.parseDouble(request.getParameter("st_key"));*/
@@ -174,8 +179,8 @@ public class CouponController {
 		model.addAttribute("myCoupon", list);
 
 		session.setAttribute("st_key", st_key);
-		
-		System.out.println("로그인한 유저가 갖고있는 쿠폰 "+list);
+
+		System.out.println("가게가 갖고있는 쿠폰 " + list);
 		return "main";
 	}
 

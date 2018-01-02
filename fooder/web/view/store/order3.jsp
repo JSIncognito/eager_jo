@@ -4,6 +4,9 @@
 <style>
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
+body{
+background-color: white;
+}
 #check{
 float:left;
 }
@@ -90,17 +93,17 @@ letter-spacing: 1px;
 				</div>
 				<h4>Summary</h4>
 				<table class="table table-striped nomargin">
-				<tbody>
-				<c:forEach var="ofd" items="${ofdList }">
+				<tbody id="ofdT">
+<c:forEach var="ofd" items="${ofdList }">
 					<tr>
 						<td>
-							<strong>${ofd.of_cnt }x</strong> ${ofd.f_name }
+							<strong id="of_cnt">${ofd.of_cnt }</strong>x ${ofd.f_name }
 						</td>
 						<td>
-							<strong class="pull-right">￦${ofd.f_price }</strong>
+							<strong class="pull-right" id="f_price">${ofd.f_price }</strong>
 						</td>
 					</tr>
-				</c:forEach>
+</c:forEach>
 				<!-- <tr>
 					<td>
 						<strong>1x</strong> Enchiladas
@@ -115,7 +118,7 @@ letter-spacing: 1px;
 						 TOTAL
 					</td>
 					<td class="total_confirm">
-						<span class="pull-right">￦${orderInfo.o_total }</span>
+						<span class="pull-right" id="o_total">${orderInfo.o_total }</span>
 					</td>
 				</tr>
 				</tbody>
@@ -124,4 +127,28 @@ letter-spacing: 1px;
 		</div>
 	</div><!-- End row -->
 </div><!-- End container -->
+<script>
+/* 20180102_JS 금액 연산처리해서 보여주도록 추가 */
+$(document).ready(function(){
+	var o_total = parseInt($('#o_total').text());
+	$('#o_total').text(o_total.comma());
+	for(var i=0; i <= $('#ofdT tr').length; i++){
+		var of_cnt = $('#ofdT tr').eq(i).find('td:eq(0)').find('strong').text();
+		var f_price = $('#ofdT tr').eq(i).find('td:eq(1)').find('strong').text();
+/* 		console.log(typeof(of_cnt) + " " + typeof(f_price)); */
+		sAmount = parseInt(of_cnt) * parseInt(f_price);		
+/* 		console.log(sAmount); */
+		$('#ofdT tr').eq(i).find('td:eq(1)').find('strong').text(sAmount.comma());
+	}
+});
+
+/* 20171229_JS comma in number */
+Number.prototype.comma = function(){
+	return this.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+
+String.prototype.comma = function(){
+	return this.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+};
+</script>
 <!-- End Content =============================================== -->

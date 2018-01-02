@@ -1,13 +1,15 @@
 package com.ej.controller;
 
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -32,7 +34,7 @@ public class StoreController {
 
 	// 가게 리스트
 	@RequestMapping("/store_list.ej")
-	public String store_list(@RequestParam Map<String, String> paramMap, Model model) {
+	public String store_list(@RequestParam Map<String, String> paramMap, Model model, HttpServletRequest request) {
 /*		System.out.println(paramMap.get("st_type") + " "+ paramMap.get("st_addr")+" " + paramMap.get("lat") + " " + paramMap.get("lot"));*/
 /*		System.out.println(paramMap);*/
 		// test
@@ -49,12 +51,16 @@ public class StoreController {
 			st_type = "피자";
 		}
 
+		
 		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
 		//		List<Store> cate_list = sBiz.select_cete();
-		
-		model.addAttribute("stType", st_type);
+		HttpSession session = request.getSession();
+		session.setAttribute("stType", st_type);		
+		session.setAttribute("stAddr", st_addr);		
+/*
+ * 		model.addAttribute("stType", st_type);
 		model.addAttribute("stAddr", st_addr);
-		
+*/		
 		model.addAttribute("stList", st_list);
 //		model.addAttribute("list_cate", cate_list);
 		model.addAttribute("center", "store/store_list");
@@ -96,19 +102,27 @@ public class StoreController {
 	
 	//	가게의 메뉴 리스트
 	@RequestMapping("/store_menu.ej")
-	public String store_menu(@RequestParam("st_key") Double st_key,@RequestParam Map<String,String> paramMap ,Model model) {
+	public String store_menu(@RequestParam("st_key") Double st_key,@RequestParam Map<String,String> paramMap ,Model model, HttpServletRequest request) {
 		System.out.println("store_menu 진입");
-		String st_addr = (String) paramMap.get("st_addr");
+/*		String st_addr = (String) paramMap.get("st_addr");
 		String st_type = (String) paramMap.get("st_type");
-
+*/
 /*		Double st_key1 = 5275626750.0;
 		Double st_key2 = 126.0;
 */
-		System.out.println(st_key);
+/*		System.out.println(st_key);*/
 		List<Food> stMenu = fBiz.select_stMenu(st_key);
 		for(Food f:stMenu) {
 			System.out.println("확인1" + f);
 		}
+		HttpSession session = request.getSession();
+/*		Enumeration se = session.getAttributeNames();
+		  
+		while(se.hasMoreElements()){
+			String getse = se.nextElement()+"";
+			System.out.println("@@@@@@@ session : "+getse+" : "+session.getAttribute(getse));
+		}
+*/
 
 		List<Cu> uCoupon = cuBiz.select_uCoupon(st_key);
 
@@ -118,9 +132,12 @@ public class StoreController {
 			System.out.println("확인2" + c);			
 		}
 		Store stDetail = sBiz.get(st_key);
-
-		model.addAttribute("stType", st_type);
+		
+/*
+ * 		model.addAttribute("stType", st_type);
 		model.addAttribute("stAddr", st_addr);
+*/
+		session.setAttribute("stKey", st_key);		
 		model.addAttribute("stDetail", stDetail);		
 		model.addAttribute("stMenu", stMenu);
 		model.addAttribute("uCoupon", uCoupon);
@@ -142,19 +159,5 @@ public class StoreController {
 		model.addAttribute("center", "store/store_detail");
 		return "main";
 	}
-/*
-	//	점주의 가게 목록
-	@RequestMapping("/seller_main.ej")
-	public String mystore_list(Model model,String u_id) {
-		u_id = "admin66";
-		List<Store> list = null;
-		sBiz.select_myStore(u_id);
-		model.addAttribute("myStore",list);
-		model.addAttribute("center","seller/seller_main");
-		return "main";
-		
-	}
-		*/
-	
 	
 }
