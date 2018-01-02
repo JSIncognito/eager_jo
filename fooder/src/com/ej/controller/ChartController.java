@@ -29,7 +29,7 @@ public class ChartController {
 			RConnection rc = new RConnection();		// R과 연결시 사용하는 클래스
 			System.out.println("connection success");
 			rc.setStringEncoding("utf8");
-//			rc.eval("source('C:/r/d1/jdbc.R',encoding='UTF-8')");
+			rc.eval("source('C:/RTEST/r5/getData.R',encoding='UTF-8')");
 			
 			String qry = "getWeather('"+ data + "')";
 //			rc.eval("source('C:/RTEST/r5/getData.R')");	// R파일 실행시키기
@@ -97,10 +97,10 @@ public class ChartController {
 			System.out.println(dates.length);
 			for(int i=0; i<dates.length; i++) {
 				System.out.println(avgtemp[i] + " " + avghumid[i] + " " + avgwindy[i] + " " + rain[i]);
-				wa[0].add(i, avgtemp[i]);
-				wa[1].add(i, avghumid[i]/10);
-				wa[2].add(i, avgwindy[i]);
-				wa[3].add(i, rain[i]);
+				wa[0].add(i, Math.round(avgtemp[i]*10)/10.0);
+				wa[1].add(i, Math.round(avghumid[i])/10.0);
+				wa[2].add(i, Math.round(avgwindy[i]*10)/10.0);
+				wa[3].add(i, Math.round(rain[i]*10)/10.0);
 			}
 			
 			// weather안의 object 만들기
@@ -165,9 +165,9 @@ public class ChartController {
 			}
 			
 			for(int i=0; i<7; i++) {
-				da[0].add(count[0+3*i]);
-				da[1].add(count[1+3*i]);
-				da[2].add(count[2+3*i]);
+				da[0].add(count[0+i]);
+				da[1].add(count[7+i]);
+				da[2].add(count[14+i]);
 			}
 			
 			// object에 data array 넣기 및 array에 object 넣기
@@ -192,7 +192,6 @@ public class ChartController {
 			out = res.getWriter();
 			out.println(total.toJSONString());
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			out.close();

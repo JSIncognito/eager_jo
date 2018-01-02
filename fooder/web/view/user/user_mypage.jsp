@@ -280,14 +280,14 @@ position:relative;
 				   <img src=img/pizza5.png width=60>
            
 	</div>
-	<div class="widget" id="category">
-		<h4>Categories</h4>
-		<ul id="cat_nav_blog">
-			<li><a href="user_mypage.ej?u_id=${loginUser.u_id }">Update my profile</a></li>
-			<li><a href="order_history.ej?u_id=${loginUser.u_id }">My order history</a></li>
+<!-- 	<div class="widget" id="category"> -->
+<!-- 		<h4>Categories</h4> -->
+<!-- 		<ul id="cat_nav_blog"> -->
+<%-- 			<li><a href="user_mypage.ej?u_id=${loginUser.u_id }">Update my profile</a></li> --%>
+<%-- 			<li><a href="order_history.ej?u_id=${loginUser.u_id }">My order history</a></li> --%>
 			
-		</ul>
-	</div>
+<!-- 		</ul> -->
+<!-- 	</div> -->
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
 		
@@ -365,7 +365,7 @@ position:relative;
 						<div class="form-group" id="form-group">
 							<label>Change your password</label> <input type="password"
 								class="form-control" placeholder="Password" id="u_pwd"
-								name="u_pwd" value="${loginUser.u_pwd }">
+								name="u_pwd" value="">
 						</div>
 					</div>
 				</div>

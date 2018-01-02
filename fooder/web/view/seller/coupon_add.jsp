@@ -46,6 +46,7 @@ font-family: 'Questrial', sans-serif;
 }
 #kkk{
  font-family: 'Jeju Gothic', sans-serif; 
+ color: white;
 }
 </style>
 <script>
@@ -67,7 +68,7 @@ function publishCpn(f) {
 	
 	// gift_select_list
 	idx = 1;
-	$('#gift_select_list').find('tr').each(function(index, item) {
+	$('#gift_select_list').find('tr').each(function() {
 		$(this).find('input[id="c_nm"]').attr('name', 'gift' + idx + '_c_nm');
 		$(this).find('input[id="c_gift"]').attr('name', 'gift' + idx + '_c_gift');
 		$(this).find('input[id="c_start"]').attr('name', 'gift' + idx + '_c_start');
@@ -181,20 +182,20 @@ $(document).ready(function() {
 		<div id="sub_content">
 					<h1>Coupon Add</h1>
 		
-			<!-- <div id="thumb">
-				<img src="img/thumb_restaurant.jpg" alt="">
-			</div>
-			 --><!-- <div class="rating" id="ratt" > -->
-				<c:forEach begin="1" end="${store.st_star }" varStatus="status">
+<!-- 			<div id="thumb"> -->
+<!-- 				<img src="img/thumb_restaurant.jpg" alt=""> -->
+<!-- 			</div> -->
+			<div class="rating" id="ratt" >
+				<%-- <c:forEach begin="1" end="${store.st_star }" varStatus="status">
 					<c:set var="index" value="${status.current }"></c:set>
 				<!-- 	<i class="icon_star voted"></i>
  -->				</c:forEach>
 				<c:if test="${index < 5 }">
-					<c:set var="index" value="${5-index }"></c:set>
+					<c:set var="index" value="${5-i	ndex }"></c:set>
 					<c:forEach begin="1" end="${index }">
 						<!-- <i class="icon_star"></i>  -->
 					</c:forEach>
-				</c:if>
+				</c:if> --%>
 				<!-- 
 				<i class="icon_star voted"></i>
 				<i class="icon_star voted"></i>
@@ -202,7 +203,7 @@ $(document).ready(function() {
 				 -->
 <!-- 					(<small><a href="detail_page_2.html">Read 98 reviews</a></small>)
  -->			</div>
-			<h1 id="kkk">${store.st_nm }</h1>
+			<h2 id="kkk">${store.st_nm }</h2>
 			<div>
 				<em>${store.st_type }</em>
 			</div>
@@ -234,6 +235,7 @@ $(document).ready(function() {
 <div class="container margin_60_35">
 	<div class="row">
 
+	<!-- 20180102 hb Choi -->
 	<div class="widget col-md-2" id="category">
 	      <h4 id="food_nums">Categories</h4>
 	      <ul id="cat_nav_blog">
@@ -378,7 +380,7 @@ $(document).ready(function() {
 						Selected Coupon <i class="icon_cart_alt pull-right"></i>
 					</h3>
 
-					<form method="post" action="coupon_add_impl.ej">
+					<form method="post" action="coupon_add_impl.ej" accept-chearset="EUC-KR">
 					<table class="table table_summary" id="dc_select_list">
 						<tbody>
 							

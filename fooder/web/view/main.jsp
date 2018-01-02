@@ -7,6 +7,8 @@ pageEncoding="utf-8"%>
 <!-- 20171212_JS Sprint and jstl add -->
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Questrial');
 #logo{
@@ -167,6 +169,11 @@ body {
 </c:when>
 </c:choose>
                     <li><a href="main.ej">Home</a></li>
+<c:set var="reURL" value="${pageContext.request.requestURL }"/>
+
+<!-- 20180102 hb Choi -->
+<%-- <c:if test="${fn:contains(reURL,'main.jsp')}=='false'"> --%>
+<c:if test="${center != null }">
                     <li class="submenu">
                     <a href="javascript:void(0);" class="show-submenu">Category<i class="icon-down-open-mini"></i></a>
                     <ul>
@@ -176,6 +183,8 @@ body {
                         <li><a href="store_list.ej">Chinese</a></li>
                     </ul>
                     </li>
+                    
+</c:if>
                     <li><a href="coupon_event.ej?u_addr=${loginUser.u_addr}">Event</a></li>
 <c:choose>
 <c:when test="${loginUser.u_id == null }">
