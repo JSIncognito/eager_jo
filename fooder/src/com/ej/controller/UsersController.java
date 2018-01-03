@@ -92,7 +92,6 @@ public class UsersController {
 		
 	public String orderlist(Model model, String u_id, HttpServletRequest request) {
 		System.out.println("내가 여태껏 주문했던 내역 ");
-
 		
 		u_id = request.getParameter("u_id");
 		List<Ord> list = null;

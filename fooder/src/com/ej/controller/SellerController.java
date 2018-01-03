@@ -193,9 +193,9 @@ public class SellerController {
 			}
 		}
 		System.out.println("imgname: " + imgname);
-		Store store = new Store(st_key, name, Double.parseDouble(lat), Double.parseDouble(lot), imgname, hour, addr, st_orig.getU_id());
+		Store store = new Store(st_key, name, st_orig.getSt_type(), Double.parseDouble(lat), Double.parseDouble(lot), imgname, hour, addr, st_orig.getU_id());
 		System.out.println(store);
-//		storebiz.modify(store);
+		storebiz.modify(store);
 		
 		request.setAttribute("st_key", st_key);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("seller_store_detail.ej");

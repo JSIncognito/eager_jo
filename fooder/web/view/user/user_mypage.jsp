@@ -263,7 +263,7 @@ position:relative;
 		<h4>Categories</h4>
 		<ul id="cat_nav_blog">
 			<li><a href="#">Update my profile</a></li>
-			<li><a href="order_history.ej">My order history</a></li>
+			<li><a href="order_history.ej?u_id=${loginUser.u_id }">My order history</a></li>
 			
 		</ul>
 	</div>

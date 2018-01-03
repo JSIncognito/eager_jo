@@ -3,6 +3,9 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+tspan{
+ font-family: 'Jeju Gothic', sans-serif; 
+}
 #ccc{
 width:1100px;
 }
@@ -624,7 +627,7 @@ function showSlides(n, p) {
 									<div class="thumb_strip">
 
 										<a href="detail_page.html"><img
-											src="img/thumb_restaurant.jpg" alt=""></a>
+											src="img/${s.st_img }" alt=""></a>
 									</div>
 									<div class="rating">
 										<!-- <i class="icon_star voted"></i><i class="icon_star voted"></i><i

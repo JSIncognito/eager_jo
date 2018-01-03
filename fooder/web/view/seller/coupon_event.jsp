@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -103,7 +104,7 @@ font-weight: bold;
 
 			<div class="row">
 
-				<c:forEach var="c" items="${cArea}">
+				<c:forEach var="c" items="${cArea}" varStatus="status">
 				<form action="cu_insert.ej" method="post" accept-charset="EUC-KR">
 					<div class="col-md-3 col-sm-3 wow zoomIn" data-wow-delay="0.1s">
 						<a class="strip_list grid">
@@ -126,23 +127,29 @@ font-weight: bold;
 								<input type="hidden" value="${c.c_dc }" name="c_dc">
 								<input type="hidden" value="${c.c_nm }" name="c_nm">
 								<input type="hidden" value="${c.c_start }" name="c_start">
-								<input type="hidden" value="${c.c_end }" name="c_end">
+								<input type="hidden" value="${c.c_end}" name="c_end">
 								<input type="hidden" value="${c.c_code }" name="c_code">
 								<input type="hidden" value="${c.st_nm }" name="st_nm">
 								<input type="hidden" value="${loginUser.u_id }" name="u_id">
 								<input type="hidden" value="0" name="cu_used">
 								
 								<div class="type">
+									<c:choose>
+									<c:when test="${c.c_code=='D' }">
 									<h3 class="black">
-										<strong>Discount<br>&#8361;${c.c_dc }</strong>
+										<strong>Discount<br>&#8361;<fmt:formatNumber value="${c.c_dc }" pattern="0"/></strong>
 									</h3>
+									</c:when>
+									<c:otherwise>
 									<h3 class="red" id="gift2">
 										<strong>Gift<br> ${c.c_gift }</strong>
 									</h3>
+									</c:otherwise>
+									</c:choose>
 								</div>
 								<div class="location" id="locat">
-									Released ${c.c_date }<br> <span class="opening">Start${c.c_start }</span>
-									<span class="opening">End${c.c_end }</span>
+									Released <fmt:formatNumber value="${c.c_date }" pattern="00000000"/><br> <span class="opening">Start <fmt:formatNumber value="${c.c_start}" pattern="00000000"/></span>
+									<span class="opening">End <fmt:formatNumber value="${c.c_end}" pattern="00000000"/></span>
 								</div>
 								<!-- <ul>
 								<li>Take away<i class="icon_check_alt2 ok"></i></li>

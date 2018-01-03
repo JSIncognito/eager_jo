@@ -1,4 +1,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <style>
 @import url('https://fonts.googleapis.com/css?family=Dancing+Script');
 @import url('https://fonts.googleapis.com/css?family=Questrial');
@@ -108,9 +110,9 @@ font-family: 'Questrial', sans-serif;
 					</tr>
 					<c:forEach var="o" items="${myOrder}">
 						<tr>
-							<td>${o.o_date }</td>
+							<td><fmt:formatNumber value="${o.o_date }" pattern="00000000"/></td>
 							<td>${o.st_nm }</td>
-							<td>${o.o_total }</td>
+							<td><fmt:formatNumber value="${o.o_total }" pattern="0"/></td>
 							<td>${o.o_addr }</td>
 						</tr>
 					</c:forEach>
