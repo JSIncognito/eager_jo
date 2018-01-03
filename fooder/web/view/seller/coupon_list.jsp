@@ -1,4 +1,5 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <style>
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 @import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -139,7 +140,7 @@ font-weight: bold;
 									<figure class="thumb_menu_list">
 										<img src="img/menu-thumb-1.jpg" alt="thumb">
 									</figure> <!-- Coupon Name -->
-									<br><h5>${mc.c_nm }</h5>
+									<br><h5 >${mc.c_nm }</h5>
 									<!-- <p>Fuisset mentitum deleniti sit ea.</p> -->
 								</td>
 								<!-- Discount -->
@@ -147,9 +148,9 @@ font-weight: bold;
 								<!-- Released -->
 								<td><strong>${mc.c_date }</strong></td>
 								<!-- Start -->
-								<td><strong>${mc.c_start }</strong></td>
+								<td><strong><fmt:formatNumber value="${mc.c_start }" pattern="00000000"/></strong></td>
 								<!-- End -->
-								<td><strong>${mc.c_end }</strong></td>
+								<td><strong><fmt:formatNumber value="${mc.c_end }" pattern="00000000"/></strong></td>
 							</tr>
 						</c:if>
 						</c:forEach>

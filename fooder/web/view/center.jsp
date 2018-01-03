@@ -254,7 +254,7 @@ font-family: 'Cookie', cursive;
 			</div>
 			<div class="column">
 				<div class="card">
-					<a onclick="cateListGo('china') , '${loginUser.u_id }'" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
+					<a onclick="cateListGo('china' , '${loginUser.u_id }')" id="china"> <img id="food_img" src="img/china.png" alt="Paris"
 						width="360" height="280">
 					</a>
 					<div class="containers">
@@ -469,7 +469,7 @@ font-family: 'Cookie', cursive;
       	<div class="container">
       		<h3>Choose Restaurants</h3>
             <p id="chicken">Chicken/Chinese/Pizza</p>
-            <a href="list_page.html">View all Restaurants</a>
+            <a href="#">View all Restaurants</a>
         </div><!-- End container -->
       </div><!-- End hight_light -->
       <div id=green></div>
@@ -477,7 +477,7 @@ font-family: 'Cookie', cursive;
       	<div class="container">
       		<h3>Choose Event</h3>
             <p id="chicken">Gift/Discount</p>
-            <a href="list_page.html">View all Event</a>
+            <a onclick="dong('${stAddr }','${loginUser.u_id }')">View all Event</a>
         </div><!-- End container -->
       </div><!-- End hight_light -->
       <!-- 레스토랑 전체보기,이벤트 전체보기 끝 -->
@@ -645,7 +645,7 @@ var stAddr_lng = null;
 var toAddrStr = "";
 function cateListGo(cate, name){
 	geocodeToAddr();
-	//alert(cate + " 되냥?" + toAddrStr + stAddr_lat + stAddr_lng);
+ 	//alert(cate + " 되냥?" + toAddrStr + stAddr_lat + stAddr_lng);
 	// 20180102 동 이름만 추출 
 	var arry = toAddrStr.split(" ");
  	for(var i=arry.length-1 ; i >= 0; i--){
@@ -658,7 +658,7 @@ function cateListGo(cate, name){
 
  	var str = "st_type=" + cate;
  	str += "&st_addr=" + st_addr;
-
+ 	
  	if(toAddrStr == null || toAddrStr == ''){
  		alert("동 이름 을 검색해 주세요.");
  		return;

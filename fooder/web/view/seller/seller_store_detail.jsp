@@ -212,7 +212,7 @@ function getLatLot(f) {
 						ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p> -->
 				</div>
 
-				<form enctype="multipart/form-data" method="post" action="seller_store_modify_store.ej" onclick="return getLatLot(this.form)">
+				<form enctype="multipart/form-data" method="post" action="seller_store_modify_store.ej" accept-charset="EUC-KR" onclick="return getLatLot(this.form)">
 				
 				<input type="hidden" value="${store.st_key }" name="st_key" id="st_key"/>
 				<input type="hidden" value="${store.lat }" name="lat">
@@ -359,7 +359,7 @@ function getLatLot(f) {
 						ornatus assentior, exerci elaboraret eum ut, diam meliore no mel.</p> -->
 				</div>
 
-				<form id="submitFood" method="post" action="seller_store_modify_food.ej" enctype="multipart/form-data">
+				<form id="submitFood" method="post" action="seller_store_modify_food.ej" enctype="multipart/form-data" accept-charset="EUC-KR">
 				<input type="hidden" value="${store.st_key }" name="st_key" id="st_key"/>
 				<div class="wrapper_indent" id="dddd">
 				

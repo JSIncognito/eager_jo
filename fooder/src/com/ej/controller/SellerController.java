@@ -52,7 +52,7 @@ public class SellerController {
 	@RequestMapping("/seller_mypage_test.ej")
 	public String seller_mypage_test(HttpServletRequest request) {
 		// TEST !!!
-		String id = "admin306";	// ����
+		String id = "admin306";	// 占쏙옙占쏙옙
 		Users user = usersbiz.get(id);
 		request.setAttribute("loginUser", user);
 		
@@ -81,7 +81,7 @@ public class SellerController {
 
 	@RequestMapping("/seller_main.ej")
 	public String my_store(Model model, String u_id, HttpServletRequest request) {
-		System.out.println("�ȳ� �� ���������̾�");
+		System.out.println("占싫놂옙 占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙占싱억옙");
 		/*u_id = "admin66";*/
 		u_id = request.getParameter("u_id");
 		List<Store> list = null;
@@ -91,7 +91,7 @@ public class SellerController {
 			model.addAttribute("center", "seller/seller_main");
 			model.addAttribute("myStore", list);
 			for (Store store : list) {
-				System.out.println("���� ����(��) " + list);
+				System.out.println("占쏙옙占쏙옙 占쏙옙占쏙옙(占쏙옙) " + list);
 			}
 			
 		} catch (Exception e) {
@@ -102,7 +102,6 @@ public class SellerController {
 
 	}
 	
-	// test???!! seller_store_detail.jsp 보�?�주�?
 	@RequestMapping("/seller_store_detail_test.ej")
 	public String seller_store_detail_test(HttpServletRequest request) {
 		// TEST !!!
@@ -117,13 +116,13 @@ public class SellerController {
 	}
 	
 	
-	// seller_store_detail.jsp �����ֱ�
+	// seller_store_detail.jsp 占쏙옙占쏙옙占쌍깍옙
 	@RequestMapping("/seller_store_detail.ej")
 	public String seller_store_detail(HttpServletRequest request) {
 		System.out.println("/seller_store_detail");
 		
-		// Store ���� ��������
-		String key = (String) request.getParameter("st_key");	// TODO : ���� �ȳ��� üũ
+		// Store 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙占쏙옙
+		String key = (String) request.getParameter("st_key");	// TODO : 占쏙옙占쏙옙 占싫놂옙占쏙옙 체크
 		System.out.println("st_key: " + key);
 		
 		HttpSession session = request.getSession();
@@ -136,18 +135,18 @@ public class SellerController {
 		}
 		Store store = storebiz.get(st_key);
 		
-		// st_key session�� �ֱ�
+		// st_key session占쏙옙 占쌍깍옙
 //		HttpSession session = request.getSession();
 		session.setAttribute("st_key", st_key);
 		
-		// Store ���� ������
+		// Store 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙
 		request.setAttribute("store", store);
 		request.setAttribute("stMenu", foodbiz.select_stMenu(store.getSt_key()));
 		request.setAttribute("center", "seller/seller_store_detail");
 		return "main";
 	}
 	
-	// store ���� ����
+	// store 占쏙옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping("/seller_store_modify_store.ej")
 	public void seller_store_modify_store(HttpServletRequest request, HttpServletResponse res) throws Exception {
 		res.setCharacterEncoding("utf-8");
@@ -170,11 +169,11 @@ public class SellerController {
 		
 		System.out.println("key: " + key + "addr: " + addr );
 		
-		// time ����
+		// time 占쏙옙占쏙옙
 		String hour = ohour + ":" + ominute + "-" + chour + ":" + cminute;
 		System.out.println("hour: " + hour);
 		
-		// img ����
+		// img 占쏙옙占쏙옙
 		MultipartRequest mr = (MultipartRequest) request;
 		MultipartFile mf = mr.getFile("st_changed_img");
 		
@@ -207,52 +206,52 @@ public class SellerController {
 		} 
 	}
 	
-	// store�� food ���� ����
+	// store占쏙옙 food 占쏙옙占쏙옙 占쏙옙占쏙옙
 	@RequestMapping("/seller_store_modify_food.ej")
 	public void seller_store_modify_food(HttpServletRequest request, HttpServletResponse res) {
 		System.out.println("/seller_store_modify_food");
 		int idx = 1;
 		
-		// �̹��� �ޱ��
 		MultipartRequest mr = (MultipartRequest) request;
 
-		// st_key ����
+		// st_key 占쏙옙占쏙옙
 		String skey = (String) request.getParameter("st_key");
 		double key = Double.parseDouble(skey);
 
-		// food key �ޱ�� ����Ʈ
+		// food key 占쌨깍옙占� 占쏙옙占쏙옙트
 		List<Double> keys = new ArrayList<>();
 		
-		// food ���� �޾ƿ���
+		// food 占쏙옙占쏙옙 占쌨아울옙占쏙옙
 		while(true) {
-			// food ���� �Ѱ� �ޱ�
+			// food 占쏙옙占쏙옙 占싼곤옙 占쌨깍옙
 			String f_key = request.getParameter("item" + idx + "_f_key");
 			String img_original = (String) request.getParameter("item" + idx + "_f_img_original");
 			String name = (String) request.getParameter("item" + idx + "_f_name");
 			String price = (String) request.getParameter("item" + idx + "_f_price");
 			
 			System.out.println("data: " + f_key + "/" + img_original + "/" + name + "/" + price + "/");
-			// while�� ������� 
+			// while占쏙옙 占쏙옙占쏙옙占쏙옙占� 
 			if(name == null || name.equals("")) break;	
-			keys.add(Double.parseDouble(f_key));
+			if(f_key != null) keys.add(Double.parseDouble(f_key));
+			else keys.add(1.);
 			
-			// �̹��� ������
+			// 占싱뱄옙占쏙옙 占쏙옙占쏙옙占쏙옙
 			MultipartFile mf = mr.getFile("item" + idx + "_f_img_changed");
 			
-			// �̹��� �̸�
+			// 占싱뱄옙占쏙옙 占싱몌옙
 			String imgname = "";
 			
 			Food food = null;
-			if(img_original.equals("") || img_original == null) {	// ���ο� ���� �߰�
+			if(img_original.equals("") || img_original == null) {	// 占쏙옙占싸울옙 占쏙옙占쏙옙 占쌩곤옙
 				System.out.println("new food");
 				imgname = mf.getOriginalFilename();
 				food = new Food(name, Double.parseDouble(price), imgname, key);
 				foodbiz.register(food);
 			} else {
-				if(mf.isEmpty()) { // ���� ���� ���� x
+				if(mf.isEmpty()) { // 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 x
 					System.out.println("not changed");
 					imgname = img_original;
-				} else { // ���� ���� ���� o
+				} else { // 占쏙옙占쏙옙 占쏙옙占쏙옙 占쏙옙占쏙옙 o
 					System.out.println("changed");
 					imgname = mf.getOriginalFilename();
 				}
@@ -261,7 +260,7 @@ public class SellerController {
 			}
 			System.out.println("food" + idx + ": " + food);
 			
-			if(!mf.isEmpty()) {		// ���� ������ �ø���
+			if(!mf.isEmpty()) {		// 占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占시몌옙占쏙옙
 				byte[] data;
 				try {
 					data = mf.getBytes();
@@ -276,9 +275,9 @@ public class SellerController {
 			idx++;
 		}
 		
-		// food �����ϱ�
+		// food 占쏙옙占쏙옙占싹깍옙
 		List<Food> foods = foodbiz.select_stMenu(key);
-		if(foods.size() != idx-1) {	// �ε������� ����Ʈ�� ����� �ٸ� ��쿡�� ������ ������ �����
+		if(foods.size() != idx-1) {	// 占싸듸옙占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙트占쏙옙 占쏙옙占쏙옙占쏘가 占쌕몌옙 占쏙옙荑∽옙占� 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占쏙옙 占쏙옙占쏙옙占�
 			for(Food f : foods) {
 				if(!keys.contains(f.getF_key())) {
 					foodbiz.remove(f.getF_key());
@@ -301,8 +300,8 @@ public class SellerController {
 		System.out.println("/getlatlot.ej");
 		JSONObject result = null;
 		
-		String clientId = "MoWWppcCbc3maWhpTijC";//���ø����̼� Ŭ���̾�Ʈ ���̵�";
-        String clientSecret = "WHLQ_6RSaM";//���ø����̼� Ŭ���̾�Ʈ ��ũ����";
+		String clientId = "MoWWppcCbc3maWhpTijC";//占쏙옙占시몌옙占쏙옙占싱쇽옙 클占쏙옙占싱억옙트 占쏙옙占싱듸옙";
+        String clientSecret = "WHLQ_6RSaM";//占쏙옙占시몌옙占쏙옙占싱쇽옙 클占쏙옙占싱억옙트 占쏙옙크占쏙옙占쏙옙";
 		
 		try {
             String newaddr = URLEncoder.encode(addr, "UTF-8");
@@ -319,9 +318,9 @@ public class SellerController {
             int responseCode = con.getResponseCode();
             InputStreamReader isr;
             
-            if(responseCode==200) { // ���� ȣ��
+            if(responseCode==200) { // 占쏙옙占쏙옙 호占쏙옙
                 isr = new InputStreamReader(con.getInputStream(), "utf-8");
-            } else {  // ���� �߻�
+            } else {  // 占쏙옙占쏙옙 占쌩삼옙
                 isr = new InputStreamReader(con.getErrorStream(), "utf-8");
             }
             

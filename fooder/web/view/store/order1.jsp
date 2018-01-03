@@ -64,7 +64,7 @@ function order1Submit(f) {
 	$('#o_all').text(o_all);
 	$('#o_dc').text(o_dc);
 	$('#o_total').text(o_total);
- 	alert($('input[name=o_addr]').val());
+/*  	alert($('input[name=o_addr]').val()); */
 	f.method = 'post';
 /* 	f.action = 'order2.ej'; */
 	f.action = 'order3.ej';

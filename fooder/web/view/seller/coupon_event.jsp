@@ -104,13 +104,13 @@ font-weight: bold;
 			<div class="row">
 
 				<c:forEach var="c" items="${cArea}">
-				<form action="cu_insert.ej" method="post">
+				<form action="cu_insert.ej" method="post" accept-charset="EUC-KR">
 					<div class="col-md-3 col-sm-3 wow zoomIn" data-wow-delay="0.1s">
-						<a class="strip_list grid" href="#">
+						<a class="strip_list grid">
 							<div class="ribbon_1">Popular</div>
 							<div class="desc">
 								<div class="thumb_strip">
-									<img src="img/thumb_restaurant.jpg" alt="">
+									<img src="img/dunkin.jpg" alt="">
 								</div>
 								<!-- 별점 -->
 								<!-- <div class="rating">
@@ -129,7 +129,7 @@ font-weight: bold;
 								<input type="hidden" value="${c.c_end }" name="c_end">
 								<input type="hidden" value="${c.c_code }" name="c_code">
 								<input type="hidden" value="${c.st_nm }" name="st_nm">
-								<input type="hidden" value="${loginuser.u_id }" name="u_id">
+								<input type="hidden" value="${loginUser.u_id }" name="u_id">
 								<input type="hidden" value="0" name="cu_used">
 								
 								<div class="type">

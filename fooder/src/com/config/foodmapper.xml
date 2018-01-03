@@ -18,7 +18,7 @@ PUBLIC "-//mybatis.org/DTD Mapper 3.0//EN"
 		SELECT * FROM FOOD
 	</select>
 	<insert id="insert" parameterType="food">
-		INSERT INTO FOOD VALUES (#{f_key},#{f_name},#{f_price},#{f_img},#{st_key})
+		INSERT INTO FOOD VALUES (F_KEY.nextval,#{f_name},#{f_price},#{f_img},#{st_key})
 	</insert>
 	<update id="update" parameterType="food">
 		UPDATE FOOD SET F_NAME=#{f_name},F_PRICE=#{f_price}, F_IMG=#{f_img}, 

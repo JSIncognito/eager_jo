@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8" 
-pageEncoding="utf-8"%>
+pageEncoding="utf-8" %>
 
 <%-- <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%> --%>
@@ -417,10 +417,9 @@ body {
 </body>
 <!-- 180102 ksy  -->
 <script>
-//20180102 동 이름만 추출
+<!-- //20180102 동 이름만 추출 -->
 function dong(toAddrStr,name){
-
- var toAddrStr = $('input[id="autocomplete"]').val();
+//  var toAddrStr = $('input[id="autocomplete"]').val();
  var arry = toAddrStr.split(" ");
   for(var i=arry.length-1 ; i >= 0; i--){
       console.log(arry[i].indexOf("동"));
@@ -431,7 +430,7 @@ function dong(toAddrStr,name){
  }
 
   var str = "st_addr=" + st_addr;
-  alert("안녕 나는 동이름이야 "+st_addr);
+//   alert("안녕 나는 동이름이야 "+st_addr);
   if(toAddrStr == null || toAddrStr == ''){
      alert("검색창에 주소를 입력해주세요.");
      return;
@@ -440,7 +439,7 @@ function dong(toAddrStr,name){
      alert("로그인을 해주세요.");
      return;
   }
- alert("안녕 나는 동이름이야 "+str);
+//  alert("안녕 나는 동이름이야 "+str);
   console.log(str);
   location.href = "coupon_event.ej?"+ str;
 

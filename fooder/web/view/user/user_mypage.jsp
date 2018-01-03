@@ -292,7 +292,7 @@ position:relative;
 		<div class="col-md-8 col-md-offset-2">
 		
 		<!-- 180101 ksy -->	
-			<form id="update_form" accept-charset="euc-kr">
+			<form id="update_form" accept-charset="EUC-KR">
 				<div class="row">
 					<div class="col-md-6 col-sm-6">
 						<div class="form-group" id="form-group">

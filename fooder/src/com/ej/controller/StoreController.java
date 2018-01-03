@@ -53,6 +53,7 @@ public class StoreController {
 
 		
 		List<Store> st_list = sBiz.select_stList(st_type, st_addr);
+		
 		//		List<Store> cate_list = sBiz.select_cete();
 		HttpSession session = request.getSession();
 		session.setAttribute("stType", st_type);		

@@ -269,10 +269,10 @@ $(document).ready(function() {
 					<tbody>
 						<tr id="dc1000">
 							<td>
-								<h5>&#8361;1000 <br> Discount Coupon</h5>
+								<h5>1000 <br> Discount Coupon</h5>
 							</td>
 							<td>
-								<strong>&#8361;1000</strong>
+								<strong>1000</strong>
 							</td>
 							<td><input type="date" id="c_start" name="c_start"
 								min="2000-01-02" max="2999-12-31" required="required"></td>
@@ -284,10 +284,10 @@ $(document).ready(function() {
 						</tr>
 						<tr id="dc3000">
 							<td>
-								<h5>&#8361;3000<br> Discount Coupon</h5>
+								<h5>3000<br> Discount Coupon</h5>
 							</td>
 							<td>
-								<strong>&#8361;3000</strong>
+								<strong>3000</strong>
 							</td>
 							<td><input type="date" id="c_start" name="c_start"
 								min="2000-01-02" max="2999-12-31" required="required"></td>
@@ -299,10 +299,10 @@ $(document).ready(function() {
 						</tr>
 						<tr id="dc5000">
 							<td>
-								<h5>&#8361;5000 <br>Discount Coupon</h5>
+								<h5>5000 <br>Discount Coupon</h5>
 							</td>
 							<td>
-								<strong>&#8361;5000</strong>
+								<strong>5000</strong>
 							</td>
 							<td><input type="date" id="c_start" name="c_start"
 								min="2000-01-02" max="2999-12-31" required="required"></td>
@@ -380,7 +380,7 @@ $(document).ready(function() {
 						Selected Coupon <i class="icon_cart_alt pull-right"></i>
 					</h3>
 
-					<form method="post" action="coupon_add_impl.ej" accept-chearset="EUC-KR">
+					<form method="post" action="coupon_add_impl.ej" accept-charset="EUC-KR">
 					<table class="table table_summary" id="dc_select_list">
 						<tbody>
 							

@@ -138,11 +138,11 @@ font-family: 'Dancing Script', cursive;
         	<div class="row">
 <c:forEach var="st" items="${stList }">
             	<div class="col-md-6 col-sm-6 wow zoomIn" data-wow-delay="0.1s">
-                	<a class="strip_list grid" href="store_menu.ej?stKey=${st.st_key }">
+                	<a class="strip_list grid" href="store_menu.ej?st_key=${st.st_key }&st_type=${stType }&st_addr=${stAddr }">
                     	<div class="ribbon_1">Popular</div>
                     	<div class="desc">
 							<div class="thumb_strip">
-								<img src="img/thumb_restaurant.jpg" alt="">
+								<img src="img/${st.st_img }" alt="">
 							</div>
 							<div class="rating">
 								<i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star voted"></i><i class="icon_star"></i>

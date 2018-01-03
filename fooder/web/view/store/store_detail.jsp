@@ -90,15 +90,15 @@ font-family: 'Questrial', sans-serif;
                         <div class="sp-slides">
                         
                             <div class="sp-slide">
-                                <img alt="" class="sp-image" src="../src/css/images/blank.gif" 
-                                data-src="img/slider_single_restaurant/1_medium.jpg" 
-                                data-small="img/slider_single_restaurant/1_small.jpg" 
-                                data-medium="img/slider_single_restaurant/1_medium.jpg" 
-                                data-large="img/slider_single_restaurant/1_large.jpg" 
-                                data-retina="img/slider_single_restaurant/1_large.jpg">
+                                <img alt="" class="sp-image" src="img/store_detail.jpg" 
+                                data-src="img/store_detail.jpg" 
+                                data-small="img/store_detail.jpg" 
+                                data-medium="img/store_detail.jpg" 
+                                data-large="img/store_detail.jpg" 
+                                data-retina="img/store_detail.jpg">
                             </div>
                             
-                            <div class="sp-slide">
+                            <!-- <div class="sp-slide">
                                 
                                 <img alt="" class="sp-image" src="../src/css/images/blank.gif" 
                                 data-src="img/slider_single_restaurant/2_medium.jpg" 
@@ -201,7 +201,7 @@ font-family: 'Questrial', sans-serif;
                                 data-medium="img/slider_single_restaurant/9_medium.jpg" 
                                 data-large="img/slider_single_restaurant/9_large.jpg" 
                                 data-retina="img/slider_single_restaurant/9_large.jpg">
-                            </div>
+                            </div> -->
                         </div>
                         <!-- 
                         <div class="sp-thumbnails">
